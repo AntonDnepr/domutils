@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+sanic = {extras = ["ext"], version = "*"}
+sanic-testing = "*"
+
+[dev-packages]
+ipdb = "*"                           # Debugging
+ipython = "*"                        # Better Python shell
+pre-commit = "*"
+black = "*"
+flake8 = "*"
+autopep8 = "*"
+isort = "*"
+pytest = "*"
+pytest-xdist = "*"
+pytest-freezegun = "*"
+pytest-mock = "*"
+pytest-sugar = "*"
+pytest-env = "*"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.4"

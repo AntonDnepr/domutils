@@ -1,0 +1,51 @@
+version: "3.2"
+
+volumes:
+  postgres_data: {}
+  redis_data: {}
+
+services:
+  postgres:
+    build: ./docker/postgres
+    restart: on-failure
+    container_name: ${PROJECT_NAME}_postgres
+    image: ${PROJECT_NAME}_postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${PROJECT_NAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    command: -c fsync=off -c synchronous_commit=off -c full_page_writes=off
+    networks:
+      - default_dom5
+    ports:
+      - "${DOCKER_POSTGRES_PORT}:5432"
+
+  backend:
+    build:
+      dockerfile: ./docker/python/Dockerfile
+      context: ./
+    restart: on-failure
+    container_name: ${PROJECT_NAME}_backend
+    image: ${PROJECT_NAME}_backend
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - ENV=local
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${PROJECT_NAME}
+    command: /bin/bash -c "PIPENV_DONT_LOAD_ENV=1 python manage.py migrate && python manage.py parse_data && python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - default_dom5
+    ports:
+      - "${DOCKER_BACKEND_PORT}:8000"
+    working_dir: /usr/src/app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - postgres
+
+networks:
+  default_dom5:
+    ipam:
+      driver: default
