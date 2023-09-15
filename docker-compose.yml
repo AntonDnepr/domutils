@@ -5,22 +5,17 @@ volumes:
   redis_data: {}
 
 services:
-  postgres:
-    build: ./docker/postgres
+  redis:
+    build: ./docker/redis/
     restart: on-failure
-    container_name: ${PROJECT_NAME}_postgres
-    image: ${PROJECT_NAME}_postgres
+    container_name: ${PROJECT_NAME}_redis
+    image: ${PROJECT_NAME}_redis
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_DB: ${PROJECT_NAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-    command: -c fsync=off -c synchronous_commit=off -c full_page_writes=off
+      - redis_data:/data
     networks:
       - default_dom5
     ports:
-      - "${DOCKER_POSTGRES_PORT}:5432"
+      - "${DOCKER_REDIS_PORT}:6379"
 
   backend:
     build:
@@ -33,8 +28,7 @@ services:
       - .:/usr/src/app
     environment:
       - ENV=local
-      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${PROJECT_NAME}
-    command: /bin/bash -c "PIPENV_DONT_LOAD_ENV=1 python manage.py migrate && python manage.py parse_data && python manage.py runserver 0.0.0.0:8000"
+    command: /bin/bash -c "PIPENV_DONT_LOAD_ENV=1 python manage.py runserver 0.0.0.0:8000"
     networks:
       - default_dom5
     ports:
@@ -43,7 +37,7 @@ services:
     stdin_open: true
     tty: true
     depends_on:
-      - postgres
+      - redis
 
 networks:
   default_dom5:

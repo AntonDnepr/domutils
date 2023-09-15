@@ -1,6 +1,9 @@
 ## Purpose of the project
 
-Main purpose of this project is to automate map generation for the Arena map at [Dominions 5](http://www.illwinter.com/dom5) game.
+Main purpose of this project is to provide utils for [Dominions 5](http://www.illwinter.com/dom5) game
+
+List of current utils:
+1. Automated map generation for the Arena map.
 
 
 ## Credits
@@ -23,27 +26,9 @@ local development setup, copy `.env.local` to `.env`, and modifiy accordingly.
 
 This project contains docker integration.
 You have to set or modify some variables in order to start the docker containers and the project as a whole.
-
-1. Database variables:
-    - PROJECT_NAME - the name of the project
-
-2. Docker variables:
-    These variables (ports) should be different for each project (container).
-    You can see busy ports using the command `docker ps` (section "PORTS" - 0.0.0.0:`5426`->5432/tcp).
-
-    - DOCKER_POSTGRES_PORT
-    - DOCKER_BACKEND_PORT
-
-3. Django settings:
-    - ENV - use "local" for local development
-
 All variables must be written without quotation marks and without spaces before and after the equal sign.
-
 Read data from `.env` file into terminal with `set -o allexport; source .env; set +o allexport`
-
-Now you can run docker with `pipenv run go-docker` if you have pipenv installed or you can use `docker-compose up` to start local backend
-
-You can run frontend from the frontend folder. The frontend was created with Node v10.24.0 and yarn 1.21
+Now you can run docker with `docker-compose up` to start local backend
 
 ## Add git hooks
 
@@ -79,6 +64,7 @@ To use cool github linking to the issue please add #taskNumber in the end. E.g.:
 - 20/05/2021 - Cave map support
 - 02/06/2021 - Add mapname change, tweaked text; Add Holy for magic paths;
 - 30/07/2021 - Add DomEnh and DebugMod support
+- ??/09/2023 - Retired old implementation
 
 ## Plans for the future versions
 - Automate pulling new data for dominions;
