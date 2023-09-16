@@ -8,6 +8,7 @@ sanic = {extras = ["ext"], version = "*"}
 sanic-testing = "*"
 sentry-sdk = "*"
 redis = {extras = ["hiredis"], version = "*"}
+redis-om = "*"
 
 [dev-packages]
 ipdb = "*"                           # Debugging

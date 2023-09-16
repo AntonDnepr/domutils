@@ -3,101 +3,57 @@ import glob
 import os
 import re
 
+from core.redis import get_redis_client
+from domdata.models import DE, DEBUG, OTHER, Nation, Unit
+
 
 def parse_units():
-    Unit.objects.all().delete()
-    Nation.objects.all().delete()
+    pipeline = get_redis_client().pipeline()
+    unit_ids = Unit.all_pks()
+    [Unit.delete(unit_id, pipeline=pipeline) for unit_id in unit_ids]
+    pipeline.execute()
+    nation_ids = Nation.all_pks()
+    [Nation.delete(nation_id, pipeline=pipeline) for nation_id in nation_ids]
+    pipeline.execute()
     current_dir = os.path.dirname(os.path.abspath(__file__))
     with open(os.path.join(current_dir, "csvs/BaseU.csv"), "r", newline="") as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
-        unit_list = []
         for row in reader:
-            unit_list.append(Unit(name=row["name"], dominion_id=row["id"]))
-        Unit.objects.bulk_create(unit_list)
+            unit = Unit(name=row["name"], dominions_id=row["id"])
+            unit.save(pipeline=pipeline)
+    pipeline.execute()
+
     with open(
         os.path.join(current_dir, "csvs/nations.csv"), "r", newline=""
     ) as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
-        nations_list = []
         for row in reader:
-            nations_list.append(
-                Nation(name=row["name"], dominion_id=row["id"], era=row["era"])
-            )
-        Nation.objects.bulk_create(nations_list)
-    leader_types_files = [
-        "csvs/coast_leader_types_by_nation.csv",
-        "csvs/fort_leader_types_by_nation.csv",
-        "csvs/nonfort_leader_types_by_nation.csv",
-    ]
-    for filename in leader_types_files:
-        with open(os.path.join(current_dir, filename), "r", newline="") as csv_file:
-            reader = csv.DictReader(csv_file, delimiter="\t")
-            for row in reader:
-                nation = Nation.objects.get(dominion_id=row["nation_number"])
-                unit = Unit.objects.get(dominion_id=row["monster_number"])
-                unit.commander = True
-                unit.nations.add(nation)
-                unit.save(update_fields=["commander"])
-
-    troop_types_files = [
-        "csvs/coast_troop_types_by_nation.csv",
-        "csvs/fort_troop_types_by_nation.csv",
-        "csvs/nonfort_troop_types_by_nation.csv",
-    ]
-    for filename in troop_types_files:
-        with open(os.path.join(current_dir, filename), "r", newline="") as csv_file:
-            reader = csv.DictReader(csv_file, delimiter="\t")
-            for row in reader:
-                nation = Nation.objects.get(dominion_id=row["nation_number"])
-                unit = Unit.objects.get(dominion_id=row["monster_number"])
-                unit.nations.add(nation)
-
-    special_troop_file = "csvs/attributes_by_nation.csv"
-    # some magic numbers, that I've gotten from searching source of the modinspector
-    commander_attributes_numbers = [
-        158,
-        159,
-        163,
-        186,
-        295,
-        297,
-        299,
-        301,
-        303,
-        405,
-        139,
-        140,
-        141,
-        142,
-        143,
-        144,
-        145,
-        146,
-        149,
-    ]
-    with open(
-        os.path.join(current_dir, special_troop_file), "r", newline=""
-    ) as csv_file:
-        reader = csv.DictReader(csv_file, delimiter="\t")
-        for row in reader:
-            nation = Nation.objects.get(dominion_id=row["nation_number"])
-            unit = Unit.objects.filter(dominion_id=row["raw_value"]).first()
-            if unit:
-                if int(row["attribute"]) in commander_attributes_numbers:
-                    unit.commander = True
-                    unit.save(update_fields=["commander"])
-                unit.nations.add(nation)
+            nation = Nation(name=row["name"], dominions_id=row["id"], era=row["era"])
+            nation.save(pipeline=pipeline)
+    pipeline.execute()
+    pipeline.reset()
 
 
 def parse_dm_files():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     files_to_parse = glob.glob(os.path.join(current_dir, "mods/*.dm"))
+    pipeline = get_redis_client().pipeline()
+    units = Unit.find(
+        (Unit.mod == DEBUG) | (Unit.mod == DE) | (Unit.mod == OTHER)
+    ).all()
+    [Unit.delete(unit.pk, pipeline=pipeline) for unit in units]
+    pipeline.execute()
+    nations = Nation.find(
+        (Nation.mod == DEBUG) | (Nation.mod == DE) | (Nation.mod == OTHER)
+    )
+    [Nation.delete(nation.pk, pipeline=pipeline) for nation in nations]
+    pipeline.execute()
     for dmfile in files_to_parse:
         with open(dmfile, "r") as file_content:
             new_nation, new_monster = False, False
             monster_id, monster_name = "", ""
             nation_id, nation_name, nation_era = "", "", ""
-            mod = Unit.DE if "DomEnhanced" in dmfile else Unit.DEBUG
+            mod = DE if "DomEnhanced" in dmfile else DEBUG
             for line in file_content.readlines():
                 if not line.startswith("--"):
                     if "#newmonster" in line:
@@ -110,28 +66,40 @@ def parse_dm_files():
                         nation_id = re.findall(r"\d+", line)[0]
                     elif "#end" in line:
                         if new_monster and monster_name:
-                            Unit.objects.update_or_create(
-                                dominion_id=monster_id,
-                                defaults=dict(name=monster_name, modded=mod),
+                            unit = Unit(
+                                dominions_id=monster_id,
+                                name=monster_name,
+                                mod=mod,
                             )
+                            unit.save(pipeline=pipeline)
                         elif new_nation and nation_name:
-                            Nation.objects.update_or_create(
-                                dominion_id=nation_id,
-                                defaults=dict(
-                                    name=nation_name, era=nation_era, modded=mod
-                                ),
+                            nation = Nation(
+                                dominions_id=nation_id,
+                                name=nation_name,
+                                era=nation_era,
+                                mod=mod,
                             )
+                            nation.save(pipeline=pipeline)
                         new_nation, new_monster = False, False
                         monster_id, monster_name = "", ""
                         nation_id, nation_name, nation_era = "", "", ""
                     if new_monster or new_nation:
                         if "#name" in line and "nametype" not in line:
                             name = (
-                                " ".join(line.split(" ")[1:]).replace('"', "").strip()
+                                " ".join(line.split(" ")[1:])
+                                .replace('"', "")
+                                .strip()
+                                .replace("\n", "")
                             )
                             if new_monster:
                                 monster_name = name
                             elif new_nation:
                                 nation_name = name
                         elif new_nation and "#era" in line:
-                            nation_era = " ".join(line.split(" ")[1:]).replace('"', "")
+                            nation_era = (
+                                " ".join(line.split(" ")[1:])
+                                .replace('"', "")
+                                .replace("\n", "")
+                            )
+    pipeline.execute()
+    pipeline.reset()
