@@ -4,7 +4,7 @@ import os
 import re
 
 from core.redis import get_redis_client
-from domdata.models import DE, DEBUG, OTHER, Nation, Unit
+from domdata.models import DE, DEBUG, Nation, Unit
 
 
 def parse_units():
@@ -38,14 +38,10 @@ def parse_dm_files():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     files_to_parse = glob.glob(os.path.join(current_dir, "mods/*.dm"))
     pipeline = get_redis_client().pipeline()
-    units = Unit.find(
-        (Unit.mod == DEBUG) | (Unit.mod == DE) | (Unit.mod == OTHER)
-    ).all()
+    units = Unit.find((Unit.mod == DEBUG) | (Unit.mod == DE)).all()
     [Unit.delete(unit.pk, pipeline=pipeline) for unit in units]
     pipeline.execute()
-    nations = Nation.find(
-        (Nation.mod == DEBUG) | (Nation.mod == DE) | (Nation.mod == OTHER)
-    )
+    nations = Nation.find((Nation.mod == DEBUG) | (Nation.mod == DE))
     [Nation.delete(nation.pk, pipeline=pipeline) for nation in nations]
     pipeline.execute()
     for dmfile in files_to_parse:
