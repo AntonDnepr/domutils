@@ -8,7 +8,8 @@ from domdata.models import DE, DEBUG, Nation, Unit
 
 
 def parse_units():
-    pipeline = get_redis_client().pipeline()
+    client = get_redis_client()
+    pipeline = client.pipeline()
     unit_ids = Unit.all_pks()
     [Unit.delete(unit_id, pipeline=pipeline) for unit_id in unit_ids]
     pipeline.execute()

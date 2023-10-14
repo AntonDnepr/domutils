@@ -6,6 +6,7 @@ from redis_om import Field, HashModel, Migrator
 DE = "de"
 DEBUG = "debug"
 VANILLA = "vanilla"
+TEST = "test"
 
 
 class Nation(HashModel):
