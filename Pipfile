@@ -10,6 +10,7 @@ redis = {extras = ["hiredis"], version = "*"}
 sentry-sdk = {extras = ["sanic"], version = "*"}
 redis-om = "*"
 ujson = "*"
+jinja2 = "*"
 
 [dev-packages]
 ipdb = "*"                           # Debugging
@@ -28,4 +29,3 @@ pytest-env = "*"
 
 [requires]
 python_version = "3.11"
-python_full_version = "3.11.4"
