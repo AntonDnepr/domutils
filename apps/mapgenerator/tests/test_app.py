@@ -1,6 +1,7 @@
 import json
 
 import pytest
+from apps.domdata.parser import parse_dm_files, parse_units
 from apps.mapgenerator.app import app
 from core.redis import get_redis_client
 from domdata.models import TEST, Nation, Unit
@@ -83,3 +84,14 @@ def test_autocomplete_nations_empty_query():
     assert response.status == 200
     data = json.loads(response.body.decode("utf-8"))
     assert len(data) == 0
+
+
+def test_map_generation_view(initial_data_for_mapgen):
+    parse_units()
+    parse_dm_files()
+    data, *_ = initial_data_for_mapgen
+    request, response = app.test_client.post("/dom5/generate-map/", json=data)
+    assert request.method.lower() == "post"
+    assert response.status == 200
+    assert response.content_type == "text/plain; charset=utf-8"
+    assert response.headers["Content-Disposition"] == "attachment; filename=MyArena.map"

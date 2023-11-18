@@ -65,8 +65,9 @@ async def generate_map(request: Request):
     json_data = request.json
     returned_data = process_data(json_data)
     mapgenerated_text = data_into_map(returned_data)
-    final_map = substitute(mapgenerated_text)
+    final_map = substitute(json_data, mapgenerated_text)
     map_as_bytes = StringIO(final_map)
-    resp = await request.respond(content_type="text/plain")
+    resp = await request.respond(content_type="text/plain; charset=utf-8")
+    resp.headers["Content-Disposition"] = "attachment; filename=MyArena.map"
     await resp.send(map_as_bytes.read())
     await resp.eof()
