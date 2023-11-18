@@ -64,12 +64,13 @@ To use cool github linking to the issue please add #taskNumber in the end. E.g.:
 - 20/05/2021 - Cave map support
 - 02/06/2021 - Add mapname change, tweaked text; Add Holy for magic paths;
 - 30/07/2021 - Add DomEnh and DebugMod support
-- ??/09/2023 - Retired old implementation
+- ??/??/?? - Retired old implementation
 
 ## Plans for the future versions
 - Automate pulling new data for dominions;
 - Allow custom mods load;
 - Add equipment screen for the commanders;
+- Support for Dom6;
 
 
 ## License
