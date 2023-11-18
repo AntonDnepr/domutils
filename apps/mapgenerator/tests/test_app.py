@@ -1,11 +1,55 @@
 import json
 
+import pytest
 from apps.mapgenerator.app import app
+from core.redis import get_redis_client
+from domdata.models import TEST, Nation, Unit
+
+
+@pytest.fixture(scope="module", autouse=True)
+def generated_data():
+    client = get_redis_client()
+    pipeline = client.pipeline()
+    unit1 = Unit(
+        dominions_id=999999,
+        name="TestMonster",
+        mod=TEST,
+    )
+    unit1.save(pipeline=pipeline)
+    unit2 = Unit(
+        dominions_id=999998,
+        name="AlohaMonster2",
+        mod=TEST,
+    )
+    unit2.save(pipeline=pipeline)
+    nation1 = Nation(
+        dominions_id="000000",
+        name="AlohaNation",
+        era="LA",
+        mod=TEST,
+    )
+    nation1.save(pipeline=pipeline)
+    nation2 = Nation(
+        dominions_id="111111",
+        name="MonsterNation",
+        era="LA",
+        mod=TEST,
+    )
+    nation2.save(pipeline=pipeline)
+    pipeline.execute()
+    yield
+    units = Unit.find(Unit.mod == TEST).all()
+    for unit in units:
+        unit.delete(pk=unit.pk, pipeline=pipeline)
+    nations = Nation.find(Nation.mod == TEST).all()
+    for nation in nations:
+        nation.delete(pk=nation.pk, pipeline=pipeline)
+    pipeline.execute()
 
 
 def test_autocomplete_units_query():
     request, response = app.test_client.get(
-        "/autocomplete/units/?search_term=Aloha&mods=test"
+        "/dom5/autocomplete/units/?search_term=Aloha&mods=test"
     )
     assert request.method.lower() == "get"
     assert response.status == 200
@@ -15,7 +59,7 @@ def test_autocomplete_units_query():
 
 
 def test_autocomplete_units_empty_query():
-    request, response = app.test_client.get("/autocomplete/units/?mods=test")
+    request, response = app.test_client.get("/dom5/autocomplete/units/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
     data = json.loads(response.body.decode("utf-8"))
@@ -24,7 +68,7 @@ def test_autocomplete_units_empty_query():
 
 def test_autocomplete_nations_query():
     request, response = app.test_client.get(
-        "/autocomplete/nations/?search_term=Aloha&mods=test"
+        "/dom5/autocomplete/nations/?search_term=Aloha&mods=test"
     )
     assert request.method.lower() == "get"
     assert response.status == 200
@@ -34,7 +78,7 @@ def test_autocomplete_nations_query():
 
 
 def test_autocomplete_nations_empty_query():
-    request, response = app.test_client.get("/autocomplete/nations/?mods=test")
+    request, response = app.test_client.get("/dom5/autocomplete/nations/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
     data = json.loads(response.body.decode("utf-8"))

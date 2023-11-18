@@ -1,8 +1,12 @@
+from io import StringIO
 from os import getenv
 
 import sentry_sdk
+from apps.mapgenerator.mapgen import data_into_map, process_data, substitute
 from domdata.models import VANILLA, Nation, Unit
 from sanic import Sanic, json
+from sanic.request import Request
+from sanic.response.types import JSONResponse
 
 if getenv("ENV", "") != "test":
     sentry_sdk.init(
@@ -12,16 +16,16 @@ if getenv("ENV", "") != "test":
         traces_sample_rate=1.0,
     )
 
-app = Sanic("MapGenerator")
+app = Sanic("DominionsUtils")
 
 
 @app.get("/")
-async def main(request):
+async def main(request: Request):
     pass
 
 
-@app.get("/autocomplete/units/")
-async def autocomplete_units(request):
+@app.get("/dom5/autocomplete/units/")
+async def autocomplete_units(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     if not search_term:
@@ -38,8 +42,8 @@ async def autocomplete_units(request):
     return json([x.dict() for x in units])
 
 
-@app.get("/autocomplete/nations/")
-async def autocomplete_nations(request):
+@app.get("/dom5/autocomplete/nations/")
+async def autocomplete_nations(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     if not search_term:
@@ -54,3 +58,15 @@ async def autocomplete_nations(request):
             mods_query |= Nation.mod == selected_mod
     nations = Nation.find((Nation.name % f"{search_term}*") & mods_query).all()
     return json([x.dict() for x in nations])
+
+
+@app.post("/dom5/generate-map/")
+async def generate_map(request: Request):
+    json_data = request.json
+    returned_data = process_data(json_data)
+    mapgenerated_text = data_into_map(returned_data)
+    final_map = substitute(mapgenerated_text)
+    map_as_bytes = StringIO(final_map)
+    resp = await request.respond(content_type="text/plain")
+    await resp.send(map_as_bytes.read())
+    await resp.eof()

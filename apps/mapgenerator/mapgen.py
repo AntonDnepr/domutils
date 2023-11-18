@@ -1,8 +1,3 @@
-# returned_data = process_data(serializer.validated_data)
-# mapgenerated_text = data_into_map(returned_data)
-# final_map = substitute(mapgenerated_text)
-
-
 from string import Template
 
 from core.consts import ERAS, LAND_STARTS, WATER_STARTS
