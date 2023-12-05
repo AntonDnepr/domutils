@@ -18,6 +18,8 @@ if getenv("ENV", "") != "test":
 
 app = Sanic("DominionsUtils")
 
+app.static("/static/", "./apps/mapgenerator/templates/assets")
+
 
 @app.get("/")
 async def main(request: Request):
