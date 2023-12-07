@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h2 class="display-4 mb-4">Welcome to the Arena Map Tool</h2>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <p class="lead">To make use of this tool, you need an Arena map. You can install one from here:
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1404827698" rel="noopener noreferrer" target="_blank">Arena Map</a>
+            </p>
+            <p class="mb-4">Please support the author of the original map.</p>
+            <p>You can help the development of this tool or report a bug
+                <a href="#" rel="noopener noreferrer" target="_blank">here</a>.
+            </p>
+        </div>
+    </div>
+
+    <h3 class="mb-4">Tool Steps:</h3>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <ol>
+                <li>
+                    <p class="lead">Select nations that will be used in map generation.</p>
+                    <p>There is no validation that nations are selected from the same Age. You should select at least 2 nations from the same Age for the game to not declare you a winner immediately.</p>
+                    <p>There is no validation for land/water nation, so please be careful when selecting them.</p>
+                </li>
+                <li>
+                    <p class="lead">One by one, you will be prompted to generate commanders and units for the selected nations.</p>
+                    <p> You can skip nations if you do not want them having anything but a starting expansion party.</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <p class="text-center">You can select a map with a cave in it to test this specific terrain.</p>
+
+    <p class="text-center">
+        <a href="#" class="btn btn-primary btn-lg">Start</a>
+    </p>
+</div>
+
+{% endblock main_content %}

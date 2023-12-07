@@ -7,6 +7,7 @@ from domdata.models import VANILLA, Nation, Unit
 from sanic import Sanic, json
 from sanic.request import Request
 from sanic.response.types import JSONResponse
+from sanic_ext import render
 
 if getenv("ENV", "") != "test":
     sentry_sdk.init(
@@ -17,13 +18,20 @@ if getenv("ENV", "") != "test":
     )
 
 app = Sanic("DominionsUtils")
-
+app.config.TEMPLATING_PATH_TO_TEMPLATES = "./apps/mapgenerator/templates"
 app.static("/static/", "./apps/mapgenerator/templates/assets")
 
 
 @app.get("/")
 async def main(request: Request):
-    pass
+    return await render("index.html", status=200)
+
+
+@app.get("/dom5/arena-mapgen/")
+async def dom5_arena(request: Request):
+    return await render(
+        "dom5/arena.html", status=200, context={"dom5_arena_active": True}
+    )
 
 
 @app.get("/dom5/autocomplete/units/")
