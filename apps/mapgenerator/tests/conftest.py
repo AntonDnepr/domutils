@@ -1,5 +1,5 @@
 import pytest
-from core.consts import ERAS
+from core.consts import INVERTED_ERAS
 from domdata.models import Nation
 
 
@@ -10,12 +10,12 @@ def initial_data_for_mapgen():
     nation1 = [
         x
         for x in Nation.find((Nation.name == "Tir na n'Og")).all()
-        if x.era == ERAS["EA"]
+        if x.era == INVERTED_ERAS["EA"]
     ][0]
     nation2 = [
         x
         for x in Nation.find((Nation.name == "T'ien Ch'i")).all()
-        if x.era == ERAS["EA"]
+        if x.era == INVERTED_ERAS["EA"]
     ][0]
     return (
         {

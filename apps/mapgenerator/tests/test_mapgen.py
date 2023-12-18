@@ -2,7 +2,7 @@ import copy
 from unittest import mock
 
 import pytest
-from core.consts import ERAS, LAND_STARTS, WATER_STARTS
+from core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
 from domdata.models import Nation
 from domdata.parser import parse_dm_files, parse_units
 from mapgenerator.mapgen import data_into_map, process_data, substitute
@@ -63,12 +63,12 @@ def data_for_mapgen_uw():
     nation1 = [
         x
         for x in Nation.find((Nation.name == "Tir na n'Og")).all()
-        if x.era == ERAS["EA"]
+        if x.era == INVERTED_ERAS["EA"]
     ][0]
     nation2 = [
         x
         for x in Nation.find((Nation.name == "T'ien Ch'i")).all()
-        if x.era == ERAS["EA"]
+        if x.era == INVERTED_ERAS["EA"]
     ][0]
     return (
         {

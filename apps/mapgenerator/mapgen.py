@@ -1,6 +1,6 @@
 from string import Template
 
-from core.consts import ERAS, LAND_STARTS, WATER_STARTS
+from core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
 from domdata.models import Nation
 
 
@@ -23,7 +23,7 @@ def process_data(data):
         dominions_id = [
             x
             for x in Nation.find(Nation.name == nation_name).all()
-            if x.era == ERAS[age]
+            if x.era == INVERTED_ERAS[age]
         ][0].dominions_id
         land_type = "land" if index < 2 else "water"
         nation_dict = {dominions_id: [], "land_type": land_type}

@@ -26,14 +26,14 @@ def generated_data():
     nation1 = Nation(
         dominions_id="000000",
         name="AlohaNation",
-        era="LA",
+        era="3",
         mod=TEST,
     )
     nation1.save(pipeline=pipeline)
     nation2 = Nation(
         dominions_id="111111",
         name="MonsterNation",
-        era="LA",
+        era="3",
         mod=TEST,
     )
     nation2.save(pipeline=pipeline)
@@ -73,17 +73,16 @@ def test_autocomplete_nations_query():
     )
     assert request.method.lower() == "get"
     assert response.status == 200
-    data = json.loads(response.body.decode("utf-8"))
-    assert len(data) == 1
-    assert data[0]["name"] == "AlohaNation"
+    data = response.body.decode("utf-8")
+    assert "AlohaNation" in data
 
 
 def test_autocomplete_nations_empty_query():
     request, response = app.test_client.get("/dom5/autocomplete/nations/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
-    data = json.loads(response.body.decode("utf-8"))
-    assert len(data) == 0
+    data = response.body.decode("utf-8")
+    assert "table-responsive" in data
 
 
 def test_map_generation_view(initial_data_for_mapgen):

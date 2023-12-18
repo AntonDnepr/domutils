@@ -3,6 +3,7 @@ from os import getenv
 
 import sentry_sdk
 from apps.mapgenerator.mapgen import data_into_map, process_data, substitute
+from core.consts import ERAS
 from domdata.models import VANILLA, Nation, Unit
 from sanic import Sanic, json
 from sanic.request import Request
@@ -66,17 +67,29 @@ async def autocomplete_nations(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     if not search_term:
-        return json([])
-    mods_query = None
-    if not mods:
-        mods_query = Nation.mod == VANILLA
+        return await render(
+            "dom5/includes/nations_table.html",
+            status=200,
+            context={"nations": []},
+        )
+    mods_query = Nation.mod == VANILLA
     for selected_mod in mods:
-        if mods_query is None:
-            mods_query = Nation.mod == selected_mod
-        else:
-            mods_query |= Nation.mod == selected_mod
+        mods_query |= Nation.mod == selected_mod
     nations = Nation.find((Nation.name % f"{search_term}*") & mods_query).all()
-    return json([x.dict() for x in nations])
+    return await render(
+        "dom5/includes/nations_table.html",
+        status=200,
+        context={
+            "nations": [
+                {
+                    "era": ERAS[x.era],
+                    "name": x.name,
+                    "dominions_id": x.dominions_id,
+                }
+                for x in nations
+            ]
+        },
+    )
 
 
 @app.post("/dom5/generate-map/")

@@ -3,7 +3,56 @@
 {% block main_content %}
 <div class="container mt-5">
     <div class="text-center">
-        <h2 class="display-4 mb-4">Arena Map Tool</h2>
+        <h2 class="display-4 mb-4">Select nations</h2>
     </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <ol>
+                <li>
+                    <p class="lead">Select nations that will be used in map generation.</p>
+                    <p>There is no validation that nations are selected from the same Age. You should select at least 2
+                        nations from the same Age for the game to not declare you a winner immediately.</p>
+                    <p>There is no validation for land/water nation, so please be careful when selecting them.</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <form id="selectedMods">
+
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="landNation1" class="form-label">Land Nation 1</label>
+            <input type="text" class="form-control" id="landNation1" name="search_term"
+                hx-trigger="keyup changed delay:500ms"
+                hx-target="#landNation1Results"
+                placeholder="Search..."
+                hx-include="#selectedMods"
+                hx-get="/dom5/autocomplete/nations/"
+            >
+            <div id="landNation1Results" class="mt-2">
+
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="landNation2" class="form-label">Land Nation 2</label>
+            <input type="text" class="form-control" id="landNation2" name="landNation2">
+          </div>
+          <div class="mb-3">
+            <label for="underwaterNation1" class="form-label">Underwater Nation 1</label>
+            <input type="text" class="form-control" id="underwaterNation1" name="underwaterNation1">
+          </div>
+          <div class="mb-3">
+            <label for="underwaterNation2" class="form-label">Underwater Nation 2</label>
+            <input type="text" class="form-control" id="underwaterNation2" name="underwaterNation2">
+          </div>
+          <button type="submit" class="btn btn-primary">Proceed to Next Step</button>
+        </form>
+      </div>
 </div>
 {% endblock main_content %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/htmx.org@1.9.9"></script>
+{% endblock extra_js %}
