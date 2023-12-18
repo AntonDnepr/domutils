@@ -34,6 +34,15 @@ async def dom5_arena(request: Request):
     )
 
 
+@app.get("/dom5/arena-mapgen/select-nations/")
+async def dom5_arena_nations_select(request: Request):
+    return await render(
+        "dom5/arena_nations_select.html",
+        status=200,
+        context={"dom5_arena_active": True},
+    )
+
+
 @app.get("/dom5/autocomplete/units/")
 async def autocomplete_units(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
