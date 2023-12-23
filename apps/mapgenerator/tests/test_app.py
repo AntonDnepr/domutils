@@ -82,7 +82,7 @@ def test_autocomplete_nations_empty_query():
     assert request.method.lower() == "get"
     assert response.status == 200
     data = response.body.decode("utf-8")
-    assert "table-responsive" in data
+    assert "table-responsive" not in data
 
 
 def test_map_generation_view(initial_data_for_mapgen):
