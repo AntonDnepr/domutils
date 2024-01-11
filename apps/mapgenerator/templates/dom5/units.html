@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div class="container mt-5">
+  <div class="text-center">
+    <h2 class="display-4 mb-4">Select units for nation {{name}}</h2>
+  </div>
+  <div class="row">
+    <div class="mb-4">
+        <p class="lead">Select units that will be used for indicated nation.</p>
+        <p>For this step, you should select commanders and units. You can skip this if you do not want to add anything to starting troops of the nation;</p>
+        <p>For map to generate correctly, you should have at least 1 commander to add additional units to;</p>
+        <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them;</p>
+        <p>Use <a href="https://larzm42.github.io/dom5inspector/" target="_blank" rel="noopener noreferrer"> to find out unit_id;</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <form id="selectedMods">
+      <div class="mb-4">
+        <p>Select mods if you need any:</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="de" name="mods" id="DominionsEnhanced">
+          <label class="form-check-label" for="DominionsEnhanced">
+            DominionsEnhanced
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="debug" name="mods" id="DebugMod">
+          <label class="form-check-label" for="DebugMod">
+            DebugMod
+          </label>
+        </div>
+      </div>
+    </form>
+    <form class="mb-3">
+        <h3>Commanders</h3>
+        <div class="mb-3 parent-js">
+          <label for="land_nation_1" class="form-label">Land Nation 1</label>
+          <input type="text" class="form-control" id="land_nation_1" name="search_term" data-id="land_nation_1"
+            hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_1Results" placeholder="Search..."
+            hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
+          <div id="land_nation_1Results" class="mt-2">
+
+          </div>
+        </div>
+        <h3>Units</h3>
+        <div class="mb-3 parent-js">
+          <label for="water_nation_1" class="form-label">Underwater Nation 1</label>
+          <input type="text" class="form-control" id="water_nation_1" name="search_term" data-id="water_nation_1"
+          hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_1Results" placeholder="Search..."
+          hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
+          <div id="water_nation_1Results" class="mt-2">
+
+          </div>
+        </div>
+  </div>
+</div>
+{% endblock main_content %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/htmx.org@1.9.9"></script>
+{% endblock extra_js %}

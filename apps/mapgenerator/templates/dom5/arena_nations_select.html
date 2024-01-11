@@ -34,43 +34,43 @@
     <form class="mb-3">
       <h3>Land nations</h3>
       <div class="mb-3 parent-js">
-        <label for="landNation1" class="form-label">Land Nation 1</label>
-        <input type="text" class="form-control" id="landNation1" name="search_term" data-id="landNation1"
-          hx-trigger="keyup changed delay:500ms" hx-target="#landNation1Results" placeholder="Search..."
+        <label for="land_nation_1" class="form-label">Land Nation 1</label>
+        <input type="text" class="form-control" id="land_nation_1" name="search_term" data-id="land_nation_1"
+          hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_1Results" placeholder="Search..."
           hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
-        <div id="landNation1Results" class="mt-2">
+        <div id="land_nation_1Results" class="mt-2">
 
         </div>
       </div>
       <div class="mb-3 parent-js">
-        <label for="landNation2" class="form-label">Land Nation 2</label>
-        <input type="text" class="form-control" id="landNation2" name="search_term" data-id="landNation2"
-          hx-trigger="keyup changed delay:500ms" hx-target="#landNation2Results" placeholder="Search..."
+        <label for="land_nation_2" class="form-label">Land Nation 2</label>
+        <input type="text" class="form-control" id="land_nation_2" name="search_term" data-id="land_nation_2"
+          hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_2Results" placeholder="Search..."
           hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
-        <div id="landNation2Results" class="mt-2">
+        <div id="land_nation_2Results" class="mt-2">
 
         </div>
       </div>
       <h3>Underwater nations</h3>
       <div class="mb-3 parent-js">
-        <label for="underwaterNation1" class="form-label">Underwater Nation 1</label>
-        <input type="text" class="form-control" id="underwaterNation1" name="search_term" data-id="underwaterNation1"
-        hx-trigger="keyup changed delay:500ms" hx-target="#underwaterNation1Results" placeholder="Search..."
+        <label for="water_nation_1" class="form-label">Underwater Nation 1</label>
+        <input type="text" class="form-control" id="water_nation_1" name="search_term" data-id="water_nation_1"
+        hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_1Results" placeholder="Search..."
         hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
-        <div id="underwaterNation1Results" class="mt-2">
+        <div id="water_nation_1Results" class="mt-2">
 
         </div>
       </div>
       <div class="mb-3 parent-js">
-        <label for="underwaterNation2" class="form-label">Underwater Nation 2</label>
-        <input type="text" class="form-control" id="underwaterNation2" name="search_term" data-id="underwaterNation2"
-        hx-trigger="keyup changed delay:500ms" hx-target="#underwaterNation2Results" placeholder="Search..."
+        <label for="water_nation_2" class="form-label">Underwater Nation 2</label>
+        <input type="text" class="form-control" id="water_nation_2" name="search_term" data-id="water_nation_2"
+        hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_2Results" placeholder="Search..."
         hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
-        <div id="underwaterNation2Results" class="mt-2">
+        <div id="water_nation_2Results" class="mt-2">
 
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" disabled>Proceed to Next Step</button>
+      <button type="submit" class="btn btn-primary" id="next-step" disabled>Proceed to Next Step</button>
     </form>
   </div>
 </div>
@@ -91,12 +91,37 @@
               targetInput.value = dataValue;
               var targetTable = parentDiv.querySelector('.table-responsive');
               targetTable.innerHTML = "";
+              var storageID = targetInput.getAttribute('data-id');
+              localStorage.setItem(storageID, dataValue);
+              var nextStepButton = document.getElementById("next-step");
+              nextStepButton.removeAttribute("disabled");
           } else {
               console.error('Input not found.');
           }
         };
-
     }
+  });
+  var nextStepButton = document.getElementById("next-step");
+  nextStepButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (this.hasAttribute('disabled')) {
+      return
+    }
+    const parentElements = document.querySelectorAll('.parent-js');
+    let urls = [];
+    for (let i = 0; i < parentElements.length; i++) {
+      const parentElement = parentElements[i];
+      var targetInput = parentElement.querySelector('input');
+      if (targetInput.value) {
+        var myString = `/dom5/arena-mapgen/${targetInput.value}`;
+        urls.push(myString);
+      }
+    }
+    localStorage.setItem("urls", JSON.stringify(urls));
+    localStorage.setItem("nextIndex", 1);
+    localStorage.setItem("previosIndex", 0);
+    var redirectUrl = urls[0];
+    window.location.replace(redirectUrl);
   });
 </script>
 {% endblock extra_js %}

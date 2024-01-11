@@ -1,0 +1,20 @@
+{% if units %}
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Internal id</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for unit in units %}
+          <tr data-id="{{unit.dominions_id}}" data-name="{{unit.name}}" class="selectable selectable-js">
+            <td>{{unit.name}}</td>
+            <td>{{unit.dominions_id}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}

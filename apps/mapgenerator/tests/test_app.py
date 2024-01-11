@@ -1,5 +1,3 @@
-import json
-
 import pytest
 from apps.domdata.parser import parse_dm_files, parse_units
 from apps.mapgenerator.app import app
@@ -54,17 +52,17 @@ def test_autocomplete_units_query():
     )
     assert request.method.lower() == "get"
     assert response.status == 200
-    data = json.loads(response.body.decode("utf-8"))
-    assert len(data) == 1
-    assert data[0]["name"] == "AlohaMonster2"
+    assert response.status == 200
+    data = response.body.decode("utf-8")
+    assert "AlohaMonster2" in data
 
 
 def test_autocomplete_units_empty_query():
     request, response = app.test_client.get("/dom5/autocomplete/units/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
-    data = json.loads(response.body.decode("utf-8"))
-    assert len(data) == 0
+    data = response.body.decode("utf-8")
+    assert "table-responsive" not in data
 
 
 def test_autocomplete_nations_query():

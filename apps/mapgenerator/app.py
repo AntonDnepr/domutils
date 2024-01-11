@@ -1,11 +1,12 @@
 from io import StringIO
 from os import getenv
+from urllib.parse import unquote_plus
 
 import sentry_sdk
 from apps.mapgenerator.mapgen import data_into_map, process_data, substitute
 from core.consts import ERAS
 from domdata.models import VANILLA, Nation, Unit
-from sanic import Sanic, json
+from sanic import Sanic
 from sanic.request import Request
 from sanic.response.types import JSONResponse
 from sanic_ext import render
@@ -49,7 +50,11 @@ async def autocomplete_units(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     if not search_term:
-        return json([])
+        return await render(
+            "dom5/includes/units_table.html",
+            status=200,
+            context={"units": []},
+        )
     mods_query = None
     if not mods:
         mods_query = Unit.mod == VANILLA
@@ -59,7 +64,11 @@ async def autocomplete_units(request: Request) -> JSONResponse:
         else:
             mods_query |= Unit.mod == selected_mod
     units = Unit.find((Unit.name % f"{search_term}*") & mods_query).all()
-    return json([x.dict() for x in units])
+    return await render(
+        "dom5/includes/units_table.html",
+        status=200,
+        context={"units": [x.dict() for x in units]},
+    )
 
 
 @app.get("/dom5/autocomplete/nations/")
@@ -103,3 +112,12 @@ async def generate_map(request: Request):
     resp.headers["Content-Disposition"] = "attachment; filename=MyArena.map"
     await resp.send(map_as_bytes.read())
     await resp.eof()
+
+
+@app.get("/dom5/arena-mapgen/<name:str>/")
+async def dom5_arena_units(request: Request, name: str):
+    return await render(
+        "dom5/units.html",
+        status=200,
+        context={"dom5_arena_active": True, "name": unquote_plus(name)},
+    )
