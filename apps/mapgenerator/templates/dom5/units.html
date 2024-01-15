@@ -32,27 +32,34 @@
         </div>
       </div>
     </form>
-    <form class="mb-3">
-        <h3>Commanders</h3>
-        <div class="mb-3 parent-js">
-          <label for="land_nation_1" class="form-label">Land Nation 1</label>
-          <input type="text" class="form-control" id="land_nation_1" name="search_term" data-id="land_nation_1"
-            hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_1Results" placeholder="Search..."
+    <div class="row">
+      <div class="col-6">
+        <form>
+            <div class="mb-3 parent-js">
+              <label for="commanders" class="form-label">Commanders</label>
+              <input type="text" class="form-control" id="commanders" name="search_term" data-id="commanders"
+                hx-trigger="keyup changed delay:500ms" hx-target="#commandersResults" placeholder="Search..."
+                hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
+              <div id="commandersResults" class="mt-2">
+
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="col-6">
+        <form>
+          <div class="mb-3 parent-js">
+            <label for="units" class="form-label">Units</label>
+            <input type="text" class="form-control" id="units" name="search_term" data-id="units"
+            hx-trigger="keyup changed delay:500ms" hx-target="#unitsResults" placeholder="Search..."
             hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
-          <div id="land_nation_1Results" class="mt-2">
+            <div id="unitsResults" class="mt-2">
 
+            </div>
           </div>
-        </div>
-        <h3>Units</h3>
-        <div class="mb-3 parent-js">
-          <label for="water_nation_1" class="form-label">Underwater Nation 1</label>
-          <input type="text" class="form-control" id="water_nation_1" name="search_term" data-id="water_nation_1"
-          hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_1Results" placeholder="Search..."
-          hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
-          <div id="water_nation_1Results" class="mt-2">
-
-          </div>
-        </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock main_content %}
