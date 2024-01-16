@@ -11,7 +11,7 @@
         <p>For this step, you should select commanders and units. You can skip this if you do not want to add anything to starting troops of the nation;</p>
         <p>For map to generate correctly, you should have at least 1 commander to add additional units to;</p>
         <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them;</p>
-        <p>Use <a href="https://larzm42.github.io/dom5inspector/" target="_blank" rel="noopener noreferrer"> to find out unit_id;</a></p>
+        <p>Use <a href="https://larzm42.github.io/dom5inspector/" target="_blank" rel="noopener noreferrer">Dom5 inspector</a> to find out unit_id;</p>
     </div>
   </div>
   <div class="row">
@@ -40,11 +40,14 @@
               <input type="text" class="form-control" id="commanders" name="search_term" data-id="commanders"
                 hx-trigger="keyup changed delay:500ms" hx-target="#commandersResults" placeholder="Search..."
                 hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
-              <div id="commandersResults" class="mt-2">
+              <div id="commandersResults" data-type="commanders" class="mt-2 results-js">
 
               </div>
             </div>
         </form>
+        <div class="col-12" id="selectedCommandersResults">
+
+        </div>
       </div>
       <div class="col-6">
         <form>
@@ -66,4 +69,37 @@
 
 {% block extra_js %}
 <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+<script>
+  htmx.onLoad(function(content) {
+    var selectableRows = content.querySelectorAll(".selectable-js");
+    for (var i = 0; i < selectableRows.length; i++) {
+        var selectable = selectableRows[i];
+        selectable.onclick = function() {
+          var parentDiv = this.closest('.parent-js');
+          var targetList = parentDiv.querySelector(".results-js");
+          if (targetList.dataset["type"] === "commanders"){
+            var targetElement = document.getElementById("selectedCommandersResults");
+            var newElement = document.createElement('div');
+            var dataName = this.getAttribute('data-name');
+            var dataID = this.getAttribute('data-id');
+            newElement.innerHTML = `(${dataID}) ${dataName} <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button> <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button> <button type="button" class="btn btn-danger delete-row-js">Delete</button`;
+            newElement.classList.add('mb-2');
+            targetElement.appendChild(newElement);
+          }
+        };
+    }
+  });
+  document.addEventListener('click', function(event) {
+    var target = event.target;
+    if (target.classList.contains('delete-row-js')) {
+      var finalTarget = target.parentNode;
+      finalTarget.parentNode.removeChild(finalTarget);
+    } else if (target.classList.contains('duplicate-row-js')) {
+      // duplicate target element
+      var finalTarget = target.parentNode;
+      var newElement = finalTarget.cloneNode(true);
+      finalTarget.parentNode.appendChild(newElement);
+    }
+  });
+</script>
 {% endblock extra_js %}

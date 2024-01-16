@@ -55,14 +55,9 @@ async def autocomplete_units(request: Request) -> JSONResponse:
             status=200,
             context={"units": []},
         )
-    mods_query = None
-    if not mods:
-        mods_query = Unit.mod == VANILLA
+    mods_query = Unit.mod == VANILLA
     for selected_mod in mods:
-        if mods_query is None:
-            mods_query = Unit.mod == selected_mod
-        else:
-            mods_query |= Unit.mod == selected_mod
+        mods_query |= Unit.mod == selected_mod
     units = Unit.find((Unit.name % f"{search_term}*") & mods_query).all()
     return await render(
         "dom5/includes/units_table.html",
