@@ -41,7 +41,7 @@
       <div class="col-6">
         <form>
             <div class="mb-3 parent-js">
-              <label for="commanders" class="form-label">Commanders</label>
+              <label for="commanders" class="form-label">Commanders search</label>
               <input type="text" class="form-control" id="commanders" name="search_term" data-id="commanders"
                 hx-trigger="keyup changed delay:500ms" hx-target="#commandersResults" placeholder="Search..."
                 hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
@@ -50,6 +50,9 @@
               </div>
             </div>
         </form>
+        <div class="col-12 mt-2">
+          <h4>Selected commanders</h4>
+        </div>
         <div class="col-12 mt-2" id="selectedCommandersResults">
 
         </div>
@@ -57,7 +60,7 @@
       <div class="col-6">
         <form>
           <div class="mb-3 parent-js">
-            <label for="units" class="form-label">Units</label>
+            <label for="units" class="form-label">Units search</label>
             <input type="text" class="form-control" id="units" name="search_term" data-id="units"
             hx-trigger="keyup changed delay:500ms" hx-target="#unitsResults" placeholder="Search..."
             hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
@@ -66,6 +69,9 @@
             </div>
           </div>
         </form>
+        <div class="col-12 mt-2">
+          <h4>Selected units</h4>
+        </div>
         <div class="col-12 mt-2" id="selectedUnitsResults">
 
         </div>
@@ -73,6 +79,69 @@
     </div>
   </div>
 </div>
+
+<div id="hiddenMagicEdit" class="invisible">
+  <div class="row">
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">F</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">A</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">W</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">E</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">S</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">D</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">N</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">B</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">Holy</span>
+        <input type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-primary save-data-js">Save & close</button>
+    </div>
+  </div>
+</div>
+
 {% endblock main_content %}
 
 {% block extra_js %}
@@ -90,7 +159,13 @@
             var newElement = document.createElement('div');
             var dataName = this.getAttribute('data-name');
             var dataID = this.getAttribute('data-id');
-            newElement.innerHTML = `(${dataID}) ${dataName} <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button> <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button> <button type="button" class="btn btn-danger delete-row-js">Delete</button`;
+            newElement.innerHTML = `<div>
+              (${dataID}) ${dataName}
+              <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button>
+              <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button>
+              <button type="button" class="btn btn-danger delete-row-js">Delete</button>
+            </div>
+            `;
             newElement.classList.add('mb-2');
             targetElement.appendChild(newElement);
           } else {
@@ -115,8 +190,17 @@
       var finalTarget = target.parentNode;
       var newElement = finalTarget.cloneNode(true);
       finalTarget.parentNode.appendChild(newElement);
-    }
-    if (target.id === "visibility") {
+    } else if (target.classList.contains('edit-magic-js')) {
+      if (target.classList.contains('disabled')) {
+        return
+      }
+      target.classList.add('disabled');
+      var finalTarget = target.parentNode;
+      // copy html content of element with id hiddenMagicEdit and append it to finalTarget
+      var hiddenMagicEdit = document.getElementById("hiddenMagicEdit");
+      finalTarget.innerHTML += hiddenMagicEdit.innerHTML;
+      target.classList.add('disabled');
+    } else if (target.id === "visibility") {
       // iterate over all elements with parent-js class
       var elements = document.querySelectorAll(".parent-js");
       for (var i = 0; i < elements.length; i++) {
