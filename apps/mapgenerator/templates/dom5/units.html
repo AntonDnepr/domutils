@@ -154,6 +154,7 @@
         selectable.onclick = function() {
           var parentDiv = this.closest('.parent-js');
           var targetList = parentDiv.querySelector(".results-js");
+          // adds commander to selected list
           if (targetList.dataset["type"] === "commanders"){
             var targetElement = document.getElementById("selectedCommandersResults");
             var newElement = document.createElement('div');
@@ -170,20 +171,27 @@
             newElement.classList.add('mb-2');
             targetElement.appendChild(newElement);
           } else {
+            // adds unit to selected list
             var targetElement = document.getElementById("selectedUnitsResults");
             var newElement = document.createElement('div');
             var dataName = this.getAttribute('data-name');
             var dataID = this.getAttribute('data-id');
-            newElement.innerHTML = `(${dataID}) ${dataName} <input type='number' value='1' min='1'/> <button type="button" class="btn btn-danger delete-row-js">Delete</button`;
+            newElement.innerHTML = `
+              (${dataID}) ${dataName}
+              <input type='number' value='1' min='1'/>
+              <button type="button" class="btn btn-danger delete-row-js">Delete</button>
+            `;
             newElement.classList.add('mb-2');
             targetElement.appendChild(newElement);
           }
         };
     }
   });
+  // this is a bit awkward, but it works for now.
   document.addEventListener('click', function(event) {
     var target = event.target;
     if (target.classList.contains('delete-row-js')) {
+      // deletes commander row
       var finalTarget = target.parentNode;
       finalTarget.parentNode.removeChild(finalTarget);
     } else if (target.classList.contains('duplicate-row-js')) {
@@ -192,6 +200,9 @@
       var newElement = finalTarget.cloneNode(true);
       finalTarget.parentNode.appendChild(newElement);
     } else if (target.classList.contains('edit-magic-js')) {
+      // takes hidden element, reads dataset of parent element,
+      // edits html of hidden element according to dataset,
+      // and then attaches new element
       if (target.classList.contains('disabled')) {
         return
       }
@@ -210,7 +221,7 @@
         }
       }
     } else if (target.id === "visibility") {
-      // iterate over all elements with parent-js class
+      // show-hide autocomplete elements
       var elements = document.querySelectorAll(".parent-js");
       for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
@@ -223,7 +234,8 @@
     } else if (target.classList.contains('save-close-js')) {
       var removeTarget = target.parentNode.parentNode;
       var parent = removeTarget.parentNode;
-      // take all inputs from parent, take there data-type and read input values
+      // take all inputs from parent, take there data-type and read & write
+      // input values
       var inputs = parent.querySelectorAll(".magic-inputs-js input");
       var finalMagicString = "";
       for (var i = 0; i < inputs.length; i++) {
@@ -236,6 +248,7 @@
           finalMagicString += `${short}${value}|`;
         }
       }
+      // just for better UI we display this info directly too
       if (finalMagicString.length !== "") {
         var magicString = parent.querySelector(".magic-info-js");
         magicString.innerHTML = finalMagicString;
