@@ -81,63 +81,63 @@
 </div>
 
 <div id="hiddenMagicEdit" class="invisible">
-  <div class="row">
+  <div class="row magic-inputs-js">
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">F</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="F" data-type="fire" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">A</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="A" data-type="air" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">W</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="W" data-type="water" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">E</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="E" data-type="earth" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">S</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="S" data-type="astral" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">D</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="D" data-type="death" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">N</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="N" data-type="nature" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
         <span class="input-group-text">B</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <input data-short="B" data-type="blood" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
       <div class="input-group mb-3">
-        <span class="input-group-text">Holy</span>
-        <input type="number" min="0" max="10" class="form-control">
+        <span class="input-group-text">Priest</span>
+        <input data-short="Priest" data-type="priest" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
-      <button class="btn btn-primary save-data-js">Save & close</button>
+      <button class="btn btn-primary save-close-js">Save & close</button>
     </div>
   </div>
 </div>
@@ -159,11 +159,12 @@
             var newElement = document.createElement('div');
             var dataName = this.getAttribute('data-name');
             var dataID = this.getAttribute('data-id');
-            newElement.innerHTML = `<div>
+            newElement.innerHTML = `<div class="magic-container-js mb-1">
               (${dataID}) ${dataName}
               <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button>
               <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button>
               <button type="button" class="btn btn-danger delete-row-js">Delete</button>
+              <span class="magic-info-js">Default magic</span>
             </div>
             `;
             newElement.classList.add('mb-2');
@@ -195,11 +196,19 @@
         return
       }
       target.classList.add('disabled');
-      var finalTarget = target.parentNode;
-      // copy html content of element with id hiddenMagicEdit and append it to finalTarget
+      var parent = target.parentNode;
+      // copy html content of element with id hiddenMagicEdit and append it to parent
       var hiddenMagicEdit = document.getElementById("hiddenMagicEdit");
-      finalTarget.innerHTML += hiddenMagicEdit.innerHTML;
-      target.classList.add('disabled');
+      parent.innerHTML += hiddenMagicEdit.innerHTML;
+      var inputs = parent.querySelectorAll("input");
+      for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        var type = input.getAttribute('data-type');
+        var value = parent.dataset[type];
+        if (value) {
+          input.value = value;
+        }
+      }
     } else if (target.id === "visibility") {
       // iterate over all elements with parent-js class
       var elements = document.querySelectorAll(".parent-js");
@@ -211,6 +220,29 @@
           element.style.display = "none";
         }
       }
+    } else if (target.classList.contains('save-close-js')) {
+      var removeTarget = target.parentNode.parentNode;
+      var parent = removeTarget.parentNode;
+      // take all inputs from parent, take there data-type and read input values
+      var inputs = parent.querySelectorAll(".magic-inputs-js input");
+      var finalMagicString = "";
+      for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        var type = input.getAttribute('data-type');
+        var value = input.value;
+        if (value) {
+          parent.dataset[type] = value;
+          var short = input.getAttribute('data-short');
+          finalMagicString += `${short}${value}|`;
+        }
+      }
+      if (finalMagicString.length !== "") {
+        var magicString = parent.querySelector(".magic-info-js");
+        magicString.innerHTML = finalMagicString;
+      }
+      parent.removeChild(removeTarget);
+      var editButton = parent.querySelector(".edit-magic-js");
+      editButton.classList.remove('disabled');
     }
   });
 </script>
