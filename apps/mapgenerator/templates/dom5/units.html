@@ -33,6 +33,11 @@
       </div>
     </form>
     <div class="row">
+      <div class="col-12">
+        <button id="visibility" type="button" class="btn btn-secondary">
+          Show/hide search fields
+        </button>
+      </div>
       <div class="col-6">
         <form>
             <div class="mb-3 parent-js">
@@ -45,7 +50,7 @@
               </div>
             </div>
         </form>
-        <div class="col-12" id="selectedCommandersResults">
+        <div class="col-12 mt-2" id="selectedCommandersResults">
 
         </div>
       </div>
@@ -56,11 +61,14 @@
             <input type="text" class="form-control" id="units" name="search_term" data-id="units"
             hx-trigger="keyup changed delay:500ms" hx-target="#unitsResults" placeholder="Search..."
             hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
-            <div id="unitsResults" class="mt-2">
+            <div id="unitsResults" data-type="units" class="mt-2 results-js">
 
             </div>
           </div>
         </form>
+        <div class="col-12 mt-2" id="selectedUnitsResults">
+
+        </div>
       </div>
     </div>
   </div>
@@ -68,7 +76,7 @@
 {% endblock main_content %}
 
 {% block extra_js %}
-<script src="https://unpkg.com/htmx.org@1.9.9"></script>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
 <script>
   htmx.onLoad(function(content) {
     var selectableRows = content.querySelectorAll(".selectable-js");
@@ -85,6 +93,14 @@
             newElement.innerHTML = `(${dataID}) ${dataName} <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button> <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button> <button type="button" class="btn btn-danger delete-row-js">Delete</button`;
             newElement.classList.add('mb-2');
             targetElement.appendChild(newElement);
+          } else {
+            var targetElement = document.getElementById("selectedUnitsResults");
+            var newElement = document.createElement('div');
+            var dataName = this.getAttribute('data-name');
+            var dataID = this.getAttribute('data-id');
+            newElement.innerHTML = `(${dataID}) ${dataName} <input type='number' value='1' min='1'/> <button type="button" class="btn btn-danger delete-row-js">Delete</button`;
+            newElement.classList.add('mb-2');
+            targetElement.appendChild(newElement);
           }
         };
     }
@@ -99,6 +115,18 @@
       var finalTarget = target.parentNode;
       var newElement = finalTarget.cloneNode(true);
       finalTarget.parentNode.appendChild(newElement);
+    }
+    if (target.id === "visibility") {
+      // iterate over all elements with parent-js class
+      var elements = document.querySelectorAll(".parent-js");
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        if (element.style.display === "none") {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      }
     }
   });
 </script>
