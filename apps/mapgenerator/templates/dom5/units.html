@@ -168,7 +168,7 @@
             var dataName = this.getAttribute('data-name');
             var dataID = this.getAttribute('data-id');
             newElement.innerHTML = `<div class="magic-container-js mb-1">
-              <span class="data-js" data-dominionsId="${dataID}" data-name="${dataName}">
+              <span class="data-js" data-dominionsid="${dataID}" data-name="${dataName}">
                 (${dataID}) ${dataName}
               </span>
               <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button>
@@ -186,9 +186,13 @@
             var dataName = this.getAttribute('data-name');
             var dataID = this.getAttribute('data-id');
             newElement.innerHTML = `
-              (${dataID}) ${dataName}
-              <input type='number' value='1' min='1'/>
+            <div class="magic-container-js mb-1">
+              <span class="data-js" data-dominionsid="${dataID}" data-name="${dataName}">
+                (${dataID}) ${dataName}
+              </span>
+              <input class='quantity-js' type='number' value='1' min='1'/>
               <button type="button" class="btn btn-danger delete-row-js">Delete</button>
+            </div>
             `;
             newElement.classList.add('mb-2');
             targetElement.appendChild(newElement);
@@ -275,13 +279,16 @@
       var commandersParent = document.getElementById("selectedCommandersResults");
       var unitsParent = document.getElementById("selectedUnitsResults");
       var commanders = commandersParent.querySelectorAll(".magic-container-js");
+      var units = unitsParent.querySelectorAll(".magic-container-js");
       var proccessedCommanders = [];
+      var proccessedUnits = [];
       var forNation = document.getElementById("hiddenMagicEdit").dataset["nation"];
+      // let's process commanders first
       var magicList = ["fire", "air", "water", "earth", "astral", "death", "nature", "blood", "priest"];
       for (var i = 0; i < commanders.length; i++) {
         var commanderRow = commanders[i];
         var commanderData = commanderRow.querySelector(".data-js");
-        var dominionsId = commanderData.dataset["dominionsId"];
+        var dominionsId = commanderData.dataset["dominionsid"];
         var name = commanderData.dataset["name"];
         var magic = {};
         for (var k = 0; k < magicList.length; k++) {
@@ -306,7 +313,22 @@
           });
         }
       }
+      // now it's time to process units
+      for (var i = 0; i < units.length; i++) {
+        var unitRow = units[i];
+        var unitData = unitRow.querySelector(".data-js");
+        var dominionsId = unitData.dataset["dominionsid"];
+        var name = unitData.dataset["name"];
+        var quantity = unitRow.querySelector(".quantity-js").value;
+        proccessedUnits.push({
+          dominions_id: dominionsId,
+          name: name,
+          for_nation: forNation,
+          quantity: quantity,
+        });
+      }
       console.log(proccessedCommanders);
+      console.log(proccessedUnits);
       target.classList.remove('disabled');
     }
   });
