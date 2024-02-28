@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main_content %}
-<div class="container mt-5">
+<div class="mt-5">
   <div class="text-center">
     <h2 class="display-4 mb-4">Select units for nation {{name}}</h2>
   </div>
@@ -10,14 +10,13 @@
         <p class="lead">Select units that will be used for indicated nation.</p>
         <p>For this step, you should select commanders and units. You can skip this if you do not want to add anything to starting troops of the nation;</p>
         <p>For map to generate correctly, you should have at least 1 commander to add additional units to;</p>
-        <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them;</p>
-        <p>Use <a href="https://larzm42.github.io/dom5inspector/" target="_blank" rel="noopener noreferrer">Dom5 inspector</a> to find out unit_id;</p>
+        <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them (use <a href="https://larzm42.github.io/dom5inspector/" target="_blank" rel="noopener noreferrer">Dom5 inspector</a> to find out unit_id);</p>
     </div>
   </div>
   <div class="row">
     <form id="selectedMods">
       <div class="mb-4">
-        <p>Select mods if you need any:</p>
+        <h4>Select mods if you need any:</h4>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="de" name="mods" id="DominionsEnhanced">
           <label class="form-check-label" for="DominionsEnhanced">
@@ -27,7 +26,7 @@
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="debug" name="mods" id="DebugMod">
           <label class="form-check-label" for="DebugMod">
-            DebugMod
+            DebugMod (adds Debug Sensei to the lists below)
           </label>
         </div>
       </div>
@@ -197,6 +196,7 @@
             newElement.classList.add('mb-2');
             targetElement.appendChild(newElement);
           }
+          parentDiv.querySelector(".results-js").innerHTML = "";
         };
     }
   });
@@ -327,8 +327,37 @@
           quantity: quantity,
         });
       }
-      console.log(proccessedCommanders);
-      console.log(proccessedUnits);
+      var currentCommanders = localStorage.getItem("commanders");
+      if (!currentCommanders) {
+         currentCommanders = [];
+      } else {
+        currentCommanders = JSON.parse(currentCommanders);
+      }
+      var currentUnits = localStorage.getItem("units");
+      if (!currentUnits) {
+         currentUnits = [];
+      } else {
+        currentUnits = JSON.parse(currentUnits);
+      }
+      // add processedCommanders array to currentCommanders array
+      currentCommanders = currentCommanders.concat(proccessedCommanders);
+      localStorage.setItem("commanders", JSON.stringify(currentCommanders));
+      // add processedUnits array to currentUnits array
+      currentUnits = currentUnits.concat(proccessedUnits);
+      localStorage.setItem("units", JSON.stringify(currentUnits));
+      var urls = JSON.parse(localStorage.getItem("urls"));
+      var nextIndex = localStorage.getItem("nextIndex");
+      var previosIndex = localStorage.getItem("previosIndex");
+      var nextUrl = urls[nextIndex];
+      if (!nextUrl) {
+
+      } else {
+        nextIndex++;
+        previosIndex++;
+        localStorage.setItem("nextIndex", nextIndex);
+        localStorage.setItem("previosIndex", previosIndex);
+        window.location.replace(nextUrl);
+      }
       target.classList.remove('disabled');
     }
   });

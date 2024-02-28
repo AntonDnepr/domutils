@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main_content %}
-<div class="container mt-5">
+<div class="mt-5">
   <div class="text-center">
     <h2 class="display-4 mb-4">Select nations</h2>
   </div>
@@ -16,7 +16,7 @@
   <div class="row">
     <form id="selectedMods">
       <div class="mb-4">
-        <p>Select mods if you need any:</p>
+        <h4>Select mods if you need any:</h4>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="de" name="mods" id="DominionsEnhanced">
           <label class="form-check-label" for="DominionsEnhanced">
@@ -120,6 +120,10 @@
     localStorage.setItem("urls", JSON.stringify(urls));
     localStorage.setItem("nextIndex", 1);
     localStorage.setItem("previosIndex", 0);
+    localStorage.setItem("land_nation_1", document.getElementById("land_nation_1").value || "");
+    localStorage.setItem("land_nation_2", document.getElementById("land_nation_2").value || "");
+    localStorage.setItem("water_nation_1", document.getElementById("water_nation_1").value || "");
+    localStorage.setItem("water_nation_2", document.getElementById("water_nation_2").value || "");
     var redirectUrl = urls[0];
     window.location.replace(redirectUrl);
   });
