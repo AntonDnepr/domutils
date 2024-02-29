@@ -350,7 +350,37 @@
       var previosIndex = localStorage.getItem("previosIndex");
       var nextUrl = urls[nextIndex];
       if (!nextUrl) {
-
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/dom5/generate-map/");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        // You should set responseType as blob for binary responses
+        xhr.responseType = 'blob';
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Trick for making downloadable link
+                a = document.createElement('a');
+                a.href = window.URL.createObjectURL(xhr.response);
+                // Give filename you wish to download
+                a.download = "Arena.map";
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                localStorage.setItem("commanders", []);
+                localStorage.setItem("units", []);
+                a.click();
+            } else {
+              alert("Error happened, please try again.")
+            }
+          }
+        };
+        xhr.send(JSON.stringify({
+          "water_nation_1": localStorage.getItem("water_nation_1"),
+          "water_nation_2": localStorage.getItem("water_nation_2"),
+          "land_nation_1": localStorage.getItem("land_nation_1"),
+          "land_nation_2": localStorage.getItem("land_nation_2"),
+          "commanders": currentCommanders,
+          "units": currentUnits,
+        }));
       } else {
         nextIndex++;
         previosIndex++;
