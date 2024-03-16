@@ -11,6 +11,7 @@ sentry-sdk = {extras = ["sanic"], version = "*"}
 redis-om = "*"
 ujson = "*"
 jinja2 = "*"
+requests = "*"
 
 [dev-packages]
 ipdb = "*"                           # Debugging
