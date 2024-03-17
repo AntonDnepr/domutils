@@ -91,3 +91,5 @@ pip-selfcheck.json
 
 # MyPy cache
 .mypy_cache/
+
+apps/dom6data/csvs

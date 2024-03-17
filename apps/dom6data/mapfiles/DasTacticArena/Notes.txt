@@ -1,0 +1,13 @@
+DESC from STEAM:
+
+Best for 2 players.
+
+This is a fully compliant Dominions 6 hand-crafted map that allows for the full range of changing terrain. Plains, Forests, Swamps, Wastes. Highlands, Floods, and more. Along with winter versions of all the terrain types as seen in the images.
+
+At time of uploading there are still some issues with the map making that need to be sorted and as these become available I will continue to curate these files.
+
+This is a very small arena for testing your army builds. The map was designed to used in conjunction with simple mods like the Debug Mod to set up specific scenarios. 
+
+Author: DasTactic (http://www.youtube.com/dastactic). 
+
+Map files and notes available at https://ko-fi.com/dastactic
