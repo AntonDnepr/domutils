@@ -4,7 +4,7 @@ import os
 import re
 
 from core.redis import get_redis_client
-from dom6data.models import Dom6Nation, Dom6Unit, DEBUG
+from dom6data.models import DEBUG, Dom6Nation, Dom6Unit
 
 
 def parse_dom6_units():
@@ -29,6 +29,9 @@ def parse_dom6_units():
     ) as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
         for row in reader:
+            # file contains some internal or not functional nations
+            if row["era"] == "0":
+                continue
             nation = Dom6Nation(
                 name=row["name"], dominions_id=row["id"], era=row["era"]
             )
