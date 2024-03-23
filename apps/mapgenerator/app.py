@@ -65,7 +65,7 @@ async def autocomplete_units(request: Request) -> JSONResponse:
         context={"units": [x.dict() for x in units]},
     )
 
-d
+
 @app.get("/dom5/autocomplete/nations/")
 async def autocomplete_nations(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])

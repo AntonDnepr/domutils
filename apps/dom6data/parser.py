@@ -4,7 +4,7 @@ import os
 import re
 
 from core.redis import get_redis_client
-from dom6data.models import DEBUG, Dom6Nation, Dom6Unit
+from dom6data.models import DEBUG, Dom6Item, Dom6Nation, Dom6Unit
 
 
 def parse_dom6_units():
@@ -103,5 +103,21 @@ def parse_dom6_dm_files():
                                 .replace('"', "")
                                 .replace("\n", "")
                             )
+    pipeline.execute()
+    pipeline.reset()
+
+
+def parse_dom6_inventory():
+    client = get_redis_client()
+    pipeline = client.pipeline()
+    item_pks = Dom6Item.all_pks()
+    [Dom6Item.delete(item_pk, pipeline=pipeline) for item_pk in item_pks]
+    pipeline.execute()
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(current_dir, "csvs/BaseI.csv"), "r", newline="") as csv_file:
+        reader = csv.DictReader(csv_file, delimiter="\t")
+        for row in reader:
+            item = Dom6Item(name=row["name"])
+            item.save(pipeline=pipeline)
     pipeline.execute()
     pipeline.reset()

@@ -27,4 +27,12 @@ class Dom6Unit(HashModel):
         database = get_redis_client()
 
 
+class Dom6Item(HashModel):
+    name: str = Field(index=True, full_text_search=True)
+    mod: Optional[str] = Field(index=True, default=VANILLA)
+
+    class Meta:
+        database = get_redis_client()
+
+
 Migrator().run()
