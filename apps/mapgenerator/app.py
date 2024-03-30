@@ -3,7 +3,14 @@ from os import getenv
 from urllib.parse import unquote_plus
 
 import sentry_sdk
-from apps.mapgenerator.mapgen import data_into_map, process_data, substitute
+from apps.mapgenerator.mapgen import (
+    data_into_map,
+    dom6_data_into_map,
+    dom6_process_data,
+    dom6_substitute,
+    process_data,
+    substitute,
+)
 from core.consts import ERAS, VANILLA
 from dom6data.models import Dom6Nation, Dom6Unit
 from domdata.models import Nation, Unit
@@ -189,9 +196,9 @@ async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
 @app.post("/dom6/generate-map/")
 async def dom6_generate_map(request: Request):
     json_data = request.json
-    returned_data = process_data(json_data)
-    mapgenerated_text = data_into_map(returned_data)
-    final_map = substitute(json_data, mapgenerated_text)
+    returned_data = dom6_process_data(json_data)
+    mapgenerated_text = dom6_data_into_map(returned_data)
+    final_map = dom6_substitute(json_data, mapgenerated_text)
     map_as_bytes = StringIO(final_map)
     resp = await request.respond(content_type="text/plain; charset=utf-8")
     resp.headers["Content-Disposition"] = "attachment; filename=MyArena.map"

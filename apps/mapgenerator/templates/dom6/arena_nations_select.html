@@ -14,30 +14,13 @@
     </div>
   </div>
   <div class="row">
-    <form id="selectedMods">
-      <div class="mb-4">
-        <h4>Select mods if you need any:</h4>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="de" name="mods" id="DominionsEnhanced">
-          <label class="form-check-label" for="DominionsEnhanced">
-            DominionsEnhanced
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="debug" name="mods" id="DebugMod">
-          <label class="form-check-label" for="DebugMod">
-            DebugMod
-          </label>
-        </div>
-      </div>
-    </form>
     <form class="mb-3">
       <h3>Land nations</h3>
       <div class="mb-3 parent-js">
         <label for="land_nation_1" class="form-label">Land Nation 1</label>
         <input type="text" class="form-control" id="land_nation_1" name="search_term" data-id="land_nation_1"
           hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_1Results" placeholder="Search..."
-          hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+          hx-get="/dom6/autocomplete/nations/">
         <div id="land_nation_1Results" class="mt-2">
 
         </div>
@@ -46,7 +29,7 @@
         <label for="land_nation_2" class="form-label">Land Nation 2</label>
         <input type="text" class="form-control" id="land_nation_2" name="search_term" data-id="land_nation_2"
           hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_2Results" placeholder="Search..."
-          hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+          hx-get="/dom6/autocomplete/nations/">
         <div id="land_nation_2Results" class="mt-2">
 
         </div>
@@ -56,7 +39,7 @@
         <label for="water_nation_1" class="form-label">Underwater Nation 1</label>
         <input type="text" class="form-control" id="water_nation_1" name="search_term" data-id="water_nation_1"
         hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_1Results" placeholder="Search..."
-        hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+        hx-get="/dom6/autocomplete/nations/">
         <div id="water_nation_1Results" class="mt-2">
 
         </div>
@@ -65,7 +48,7 @@
         <label for="water_nation_2" class="form-label">Underwater Nation 2</label>
         <input type="text" class="form-control" id="water_nation_2" name="search_term" data-id="water_nation_2"
         hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_2Results" placeholder="Search..."
-        hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+        hx-get="/dom6/autocomplete/nations/">
         <div id="water_nation_2Results" class="mt-2">
 
         </div>
@@ -113,7 +96,7 @@
       const parentElement = parentElements[i];
       var targetInput = parentElement.querySelector('input');
       if (targetInput.value) {
-        var myString = `/dom5/arena-mapgen/${targetInput.value}`;
+        var myString = `/dom6/arena-mapgen/${targetInput.value}`;
         urls.push(myString);
       }
     }

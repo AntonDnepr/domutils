@@ -10,23 +10,20 @@
         <p class="lead">Select units that will be used for indicated nation.</p>
         <p>For this step, you should select commanders and units. You can skip this if you do not want to add anything to starting troops of the nation;</p>
         <p>For map to generate correctly, you should have at least 1 commander to add additional units to;</p>
-        <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them (use <a href="https://larzm42.github.io/dom5inspector/" target="_blank" rel="noopener noreferrer">Dom5 inspector</a> to find out unit_id);</p>
+        <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them (use <a href="https://larzm42.github.io/dom6inspector/" target="_blank" rel="noopener noreferrer">Dom6 inspector</a> to find out unit_id);</p>
     </div>
   </div>
   <div class="row">
     <form id="selectedMods">
       <div class="mb-4">
-        <h4>Select mods if you need any:</h4>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="de" name="mods" id="DominionsEnhanced">
-          <label class="form-check-label" for="DominionsEnhanced">
-            DominionsEnhanced
-          </label>
-        </div>
+        <h4>Do you need units from DebugMod?</h4>
+        <p>DebugMod can be installed from
+           <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3083231618"
+           rel="noopener noreferrer" target="_blank">here</a></p>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="debug" name="mods" id="DebugMod">
           <label class="form-check-label" for="DebugMod">
-            DebugMod (adds Debug Sensei to the lists below)
+            DebugMod
           </label>
         </div>
       </div>
@@ -43,7 +40,7 @@
               <label for="commanders" class="form-label">Commanders search</label>
               <input type="text" class="form-control" id="commanders" name="search_term" data-id="commanders"
                 hx-trigger="keyup changed delay:500ms" hx-target="#commandersResults" placeholder="Search..."
-                hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
+                hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
               <div id="commandersResults" data-type="commanders" class="mt-2 results-js">
 
               </div>
@@ -62,7 +59,7 @@
             <label for="units" class="form-label">Units search</label>
             <input type="text" class="form-control" id="units" name="search_term" data-id="units"
             hx-trigger="keyup changed delay:500ms" hx-target="#unitsResults" placeholder="Search..."
-            hx-include="#selectedMods" hx-get="/dom5/autocomplete/units/">
+            hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
             <div id="unitsResults" data-type="units" class="mt-2 results-js">
 
             </div>
@@ -128,6 +125,12 @@
       <div class="input-group mb-3">
         <span class="input-group-text">N</span>
         <input data-short="N" data-type="nature" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">G</span>
+        <input data-short="G" data-type="glamour" type="number" min="0" max="10" class="form-control">
       </div>
     </div>
     <div class="col-3">
@@ -284,7 +287,7 @@
       var proccessedUnits = [];
       var forNation = document.getElementById("hiddenMagicEdit").dataset["nation"];
       // let's process commanders first
-      var magicList = ["fire", "air", "water", "earth", "astral", "death", "nature", "blood", "priest"];
+      var magicList = ["fire", "air", "water", "earth", "astral", "death", "nature", "glamour", "blood", "priest"];
       for (var i = 0; i < commanders.length; i++) {
         var commanderRow = commanders[i];
         var commanderData = commanderRow.querySelector(".data-js");
@@ -351,7 +354,7 @@
       var nextUrl = urls[nextIndex];
       if (!nextUrl) {
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "/dom5/generate-map/");
+        xhr.open("POST", "/dom6/generate-map/");
         xhr.setRequestHeader("Content-Type", "application/json");
         // You should set responseType as blob for binary responses
         xhr.responseType = 'blob';
