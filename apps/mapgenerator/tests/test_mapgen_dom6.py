@@ -14,7 +14,7 @@ def parse_data_process():
     parse_dom6_dm_files()
 
 
-def test_generate_map_serializer_processed_data(initial_dom6_data_for_mapgen):
+def test_dom6_generate_map_serializer_processed_data(initial_dom6_data_for_mapgen):
     data, nation1, nation2 = initial_dom6_data_for_mapgen
     returned_data = dom6_process_data(data)
     assert returned_data == [
@@ -22,7 +22,11 @@ def test_generate_map_serializer_processed_data(initial_dom6_data_for_mapgen):
             nation1.dominions_id: [
                 {
                     "1786": {
-                        "magic": {"mag_fire": "2", "mag_blood": "2"},
+                        "magic": {
+                            "mag_fire": "2",
+                            "mag_blood": "2",
+                            "mag_glamour": "3",
+                        },
                         "units": [("105", "10")],
                     }
                 }
@@ -36,7 +40,7 @@ def test_generate_map_serializer_processed_data(initial_dom6_data_for_mapgen):
     ]
 
 
-def test_mapgenerator_function(initial_dom6_data_for_mapgen):
+def test_dom6_mapgenerator_function(initial_dom6_data_for_mapgen):
     data, nation1, nation2 = initial_dom6_data_for_mapgen
     start1, start2 = LAND_STARTS
     returned_data = dom6_process_data(data)
@@ -45,7 +49,7 @@ def test_mapgenerator_function(initial_dom6_data_for_mapgen):
     assert mapgenerated_text[0] == (
         (
             "\n#allowedplayer {0}\n#specstart {0} {1}\n#setland {1}\n#commander 1786\n"
-            "#units 10 105\n#clearmagic\n#mag_fire 2\n#mag_blood 2"
+            "#units 10 105\n#clearmagic\n#mag_fire 2\n#mag_blood 2\n#mag_glamour 3"
         ).format(nation1.dominions_id, start1)
     )
     assert mapgenerated_text[1] == (
@@ -109,7 +113,9 @@ def data_for_mapgen_uw():
     )
 
 
-def test_generate_map_serializer_processed_data_with_water_nation(data_for_mapgen_uw):
+def test_dom6_generate_map_serializer_processed_data_with_water_nation(
+    data_for_mapgen_uw,
+):
     data, nation3, nation4 = data_for_mapgen_uw
     returned_data = dom6_process_data(data)
     assert returned_data == [
@@ -131,7 +137,7 @@ def test_generate_map_serializer_processed_data_with_water_nation(data_for_mapge
     ]
 
 
-def test_mapgenerator_function_with_water_nation(data_for_mapgen_uw):
+def test_dom6_mapgenerator_function_with_water_nation(data_for_mapgen_uw):
     data, nation3, nation4 = data_for_mapgen_uw
     start1, start2 = WATER_STARTS
     returned_data = dom6_process_data(data)
@@ -151,7 +157,7 @@ def test_mapgenerator_function_with_water_nation(data_for_mapgen_uw):
     )
 
 
-def test_insert_data_into_template(initial_dom6_data_for_mapgen):
+def test_dom6_insert_data_into_template(initial_dom6_data_for_mapgen):
     data, *other = initial_dom6_data_for_mapgen
     returned_data = dom6_process_data(data)
     mapgenerated_text = dom6_data_into_map(returned_data)
@@ -162,7 +168,7 @@ def test_insert_data_into_template(initial_dom6_data_for_mapgen):
     assert "$nation4" not in final_map
 
 
-def test_insert_uw_data_into_template(data_for_mapgen_uw):
+def test_dom6_insert_uw_data_into_template(data_for_mapgen_uw):
     data, nation1, nation2 = data_for_mapgen_uw
     returned_data = dom6_process_data(data)
     mapgenerated_text = dom6_data_into_map(returned_data)
@@ -173,7 +179,7 @@ def test_insert_uw_data_into_template(data_for_mapgen_uw):
     assert "$nation4" not in final_map
 
 
-def test_map_with_cave(initial_dom6_data_for_mapgen):
+def test_dom6_map_with_cave(initial_dom6_data_for_mapgen):
     data, *other = initial_dom6_data_for_mapgen
     data_with_cave = copy.deepcopy(data)
     data_with_cave["use_cave_map"] = True

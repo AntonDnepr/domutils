@@ -85,7 +85,7 @@ def initial_dom6_data_for_mapgen():
                     "name": "Fir Bolg",
                     "for_nation": "(EA) Tir na n'Og",
                     "quantity": 1,
-                    "magic": {"fire": "2", "blood": "2"},
+                    "magic": {"fire": "2", "blood": "2", "glamour": "3"},
                 },
                 {
                     "dominions_id": "7",

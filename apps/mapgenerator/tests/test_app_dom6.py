@@ -47,7 +47,7 @@ def generated_data():
     pipeline.execute()
 
 
-def test_autocomplete_units_query():
+def test_dom6_autocomplete_units_query():
     request, response = app.test_client.get(
         "/dom6/autocomplete/units/?search_term=Aloha&mods=test"
     )
@@ -58,7 +58,7 @@ def test_autocomplete_units_query():
     assert "AlohaMonster2" in data
 
 
-def test_autocomplete_units_empty_query():
+def test_dom6_autocomplete_units_empty_query():
     request, response = app.test_client.get("/dom6/autocomplete/units/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
@@ -66,7 +66,7 @@ def test_autocomplete_units_empty_query():
     assert "table-responsive" not in data
 
 
-def test_autocomplete_nations_query():
+def test_dom6_autocomplete_nations_query():
     request, response = app.test_client.get(
         "/dom6/autocomplete/nations/?search_term=Aloha&mods=test"
     )
@@ -76,7 +76,7 @@ def test_autocomplete_nations_query():
     assert "AlohaNation" in data
 
 
-def test_autocomplete_nations_empty_query():
+def test_dom6_autocomplete_nations_empty_query():
     request, response = app.test_client.get("/dom6/autocomplete/nations/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
@@ -84,7 +84,7 @@ def test_autocomplete_nations_empty_query():
     assert "table-responsive" not in data
 
 
-def test_map_generation_view(initial_dom6_data_for_mapgen):
+def test_dom6_map_generation_view(initial_dom6_data_for_mapgen):
     parse_dom6_units()
     parse_dom6_dm_files()
     data, *_ = initial_dom6_data_for_mapgen
