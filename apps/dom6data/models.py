@@ -1,11 +1,8 @@
 from typing import Optional
 
+from apps.core.consts import VANILLA
 from core.redis import get_redis_client
 from redis_om import Field, HashModel, Migrator
-
-DEBUG = "debug"
-VANILLA = "vanilla"
-TEST = "test"
 
 
 class Dom6Nation(HashModel):

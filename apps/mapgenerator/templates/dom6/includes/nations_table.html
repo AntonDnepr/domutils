@@ -1,0 +1,22 @@
+{% if nations %}
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Era</th>
+          <th scope="col">Name</th>
+          <th scope="col">Internal id</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for nation in nations %}
+          <tr data-id="{{nation.dominions_id}}" data-name="({{nation.era}}) {{nation.name}}" class="selectable selectable-js">
+            <td>{{nation.era}}</td>
+            <td>{{nation.name}}</td>
+            <td>{{nation.dominions_id}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}

@@ -4,8 +4,9 @@ from urllib.parse import unquote_plus
 
 import sentry_sdk
 from apps.mapgenerator.mapgen import data_into_map, process_data, substitute
-from core.consts import ERAS
-from domdata.models import VANILLA, Nation, Unit
+from core.consts import ERAS, VANILLA
+from dom6data.models import Dom6Nation, Dom6Unit
+from domdata.models import Nation, Unit
 from sanic import Sanic
 from sanic.request import Request
 from sanic.response.types import JSONResponse
@@ -115,4 +116,93 @@ async def dom5_arena_units(request: Request, name: str):
         "dom5/units.html",
         status=200,
         context={"dom5_arena_active": True, "name": unquote_plus(name)},
+    )
+
+
+@app.get("/dom6/arena-mapgen/")
+async def dom6_arena(request: Request):
+    return await render(
+        "dom6/arena.html", status=200, context={"dom6_arena_active": True}
+    )
+
+
+@app.get("/dom6/arena-mapgen/select-nations/")
+async def dom6_arena_nations_select(request: Request):
+    return await render(
+        "dom6/arena_nations_select.html",
+        status=200,
+        context={"dom6_arena_active": True},
+    )
+
+
+@app.get("/dom6/autocomplete/units/")
+async def dom6_autocomplete_units(request: Request) -> JSONResponse:
+    mods = request.args.getlist("mods", [])
+    search_term = request.args.get("search_term", "")
+    if not search_term:
+        return await render(
+            "dom6/includes/units_table.html",
+            status=200,
+            context={"units": []},
+        )
+    mods_query = Dom6Unit.mod == VANILLA
+    for selected_mod in mods:
+        mods_query |= Dom6Unit.mod == selected_mod
+    units = Dom6Unit.find((Dom6Unit.name % f"{search_term}*") & mods_query).all()
+    return await render(
+        "dom6/includes/units_table.html",
+        status=200,
+        context={"units": [x.dict() for x in units]},
+    )
+
+
+@app.get("/dom6/autocomplete/nations/")
+async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
+    mods = request.args.getlist("mods", [])
+    search_term = request.args.get("search_term", "")
+    if not search_term:
+        return await render(
+            "dom6/includes/nations_table.html",
+            status=200,
+            context={"nations": []},
+        )
+    mods_query = Dom6Nation.mod == VANILLA
+    for selected_mod in mods:
+        mods_query |= Dom6Nation.mod == selected_mod
+    nations = Dom6Nation.find((Dom6Nation.name % f"{search_term}*") & mods_query).all()
+    return await render(
+        "dom6/includes/nations_table.html",
+        status=200,
+        context={
+            "nations": [
+                {
+                    "era": ERAS[x.era],
+                    "name": x.name,
+                    "dominions_id": x.dominions_id,
+                }
+                for x in nations
+            ]
+        },
+    )
+
+
+@app.post("/dom6/generate-map/")
+async def dom6_generate_map(request: Request):
+    json_data = request.json
+    returned_data = process_data(json_data)
+    mapgenerated_text = data_into_map(returned_data)
+    final_map = substitute(json_data, mapgenerated_text)
+    map_as_bytes = StringIO(final_map)
+    resp = await request.respond(content_type="text/plain; charset=utf-8")
+    resp.headers["Content-Disposition"] = "attachment; filename=MyArena.map"
+    await resp.send(map_as_bytes.read())
+    await resp.eof()
+
+
+@app.get("/dom6/arena-mapgen/<name:str>/")
+async def dom6_arena_units(request: Request, name: str):
+    return await render(
+        "dom6/units.html",
+        status=200,
+        context={"dom6_arena_active": True, "name": unquote_plus(name)},
     )

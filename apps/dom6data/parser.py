@@ -3,8 +3,9 @@ import glob
 import os
 import re
 
+from core.consts import DEBUG
 from core.redis import get_redis_client
-from dom6data.models import DEBUG, Dom6Item, Dom6Nation, Dom6Unit
+from dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 
 
 def parse_dom6_units():
