@@ -2,5 +2,20 @@
 
 {% block main_content %}
 <h2 class="display-6 mt-5">Welcome to Dominions 5 / 6 Utils</h2>
-<p class="lead">Select a tool from the menu to the left.</p>
+<p class="lead">Select a tool:</p>
+<ul>
+    <li class="nav-item">
+        <a class="nav-link {% if dom5_arena_active %} active {% endif %}" aria-current="page"
+          href="/dom5/arena-mapgen/">
+          <span data-feather="home"></span>
+          Arena map generator
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <span data-feather="file-text"></span>
+          Dominions6 Arena map generator
+        </a>
+      </li>
+</ul>
 {% endblock main_content %}
