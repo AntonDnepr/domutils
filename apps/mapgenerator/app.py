@@ -12,7 +12,7 @@ from apps.mapgenerator.mapgen import (
     substitute,
 )
 from core.consts import ERAS, VANILLA
-from dom6data.models import Dom6Nation, Dom6Unit
+from dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 from domdata.models import Nation, Unit
 from sanic import Sanic
 from sanic.request import Request
@@ -190,6 +190,27 @@ async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
                 for x in nations
             ]
         },
+    )
+
+
+@app.get("/dom6/autocomplete/items/")
+async def dom6_autocomplete_items(request: Request) -> JSONResponse:
+    mods = request.args.getlist("mods", [])
+    search_term = request.args.get("search_term", "")
+    if not search_term:
+        return await render(
+            "dom6/includes/items_table.html",
+            status=200,
+            context={"items": []},
+        )
+    mods_query = Dom6Item.mod == VANILLA
+    for selected_mod in mods:
+        mods_query |= Dom6Item.mod == selected_mod
+    items = Dom6Item.find((Dom6Item.name % f"{search_term}*") & mods_query).all()
+    return await render(
+        "dom6/includes/items_table.html",
+        status=200,
+        context={"items": [{"name": x.name} for x in items]},
     )
 
 

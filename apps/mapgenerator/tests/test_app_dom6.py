@@ -3,7 +3,7 @@ from apps.dom6data.parser import parse_dom6_dm_files, parse_dom6_units
 from apps.mapgenerator.app import app
 from core.consts import TEST
 from core.redis import get_redis_client
-from dom6data.models import Dom6Nation, Dom6Unit
+from dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 
 
 @pytest.fixture(scope="module", autouse=True)
@@ -36,6 +36,10 @@ def generated_data():
         mod=TEST,
     )
     nation2.save(pipeline=pipeline)
+    item1 = Dom6Item(name="Test item of magic", mod=TEST)
+    item1.save(pipeline=pipeline)
+    item2 = Dom6Item(name="Garlic for vampires", mod=TEST)
+    item2.save(pipeline=pipeline)
     pipeline.execute()
     yield
     units = Dom6Unit.find(Dom6Unit.mod == TEST).all()
@@ -43,6 +47,9 @@ def generated_data():
         unit.delete(pk=unit.pk, pipeline=pipeline)
     nations = Dom6Nation.find(Dom6Nation.mod == TEST).all()
     for nation in nations:
+        nation.delete(pk=nation.pk, pipeline=pipeline)
+    items = Dom6Item.find(Dom6Item.mod == TEST).all()
+    for nation in items:
         nation.delete(pk=nation.pk, pipeline=pipeline)
     pipeline.execute()
 
@@ -93,3 +100,22 @@ def test_dom6_map_generation_view(initial_dom6_data_for_mapgen):
     assert response.status == 200
     assert response.content_type == "text/plain; charset=utf-8"
     assert response.headers["Content-Disposition"] == "attachment; filename=MyArena.map"
+
+
+def test_dom6_autocomplete_items_query():
+    request, response = app.test_client.get(
+        "/dom6/autocomplete/items/?search_term=garlic&mods=test"
+    )
+    assert request.method.lower() == "get"
+    assert response.status == 200
+    assert response.status == 200
+    data = response.body.decode("utf-8")
+    assert "Garlic for vampires" in data
+
+
+def test_dom6_autocomplete_items_empty_query():
+    request, response = app.test_client.get("/dom6/autocomplete/items/?mods=test")
+    assert request.method.lower() == "get"
+    assert response.status == 200
+    data = response.body.decode("utf-8")
+    assert "table-responsive" not in data
