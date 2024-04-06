@@ -219,10 +219,9 @@
             var targetElement = document.getElementById("selectedItemsResults");
             var newElement = document.createElement('div');
             var dataName = this.getAttribute('data-name');
-            newElement.innerHTML = `<div class="mb-1">
+            newElement.innerHTML = `
               <span class="item-data-js" data-name="${dataName}">${dataName}</span>
               <button type="button" class="btn btn-danger delete-item-js">Delete</button>
-            </div>
             `;
             newElement.classList.add('mb-2');
             targetElement.appendChild(newElement);
@@ -281,6 +280,10 @@
           input.value = value;
         }
       }
+    } else if(target.classList.contains("delete-item-js")){
+      // deletes item row from the item modal handler
+      var finalTarget = target.parentNode;
+      finalTarget.parentNode.removeChild(finalTarget);
     } else if (target.id === "visibility") {
       // show-hide autocomplete elements
       var elements = document.querySelectorAll(".parent-js");
