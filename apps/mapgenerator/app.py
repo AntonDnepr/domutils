@@ -12,6 +12,7 @@ from apps.mapgenerator.mapgen import (
     substitute,
 )
 from core.consts import ERAS, VANILLA
+from core.utils import clean_search_string
 from dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 from domdata.models import Nation, Unit
 from sanic import Sanic
@@ -57,6 +58,7 @@ async def dom5_arena_nations_select(request: Request):
 async def autocomplete_units(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
+    search_term = clean_search_string(search_term)
     if not search_term:
         return await render(
             "dom5/includes/units_table.html",
@@ -67,6 +69,8 @@ async def autocomplete_units(request: Request) -> JSONResponse:
     for selected_mod in mods:
         mods_query |= Unit.mod == selected_mod
     units = Unit.find((Unit.name % f"{search_term}*") & mods_query).all()
+    if not units:
+        units = Unit.find((Unit.name % f"{search_term}") & mods_query).all()
     return await render(
         "dom5/includes/units_table.html",
         status=200,
@@ -78,6 +82,7 @@ async def autocomplete_units(request: Request) -> JSONResponse:
 async def autocomplete_nations(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
+    search_term = clean_search_string(search_term)
     if not search_term:
         return await render(
             "dom5/includes/nations_table.html",
@@ -88,6 +93,8 @@ async def autocomplete_nations(request: Request) -> JSONResponse:
     for selected_mod in mods:
         mods_query |= Nation.mod == selected_mod
     nations = Nation.find((Nation.name % f"{search_term}*") & mods_query).all()
+    if not nations:
+        nations = Nation.find((Nation.name % f"{search_term}") & mods_query).all()
     return await render(
         "dom5/includes/nations_table.html",
         status=200,
@@ -146,6 +153,7 @@ async def dom6_arena_nations_select(request: Request):
 async def dom6_autocomplete_units(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
+    search_term = clean_search_string(search_term)
     if not search_term:
         return await render(
             "dom6/includes/units_table.html",
@@ -156,6 +164,8 @@ async def dom6_autocomplete_units(request: Request) -> JSONResponse:
     for selected_mod in mods:
         mods_query |= Dom6Unit.mod == selected_mod
     units = Dom6Unit.find((Dom6Unit.name % f"{search_term}*") & mods_query).all()
+    if not units:
+        units = Dom6Unit.find((Dom6Unit.name % f"{search_term}") & mods_query).all()
     return await render(
         "dom6/includes/units_table.html",
         status=200,
@@ -167,6 +177,7 @@ async def dom6_autocomplete_units(request: Request) -> JSONResponse:
 async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
+    search_term = clean_search_string(search_term)
     if not search_term:
         return await render(
             "dom6/includes/nations_table.html",
@@ -177,6 +188,10 @@ async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
     for selected_mod in mods:
         mods_query |= Dom6Nation.mod == selected_mod
     nations = Dom6Nation.find((Dom6Nation.name % f"{search_term}*") & mods_query).all()
+    if not nations:
+        nations = Dom6Nation.find(
+            (Dom6Nation.name % f"{search_term}") & mods_query
+        ).all()
     return await render(
         "dom6/includes/nations_table.html",
         status=200,
@@ -197,6 +212,7 @@ async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
 async def dom6_autocomplete_items(request: Request) -> JSONResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
+    search_term = clean_search_string(search_term)
     if not search_term:
         return await render(
             "dom6/includes/items_table.html",
@@ -207,6 +223,8 @@ async def dom6_autocomplete_items(request: Request) -> JSONResponse:
     for selected_mod in mods:
         mods_query |= Dom6Item.mod == selected_mod
     items = Dom6Item.find((Dom6Item.name % f"{search_term}*") & mods_query).all()
+    if not items:
+        items = Dom6Item.find((Dom6Item.name % f"{search_term}") & mods_query).all()
     return await render(
         "dom6/includes/items_table.html",
         status=200,

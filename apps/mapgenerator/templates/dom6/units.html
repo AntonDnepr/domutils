@@ -9,7 +9,7 @@
     <div class="mb-4">
         <p class="lead">Select units that will be used for indicated nation.</p>
         <p>For this step, you should select commanders and units. You can skip this if you do not want to add anything to starting troops of the nation;</p>
-        <p>For map to generate correctly, you should have at least 1 commander to add additional units to;</p>
+        <p class="fw-bold">For map to generate correctly, you should have at least 1 commander to add additional units to;</p>
         <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them (use <a href="https://larzm42.github.io/dom6inspector/" target="_blank" rel="noopener noreferrer">Dom6 inspector</a> to find out unit_id);</p>
     </div>
   </div>
@@ -151,6 +151,39 @@
   </div>
 </div>
 
+<div id="ItemsModal" class="modal fade"tabindex="-1" aria-labelledby="ItemsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Items search</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3 parent-js">
+            <label for="items" class="form-label">Items search</label>
+            <input type="text" class="form-control" id="items-search" name="search_term" data-id="items"
+              hx-trigger="keyup changed delay:500ms" hx-target="#itemsSearchResults" placeholder="Search..."
+              hx-include="#selectedMods" hx-get="/dom6/autocomplete/items/">
+            <div id="itemsSearchResults" data-type="items" class="mt-2 results-js">
+
+            </div>
+          </div>
+          <div class="mb-3">
+            <h5>Selected items</h5>
+            <div id="selectedItemsResults">
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock main_content %}
 
 {% block extra_js %}
@@ -170,13 +203,25 @@
             var dataName = this.getAttribute('data-name');
             var dataID = this.getAttribute('data-id');
             newElement.innerHTML = `<div class="magic-container-js mb-1">
-              <span class="data-js" data-dominionsid="${dataID}" data-name="${dataName}">
+              <span class="data-js" data-dominionsid="${dataID}" data-name="${dataName}" data-items="">
                 (${dataID}) ${dataName}
               </span>
               <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button>
+              <button type="button" class="btn btn-dark edit-items-js" data-bs-toggle="modal" data-bs-target="#ItemsModal">Add Items</button>
               <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button>
               <button type="button" class="btn btn-danger delete-row-js">Delete</button>
               <span class="magic-info-js">Default magic</span>
+            </div>
+            `;
+            newElement.classList.add('mb-2');
+            targetElement.appendChild(newElement);
+          } else if (targetList.dataset["type"] === "items"){
+            var targetElement = document.getElementById("selectedItemsResults");
+            var newElement = document.createElement('div');
+            var dataName = this.getAttribute('data-name');
+            newElement.innerHTML = `<div class="mb-1">
+              <span class="item-data-js" data-name="${dataName}">${dataName}</span>
+              <button type="button" class="btn btn-danger delete-item-js">Delete</button>
             </div>
             `;
             newElement.classList.add('mb-2');
@@ -368,6 +413,7 @@
                 a.download = "Arena.map";
                 a.style.display = 'none';
                 document.body.appendChild(a);
+                // reset local storage state
                 localStorage.setItem("commanders", []);
                 localStorage.setItem("units", []);
                 a.click();
