@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock extra_css %}
+
 {% block main_content %}
 <div class="mt-5">
   <div class="text-center">
@@ -39,7 +43,7 @@
             <div class="mb-3 parent-js">
               <label for="commanders" class="form-label">Commanders search</label>
               <input type="text" class="form-control" id="commanders" name="search_term" data-id="commanders"
-                hx-trigger="keyup changed delay:500ms" hx-target="#commandersResults" placeholder="Search..."
+                hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#commandersResults" placeholder="Search..."
                 hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
               <div id="commandersResults" data-type="commanders" class="mt-2 results-js">
 
@@ -58,7 +62,7 @@
           <div class="mb-3 parent-js">
             <label for="units" class="form-label">Units search</label>
             <input type="text" class="form-control" id="units" name="search_term" data-id="units"
-            hx-trigger="keyup changed delay:500ms" hx-target="#unitsResults" placeholder="Search..."
+            hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#unitsResults" placeholder="Search..."
             hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
             <div id="unitsResults" data-type="units" class="mt-2 results-js">
 
@@ -163,7 +167,7 @@
           <div class="mb-3 parent-js">
             <label for="items" class="form-label">Items search</label>
             <input type="text" class="form-control" id="items-search" name="search_term" data-id="items"
-              hx-trigger="keyup changed delay:500ms" hx-target="#itemsSearchResults" placeholder="Search..."
+              hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#itemsSearchResults" placeholder="Search..."
               hx-include="#selectedMods" hx-get="/dom6/autocomplete/items/">
             <div id="itemsSearchResults" data-type="items" class="mt-2 results-js">
 
@@ -179,7 +183,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="saveItems" data-bs-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
@@ -188,6 +192,18 @@
 
 {% block extra_js %}
 <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<script type="text/javascript">
+  // https://stackoverflow.com/a/37241980
+  window.addEventListener('keydown',function(e) {
+      if (e.keyIdentifier=='U+000A' || e.keyIdentifier=='Enter' || e.keyCode==13) {
+          if (e.target.nodeName=='INPUT' && e.target.type=='text') {
+              e.preventDefault();
+              return false;
+          }
+      }
+  }, true);
+</script>
+
 <script>
   htmx.onLoad(function(content) {
     var selectableRows = content.querySelectorAll(".selectable-js");
@@ -207,10 +223,11 @@
                 (${dataID}) ${dataName}
               </span>
               <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button>
-              <button type="button" class="btn btn-dark edit-items-js" data-bs-toggle="modal" data-bs-target="#ItemsModal">Add Items</button>
+              <button type="button" class="btn btn-dark add-items-js" data-bs-toggle="modal" data-bs-target="#ItemsModal">Add Items</button>
               <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button>
               <button type="button" class="btn btn-danger delete-row-js">Delete</button>
               <span class="magic-info-js">Default magic</span>
+              <div class="magic-items-js mt-2">Items:</div>
             </div>
             `;
             newElement.classList.add('mb-2');
@@ -247,6 +264,7 @@
         };
     }
   });
+  var selectedCommanderMagicDiv;
   // this is a bit awkward, but it works for now.
   document.addEventListener('click', function(event) {
     var target = event.target;
@@ -280,10 +298,33 @@
           input.value = value;
         }
       }
-    } else if(target.classList.contains("delete-item-js")){
+    } else if (target.classList.contains("delete-item-js")) {
       // deletes item row from the item modal handler
       var finalTarget = target.parentNode;
       finalTarget.parentNode.removeChild(finalTarget);
+    } else if (target.classList.contains("add-items-js")){
+      // write down for what commander we do add items
+      selectedCommanderMagicDiv = target.closest('.magic-container-js').getElementsByClassName("magic-items-js")[0];
+    } else if (target.id === "saveItems" ){
+      // save button of the modal has been clicked
+      var parentElement = document.getElementById("selectedItemsResults");
+      var itemContainers = parentElement.getElementsByClassName("item-data-js");
+      var items = [];
+      var containerLength = itemContainers.length;
+      for (var i = 0; i < containerLength; i++) {
+        var child = itemContainers[i];
+        items.push(child.dataset['name']);
+      }
+      parentElement.innerHTML = "";
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var newElement = document.createElement('span');
+        newElement.innerHTML = `
+          <span class="item-data-js" data-name="${item}">${item}</span>
+          <i class="bi-trash selectable delete-item-js" style="color: red;"></i> |
+        `;
+        selectedCommanderMagicDiv.appendChild(newElement);
+      }
     } else if (target.id === "visibility") {
       // show-hide autocomplete elements
       var elements = document.querySelectorAll(".parent-js");
