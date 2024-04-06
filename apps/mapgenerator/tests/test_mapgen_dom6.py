@@ -28,6 +28,7 @@ def test_dom6_generate_map_serializer_processed_data(initial_dom6_data_for_mapge
                             "mag_glamour": "3",
                         },
                         "units": [("105", "10")],
+                        "items": ["Frost brand", "Ring of Fire"],
                     }
                 }
             ],
@@ -49,7 +50,8 @@ def test_dom6_mapgenerator_function(initial_dom6_data_for_mapgen):
     assert mapgenerated_text[0] == (
         (
             "\n#allowedplayer {0}\n#specstart {0} {1}\n#setland {1}\n#commander 1786\n"
-            "#units 10 105\n#clearmagic\n#mag_fire 2\n#mag_blood 2\n#mag_glamour 3"
+            "#units 10 105\n#clearmagic\n#mag_fire 2\n#mag_blood 2\n#mag_glamour 3\n"
+            '#additem "Frost brand"\n#additem "Ring of Fire"'
         ).format(nation1.dominions_id, start1)
     )
     assert mapgenerated_text[1] == (

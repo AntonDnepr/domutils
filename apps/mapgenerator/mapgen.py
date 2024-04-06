@@ -141,12 +141,15 @@ def dom6_process_data(data):
         nation_dict = {dominions_id: [], "land_type": land_type}
         for commander in commanders:
             magic = commander.get("magic")
+            items = commander.get("items")
             commander_data = {"units": []}
             if magic:
                 commander_data["magic"] = {}
                 for key, value in magic.items():
                     if value:
                         commander_data["magic"][f"mag_{key.lower()}"] = value
+            if items:
+                commander_data["items"] = items
             nation_dict[dominions_id].append(
                 {commander["dominions_id"]: commander_data}
             )
@@ -193,6 +196,10 @@ def dom6_data_into_map(data):
                     for key, value in magic.items():
                         magic_string += "\n#{0} {1}".format(key, value)
                     commander_string += magic_string
+                items = commander_data.get("items")
+                if items:
+                    for item in items:
+                        commander_string += f'\n#additem "{item}"'
                 f_string += commander_string
         returned_data.append(f_string)
     return returned_data
