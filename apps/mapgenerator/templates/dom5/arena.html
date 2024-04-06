@@ -35,3 +35,10 @@
     </p>
 </div>
 {% endblock main_content %}
+
+{% block extra_js %}
+<script>
+  // let's reset the data here
+  localStorage.clear();
+</script>
+{% endblock extra_js %}

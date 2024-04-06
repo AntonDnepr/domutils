@@ -383,6 +383,12 @@
         var dominionsId = commanderData.dataset["dominionsid"];
         var name = commanderData.dataset["name"];
         var magic = {};
+        var commanderItems = [];
+        var commanderItemsRow = commanderRow.querySelector(".magic-items-js");
+        var items = commanderItemsRow.querySelectorAll(".item-data-js");
+        for (var j = 0; j < items.length; j++) {
+          commanderItems.push(items[j].dataset["name"]);
+        }
         for (var k = 0; k < magicList.length; k++) {
           var magicKey = magicList[k];
           var value = commanderRow.dataset[magicKey];
@@ -395,6 +401,7 @@
             dominions_id: dominionsId,
             name: name,
             for_nation: forNation,
+            items: commanderItems,
           });
         } else {
           proccessedCommanders.push({
@@ -402,6 +409,7 @@
             name: name,
             for_nation: forNation,
             magic: magic,
+            items: commanderItems,
           });
         }
       }
