@@ -1,6 +1,3 @@
-import copy
-from unittest import mock
-
 import pytest
 from core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
 from dom6data.models import Dom6Nation
@@ -179,15 +176,3 @@ def test_dom6_insert_uw_data_into_template(data_for_mapgen_uw):
     assert mapgenerated_text[1] in final_map
     assert "$nation3" not in final_map
     assert "$nation4" not in final_map
-
-
-def test_dom6_map_with_cave(initial_dom6_data_for_mapgen):
-    data, *other = initial_dom6_data_for_mapgen
-    data_with_cave = copy.deepcopy(data)
-    data_with_cave["use_cave_map"] = True
-    returned_data = dom6_process_data(data)
-    mapgenerated_text = dom6_data_into_map(returned_data)
-    mocked_open_function = mock.mock_open(read_data="")
-    with mock.patch("mapgenerator.mapgen.open", mocked_open_function) as mocked:
-        dom6_substitute(data, mapgenerated_text, use_cave_map=True)
-        mocked.assert_called_once_with("apps/domdata/mapfiles/Arena_with_cave.map", "r")

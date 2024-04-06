@@ -205,14 +205,13 @@ def dom6_data_into_map(data):
     return returned_data
 
 
-def dom6_substitute(data, mapgenerated_text, use_cave_map=False):
+def dom6_substitute(data, mapgenerated_text):
     data_dict = {f"nation{x}": y for x, y in enumerate(mapgenerated_text, start=1)}
     required_keys = [f"nation{x}" for x in range(1, 5)]
     for key in required_keys:
         if key not in data_dict:
             data_dict[key] = ""
-    map_name = "Arena_with_cave" if use_cave_map else "Arena"
-    with open(f"apps/domdata/mapfiles/{map_name}.map", "r") as mapfile:
+    with open("apps/dom6data/mapfiles/DasTacticArena/ArenaDom6.map", "r") as mapfile:
         nations_list = [
             data.get("land_nation_1"),
             data.get("land_nation_2"),
@@ -227,7 +226,7 @@ def dom6_substitute(data, mapgenerated_text, use_cave_map=False):
                     index += 1
                 else:
                     add_string += " vs {}".format(nation)
-        final_map_name = f"{map_name}_{add_string}"
+        final_map_name = f"Arena_{add_string}"
         data_dict["map_name"] = final_map_name
         src = Template(mapfile.read())
         result = src.substitute(data_dict)

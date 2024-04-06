@@ -1,4 +1,5 @@
-from io import StringIO
+import zipfile
+from io import BytesIO, StringIO
 from os import getenv
 from urllib.parse import unquote_plus
 
@@ -239,9 +240,23 @@ async def dom6_generate_map(request: Request):
     mapgenerated_text = dom6_data_into_map(returned_data)
     final_map = dom6_substitute(json_data, mapgenerated_text)
     map_as_bytes = StringIO(final_map)
-    resp = await request.respond(content_type="text/plain; charset=utf-8")
-    resp.headers["Content-Disposition"] = "attachment; filename=MyArena.map"
-    await resp.send(map_as_bytes.read())
+    zip_buffer = BytesIO()
+    dirname = "apps/dom6data/mapfiles/DasTacticArena"
+    names = [
+        "ArenaDom6_plane2.map",
+        "ArenaDom6_plane2.tga",
+        "ArenaDom6_winter.tga",
+        "ArenaDom6.tga",
+        "banner.png",
+    ]
+    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
+        for file_name in names:
+            with open(f"{dirname}/{file_name}", "rb") as f:
+                zip_file.writestr(file_name, f.read())
+        zip_file.writestr("ArenaDom6.map", map_as_bytes.getvalue())
+    resp = await request.respond(content_type="application/zip; charset=utf-8")
+    resp.headers["Content-Disposition"] = "attachment; filename=MyArena.zip"
+    await resp.send(zip_buffer.getvalue())
     await resp.eof()
 
 

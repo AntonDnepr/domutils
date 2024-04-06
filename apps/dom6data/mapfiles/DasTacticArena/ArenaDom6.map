@@ -1,12 +1,12 @@
--- 
+--
 -- Map file for Dominions 6
--- 
+--
 -- Illwinter Game Design
 -- www.illwinter.com
--- 
+--
 
 -- Title and image file
-#dom2title Arena
+#dom2title $map_name
 #imagefile ArenaDom6.tga
 #mapsize 1600 1200
 #domversion 550
@@ -15,6 +15,12 @@
 #mapnohide
 #maptextcol 0.10 0.10 0.10 1.00
 #mapdomcol 179 162 72 16
+#scenario
+
+$nation1
+$nation2
+$nation3
+$nation4
 
 -- Province names/terrains
 #terrain 1 0
