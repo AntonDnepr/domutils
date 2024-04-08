@@ -7,11 +7,11 @@ name = "pypi"
 sanic = {extras = ["ext"], version = "*"}
 sanic-testing = "*"
 redis = {extras = ["hiredis"], version = "*"}
-sentry-sdk = {extras = ["sanic"], version = "*"}
 redis-om = "*"
 ujson = "*"
 jinja2 = "*"
 requests = "*"
+sentry-sdk = {extras = ["sanic"], version = "*"}
 
 [dev-packages]
 ipdb = "*"                           # Debugging

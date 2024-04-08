@@ -16,17 +16,17 @@ from core.consts import ERAS, VANILLA
 from core.utils import clean_search_string
 from dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 from domdata.models import Nation, Unit
-from sanic import Sanic
+from sanic import Sanic, text
 from sanic.request import Request
 from sanic.response.types import JSONResponse
 from sanic_ext import render
 
-if getenv("ENV", "") != "test":
+if getenv("SENTRY_SDK", ""):
     sentry_sdk.init(
         dsn=getenv("SENTRY_SDK", ""),
         # Set traces_sample_rate to 1.0 to capture 100%
         # of transactions for performance monitoring.
-        traces_sample_rate=1.0,
+        traces_sample_rate=0.1,
     )
 
 app = Sanic("DominionsUtils")
@@ -37,6 +37,12 @@ app.static("/static/", "./apps/mapgenerator/templates/assets")
 @app.get("/")
 async def main(request: Request):
     return await render("index.html", status=200)
+
+
+@app.get("/error/100/always")
+async def error_generator(request):
+    1 / 0  # raises an error
+    return text("Hello, world.")
 
 
 @app.get("/dom5/arena-mapgen/")
