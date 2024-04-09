@@ -17,28 +17,6 @@ services:
     ports:
       - "${DOCKER_REDIS_PORT}:6379"
 
-  backend:
-    build:
-      dockerfile: ./docker/python/Dockerfile
-      context: ./
-    restart: on-failure
-    container_name: ${PROJECT_NAME}_backend
-    image: ${PROJECT_NAME}_backend
-    volumes:
-      - .:/usr/src/app
-    environment:
-      - ENV=local
-    command: /bin/bash -c "PIPENV_DONT_LOAD_ENV=1 python manage.py runserver 0.0.0.0:8000"
-    networks:
-      - default_dom5
-    ports:
-      - "${DOCKER_BACKEND_PORT}:8000"
-    working_dir: /usr/src/app
-    stdin_open: true
-    tty: true
-    depends_on:
-      - redis
-
 networks:
   default_dom5:
     ipam:

@@ -1,0 +1,496 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock extra_css %}
+
+{% block main_content %}
+<div class="mt-5">
+  <div class="text-center">
+    <h2 class="display-4 mb-4">Select units for nation {{name}}</h2>
+  </div>
+  <div class="row">
+    <div class="mb-4">
+        <p class="lead">Select units that will be used for indicated nation.</p>
+        <p>For this step, you should select commanders and units. You can skip this if you do not want to add anything to starting troops of the nation;</p>
+        <p class="fw-bold">For map to generate correctly, you should have at least 1 commander to add additional units to;</p>
+        <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them (use <a href="https://larzm42.github.io/dom6inspector/" target="_blank" rel="noopener noreferrer">Dom6 inspector</a> to find out unit_id);</p>
+    </div>
+  </div>
+  <div class="row">
+    <form id="selectedMods">
+      <div class="mb-4">
+        <h4>Do you need units from DebugMod?</h4>
+        <p>DebugMod can be installed from
+           <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3083231618"
+           rel="noopener noreferrer" target="_blank">here</a></p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="debug" name="mods" id="DebugMod">
+          <label class="form-check-label" for="DebugMod">
+            DebugMod
+          </label>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-12">
+        <button id="visibility" type="button" class="btn btn-secondary">
+          Show/hide search fields
+        </button>
+      </div>
+      <div class="col-6">
+        <form>
+            <div class="mb-3 parent-js">
+              <label for="commanders" class="form-label">Commanders search</label>
+              <input type="text" class="form-control" id="commanders" name="search_term" data-id="commanders"
+                hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#commandersResults" placeholder="Search..."
+                hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
+              <div id="commandersResults" data-type="commanders" class="mt-2 results-js">
+
+              </div>
+            </div>
+        </form>
+        <div class="col-12 mt-2">
+          <h4>Selected commanders</h4>
+        </div>
+        <div class="col-12 mt-2" id="selectedCommandersResults">
+
+        </div>
+      </div>
+      <div class="col-6">
+        <form>
+          <div class="mb-3 parent-js">
+            <label for="units" class="form-label">Units search</label>
+            <input type="text" class="form-control" id="units" name="search_term" data-id="units"
+            hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#unitsResults" placeholder="Search..."
+            hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
+            <div id="unitsResults" data-type="units" class="mt-2 results-js">
+
+            </div>
+          </div>
+        </form>
+        <div class="col-12 mt-2">
+          <h4>Selected units</h4>
+        </div>
+        <div class="col-12 mt-2" id="selectedUnitsResults">
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center mt-5">
+        <button id="next-step" class="btn btn-primary">
+          Proceed to Next Step
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="hiddenMagicEdit" class="invisible" data-nation="{{name}}">
+  <div class="row magic-inputs-js">
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">F</span>
+        <input data-short="F" data-type="fire" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">A</span>
+        <input data-short="A" data-type="air" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">W</span>
+        <input data-short="W" data-type="water" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">E</span>
+        <input data-short="E" data-type="earth" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">S</span>
+        <input data-short="S" data-type="astral" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">D</span>
+        <input data-short="D" data-type="death" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">N</span>
+        <input data-short="N" data-type="nature" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">G</span>
+        <input data-short="G" data-type="glamour" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">B</span>
+        <input data-short="B" data-type="blood" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text">Priest</span>
+        <input data-short="Priest" data-type="priest" type="number" min="0" max="10" class="form-control">
+      </div>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-primary save-close-js">Save & close</button>
+    </div>
+  </div>
+</div>
+
+<div id="ItemsModal" class="modal fade"tabindex="-1" aria-labelledby="ItemsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Items search</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3 parent-js">
+            <label for="items" class="form-label">Items search</label>
+            <input type="text" class="form-control" id="items-search" name="search_term" data-id="items"
+              hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#itemsSearchResults" placeholder="Search..."
+              hx-include="#selectedMods" hx-get="/dom6/autocomplete/items/">
+            <div id="itemsSearchResults" data-type="items" class="mt-2 results-js">
+
+            </div>
+          </div>
+          <div class="mb-3">
+            <h5>Selected items</h5>
+            <div id="selectedItemsResults">
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveItems" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main_content %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<script type="text/javascript">
+  // https://stackoverflow.com/a/37241980
+  window.addEventListener('keydown',function(e) {
+      if (e.keyIdentifier=='U+000A' || e.keyIdentifier=='Enter' || e.keyCode==13) {
+          if (e.target.nodeName=='INPUT' && e.target.type=='text') {
+              e.preventDefault();
+              return false;
+          }
+      }
+  }, true);
+</script>
+
+<script>
+  htmx.onLoad(function(content) {
+    var selectableRows = content.querySelectorAll(".selectable-js");
+    for (var i = 0; i < selectableRows.length; i++) {
+        var selectable = selectableRows[i];
+        selectable.onclick = function() {
+          var parentDiv = this.closest('.parent-js');
+          var targetList = parentDiv.querySelector(".results-js");
+          // adds commander to selected list
+          if (targetList.dataset["type"] === "commanders"){
+            var targetElement = document.getElementById("selectedCommandersResults");
+            var newElement = document.createElement('div');
+            var dataName = this.getAttribute('data-name');
+            var dataID = this.getAttribute('data-id');
+            newElement.innerHTML = `<div class="magic-container-js mb-1">
+              <span class="data-js" data-dominionsid="${dataID}" data-name="${dataName}" data-items="">
+                (${dataID}) ${dataName}
+              </span>
+              <button type="button" class="btn btn-secondary edit-magic-js">Edit Magic</button>
+              <button type="button" class="btn btn-dark add-items-js" data-bs-toggle="modal" data-bs-target="#ItemsModal">Add Items</button>
+              <button type="button" class="btn btn-info duplicate-row-js">Duplicate</button>
+              <button type="button" class="btn btn-danger delete-row-js">Delete</button>
+              <span class="magic-info-js">Default magic</span>
+              <div class="magic-items-js mt-2">Items:</div>
+            </div>
+            `;
+            newElement.classList.add('mb-2');
+            targetElement.appendChild(newElement);
+          } else if (targetList.dataset["type"] === "items"){
+            var targetElement = document.getElementById("selectedItemsResults");
+            var newElement = document.createElement('div');
+            var dataName = this.getAttribute('data-name');
+            newElement.innerHTML = `
+              <span class="item-data-js" data-name="${dataName}">${dataName}</span>
+              <button type="button" class="btn btn-danger delete-item-js">Delete</button>
+            `;
+            newElement.classList.add('mb-2');
+            targetElement.appendChild(newElement);
+          } else {
+            // adds unit to selected list
+            var targetElement = document.getElementById("selectedUnitsResults");
+            var newElement = document.createElement('div');
+            var dataName = this.getAttribute('data-name');
+            var dataID = this.getAttribute('data-id');
+            newElement.innerHTML = `
+            <div class="magic-container-js mb-1">
+              <span class="data-js" data-dominionsid="${dataID}" data-name="${dataName}">
+                (${dataID}) ${dataName}
+              </span>
+              <input class='quantity-js' type='number' value='1' min='1'/>
+              <button type="button" class="btn btn-danger delete-row-js">Delete</button>
+            </div>
+            `;
+            newElement.classList.add('mb-2');
+            targetElement.appendChild(newElement);
+          }
+          parentDiv.querySelector(".results-js").innerHTML = "";
+        };
+    }
+  });
+  var selectedCommanderMagicDiv;
+  // this is a bit awkward, but it works for now.
+  document.addEventListener('click', function(event) {
+    var target = event.target;
+    if (target.classList.contains('delete-row-js')) {
+      // deletes commander row
+      var finalTarget = target.parentNode;
+      finalTarget.parentNode.removeChild(finalTarget);
+    } else if (target.classList.contains('duplicate-row-js')) {
+      // duplicate target element
+      var finalTarget = target.parentNode.parentNode;
+      var newElement = finalTarget.cloneNode(true);
+      finalTarget.parentNode.appendChild(newElement);
+    } else if (target.classList.contains('edit-magic-js')) {
+      // takes hidden element, reads dataset of parent element,
+      // edits html of hidden element according to dataset,
+      // and then attaches new element
+      if (target.classList.contains('disabled')) {
+        return
+      }
+      target.classList.add('disabled');
+      var parent = target.parentNode;
+      // copy html content of element with id hiddenMagicEdit and append it to parent
+      var hiddenMagicEdit = document.getElementById("hiddenMagicEdit");
+      parent.innerHTML += hiddenMagicEdit.innerHTML;
+      var inputs = parent.querySelectorAll("input");
+      for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        var type = input.getAttribute('data-type');
+        var value = parent.dataset[type];
+        if (value) {
+          input.value = value;
+        }
+      }
+    } else if (target.classList.contains("delete-item-js")) {
+      // deletes item row from the item modal handler
+      var finalTarget = target.parentNode;
+      finalTarget.parentNode.removeChild(finalTarget);
+    } else if (target.classList.contains("add-items-js")){
+      // write down for what commander we do add items
+      selectedCommanderMagicDiv = target.closest('.magic-container-js').getElementsByClassName("magic-items-js")[0];
+    } else if (target.id === "saveItems" ){
+      // save button of the modal has been clicked
+      var parentElement = document.getElementById("selectedItemsResults");
+      var itemContainers = parentElement.getElementsByClassName("item-data-js");
+      var items = [];
+      var containerLength = itemContainers.length;
+      for (var i = 0; i < containerLength; i++) {
+        var child = itemContainers[i];
+        items.push(child.dataset['name']);
+      }
+      parentElement.innerHTML = "";
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var newElement = document.createElement('span');
+        newElement.innerHTML = `
+          <span class="item-data-js" data-name="${item}">${item}</span>
+          <i class="bi-trash selectable delete-item-js" style="color: red;"></i> |
+        `;
+        selectedCommanderMagicDiv.appendChild(newElement);
+      }
+    } else if (target.id === "visibility") {
+      // show-hide autocomplete elements
+      var elements = document.querySelectorAll(".parent-js");
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        var input = element.querySelector("input");
+        input.value = "";
+        if (element.style.display === "none") {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      }
+    } else if (target.classList.contains('save-close-js')) {
+      var removeTarget = target.parentNode.parentNode;
+      var parent = removeTarget.parentNode;
+      // take all inputs from parent, take there data-type and read & write
+      // input values
+      var inputs = parent.querySelectorAll(".magic-inputs-js input");
+      var finalMagicString = "";
+      for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        var type = input.getAttribute('data-type');
+        var value = input.value;
+        if (value) {
+          parent.dataset[type] = value;
+          var short = input.getAttribute('data-short');
+          finalMagicString += `${short}${value}|`;
+        }
+      }
+      // just for better UI we display this info directly too
+      if (finalMagicString.length !== "") {
+        var magicString = parent.querySelector(".magic-info-js");
+        magicString.innerHTML = finalMagicString;
+      }
+      parent.removeChild(removeTarget);
+      var editButton = parent.querySelector(".edit-magic-js");
+      editButton.classList.remove('disabled');
+    } else if (target.id === "next-step"){
+      if (target.classList.contains('disabled')) {
+        return
+      }
+      target.classList.add('disabled');
+      var commandersParent = document.getElementById("selectedCommandersResults");
+      var unitsParent = document.getElementById("selectedUnitsResults");
+      var commanders = commandersParent.querySelectorAll(".magic-container-js");
+      var units = unitsParent.querySelectorAll(".magic-container-js");
+      var proccessedCommanders = [];
+      var proccessedUnits = [];
+      var forNation = document.getElementById("hiddenMagicEdit").dataset["nation"];
+      // let's process commanders first
+      var magicList = ["fire", "air", "water", "earth", "astral", "death", "nature", "glamour", "blood", "priest"];
+      for (var i = 0; i < commanders.length; i++) {
+        var commanderRow = commanders[i];
+        var commanderData = commanderRow.querySelector(".data-js");
+        var dominionsId = commanderData.dataset["dominionsid"];
+        var name = commanderData.dataset["name"];
+        var magic = {};
+        var commanderItems = [];
+        var commanderItemsRow = commanderRow.querySelector(".magic-items-js");
+        var items = commanderItemsRow.querySelectorAll(".item-data-js");
+        for (var j = 0; j < items.length; j++) {
+          commanderItems.push(items[j].dataset["name"]);
+        }
+        for (var k = 0; k < magicList.length; k++) {
+          var magicKey = magicList[k];
+          var value = commanderRow.dataset[magicKey];
+          if (value) {
+            magic[magicKey] = value;
+          }
+        }
+        if (Object.keys(magic).length === 0) {
+          proccessedCommanders.push({
+            dominions_id: dominionsId,
+            name: name,
+            for_nation: forNation,
+            items: commanderItems,
+          });
+        } else {
+          proccessedCommanders.push({
+            dominions_id: dominionsId,
+            name: name,
+            for_nation: forNation,
+            magic: magic,
+            items: commanderItems,
+          });
+        }
+      }
+      // now it's time to process units
+      for (var i = 0; i < units.length; i++) {
+        var unitRow = units[i];
+        var unitData = unitRow.querySelector(".data-js");
+        var dominionsId = unitData.dataset["dominionsid"];
+        var name = unitData.dataset["name"];
+        var quantity = unitRow.querySelector(".quantity-js").value;
+        proccessedUnits.push({
+          dominions_id: dominionsId,
+          name: name,
+          for_nation: forNation,
+          quantity: quantity,
+        });
+      }
+      var currentCommanders = localStorage.getItem("commanders");
+      if (!currentCommanders) {
+         currentCommanders = [];
+      } else {
+        currentCommanders = JSON.parse(currentCommanders);
+      }
+      var currentUnits = localStorage.getItem("units");
+      if (!currentUnits) {
+         currentUnits = [];
+      } else {
+        currentUnits = JSON.parse(currentUnits);
+      }
+      // add processedCommanders array to currentCommanders array
+      currentCommanders = currentCommanders.concat(proccessedCommanders);
+      localStorage.setItem("commanders", JSON.stringify(currentCommanders));
+      // add processedUnits array to currentUnits array
+      currentUnits = currentUnits.concat(proccessedUnits);
+      localStorage.setItem("units", JSON.stringify(currentUnits));
+      var urls = JSON.parse(localStorage.getItem("urls"));
+      var nextIndex = localStorage.getItem("nextIndex");
+      var previosIndex = localStorage.getItem("previosIndex");
+      var nextUrl = urls[nextIndex];
+      if (!nextUrl) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/dom6/generate-map/");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        // You should set responseType as blob for binary responses
+        xhr.responseType = 'blob';
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Trick for making downloadable link
+                a = document.createElement('a');
+                a.href = window.URL.createObjectURL(xhr.response);
+                // Give filename you wish to download
+                a.download = "MyArena.zip";
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                // reset local storage state
+                localStorage.setItem("commanders", []);
+                localStorage.setItem("units", []);
+                a.click();
+            } else {
+              alert("Error happened, please try again.")
+            }
+          }
+        };
+        xhr.send(JSON.stringify({
+          "water_nation_1": localStorage.getItem("water_nation_1"),
+          "water_nation_2": localStorage.getItem("water_nation_2"),
+          "land_nation_1": localStorage.getItem("land_nation_1"),
+          "land_nation_2": localStorage.getItem("land_nation_2"),
+          "commanders": currentCommanders,
+          "units": currentUnits,
+        }));
+      } else {
+        nextIndex++;
+        previosIndex++;
+        localStorage.setItem("nextIndex", nextIndex);
+        localStorage.setItem("previosIndex", previosIndex);
+        window.location.replace(nextUrl);
+      }
+      target.classList.remove('disabled');
+    }
+  });
+</script>
+{% endblock extra_js %}

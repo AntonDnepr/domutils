@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div class="mt-5">
+  <div class="text-center">
+    <h2 class="display-4 mb-4">Select nations</h2>
+  </div>
+  <div class="row">
+    <div class="mb-4">
+          <p class="lead">Select nations that will be used in map generation.</p>
+          <p>There is no validation that nations are selected from the same Age. You should select at least 2
+            nations from the same Age for the game to not declare you a winner immediately.</p>
+          <p>There is no validation for land/water nation, so please be careful when selecting them.</p>
+    </div>
+  </div>
+  <div class="row">
+    <form id="selectedMods">
+      <div class="mb-4">
+        <h4>Select mods if you need any:</h4>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="de" name="mods" id="DominionsEnhanced">
+          <label class="form-check-label" for="DominionsEnhanced">
+            DominionsEnhanced
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="debug" name="mods" id="DebugMod">
+          <label class="form-check-label" for="DebugMod">
+            DebugMod
+          </label>
+        </div>
+      </div>
+    </form>
+    <form class="mb-3">
+      <h3>Land nations</h3>
+      <div class="mb-3 parent-js">
+        <label for="land_nation_1" class="form-label">Land Nation 1</label>
+        <input type="text" class="form-control" id="land_nation_1" name="search_term" data-id="land_nation_1"
+          hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_1Results" placeholder="Search..."
+          hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+        <div id="land_nation_1Results" class="mt-2">
+
+        </div>
+      </div>
+      <div class="mb-3 parent-js">
+        <label for="land_nation_2" class="form-label">Land Nation 2</label>
+        <input type="text" class="form-control" id="land_nation_2" name="search_term" data-id="land_nation_2"
+          hx-trigger="keyup changed delay:500ms" hx-target="#land_nation_2Results" placeholder="Search..."
+          hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+        <div id="land_nation_2Results" class="mt-2">
+
+        </div>
+      </div>
+      <h3>Underwater nations</h3>
+      <div class="mb-3 parent-js">
+        <label for="water_nation_1" class="form-label">Underwater Nation 1</label>
+        <input type="text" class="form-control" id="water_nation_1" name="search_term" data-id="water_nation_1"
+        hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_1Results" placeholder="Search..."
+        hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+        <div id="water_nation_1Results" class="mt-2">
+
+        </div>
+      </div>
+      <div class="mb-3 parent-js">
+        <label for="water_nation_2" class="form-label">Underwater Nation 2</label>
+        <input type="text" class="form-control" id="water_nation_2" name="search_term" data-id="water_nation_2"
+        hx-trigger="keyup changed delay:500ms" hx-target="#water_nation_2Results" placeholder="Search..."
+        hx-include="#selectedMods" hx-get="/dom5/autocomplete/nations/">
+        <div id="water_nation_2Results" class="mt-2">
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" id="next-step" disabled>Proceed to Next Step</button>
+    </form>
+  </div>
+</div>
+{% endblock main_content %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<script>
+  htmx.onLoad(function(content) {
+    var selectableRows = content.querySelectorAll(".selectable-js");
+    for (var i = 0; i < selectableRows.length; i++) {
+        var selectable = selectableRows[i];
+        selectable.onclick = function() {
+          var parentDiv = this.closest('.parent-js');
+          var targetInput = parentDiv.querySelector('input');
+          if (targetInput) {
+              var dataValue = this.getAttribute('data-name');
+              targetInput.value = dataValue;
+              var targetTable = parentDiv.querySelector('.table-responsive');
+              targetTable.innerHTML = "";
+              var storageID = targetInput.getAttribute('data-id');
+              localStorage.setItem(storageID, dataValue);
+              var nextStepButton = document.getElementById("next-step");
+              nextStepButton.removeAttribute("disabled");
+          } else {
+              console.error('Input not found.');
+          }
+        };
+    }
+  });
+  var nextStepButton = document.getElementById("next-step");
+  nextStepButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (this.hasAttribute('disabled')) {
+      return
+    }
+    const parentElements = document.querySelectorAll('.parent-js');
+    let urls = [];
+    for (let i = 0; i < parentElements.length; i++) {
+      const parentElement = parentElements[i];
+      var targetInput = parentElement.querySelector('input');
+      if (targetInput.value) {
+        var myString = `/dom5/arena-mapgen/${targetInput.value}`;
+        urls.push(myString);
+      }
+    }
+    localStorage.setItem("urls", JSON.stringify(urls));
+    localStorage.setItem("nextIndex", 1);
+    localStorage.setItem("previosIndex", 0);
+    localStorage.setItem("land_nation_1", document.getElementById("land_nation_1").value || "");
+    localStorage.setItem("land_nation_2", document.getElementById("land_nation_2").value || "");
+    localStorage.setItem("water_nation_1", document.getElementById("water_nation_1").value || "");
+    localStorage.setItem("water_nation_2", document.getElementById("water_nation_2").value || "");
+    localStorage.setItem("commanders", []);
+    localStorage.setItem("units", []);
+    var redirectUrl = urls[0];
+    window.location.replace(redirectUrl);
+  });
+</script>
+{% endblock extra_js %}

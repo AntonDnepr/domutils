@@ -6,8 +6,12 @@ name = "pypi"
 [packages]
 sanic = {extras = ["ext"], version = "*"}
 sanic-testing = "*"
-sentry-sdk = "*"
 redis = {extras = ["hiredis"], version = "*"}
+redis-om = "*"
+ujson = "*"
+jinja2 = "*"
+requests = "*"
+sentry-sdk = {extras = ["sanic"], version = "*"}
 
 [dev-packages]
 ipdb = "*"                           # Debugging
@@ -26,4 +30,3 @@ pytest-env = "*"
 
 [requires]
 python_version = "3.11"
-python_full_version = "3.11.4"
