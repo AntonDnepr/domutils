@@ -1,6 +1,6 @@
 import pytest
-from core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
-from dom6data.models import Dom6Nation
+from apps.core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
+from apps.dom6data.models import Dom6Nation
 from dom6data.parser import parse_dom6_dm_files, parse_dom6_units
 from mapgenerator.mapgen import dom6_data_into_map, dom6_process_data, dom6_substitute
 

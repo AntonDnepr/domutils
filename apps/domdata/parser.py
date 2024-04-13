@@ -3,9 +3,9 @@ import glob
 import os
 import re
 
-from core.consts import DE, DEBUG
-from core.redis import get_redis_client
-from domdata.models import Nation, Unit
+from apps.core.consts import DE, DEBUG
+from apps.core.redis import get_redis_client
+from apps.domdata.models import Nation, Unit
 
 
 def parse_units():

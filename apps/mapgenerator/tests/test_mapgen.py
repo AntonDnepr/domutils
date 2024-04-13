@@ -2,8 +2,8 @@ import copy
 from unittest import mock
 
 import pytest
-from core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
-from domdata.models import Nation
+from apps.core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
+from apps.domdata.models import Nation
 from domdata.parser import parse_dm_files, parse_units
 from mapgenerator.mapgen import data_into_map, process_data, substitute
 

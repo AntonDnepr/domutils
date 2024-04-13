@@ -12,10 +12,10 @@ from apps.mapgenerator.mapgen import (
     process_data,
     substitute,
 )
-from core.consts import ERAS, VANILLA
-from core.utils import clean_search_string
-from dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
-from domdata.models import Nation, Unit
+from apps.core.consts import ERAS, VANILLA
+from apps.core.utils import clean_search_string
+from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
+from apps.domdata.models import Nation, Unit
 from sanic import Sanic, text
 from sanic.request import Request
 from sanic.response.types import JSONResponse

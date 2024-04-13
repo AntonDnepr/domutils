@@ -1,9 +1,9 @@
 import pytest
 from apps.domdata.parser import parse_dm_files, parse_units
 from apps.mapgenerator.app import app
-from core.consts import TEST
-from core.redis import get_redis_client
-from domdata.models import Nation, Unit
+from apps.core.consts import TEST
+from apps.core.redis import get_redis_client
+from apps.domdata.models import Nation, Unit
 
 
 @pytest.fixture(scope="module", autouse=True)

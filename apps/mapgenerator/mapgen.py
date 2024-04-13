@@ -1,8 +1,8 @@
 from string import Template
 
-from core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
-from dom6data.models import Dom6Nation
-from domdata.models import Nation
+from apps.core.consts import INVERTED_ERAS, LAND_STARTS, WATER_STARTS
+from apps.dom6data.models import Dom6Nation
+from apps.domdata.models import Nation
 
 
 def process_data(data):
