@@ -20,18 +20,25 @@ from sanic import Sanic, text
 from sanic.request import Request
 from sanic.response.types import JSONResponse
 from sanic_ext import render
+from sentry_sdk.integrations.asyncio import AsyncioIntegration
+from sentry_sdk.integrations.sanic import SanicIntegration
 
-if getenv("SENTRY_SDK", ""):
-    sentry_sdk.init(
-        dsn=getenv("SENTRY_SDK", ""),
-        # Set traces_sample_rate to 1.0 to capture 100%
-        # of transactions for performance monitoring.
-        traces_sample_rate=0.1,
-    )
 
 app = Sanic("DominionsUtils")
 app.config.TEMPLATING_PATH_TO_TEMPLATES = "./apps/mapgenerator/templates"
 app.static("/static/", "./apps/mapgenerator/templates/assets")
+
+
+@app.listener("before_server_start")
+async def init_sentry(_):
+    if getenv("SENTRY_SDK", ""):
+        sentry_sdk.init(
+            dsn=getenv("SENTRY_SDK", ""),
+            integrations=[AsyncioIntegration(), SanicIntegration()],
+            # Set traces_sample_rate to 1.0 to capture 100%
+            # of transactions for performance monitoring.
+            traces_sample_rate=1.0,
+        )
 
 
 @app.get("/")
