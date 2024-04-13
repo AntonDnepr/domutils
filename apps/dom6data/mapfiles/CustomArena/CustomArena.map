@@ -7,7 +7,7 @@
 
 -- Title and image file
 #dom2title $map_name
-#imagefile ArenaDom6.tga
+#imagefile CustomArena.tga
 #mapsize 1600 1200
 #domversion 550
 #nodeepcaves
