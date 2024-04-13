@@ -45,12 +45,16 @@ def parse_dom6_dm_files():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     files_to_parse = glob.glob(os.path.join(current_dir, "mods/*.dm"))
     pipeline = get_redis_client().pipeline()
-    units = Dom6Unit.find(Dom6Unit.mod == DEBUG).all()
-    [Dom6Unit.delete(unit.pk, pipeline=pipeline) for unit in units]
-    pipeline.execute()
-    nations = Dom6Nation.find(Dom6Nation.mod == DEBUG)
-    [Dom6Nation.delete(nation.pk, pipeline=pipeline) for nation in nations]
-    pipeline.execute()
+    try:
+        units = Dom6Unit.find(Dom6Unit.mod == DEBUG).all()
+        [Dom6Unit.delete(unit.pk, pipeline=pipeline) for unit in units]
+        pipeline.execute()
+        nations = Dom6Nation.find(Dom6Nation.mod == DEBUG)
+        [Dom6Nation.delete(nation.pk, pipeline=pipeline) for nation in nations]
+        pipeline.execute()
+    except Exception as e:
+        print(e)
+        pass
     for dmfile in files_to_parse:
         with open(dmfile, "r") as file_content:
             new_nation, new_monster = False, False
