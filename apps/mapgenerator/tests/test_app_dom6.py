@@ -99,7 +99,10 @@ def test_dom6_map_generation_view(initial_dom6_data_for_mapgen):
     assert request.method.lower() == "post"
     assert response.status == 200
     assert response.content_type == "application/zip; charset=utf-8"
-    assert response.headers["Content-Disposition"] == "attachment; filename=MyArena.zip"
+    assert (
+        response.headers["Content-Disposition"]
+        == "attachment; filename=CustomArena.zip"
+    )
 
 
 def test_dom6_autocomplete_items_query():

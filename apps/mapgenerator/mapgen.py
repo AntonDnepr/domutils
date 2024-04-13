@@ -211,7 +211,7 @@ def dom6_substitute(data, mapgenerated_text):
     for key in required_keys:
         if key not in data_dict:
             data_dict[key] = ""
-    with open("apps/dom6data/mapfiles/DasTacticArena/ArenaDom6.map", "r") as mapfile:
+    with open("apps/dom6data/mapfiles/CustomArena/CustomArena.map", "r") as mapfile:
         nations_list = [
             data.get("land_nation_1"),
             data.get("land_nation_2"),

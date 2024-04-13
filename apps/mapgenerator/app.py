@@ -253,21 +253,21 @@ async def dom6_generate_map(request: Request):
     final_map = dom6_substitute(json_data, mapgenerated_text)
     map_as_bytes = StringIO(final_map)
     zip_buffer = BytesIO()
-    dirname = "apps/dom6data/mapfiles/DasTacticArena"
+    dirname = "apps/dom6data/mapfiles/CustomArena"
     names = [
-        "ArenaDom6_plane2.map",
-        "ArenaDom6_plane2.tga",
-        "ArenaDom6_winter.tga",
-        "ArenaDom6.tga",
+        "CustomArena_plane2.map",
+        "CustomArena_plane2.tga",
+        "CustomArena_winter.tga",
+        "CustomArena.tga",
         "banner.png",
     ]
     with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
         for file_name in names:
             with open(f"{dirname}/{file_name}", "rb") as f:
                 zip_file.writestr(file_name, f.read())
-        zip_file.writestr("ArenaDom6.map", map_as_bytes.getvalue())
+        zip_file.writestr("CustomArena.map", map_as_bytes.getvalue())
     resp = await request.respond(content_type="application/zip; charset=utf-8")
-    resp.headers["Content-Disposition"] = "attachment; filename=MyArena.zip"
+    resp.headers["Content-Disposition"] = "attachment; filename=CustomArena.zip"
     await resp.send(zip_buffer.getvalue())
     await resp.eof()
 
