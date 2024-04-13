@@ -30,10 +30,10 @@ app.static("/static/", "./apps/mapgenerator/templates/assets")
 
 @app.listener("before_server_start")
 async def init_sentry(_):
-    if getenv("SENTRY_SDK", ""):
+    if getenv("SENTRY_DSN", ""):
         print("SENTRY INITIALIZED")
         sentry_sdk.init(
-            dsn=getenv("SENTRY_SDK", ""),
+            dsn=getenv("SENTRY_DSN", ""),
             integrations=[AsyncioIntegration()],
             # Set traces_sample_rate to 1.0 to capture 100%
             # of transactions for performance monitoring.
