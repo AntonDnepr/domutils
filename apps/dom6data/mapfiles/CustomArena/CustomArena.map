@@ -8,6 +8,7 @@
 -- Title and image file
 #dom2title $map_name
 #imagefile CustomArena.tga
+#winterimagefile CustomArena_winter.tga
 #mapsize 1600 1200
 #domversion 550
 #nodeepcaves
