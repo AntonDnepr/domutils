@@ -21,7 +21,12 @@ from sanic.request import Request
 from sanic.response.types import JSONResponse
 from sanic_ext import render
 from sentry_sdk.integrations.asyncio import AsyncioIntegration
-from sentry_sdk.integrations.sanic import SanicIntegration
+from sentry_sdk.integrations.sanic import (
+    SanicIntegration,
+    _hub_enter,
+    _hub_exit,
+    _set_transaction,
+)
 
 app = Sanic("DominionsUtils")
 app.config.TEMPLATING_PATH_TO_TEMPLATES = "./apps/mapgenerator/templates"
@@ -39,6 +44,12 @@ async def init_sentry(_):
             # of transactions for performance monitoring.
             traces_sample_rate=1.0,
         )
+
+if getenv("SENTRY_DSN", ""):
+    # we manually need to set the signals because sentry sanic integration doesn't work
+    app.signal("http.lifecycle.request")(_hub_enter)
+    app.signal("http.lifecycle.response")(_hub_exit)
+    app.signal("http.routing.after")(_set_transaction)
 
 
 @app.get("/")
