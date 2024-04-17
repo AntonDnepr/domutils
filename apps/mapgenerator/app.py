@@ -264,8 +264,8 @@ async def dom6_generate_map(request: Request):
     with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
         for file_name in names:
             with open(f"{dirname}/{file_name}", "rb") as f:
-                zip_file.writestr(file_name, f.read())
-        zip_file.writestr("CustomArena.map", map_as_bytes.getvalue())
+                zip_file.writestr(f"CustomArena/{file_name}", f.read())
+        zip_file.writestr("CustomArena/CustomArena.map", map_as_bytes.getvalue())
     resp = await request.respond(content_type="application/zip; charset=utf-8")
     resp.headers["Content-Disposition"] = "attachment; filename=CustomArena.zip"
     await resp.send(zip_buffer.getvalue())
