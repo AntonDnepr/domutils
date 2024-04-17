@@ -450,6 +450,7 @@
       var previosIndex = localStorage.getItem("previosIndex");
       var nextUrl = urls[nextIndex];
       if (!nextUrl) {
+        target.innerHTML = "Loading...";
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "/dom6/generate-map/");
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -469,8 +470,10 @@
                 localStorage.setItem("commanders", []);
                 localStorage.setItem("units", []);
                 a.click();
+                target.innerHTML = "Proceed to Next Step";
             } else {
               alert("Error happened, please try again.")
+              target.innerHTML = "Proceed to Next Step";
             }
           }
         };
