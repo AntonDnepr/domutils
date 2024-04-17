@@ -279,3 +279,11 @@ async def dom6_arena_units(request: Request, name: str):
         status=200,
         context={"dom6_arena_active": True, "name": unquote_plus(name)},
     )
+
+
+@app.get("/credits/")
+async def credits(request: Request):
+    return await render(
+        "credits.html",
+        status=200,
+    )
