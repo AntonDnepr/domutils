@@ -34,6 +34,7 @@ async def init_sentry(_):
         sentry_sdk.init(
             dsn=getenv("SENTRY_DSN", ""),
             integrations=[AsyncioIntegration(), SanicIntegration()],
+            enable_tracing=True,
             # Set traces_sample_rate to 1.0 to capture 100%
             # of transactions for performance monitoring.
             traces_sample_rate=1.0,
