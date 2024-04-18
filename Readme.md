@@ -30,4 +30,4 @@ All credits for data dumps into csv format goes to them.
 - Allow custom mods load;
 
 ## License
-GNU GPLv3 (see License.md)
+GNU GPLv3 (see License.md) on files that are not map.
