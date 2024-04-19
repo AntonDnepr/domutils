@@ -6,7 +6,7 @@
 -- 
 
 -- Title and image file
-#imagefile ArenaDom6_plane2.tga
+#imagefile CustomArena_plane2.tga
 #mapsize 1600 1200
 #domversion 550
 #nodeepcaves
