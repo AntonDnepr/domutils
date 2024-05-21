@@ -34,7 +34,7 @@
 </head>
 
 <body>
-  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" hx-boost="true">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/"> Dominions 5/6 utils </a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
     <a class="nav-item me-0 px-3 d-none d-md-block" href="/"> Home </a>
     <a class="nav-item me-0 px-3 d-none d-md-block" href="/credits/"> Acknowledgements </a>
   </header>
-  <div class="container-fluid">
+  <div class="container-fluid" hx-boost="true">
     <div class="row">
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="position-sticky pt-3">
@@ -100,7 +100,7 @@
     </div>
   </div>
   <script src="/static/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   {% block extra_js %}
   {% endblock extra_js %}
 </body>
