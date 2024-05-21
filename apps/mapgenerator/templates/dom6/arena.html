@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock extra_css %}
+
 {% block main_content %}
+{% include "release_notes.html" %}
 <div class="mt-5">
     <div class="text-center">
         <h2 class="display-4 mb-4">Welcome to the Arena Map Tool</h2>
     </div>
     <div class="mb-4">
         <p class="lead">
-            This tool makes extensive use of Arena Map by Dastactic. You don't need to install it, but you can do so
-            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3142555207" rel="noopener noreferrer"
-                target="_blank">here</a>
+            This tool makes extensive use of Arena Map by Dastactic. Please support the <a href="https://www.youtube.com/dastactic" rel="noopener noreferrer"
+            target="_blank">author</a> of the original map.
         </p>
-        <p class="lead"> Please support the <a href="https://www.youtube.com/dastactic" rel="noopener noreferrer"
-            target="_blank">author</a> of the original map.</p>
-        <p class="lead"> You can contribute to the development of this tool or report a bug <a href="https://github.com/AntonDnepr/domutils" rel="noopener noreferrer" target="_blank">here.</a> </p>
+        <p class="lead"> You can contribute to the development of this tool or report a bug <a href="https://github.com/AntonDnepr/domutils" rel="noopener noreferrer" target="_blank">here</a>. </p>
+        <p class="lead"> You can check tutorial <a href="https://buymeacoffee.com/domutils/tutorial-2661664" target="_blank" rel="noopener noreferrer">here</a> or read short description below.</p>
         <h3>Tool Steps:</h3>
         <ol class="list-group list-group-numbered list-group-flush">
             <li class="list-group-item">

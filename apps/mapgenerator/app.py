@@ -45,6 +45,7 @@ async def init_sentry(_):
             traces_sample_rate=1.0,
         )
 
+
 if getenv("SENTRY_DSN", ""):
     # we manually need to set the signals because sentry sanic integration doesn't work
     app.signal("http.lifecycle.request")(_hub_enter)
@@ -295,7 +296,9 @@ async def dom6_arena_units(request: Request, name: str):
 
 @app.get("/credits/")
 async def credits(request: Request):
-    return await render(
-        "credits.html",
-        status=200,
-    )
+    return await render("credits.html", status=200)
+
+
+@app.get("/history/")
+async def history(request: Request):
+    return await render("releases_history.html", status=200)

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock extra_css %}
+
+{% block main_content %}
+{% include "release_notes.html" %}
+<h5 class="mt-5">History</h5>
+<p class="mt-1">
+    May 21st 2024: Released history page, release alerts and first tutorial. Related post <a href="https://buymeacoffee.com/domutils/tutorial-2661664" class="alert-link" target="_blank" rel="noopener noreferrer">here</a>.
+</p>
+<p class="mt-1">
+    April 29th 2024: Initial version release. Related post with descriptions and plans <a href="https://buymeacoffee.com/domutils/future-plans-latest-release" class="alert-link" target="_blank" rel="noopener noreferrer">here</a>.
+</p>
+{% endblock main_content %}
