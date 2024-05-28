@@ -1,9 +1,9 @@
 import pytest
-from apps.dom6data.parser import parse_dom6_dm_files, parse_dom6_units
-from apps.mapgenerator.app import app
 from apps.core.consts import TEST
 from apps.core.redis import get_redis_client
 from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
+from apps.dom6data.parser import parse_dom6_dm_files, parse_dom6_units
+from apps.mapgenerator.app import app
 
 
 @pytest.fixture(scope="module", autouse=True)
@@ -60,6 +60,16 @@ def test_dom6_autocomplete_units_query():
     )
     assert request.method.lower() == "get"
     assert response.status == 200
+    assert response.status == 200
+    data = response.body.decode("utf-8")
+    assert "AlohaMonster2" in data
+
+
+def test_dom6_autocomplete_units_by_id():
+    request, response = app.test_client.get(
+        "/dom6/autocomplete/units/?search_term=999998&mods=test"
+    )
+    assert request.method.lower() == "get"
     assert response.status == 200
     data = response.body.decode("utf-8")
     assert "AlohaMonster2" in data

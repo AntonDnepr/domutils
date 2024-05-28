@@ -4,6 +4,10 @@ from os import getenv
 from urllib.parse import unquote_plus
 
 import sentry_sdk
+from apps.core.consts import ERAS, VANILLA
+from apps.core.utils import check_if_int, clean_search_string
+from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
+from apps.domdata.models import Nation, Unit
 from apps.mapgenerator.mapgen import (
     data_into_map,
     dom6_data_into_map,
@@ -12,10 +16,6 @@ from apps.mapgenerator.mapgen import (
     process_data,
     substitute,
 )
-from apps.core.consts import ERAS, VANILLA
-from apps.core.utils import clean_search_string
-from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
-from apps.domdata.models import Nation, Unit
 from sanic import Sanic, text
 from sanic.request import Request
 from sanic.response.types import JSONResponse
@@ -189,7 +189,12 @@ async def dom6_autocomplete_units(request: Request) -> JSONResponse:
     mods_query = Dom6Unit.mod == VANILLA
     for selected_mod in mods:
         mods_query |= Dom6Unit.mod == selected_mod
-    units = Dom6Unit.find((Dom6Unit.name % f"{search_term}*") & mods_query).all()
+    query = (
+        (Dom6Unit.dominions_id == int(search_term))
+        if check_if_int(search_term)
+        else (Dom6Unit.name % f"{search_term}*")
+    )
+    units = Dom6Unit.find(query & mods_query).all()
     if not units:
         units = Dom6Unit.find((Dom6Unit.name % f"{search_term}") & mods_query).all()
     return await render(

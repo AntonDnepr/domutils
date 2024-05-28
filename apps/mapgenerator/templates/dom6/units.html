@@ -43,7 +43,7 @@
             <div class="mb-3 parent-js">
               <label for="commanders" class="form-label">Commanders search</label>
               <input type="text" class="form-control" id="commanders" name="search_term" data-id="commanders"
-                hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#commandersResults" placeholder="Search..."
+                hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#commandersResults" placeholder="Search by name or id..."
                 hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
               <div id="commandersResults" data-type="commanders" class="mt-2 results-js">
 
@@ -62,7 +62,7 @@
           <div class="mb-3 parent-js">
             <label for="units" class="form-label">Units search</label>
             <input type="text" class="form-control" id="units" name="search_term" data-id="units"
-            hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#unitsResults" placeholder="Search..."
+            hx-trigger="keyup changed delay:500ms, click delay:500ms" hx-target="#unitsResults" placeholder="Search by name or id..."
             hx-include="#selectedMods" hx-get="/dom6/autocomplete/units/">
             <div id="unitsResults" data-type="units" class="mt-2 results-js">
 

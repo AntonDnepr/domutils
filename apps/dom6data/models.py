@@ -17,7 +17,7 @@ class Dom6Nation(HashModel):
 
 class Dom6Unit(HashModel):
     name: str = Field(index=True, full_text_search=True)
-    dominions_id: int
+    dominions_id: int = Field(index=True)
     mod: Optional[str] = Field(index=True, default=VANILLA)
 
     class Meta:
