@@ -266,6 +266,7 @@ async def dom6_autocomplete_items(request: Request) -> JSONResponse:
 @app.post("/dom6/generate-map/")
 async def dom6_generate_map(request: Request):
     json_data = request.json
+    only_map = json_data.get("only_map", False)
     returned_data = dom6_process_data(json_data)
     mapgenerated_text = dom6_data_into_map(returned_data)
     final_map = dom6_substitute(json_data, mapgenerated_text)
@@ -279,15 +280,21 @@ async def dom6_generate_map(request: Request):
         "CustomArena.tga",
         "banner.png",
     ]
-    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
-        for file_name in names:
-            with open(f"{dirname}/{file_name}", "rb") as f:
-                zip_file.writestr(f"CustomArena/{file_name}", f.read())
-        zip_file.writestr("CustomArena/CustomArena.map", map_as_bytes.getvalue())
-    resp = await request.respond(content_type="application/zip; charset=utf-8")
-    resp.headers["Content-Disposition"] = "attachment; filename=CustomArena.zip"
-    await resp.send(zip_buffer.getvalue())
-    await resp.eof()
+    if only_map:
+        resp = await request.respond(content_type="text/plain; charset=utf-8")
+        resp.headers["Content-Disposition"] = "attachment; filename=CustomArena.map"
+        await resp.send(map_as_bytes.read())
+        await resp.eof()
+    else:
+        with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
+            for file_name in names:
+                with open(f"{dirname}/{file_name}", "rb") as f:
+                    zip_file.writestr(f"CustomArena/{file_name}", f.read())
+            zip_file.writestr("CustomArena/CustomArena.map", map_as_bytes.getvalue())
+        resp = await request.respond(content_type="application/zip; charset=utf-8")
+        resp.headers["Content-Disposition"] = "attachment; filename=CustomArena.zip"
+        await resp.send(zip_buffer.getvalue())
+        await resp.eof()
 
 
 @app.get("/dom6/arena-mapgen/<name:str>/")

@@ -33,6 +33,17 @@
                 <p class="mt-1 mb-0 alert alert-info">Map folder is available by clicking "Tools & Manuals" -> "Open User Data directory"</p>
             </li>
         </ol>
+        <h4>
+            Advanced settings
+        </h4>
+        <div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="onlyMap" name="onlyMap" id="onlyMap">
+                <label class="form-check-label" for="onlyMap">
+                    Download only .map file instead of the full zip file (faster for generation and download)
+                </label>
+            </div>
+        </div>
     </div>
     <p class="text-center">
         <a href="/dom6/arena-mapgen/select-nations/" class="btn btn-primary btn-lg">Start</a>
@@ -44,5 +55,8 @@
 <script>
   // let's reset the data here
   localStorage.clear();
+  document.getElementById("onlyMap").onclick = function() {
+    localStorage.setItem("onlyMap", this.checked);
+  }
 </script>
 {% endblock extra_js %}

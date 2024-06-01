@@ -115,6 +115,21 @@ def test_dom6_map_generation_view(initial_dom6_data_for_mapgen):
     )
 
 
+def test_dom6_map_generation_view_only_map(initial_dom6_data_for_mapgen):
+    parse_dom6_units()
+    parse_dom6_dm_files()
+    data, *_ = initial_dom6_data_for_mapgen
+    data["only_map"] = True
+    request, response = app.test_client.post("/dom6/generate-map/", json=data)
+    assert request.method.lower() == "post"
+    assert response.status == 200
+    assert response.content_type == "text/plain; charset=utf-8"
+    assert (
+        response.headers["Content-Disposition"]
+        == "attachment; filename=CustomArena.map"
+    )
+
+
 def test_dom6_autocomplete_items_query():
     request, response = app.test_client.get(
         "/dom6/autocomplete/items/?search_term=garlic&mods=test"

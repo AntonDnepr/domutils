@@ -462,7 +462,11 @@
                 a = document.createElement('a');
                 a.href = window.URL.createObjectURL(xhr.response);
                 // Give filename you wish to download
-                a.download = "CustomArena.zip";
+                if (localStorage.getItem("onlyMap") || false) {
+                  a.download = "CustomArena.map";
+                } else {
+                  a.download = "CustomArena.zip";
+                }
                 a.style.display = 'none';
                 document.body.appendChild(a);
                 // reset local storage state
@@ -483,6 +487,7 @@
           "land_nation_2": localStorage.getItem("land_nation_2"),
           "commanders": currentCommanders,
           "units": currentUnits,
+          "only_map": localStorage.getItem("onlyMap") || false,
         }));
       } else {
         nextIndex++;
