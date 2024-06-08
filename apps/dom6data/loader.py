@@ -4,16 +4,29 @@ import requests
 
 
 def load_units():
-    url = (
-        "https://raw.githubusercontent.com/larzm42/"
-        "dom6inspector/main/gamedata/BaseU.csv"
-    )
-    response = requests.get(url)
-    assert response.status_code == 200
-    # build path to csvs/BaseU.csv
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    with open(os.path.join(current_dir, "csvs/BaseU.csv"), "w") as f:
-        f.write(response.content.decode("utf-8"))
+    names = [
+        "BaseU.csv",
+        "coast_leader_types_by_nation.csv",
+        "fort_leader_types_by_nation.csv",
+        "nonfort_leader_types_by_nation.csv",
+        "attributes_by_nation.csv",
+        "coast_troop_types_by_nation.csv",
+        "fort_troop_types_by_nation.csv",
+        "nonfort_troop_types_by_nation.csv",
+    ]
+    for name in names:
+        url = (
+            "https://raw.githubusercontent.com/larzm42/"
+            f"dom6inspector/main/gamedata/{name}"
+        )
+        response = requests.get(url)
+        assert (
+            response.status_code == 200
+        ), f"{url} responded with {response.status_code}"
+        # build path to csvs/BaseU.csv
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(current_dir, f"csvs/{name}"), "w") as f:
+            f.write(response.content.decode("utf-8"))
 
 
 def load_nations():
