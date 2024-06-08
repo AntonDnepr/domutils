@@ -14,12 +14,11 @@ def generated_data():
         dominions_id=999999,
         name="TestMonster",
         mod=TEST,
+        is_commander=False,
     )
     unit1.save(pipeline=pipeline)
     unit2 = Dom6Unit(
-        dominions_id=999998,
-        name="AlohaMonster2",
-        mod=TEST,
+        dominions_id=999998, name="AlohaMonster2", mod=TEST, is_commander=True
     )
     unit2.save(pipeline=pipeline)
     nation1 = Dom6Nation(

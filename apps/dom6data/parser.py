@@ -184,6 +184,7 @@ def parse_dom6_dm_files():
                                 dominions_id=monster_id,
                                 name=monster_name,
                                 mod=mod,
+                                is_commander=False,
                             )
                             unit.save(pipeline=pipeline)
                         elif new_nation and nation_name:
