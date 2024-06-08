@@ -11,7 +11,7 @@ redis-om = "*"
 ujson = "*"
 jinja2 = "*"
 requests = "*"
-sentry-sdk = {extras = ["sanic"], version = "*"}
+sentry-sdk = {extras = ["sanic"], version = "==1.45.0"}
 
 [dev-packages]
 ipdb = "*"                           # Debugging
