@@ -1,7 +1,7 @@
 # based on dominspector
-def autocalc(o):
+def autocalc(data_dict):
     goldcost = None
-    if int(o["basecost"]) > 9000:
+    if int(data_dict["basecost"]) > 9000:
         leadership = {
             0: 10,
             10: 15,
@@ -20,11 +20,9 @@ def autocalc(o):
         }
 
         ldr_cost = 0
-        if "leader" in o:
-            ldr_cost += leadership.get(int(o["leader"]), 0)
-        if "inspirational" in o:
-            ldr_cost += 10 * int(o["inspirational"])
-        if "sailingshipsize" in o and int(o["sailingshipsize"]) > 0:
+        ldr_cost += leadership.get(int(data_dict["leader"]), 0)
+        ldr_cost += 10 * int(data_dict["inspirational"])
+        if int(data_dict["sailingshipsize"]) > 0:
             ldr_cost += 0.5 * ldr_cost
 
         path1 = {1: 30, 2: 90, 3: 150, 4: 210, 5: 270}
@@ -33,10 +31,10 @@ def autocalc(o):
         paths_cost = 0
         arr = []
         base_magic = [
-            o.get(x, "0") for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]
+            data_dict.get(x, "0") for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]
         ]
-        if has_random(o):
-            build_random_arrays(o, 0, arr, base_magic)
+        if has_random(data_dict):
+            build_random_arrays(data_dict, 0, arr, base_magic)
             for rand1 in range(len(arr)):
                 arr[rand1].sort(reverse=True)
             largest = 0
@@ -69,33 +67,33 @@ def autocalc(o):
                 else:
                     paths_cost += path2[sorted_arr[ok]]
 
-        if paths_cost > 0 and "adept_research" in o:
-            paths_cost += int(o["adept_research"]) * 5
-        if "inept_research" in o:
+        if paths_cost > 0 and "adept_research" in data_dict:
+            paths_cost += int(data_dict["adept_research"]) * 5
+        if "inept_research" in data_dict:
             paths_cost -= 5
-        if "fixforgebonus" in o:
-            paths_cost += paths_cost * (int(o["fixforgebonus"]) / 100)
+        if "fixforgebonus" in data_dict:
+            paths_cost += paths_cost * (int(data_dict["fixforgebonus"]) / 100)
 
         priest = {1: 20, 2: 40, 3: 100, 4: 140}
         priest_cost = 0
-        if "H" in o:
-            priest_cost = priest.get(int(o["H"]), 0)
+        if "H" in data_dict:
+            priest_cost = priest.get(int(data_dict["H"]), 0)
 
         spy_cost = 0
-        if "spy" in o and int(o["spy"]) > 0:
+        if "spy" in data_dict and int(data_dict["spy"]) > 0:
             spy_cost += 40
-        if "assassin" in o and int(o["assassin"]) > 0:
+        if "assassin" in data_dict and int(data_dict["assassin"]) > 0:
             spy_cost += 40
-        if "seduce" in o and int(o["seduce"]) > 0:
+        if "seduce" in data_dict and int(data_dict["seduce"]) > 0:
             spy_cost += 60
-        elif "succubus" in o and int(o["succubus"]) > 0:
+        elif "succubus" in data_dict and int(data_dict["succubus"]) > 0:
             spy_cost += 60
 
         cost_array = [ldr_cost, paths_cost, priest_cost, spy_cost]
         cost_array.sort(reverse=True)
 
         cost = 0
-        if "type" in o and o["type"] == "c":
+        if "type" in data_dict and data_dict["type"] == "c":
             cost = (
                 cost_array[0]
                 + cost_array[1] / 2
@@ -107,48 +105,48 @@ def autocalc(o):
 
         special_cost = 0
         if (
-            "stealthy" in o
-            and int(o["stealthy"]) > 0
-            and "type" in o
-            and o["type"] != "u"
+            "stealthy" in data_dict
+            and int(data_dict["stealthy"]) > 0
+            and "type" in data_dict
+            and data_dict["type"] != "u"
         ):
             special_cost += 5
         if (
-            "autohealer" in o
-            and int(o["autohealer"]) > 0
-            and "type" in o
-            and o["type"] != "u"
+            "autohealer" in data_dict
+            and int(data_dict["autohealer"]) > 0
+            and "type" in data_dict
+            and data_dict["type"] != "u"
         ):
             special_cost += 50
         if (
-            "autodishealer" in o
-            and int(o["autodishealer"]) > 0
-            and "type" in o
-            and o["type"] != "u"
+            "autodishealer" in data_dict
+            and int(data_dict["autodishealer"]) > 0
+            and "type" in data_dict
+            and data_dict["type"] != "u"
         ):
             special_cost += 20
 
         goldcost = int(cost + special_cost)
-        goldcost += int(o["basecost"]) - 10000
+        goldcost += int(data_dict["basecost"]) - 10000
         if (
-            "slow_to_recruit" in o
-            and int(o["slow_to_recruit"]) > 0
-            and "type" in o
-            and o["type"] != "u"
+            "slow_to_recruit" in data_dict
+            and int(data_dict["slow_to_recruit"]) > 0
+            and "type" in data_dict
+            and data_dict["type"] != "u"
         ):
             goldcost = int(goldcost * 0.9)
-        if "holy" in o and int(o["holy"]) > 0:
+        if "holy" in data_dict and int(data_dict["holy"]) > 0:
             goldcost = int(goldcost * 1.3)
-        if "type" in o and o["type"] == "u":
+        if "type" in data_dict and data_dict["type"] == "u":
             goldcost = round_if_needed(goldcost)
         else:
-            if "mountmnr" in o:
+            if "mountmnr" in data_dict:
                 goldcost = special_round(goldcost * 1.4)
                 goldcost = round_up(goldcost * 1.01)
             else:
                 goldcost = special_round(goldcost * 1.4)
     else:
-        goldcost = round_if_needed(o["basecost"])
+        goldcost = round_if_needed(data_dict["basecost"])
     return goldcost or 0
 
 
@@ -259,3 +257,38 @@ def build_random_arrays(o, i, arr, base_magic):
     else:
         return False
     return True
+
+
+def get_random_paths(row):
+    valid_keys = [x for x in row.keys() if x.startswith("mask")]
+    valid_numbers = [int(x.replace("mask", "")) for x in valid_keys]
+    pmasks = {
+        128: "F",
+        256: "A",
+        512: "W",
+        1024: "E",
+        2048: "S",
+        4096: "D",
+        8192: "N",
+        16384: "G",
+        32768: "B",
+        65536: "H",
+    }
+    randompaths = []
+    for valid_number in valid_numbers:
+        mask_key = f"mask{valid_number}"
+        level_key = f"link{valid_number}"
+        chance_key = f"rand{valid_number}"
+        repeat_value = int(row[f"nbr{valid_number}"] or 0)
+        bit_value = int(row[mask_key] or 0)
+        level_value = row[level_key] or None
+        chance_value = row[chance_key] or None
+        pstr = ""
+        for k in pmasks.keys():
+            if bit_value & int(k):
+                pstr += pmasks[k]
+        for j in range(repeat_value):
+            randompaths.append(
+                {"paths": pstr, "levels": level_value, "chance": chance_value}
+            )
+    return randompaths

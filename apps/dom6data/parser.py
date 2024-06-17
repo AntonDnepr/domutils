@@ -5,6 +5,7 @@ import re
 
 from apps.core.consts import DEBUG
 from apps.core.redis import get_redis_client
+from apps.dom6data.autocalc import get_random_paths
 from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 
 
@@ -46,13 +47,26 @@ def parse_dom6_units():
     pipeline.execute()
 
     # Parse units data from CSV file
+    row_to_data = []
     with open(os.path.join(current_dir, "csvs/BaseU.csv"), "r", newline="") as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
         for row in reader:
             unit = Dom6Unit(
-                name=row["name"], dominions_id=row["id"], is_commander=False
+                name=row["name"],
+                dominions_id=row["id"],
+                is_commander=False,
+                holycost=row["holycost"] or None,
             )
             unit.save(pipeline=pipeline)
+            to_append_dict = {
+                "leader": row["leader"] or 0,
+                "inspirational": row["inspirational"] or 0,
+                "sailingshipsize": row["sailingshipsize"] or 0,
+                "randompaths": get_random_paths(row),
+            }
+            for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]:
+                to_append_dict[x] = row[x] or 0
+            row_to_data.append(to_append_dict)
     pipeline.execute()
 
     # Parse leader types data from CSV files
