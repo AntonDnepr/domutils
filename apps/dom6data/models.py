@@ -19,9 +19,11 @@ class Dom6Unit(JsonModel):
     name: str = Field(index=True, full_text_search=True)
     dominions_id: int = Field(index=True)
     mod: Optional[str] = Field(index=True, default=VANILLA)
+    basecost: Optional[int] = None
     goldcost: Optional[int] = None
     holycost: Optional[int] = None
     is_commander: bool
+    slow_to_recruit: bool
     # https://github.com/redis/redis-om-python/issues/605#issuecomment-2068726260
     nations_ids: List[str] = Field(index=True, default=[])
 

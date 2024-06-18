@@ -5,7 +5,7 @@ import re
 
 from apps.core.consts import DEBUG
 from apps.core.redis import get_redis_client
-from apps.dom6data.autocalc import get_random_paths
+from apps.dom6data.autocalc import calc_gold_cost, get_random_paths
 from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 
 
@@ -55,14 +55,32 @@ def parse_dom6_units():
                 name=row["name"],
                 dominions_id=row["id"],
                 is_commander=False,
-                holycost=row["holycost"] or None,
+                holycost=int(row["holycost"]) if row["holycost"] else None,
+                slow_to_recruit=row["rt"] == "2",
+                basecost=int(row["basecost"]) if row["basecost"] else None,
             )
             unit.save(pipeline=pipeline)
+            researchbonus = int(row["researchbonus"]) if row["researchbonus"] else 0
             to_append_dict = {
+                "pk": unit.pk,
                 "leader": row["leader"] or 0,
                 "inspirational": row["inspirational"] or 0,
                 "sailingshipsize": row["sailingshipsize"] or 0,
                 "randompaths": get_random_paths(row),
+                "adept_research": (researchbonus if researchbonus > 0 else 0),
+                "inept_research": (researchbonus if researchbonus < 0 else 0),
+                "fixforgebonus": row["fixforgebonus"] or 0,
+                "spy": row["spy"] or 0,
+                "assassin": row["assassin"] or 0,
+                "seduce": row["seduce"] or 0,
+                "succubus": row["succubus"] or 0,
+                "stealthy": row["stealthy"] or 0,
+                "autohealer": row["autohealer"] or 0,
+                "autodishealer": row["autodishealer"] or 0,
+                "basecost": row["basecost"],
+                "slow_to_recruit": 2 if row["rt"] == "2" else 0,
+                "holy": row["holy"] or 0,
+                "mountmnr": row["mountmnr"] or 0,
             }
             for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]:
                 to_append_dict[x] = row[x] or 0
@@ -158,6 +176,13 @@ def parse_dom6_units():
             except IndexError:
                 print(f"Could not find unit with id {row['raw_value']}")
                 continue
+    pipeline.execute()
+    for unit_data in row_to_data:
+        unit = Dom6Unit.get(unit_data["pk"])
+        unit_data["type"] = "commander" if unit.is_commander else "unit"
+        goldcost = calc_gold_cost(unit_data)
+        unit.goldcost = goldcost
+        unit.save(pipeline=pipeline)
     pipeline.execute()
     pipeline.reset()
 

@@ -1,5 +1,5 @@
 # based on dominspector
-def autocalc(data_dict):
+def calc_gold_cost(data_dict):
     goldcost = None
     if int(data_dict["basecost"]) > 9000:
         leadership = {
@@ -69,7 +69,7 @@ def autocalc(data_dict):
 
         if paths_cost > 0 and "adept_research" in data_dict:
             paths_cost += int(data_dict["adept_research"]) * 5
-        if "inept_research" in data_dict:
+        if data_dict["inept_research"] != 0:
             paths_cost -= 5
         if "fixforgebonus" in data_dict:
             paths_cost += paths_cost * (int(data_dict["fixforgebonus"]) / 100)
@@ -80,67 +80,46 @@ def autocalc(data_dict):
             priest_cost = priest.get(int(data_dict["H"]), 0)
 
         spy_cost = 0
-        if "spy" in data_dict and int(data_dict["spy"]) > 0:
+        if int(data_dict["spy"]) > 0:
             spy_cost += 40
-        if "assassin" in data_dict and int(data_dict["assassin"]) > 0:
+        if int(data_dict["assassin"]) > 0:
             spy_cost += 40
-        if "seduce" in data_dict and int(data_dict["seduce"]) > 0:
+        if int(data_dict["seduce"]) > 0:
             spy_cost += 60
-        elif "succubus" in data_dict and int(data_dict["succubus"]) > 0:
+        elif int(data_dict["succubus"]) > 0:
             spy_cost += 60
 
         cost_array = [ldr_cost, paths_cost, priest_cost, spy_cost]
         cost_array.sort(reverse=True)
 
         cost = 0
-        if "type" in data_dict and data_dict["type"] == "c":
+        if data_dict["type"] == "commander":
             cost = (
                 cost_array[0]
                 + cost_array[1] / 2
                 + cost_array[2] / 2
                 + cost_array[3] / 2
             )
-        else:
-            cost = 0
 
         special_cost = 0
-        if (
-            "stealthy" in data_dict
-            and int(data_dict["stealthy"]) > 0
-            and "type" in data_dict
-            and data_dict["type"] != "u"
-        ):
-            special_cost += 5
-        if (
-            "autohealer" in data_dict
-            and int(data_dict["autohealer"]) > 0
-            and "type" in data_dict
-            and data_dict["type"] != "u"
-        ):
-            special_cost += 50
-        if (
-            "autodishealer" in data_dict
-            and int(data_dict["autodishealer"]) > 0
-            and "type" in data_dict
-            and data_dict["type"] != "u"
-        ):
-            special_cost += 20
+        if data_dict["type"] == "commander":
+            if int(data_dict["stealthy"]) > 0:
+                special_cost += 5
+            if int(data_dict["autohealer"]) > 0:
+                special_cost += 50
+            if int(data_dict["autodishealer"]) > 0:
+                special_cost += 20
 
         goldcost = int(cost + special_cost)
         goldcost += int(data_dict["basecost"]) - 10000
-        if (
-            "slow_to_recruit" in data_dict
-            and int(data_dict["slow_to_recruit"]) > 0
-            and "type" in data_dict
-            and data_dict["type"] != "u"
-        ):
+        if int(data_dict["slow_to_recruit"]) > 0 and data_dict["type"] != "unit":
             goldcost = int(goldcost * 0.9)
-        if "holy" in data_dict and int(data_dict["holy"]) > 0:
+        if int(data_dict["holy"]) > 0:
             goldcost = int(goldcost * 1.3)
-        if "type" in data_dict and data_dict["type"] == "u":
+        if data_dict["type"] == "unit":
             goldcost = round_if_needed(goldcost)
         else:
-            if "mountmnr" in data_dict:
+            if int(data_dict["mountmnr"]) != 0:
                 goldcost = special_round(goldcost * 1.4)
                 goldcost = round_up(goldcost * 1.01)
             else:
