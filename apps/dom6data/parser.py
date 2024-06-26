@@ -2,6 +2,7 @@ import csv
 import glob
 import os
 import re
+from collections import defaultdict
 
 from apps.core.consts import DEBUG
 from apps.core.redis import get_redis_client
@@ -63,6 +64,7 @@ def parse_dom6_units():
             researchbonus = int(row["researchbonus"]) if row["researchbonus"] else 0
             to_append_dict = {
                 "pk": unit.pk,
+                "name": unit.name,
                 "leader": row["leader"] or 0,
                 "inspirational": row["inspirational"] or 0,
                 "sailingshipsize": row["sailingshipsize"] or 0,
@@ -118,7 +120,7 @@ def parse_dom6_units():
                     print(f"Could not find unit with id {row['monster_number']}")
                     continue
     pipeline.execute()
-    special_troop_file = "csvs/attributes_by_nation.csv"
+    attributes_file = "csvs/attributes_by_nation.csv"
     # some magic numbers, that I've gotten from searching source of the modinspector
     # https://github.com/larzm42/dom6inspector/blob/18abe8655a996148bd3baec69527a8c8e813f3e0/scripts/DMI/MNation.js#L87
     commander_attributes_numbers = [
@@ -148,9 +150,9 @@ def parse_dom6_units():
         689,
         739,
     ]
-    with open(
-        os.path.join(current_dir, special_troop_file), "r", newline=""
-    ) as csv_file:
+    sites_attributes_numbers = [52, 100, 25]
+    nation_sites: "dict[int, list[int]]" = defaultdict(list)
+    with open(os.path.join(current_dir, attributes_file), "r", newline="") as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
         for row in reader:
             nation = None
@@ -163,20 +165,32 @@ def parse_dom6_units():
                 print(f"Could not find nation with id {row['nation_number']}")
                 continue
             try:
-                if int(row["attribute"]) not in commander_attributes_numbers:
+                attribute_number = int(row["attribute"])
+                if (
+                    attribute_number not in commander_attributes_numbers
+                    and attribute_number not in sites_attributes_numbers
+                ):
                     continue
-                units = Dom6Unit.find(
-                    (Dom6Unit.dominions_id == int(row["raw_value"]))
-                ).all()
-                unit = units[0]
-                unit.is_commander = True
-                if nation is not None:
-                    unit.nations_ids.append(nation.pk)
-                unit.save(pipeline=pipeline)
+                if attribute_number in commander_attributes_numbers:
+                    units = Dom6Unit.find(
+                        (Dom6Unit.dominions_id == int(row["raw_value"]))
+                    ).all()
+                    unit = units[0]
+                    unit.is_commander = True
+                    if nation is not None:
+                        unit.nations_ids.append(nation.pk)
+                    unit.save(pipeline=pipeline)
+                else:
+                    nation_sites[nation.dominions_id].append(int(row["raw_value"]))
             except IndexError:
                 print(f"Could not find unit with id {row['raw_value']}")
                 continue
     pipeline.execute()
+    # some commanders are tied to the magic site, so we need to add them via magicsites
+    with open(
+        os.path.join(current_dir, "csvs/MagicSites.csv"), "r", newline=""
+    ) as csv_file:
+        reader = csv.DictReader(csv_file, delimiter="\t")
     for unit_data in row_to_data:
         unit = Dom6Unit.get(unit_data["pk"])
         unit_data["type"] = "commander" if unit.is_commander else "unit"
@@ -224,6 +238,7 @@ def parse_dom6_dm_files():
                                 name=monster_name,
                                 mod=mod,
                                 is_commander=False,
+                                slow_to_recruit=False,
                             )
                             unit.save(pipeline=pipeline)
                         elif new_nation and nation_name:

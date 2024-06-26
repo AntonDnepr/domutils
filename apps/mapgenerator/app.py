@@ -100,7 +100,7 @@ async def autocomplete_units(request: Request) -> JSONResponse:
     return await render(
         "dom5/includes/units_table.html",
         status=200,
-        context={"units": [x.dict() for x in units]},
+        context={"units": [x.model_dump() for x in units]},
     )
 
 
@@ -200,7 +200,7 @@ async def dom6_autocomplete_units(request: Request) -> JSONResponse:
     return await render(
         "dom6/includes/units_table.html",
         status=200,
-        context={"units": [x.dict() for x in units]},
+        context={"units": [x.model_dump() for x in units]},
     )
 
 

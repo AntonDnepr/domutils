@@ -13,6 +13,7 @@ def load_units():
         "coast_troop_types_by_nation.csv",
         "fort_troop_types_by_nation.csv",
         "nonfort_troop_types_by_nation.csv",
+        "MagicSites.csv",
     ]
     for name in names:
         url = (

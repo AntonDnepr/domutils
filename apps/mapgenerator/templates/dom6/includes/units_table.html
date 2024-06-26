@@ -5,6 +5,11 @@
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Internal id</th>
+          <th scope="col">Gold cost</th>
+          <th scope="col">Is commander?</th>
+          <th scope="col">Slow to recruit?</th>
+          <th scope="col">Holycost</th>
+          <th scope="col">Basecost</th>
         </tr>
       </thead>
       <tbody>
@@ -12,6 +17,11 @@
           <tr data-id="{{unit.dominions_id}}" data-name="{{unit.name}}" class="selectable selectable-js">
             <td>{{unit.name}}</td>
             <td>{{unit.dominions_id}}</td>
+            <td>{{unit.goldcost}}</td>
+            <td>{{unit.is_commander}}</td>
+            <td>{{unit.slow_to_recruit}}</td>
+            <td>{{unit.holycost}}</td>
+            <td>{{unit.basecost}}</td>
           </tr>
         {% endfor %}
       </tbody>

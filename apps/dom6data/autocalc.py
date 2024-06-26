@@ -31,7 +31,8 @@ def calc_gold_cost(data_dict):
         paths_cost = 0
         arr = []
         base_magic = [
-            data_dict.get(x, "0") for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]
+            int(data_dict.get(x, 0))
+            for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]
         ]
         if has_random(data_dict):
             build_random_arrays(data_dict, 0, arr, base_magic)
@@ -43,9 +44,9 @@ def calc_gold_cost(data_dict):
                 temp_path_cost = 0
                 for rand3 in range(len(arr[rand2])):
                     if rand3 == 0:
-                        temp_path_cost = path1[arr[rand2][rand3]]
+                        temp_path_cost = path1.get(arr[rand2][rand3], 0)
                     else:
-                        temp_path_cost += path2[arr[rand2][rand3]]
+                        temp_path_cost += path2.get(arr[rand2][rand3], 0)
                 if largest == 0:
                     largest = temp_path_cost
                     smallest = temp_path_cost
@@ -260,14 +261,14 @@ def get_random_paths(row):
         chance_key = f"rand{valid_number}"
         repeat_value = int(row[f"nbr{valid_number}"] or 0)
         bit_value = int(row[mask_key] or 0)
-        level_value = row[level_key] or None
-        chance_value = row[chance_key] or None
+        level_value = row[level_key] or 0
+        chance_value = row[chance_key] or 0
         pstr = ""
         for k in pmasks.keys():
             if bit_value & int(k):
                 pstr += pmasks[k]
         for j in range(repeat_value):
             randompaths.append(
-                {"paths": pstr, "levels": level_value, "chance": chance_value}
+                {"paths": pstr, "levels": int(level_value), "chance": chance_value}
             )
     return randompaths
