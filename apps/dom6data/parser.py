@@ -150,7 +150,8 @@ def parse_dom6_units():
         689,
         739,
     ]
-    sites_attributes_numbers = [52, 100, 25]
+    # these are cap-only sites
+    sites_attributes_numbers = [52, 100, 25, 631]
     nation_sites: "dict[int, list[int]]" = defaultdict(list)
     with open(os.path.join(current_dir, attributes_file), "r", newline="") as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
@@ -181,16 +182,79 @@ def parse_dom6_units():
                         unit.nations_ids.append(nation.pk)
                     unit.save(pipeline=pipeline)
                 else:
-                    nation_sites[nation.dominions_id].append(int(row["raw_value"]))
+                    nation_sites[int(row["raw_value"])].append(nation.dominions_id)
             except IndexError:
                 print(f"Could not find unit with id {row['raw_value']}")
                 continue
     pipeline.execute()
     # some commanders are tied to the magic site, so we need to add them via magicsites
+    sites_to_comms: "dict[int, list[int]]" = defaultdict(list)
+    sites_to_units: "dict[int, list[int]]" = defaultdict(list)
     with open(
         os.path.join(current_dir, "csvs/MagicSites.csv"), "r", newline=""
     ) as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
+        for row in reader:
+            all_keys = list(row.keys())
+            valid_hmon = [x for x in all_keys if x.startswith("hmon")]
+            valid_hcom = [x for x in all_keys if x.startswith("hcom")]
+            for hmon in valid_hmon:
+                value = row.get(hmon)
+                if not value:
+                    break
+                sites_to_units[int(row["id"])].append(int(value))
+            for hcom in valid_hcom:
+                value = row.get(hcom)
+                if not value:
+                    break
+                sites_to_comms[int(row["id"])].append(int(value))
+    # process sites to commanders
+    for site_id, com_ids in sites_to_comms.items():
+        nations = nation_sites[site_id]
+        for nation_id in nations:
+            for com_id in com_ids:
+                try:
+                    nations = Dom6Nation.find(
+                        Dom6Nation.dominions_id == nation_id
+                    ).all()
+                    nation = nations[0]
+                except IndexError:
+                    print(f"Could not find nation with id {nation_id}")
+                    continue
+                try:
+                    units = Dom6Unit.find(Dom6Unit.dominions_id == com_id).all()
+                    unit = units[0]
+                except IndexError:
+                    print(f"Could not find unit with id {com_id}")
+                    continue
+                unit.is_commander = True
+                unit.cap_only = True
+                unit.nations_ids.append(nation.pk)
+                unit.save(pipeline=pipeline)
+    pipeline.execute()
+    # process sites to units
+    for site_id, unit_ids in sites_to_units.items():
+        nations = nation_sites[site_id]
+        for nation_id in nations:
+            for unit_id in unit_ids:
+                try:
+                    nations = Dom6Nation.find(
+                        Dom6Nation.dominions_id == nation_id
+                    ).all()
+                    nation = nations[0]
+                except IndexError:
+                    print(f"Could not find nation with id {nation_id}")
+                    continue
+                try:
+                    units = Dom6Unit.find(Dom6Unit.dominions_id == unit_id).all()
+                    unit = units[0]
+                except IndexError:
+                    print(f"Could not find unit with id {unit_id}")
+                    continue
+                unit.cap_only = True
+                unit.nations_ids.append(nation.pk)
+                unit.save(pipeline=pipeline)
+    pipeline.execute()
     for unit_data in row_to_data:
         unit = Dom6Unit.get(unit_data["pk"])
         unit_data["type"] = "commander" if unit.is_commander else "unit"

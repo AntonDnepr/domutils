@@ -24,6 +24,7 @@ class Dom6Unit(JsonModel):
     holycost: Optional[int] = None
     is_commander: bool
     slow_to_recruit: bool
+    cap_only: bool = False
     # https://github.com/redis/redis-om-python/issues/605#issuecomment-2068726260
     nations_ids: List[str] = Field(index=True, default=[])
 
