@@ -1,4 +1,7 @@
 # based on dominspector
+import copy
+
+
 def calc_gold_cost(data_dict):
     goldcost = None
     if int(data_dict["basecost"]) > 9000:
@@ -55,6 +58,7 @@ def calc_gold_cost(data_dict):
                         largest = temp_path_cost
                     elif temp_path_cost < smallest:
                         smallest = temp_path_cost
+            # largest should be 210, but it's 330 for some reason
             paths_cost = (largest * 0.75) + (smallest * 0.25)
         else:
             sorted_arr = []
@@ -70,9 +74,9 @@ def calc_gold_cost(data_dict):
 
         if paths_cost > 0 and "adept_research" in data_dict:
             paths_cost += int(data_dict["adept_research"]) * 5
-        if data_dict["inept_research"] != 0:
+        if int(data_dict["inept_research"]) != 0:
             paths_cost -= 5
-        if "fixforgebonus" in data_dict:
+        if int(data_dict["fixforgebonus"]) > 0:
             paths_cost += paths_cost * (int(data_dict["fixforgebonus"]) / 100)
 
         priest = {1: 20, 2: 40, 3: 100, 4: 140}
@@ -92,7 +96,6 @@ def calc_gold_cost(data_dict):
 
         cost_array = [ldr_cost, paths_cost, priest_cost, spy_cost]
         cost_array.sort(reverse=True)
-
         cost = 0
         if data_dict["type"] == "commander":
             cost = (
@@ -110,7 +113,6 @@ def calc_gold_cost(data_dict):
                 special_cost += 50
             if int(data_dict["autodishealer"]) > 0:
                 special_cost += 20
-
         goldcost = int(cost + special_cost)
         goldcost += int(data_dict["basecost"]) - 10000
         if int(data_dict["slow_to_recruit"]) > 0 and data_dict["type"] != "unit":
@@ -127,7 +129,7 @@ def calc_gold_cost(data_dict):
                 goldcost = special_round(goldcost * 1.4)
     else:
         goldcost = round_if_needed(data_dict["basecost"])
-    return goldcost or 0
+    return max(goldcost or 0, 0)
 
 
 def round_if_needed(num):
@@ -157,81 +159,81 @@ def has_random(o):
     return False
 
 
-def build_random_arrays(o, i, arr, base_magic):
-    r = o["randompaths"][i]
-    if "chance" in r and int(r["chance"]) != 100:
-        i += 1
-        if i == len(o["randompaths"]):
+def build_random_arrays(data_dict, index, arr, base_magic):
+    randompath = data_dict["randompaths"][index]
+    if int(randompath.get("chance", 0)) != 100:
+        index += 1
+        if index == len(data_dict["randompaths"]):
             return False
-        r = o["randompaths"][i]
-        if "chance" in r and int(r["chance"]) != 100:
-            i += 1
-            if i == len(o["randompaths"]):
+        randompath = data_dict["randompaths"][index]
+        if int(randompath.get("chance", 0)) != 100:
+            index += 1
+            if index == len(data_dict["randompaths"]):
                 return False
-            r = o["randompaths"][i]
-            if "chance" in r and int(r["chance"]) != 100:
-                i += 1
-                if i == len(o["randompaths"]):
+            randompath = data_dict["randompaths"][index]
+            if int(randompath.get("chance", 0)) != 100:
+                index += 1
+                if index == len(data_dict["randompaths"]):
                     return False
-                r = o["randompaths"][i]
-            if "chance" in r and int(r["chance"]) != 100:
-                i += 1
-                if i == len(o["randompaths"]):
+                randompath = data_dict["randompaths"][index]
+            if int(randompath.get("chance", 0)) != 100:
+                index += 1
+                if index == len(data_dict["randompaths"]):
                     return False
-                r = o["randompaths"][i]
-    if "chance" in r and int(r["chance"]) == 100:
-        new_magic = base_magic.copy()
-        for step in r["paths"]:
+                randompath = data_dict["randompaths"][index]
+    if int(randompath.get("chance", 0)) == 100:
+        for step in randompath["paths"]:
+            new_magic = copy.deepcopy(base_magic)
             if step == "F":
                 if new_magic[0]:
-                    new_magic[0] = int(new_magic[0]) + int(r["levels"])
+                    new_magic[0] = int(new_magic[0]) + int(randompath["levels"])
                 else:
-                    new_magic[0] = int(r["levels"])
+                    new_magic[0] = int(randompath["levels"])
             elif step == "A":
                 if new_magic[1]:
-                    new_magic[1] = int(new_magic[1]) + int(r["levels"])
+                    new_magic[1] = int(new_magic[1]) + int(randompath["levels"])
                 else:
-                    new_magic[1] = int(r["levels"])
+                    new_magic[1] = int(randompath["levels"])
             elif step == "W":
                 if new_magic[2]:
-                    new_magic[2] = int(new_magic[2]) + int(r["levels"])
+                    new_magic[2] = int(new_magic[2]) + int(randompath["levels"])
                 else:
-                    new_magic[2] = int(r["levels"])
+                    new_magic[2] = int(randompath["levels"])
             elif step == "E":
                 if new_magic[3]:
-                    new_magic[3] = int(new_magic[3]) + int(r["levels"])
+                    new_magic[3] = int(new_magic[3]) + int(randompath["levels"])
                 else:
-                    new_magic[3] = int(r["levels"])
+                    new_magic[3] = int(randompath["levels"])
             elif step == "S":
                 if new_magic[4]:
-                    new_magic[4] = int(new_magic[4]) + int(r["levels"])
+                    new_magic[4] = int(new_magic[4]) + int(randompath["levels"])
                 else:
-                    new_magic[4] = int(r["levels"])
+                    new_magic[4] = int(randompath["levels"])
             elif step == "D":
                 if new_magic[5]:
-                    new_magic[5] = int(new_magic[5]) + int(r["levels"])
+                    new_magic[5] = int(new_magic[5]) + int(randompath["levels"])
                 else:
-                    new_magic[5] = int(r["levels"])
+                    new_magic[5] = int(randompath["levels"])
             elif step == "N":
                 if new_magic[6]:
-                    new_magic[6] = int(new_magic[6]) + int(r["levels"])
+                    new_magic[6] = int(new_magic[6]) + int(randompath["levels"])
                 else:
-                    new_magic[6] = int(r["levels"])
+                    new_magic[6] = int(randompath["levels"])
             elif step == "G":
                 if new_magic[7]:
-                    new_magic[7] = int(new_magic[7]) + int(r["levels"])
+                    new_magic[7] = int(new_magic[7]) + int(randompath["levels"])
                 else:
-                    new_magic[7] = int(r["levels"])
+                    new_magic[7] = int(randompath["levels"])
             elif step == "B":
                 if new_magic[8]:
-                    new_magic[8] = int(new_magic[8]) + int(r["levels"])
+                    new_magic[8] = int(new_magic[8]) + int(randompath["levels"])
                 else:
-                    new_magic[8] = int(r["levels"])
-        if i + 1 < len(o["randompaths"]):
-            i += 1
-            if not build_random_arrays(o, i, arr, new_magic):
+                    new_magic[8] = int(randompath["levels"])
+        if index + 1 < len(data_dict["randompaths"]):
+            index += 1
+            if not build_random_arrays(data_dict, index, arr, new_magic):
                 arr.append(new_magic)
-            i -= 1
+            index -= 1
         else:
             arr.append(new_magic)
     else:

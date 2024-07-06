@@ -65,6 +65,7 @@ def parse_dom6_units():
             to_append_dict = {
                 "pk": unit.pk,
                 "name": unit.name,
+                "id": int(row["id"]),
                 "leader": row["leader"] or 0,
                 "inspirational": row["inspirational"] or 0,
                 "sailingshipsize": row["sailingshipsize"] or 0,
@@ -84,7 +85,7 @@ def parse_dom6_units():
                 "holy": row["holy"] or 0,
                 "mountmnr": row["mountmnr"] or 0,
             }
-            for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]:
+            for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B", "H"]:
                 to_append_dict[x] = row[x] or 0
             row_to_data.append(to_append_dict)
     pipeline.execute()
