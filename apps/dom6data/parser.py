@@ -6,7 +6,12 @@ from collections import defaultdict
 
 from apps.core.consts import DEBUG
 from apps.core.redis import get_redis_client
-from apps.dom6data.autocalc import calc_gold_cost, get_random_paths
+from apps.dom6data.autocalc import (
+    calc_gold_cost,
+    get_random_paths,
+    round_if_needed,
+    special_round,
+)
 from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 
 
@@ -260,6 +265,24 @@ def parse_dom6_units():
         unit = Dom6Unit.get(unit_data["pk"])
         unit_data["type"] = "commander" if unit.is_commander else "unit"
         goldcost = calc_gold_cost(unit_data)
+        # we need to add mount price here
+        if unit_data["mountmnr"] != 0:
+            try:
+                mounts = Dom6Unit.find(
+                    Dom6Unit.dominions_id == int(unit_data["mountmnr"])
+                ).all()
+                mount = mounts[0]
+            except IndexError:
+                print(f"Could not find unit with id {unit_id}")
+            else:
+                if mount.basecost > 10000:
+                    goldcost += mount.basecost - 10000
+                else:
+                    goldcost += mount.basecost
+            if unit.is_commander:
+                goldcost = special_round(goldcost)
+            else:
+                goldcost = round_if_needed(goldcost)
         unit.goldcost = goldcost
         unit.save(pipeline=pipeline)
     pipeline.execute()
