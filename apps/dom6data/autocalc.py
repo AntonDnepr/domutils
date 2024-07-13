@@ -1,5 +1,8 @@
 # based on dominspector
 import copy
+import itertools
+
+MAGIC_ORDER = ["F", "A", "W", "E", "S", "D", "N", "G", "B"]
 
 
 def calc_gold_cost(data_dict):
@@ -32,13 +35,9 @@ def calc_gold_cost(data_dict):
         path2 = {1: 20, 2: 60, 3: 100, 4: 140, 5: 180}
 
         paths_cost = 0
-        arr = []
-        base_magic = [
-            int(data_dict.get(x, 0))
-            for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B"]
-        ]
+        base_magic = [int(data_dict.get(x, 0)) for x in MAGIC_ORDER]
         if has_random(data_dict):
-            build_random_arrays(data_dict, 0, arr, base_magic)
+            arr = build_random_arrays(data_dict, base_magic)
             for rand1 in range(len(arr)):
                 arr[rand1].sort(reverse=True)
             largest = 0
@@ -58,7 +57,6 @@ def calc_gold_cost(data_dict):
                         largest = temp_path_cost
                     elif temp_path_cost < smallest:
                         smallest = temp_path_cost
-            # largest should be 210, but it's 330 for some reason
             paths_cost = (largest * 0.75) + (smallest * 0.25)
         else:
             sorted_arr = []
@@ -159,86 +157,36 @@ def has_random(o):
     return False
 
 
-def build_random_arrays(data_dict, index, arr, base_magic):
-    randompath = data_dict["randompaths"][index]
-    if int(randompath.get("chance", 0)) != 100:
-        index += 1
-        if index == len(data_dict["randompaths"]):
-            return False
-        randompath = data_dict["randompaths"][index]
-        if int(randompath.get("chance", 0)) != 100:
-            index += 1
-            if index == len(data_dict["randompaths"]):
-                return False
-            randompath = data_dict["randompaths"][index]
-            if int(randompath.get("chance", 0)) != 100:
-                index += 1
-                if index == len(data_dict["randompaths"]):
-                    return False
-                randompath = data_dict["randompaths"][index]
-            if int(randompath.get("chance", 0)) != 100:
-                index += 1
-                if index == len(data_dict["randompaths"]):
-                    return False
-                randompath = data_dict["randompaths"][index]
-    if int(randompath.get("chance", 0)) == 100:
-        for step in randompath["paths"]:
+def build_random_arrays(data_dict, base_magic):
+    # arr will be list of lists, each containing the magic levels for each combination
+    # of the 100% randoms
+    arr = []
+    # get all randompaths where chance is 100
+    to_process = [x for x in data_dict["randompaths"] if int(x["chance"]) == 100]
+    if not to_process:
+        return arr
+    if len(to_process) == 1:
+        initial_step = to_process[0]
+        for step in initial_step["paths"]:
             new_magic = copy.deepcopy(base_magic)
-            if step == "F":
-                if new_magic[0]:
-                    new_magic[0] = int(new_magic[0]) + int(randompath["levels"])
-                else:
-                    new_magic[0] = int(randompath["levels"])
-            elif step == "A":
-                if new_magic[1]:
-                    new_magic[1] = int(new_magic[1]) + int(randompath["levels"])
-                else:
-                    new_magic[1] = int(randompath["levels"])
-            elif step == "W":
-                if new_magic[2]:
-                    new_magic[2] = int(new_magic[2]) + int(randompath["levels"])
-                else:
-                    new_magic[2] = int(randompath["levels"])
-            elif step == "E":
-                if new_magic[3]:
-                    new_magic[3] = int(new_magic[3]) + int(randompath["levels"])
-                else:
-                    new_magic[3] = int(randompath["levels"])
-            elif step == "S":
-                if new_magic[4]:
-                    new_magic[4] = int(new_magic[4]) + int(randompath["levels"])
-                else:
-                    new_magic[4] = int(randompath["levels"])
-            elif step == "D":
-                if new_magic[5]:
-                    new_magic[5] = int(new_magic[5]) + int(randompath["levels"])
-                else:
-                    new_magic[5] = int(randompath["levels"])
-            elif step == "N":
-                if new_magic[6]:
-                    new_magic[6] = int(new_magic[6]) + int(randompath["levels"])
-                else:
-                    new_magic[6] = int(randompath["levels"])
-            elif step == "G":
-                if new_magic[7]:
-                    new_magic[7] = int(new_magic[7]) + int(randompath["levels"])
-                else:
-                    new_magic[7] = int(randompath["levels"])
-            elif step == "B":
-                if new_magic[8]:
-                    new_magic[8] = int(new_magic[8]) + int(randompath["levels"])
-                else:
-                    new_magic[8] = int(randompath["levels"])
-        if index + 1 < len(data_dict["randompaths"]):
-            index += 1
-            if not build_random_arrays(data_dict, index, arr, new_magic):
-                arr.append(new_magic)
-            index -= 1
-        else:
+            if step in MAGIC_ORDER:
+                magic_index = MAGIC_ORDER.index(step)
+                new_magic[magic_index] += int(initial_step["levels"])
             arr.append(new_magic)
-    else:
-        return False
-    return True
+        return arr
+    # produces a list of lists like [['A', 'E', 'D', 'G'], ['D', 'N', 'B'], ['S', 'F']]
+    combo_lists = []
+    for x in to_process:
+        combo_lists.append([y for y in x["paths"]])
+    final_combos = [x for x in itertools.product(*combo_lists)]
+    for selected_combo in final_combos:
+        new_magic = copy.deepcopy(base_magic)
+        for subindex, step in enumerate(selected_combo):
+            if step in MAGIC_ORDER:
+                magic_index = MAGIC_ORDER.index(step)
+                new_magic[magic_index] += int(to_process[subindex]["levels"])
+        arr.append(new_magic)
+    return arr
 
 
 def get_random_paths(row):
