@@ -6,12 +6,6 @@ from collections import defaultdict
 
 from apps.core.consts import DEBUG
 from apps.core.redis import get_redis_client
-from apps.dom6data.autocalc import (
-    calc_gold_cost,
-    get_random_paths,
-    round_if_needed,
-    special_round,
-)
 from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 
 
@@ -53,46 +47,18 @@ def parse_dom6_units():
     pipeline.execute()
 
     # Parse units data from CSV file
-    row_to_data = []
     with open(os.path.join(current_dir, "csvs/BaseU.csv"), "r", newline="") as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
         for row in reader:
             unit = Dom6Unit(
                 name=row["name"],
                 dominions_id=row["id"],
-                is_commander=False,
+                is_commander=row["rt"] == "2" or False,
                 holycost=int(row["holycost"]) if row["holycost"] else None,
                 slow_to_recruit=row["rt"] == "2",
                 basecost=int(row["basecost"]) if row["basecost"] else None,
             )
             unit.save(pipeline=pipeline)
-            researchbonus = int(row["researchbonus"]) if row["researchbonus"] else 0
-            to_append_dict = {
-                "pk": unit.pk,
-                "name": unit.name,
-                "id": int(row["id"]),
-                "leader": row["leader"] or 0,
-                "inspirational": row["inspirational"] or 0,
-                "sailingshipsize": row["sailingshipsize"] or 0,
-                "randompaths": get_random_paths(row),
-                "adept_research": (researchbonus if researchbonus > 0 else 0),
-                "inept_research": (researchbonus if researchbonus < 0 else 0),
-                "fixforgebonus": row["fixforgebonus"] or 0,
-                "spy": row["spy"] or 0,
-                "assassin": row["assassin"] or 0,
-                "seduce": row["seduce"] or 0,
-                "succubus": row["succubus"] or 0,
-                "stealthy": row["stealthy"] or 0,
-                "autohealer": row["autohealer"] or 0,
-                "autodishealer": row["autodishealer"] or 0,
-                "basecost": row["basecost"],
-                "slow_to_recruit": 2 if row["rt"] == "2" else 0,
-                "holy": row["holy"] or 0,
-                "mountmnr": row["mountmnr"] or 0,
-            }
-            for x in ["F", "A", "W", "E", "S", "D", "N", "G", "B", "H"]:
-                to_append_dict[x] = row[x] or 0
-            row_to_data.append(to_append_dict)
     pipeline.execute()
 
     # Parse leader types data from CSV files
@@ -196,6 +162,8 @@ def parse_dom6_units():
     # some commanders are tied to the magic site, so we need to add them via magicsites
     sites_to_comms: "dict[int, list[int]]" = defaultdict(list)
     sites_to_units: "dict[int, list[int]]" = defaultdict(list)
+    # some commanders are just there, not related to nations
+    sites_to_unaffiliated_comms: "dict[int, list[int]]" = defaultdict(list)
     with open(
         os.path.join(current_dir, "csvs/MagicSites.csv"), "r", newline=""
     ) as csv_file:
@@ -204,6 +172,7 @@ def parse_dom6_units():
             all_keys = list(row.keys())
             valid_hmon = [x for x in all_keys if x.startswith("hmon")]
             valid_hcom = [x for x in all_keys if x.startswith("hcom")]
+            valid_coms = [x for x in all_keys if x.startswith("com")]
             for hmon in valid_hmon:
                 value = row.get(hmon)
                 if not value:
@@ -214,6 +183,11 @@ def parse_dom6_units():
                 if not value:
                     break
                 sites_to_comms[int(row["id"])].append(int(value))
+            for com in valid_coms:
+                value = row.get(com)
+                if not value:
+                    break
+                sites_to_unaffiliated_comms[int(row["id"])].append(int(value))
     # process sites to commanders
     for site_id, com_ids in sites_to_comms.items():
         nations = nation_sites[site_id]
@@ -261,30 +235,49 @@ def parse_dom6_units():
                 unit.nations_ids.append(nation.pk)
                 unit.save(pipeline=pipeline)
     pipeline.execute()
-    for unit_data in row_to_data:
-        unit = Dom6Unit.get(unit_data["pk"])
-        unit_data["type"] = "commander" if unit.is_commander else "unit"
-        goldcost = calc_gold_cost(unit_data)
-        # we need to add mount price here
-        if unit_data["mountmnr"] != 0:
+    # process regular commanders that aren' affiliated to nations
+    for site_id, com_ids in sites_to_unaffiliated_comms.items():
+        for com_id in com_ids:
             try:
-                mounts = Dom6Unit.find(
-                    Dom6Unit.dominions_id == int(unit_data["mountmnr"])
-                ).all()
-                mount = mounts[0]
+                units = Dom6Unit.find(Dom6Unit.dominions_id == com_id).all()
+                unit = units[0]
             except IndexError:
-                print(f"Could not find unit with id {unit_id}")
-            else:
-                if mount.basecost > 10000:
-                    goldcost += mount.basecost - 10000
-                else:
-                    goldcost += mount.basecost
-            if unit.is_commander:
-                goldcost = special_round(goldcost)
-            else:
-                goldcost = round_if_needed(goldcost)
-        unit.goldcost = goldcost
-        unit.save(pipeline=pipeline)
+                print(f"Could not find unit with id {com_id}")
+                continue
+            unit.is_commander = True
+            unit.save(pipeline=pipeline)
+    console_path = os.path.join(current_dir, "fixed_data/goldcost.csv")
+    check_path = os.path.join(current_dir, "fixed_data/commanders.csv")
+    with (
+        open(console_path, "r", newline="") as console_file,
+        open(check_path, "r", newline="") as check_file,
+    ):
+        new_reader = csv.reader(console_file, delimiter=",")
+        check_reader = csv.reader(check_file, delimiter=",")
+        id_to_type = {x[0]: x[1] for x in check_reader}
+        commander_types = ["commander", "cmdr", "pretender", "hero"]
+        for row in new_reader:
+            dom_id = row[0]
+            try:
+                expected_price = int(row[1])
+            except ValueError:
+                if row[1] != "NaN":
+                    print(f"Invalid gold cost for {dom_id}: {row[1]}")
+                expected_price = 0
+            expected_price = max(expected_price, 0)
+            cur_type = id_to_type[dom_id]
+            is_commander = any(
+                cmd_type in cur_type.lower() for cmd_type in commander_types
+            )
+            try:
+                units = Dom6Unit.find(Dom6Unit.dominions_id == dom_id).all()
+                unit = units[0]
+            except IndexError:
+                print(f"Could not find unit with id {dom_id}")
+                continue
+            unit.is_commander = is_commander
+            unit.goldcost = expected_price
+            unit.save(pipeline=pipeline)
     pipeline.execute()
     pipeline.reset()
 

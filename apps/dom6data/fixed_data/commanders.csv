@@ -1,0 +1,4017 @@
+1,unit
+2,unit
+3,unit
+4,undefined
+5,commander
+6,commander
+7,unit
+8,undefined
+9,commander
+10,undefined
+11,unit
+12,unit
+13,commander
+14,unit
+15,commander
+16,unit
+17,undefined
+18,undefined
+19,undefined
+20,undefined
+21,undefined
+22,Unit (Magic site)
+23,cmdr (Magic site)
+24,undefined
+25,undefined
+26,undefined
+27,unit
+28,undefined
+29,undefined
+30,undefined
+31,undefined
+32,undefined
+33,undefined
+34,undefined
+35,undefined
+36,undefined
+37,hero (multi)
+38,undefined
+39,undefined
+40,undefined
+41,cmdr (cap only)
+42,commander
+43,commander
+44,undefined
+45,undefined
+46,commander
+47,undefined
+48,undefined
+49,undefined
+50,unit
+51,unit (cap only)
+52,commander
+53,unit
+54,commander
+55,undefined
+56,commander
+57,unit
+58,hero (multi)
+59,unit
+60,commander
+61,unit
+62,unit
+63,unit
+64,unit (cap only)
+65,unit (cap only)
+66,unit (cap only)
+67,unit
+68,unit
+69,unit
+70,commander
+71,unit
+72,unit
+73,unit
+74,unit
+75,unit
+76,unit
+77,unit
+78,unit
+79,unit
+80,unit
+81,unit
+82,unit
+83,unit
+84,unit
+85,commander
+86,commander
+87,cmdr (cap only)
+88,unit (Summon)
+89,cmdr (cap only)
+90,unit (cap only)
+91,undefined
+92,cmdr (Magic site)
+93,cmdr (Magic site)
+94,cmdr (Magic site)
+95,cmdr (Magic site)
+96,cmdr (Magic site)
+97,cmdr (Magic site)
+98,cmdr (Magic site)
+99,cmdr (Magic site)
+100,cmdr (Magic site)
+101,cmdr (Magic site)
+102,cmdr (coast)
+103,cmdr (Magic site)
+104,cmdr (cap only)
+105,cmdr (Magic site)
+106,cmdr (Magic site)
+107,unit
+108,unit
+109,Pretender
+110,unit
+111,unit
+112,commander
+113,cmdr (cap only)
+114,commander
+115,commander
+116,commander
+117,commander
+118,commander
+119,commander
+120,Pretender
+121,cmdr (cap only)
+122,cmdr (Magic site)
+123,undefined
+124,undefined
+125,undefined
+126,undefined
+127,unit (cap only)
+128,unit
+129,unit
+130,unit
+131,unit
+132,unit
+133,unit
+134,unit
+135,unit
+136,undefined
+137,undefined
+138,Pretender
+139,Unit (Magic site)
+140,Unit (Magic site)
+141,cmdr (Magic site)
+142,unit
+143,unit
+144,unit
+145,unit
+146,unit
+147,cmdr (Magic site)
+148,commander
+149,commander
+150,unit
+151,commander
+152,commander
+153,cmdr (cap only)
+154,cmdr (Magic site)
+155,undefined
+156,Commander
+157,Pretender
+158,Pretender
+159,Pretender
+160,commander
+161,commander
+162,commander
+163,commander
+164,unit (cap only)
+165,unit
+166,unit
+167,unit
+168,unit
+169,commander
+170,commander
+171,unit
+172,unit
+173,unit
+174,undefined
+175,undefined
+176,undefined
+177,cmdr (cap only)
+178,Commander
+179,Pretender
+180,Pretender
+181,cmdr (Summon)
+182,undefined
+183,hero (unique)
+184,undefined
+185,cmdr (Summon)
+186,undefined
+187,unit (Summon)
+188,cmdr (Summon)
+189,unit (Summon)
+190,undefined
+191,undefined
+192,undefined
+193,undefined
+194,undefined
+195,undefined
+196,undefined
+197,undefined
+198,undefined
+199,unit
+200,unit
+201,unit
+202,commander
+203,commander
+204,commander
+205,undefined
+206,unit
+207,commander
+208,unit
+209,unit (cap only)
+210,undefined
+211,unit
+212,cmdr (cap only)
+213,unit
+214,commander
+215,Pretender
+216,Pretender
+217,unit
+218,unit
+219,unit
+220,unit
+221,unit
+222,cmdr (cap only)
+223,cmdr (cap only)
+224,commander
+225,commander
+226,Pretender
+227,unit
+228,unit
+229,unit
+230,unit
+231,commander
+232,commander
+233,unit
+234,unit
+235,unit
+236,commander
+237,commander
+238,commander
+239,unit (Summon)
+240,cmdr (Magic site)
+241,cmdr (Magic site)
+242,commander
+243,unit
+244,Pretender
+245,Pretender
+246,Pretender
+247,undefined
+248,Pretender
+249,Pretender
+250,Pretender
+251,Pretender
+252,Commander
+253,cmdr (Summon)
+254,cmdr (Summon)
+255,unit (Summon)
+256,cmdr (Summon)
+257,cmdr (Summon)
+258,cmdr (Summon)
+259,unit (Summon)
+260,cmdr (Summon)
+261,unit (Summon)
+262,unit (cap only)
+263,commander
+264,commander
+265,Pretender
+266,Pretender
+267,Pretender
+268,Pretender
+269,Pretender
+270,Pretender
+271,Unit (Magic site)
+272,cmdr (Magic site)
+273,Unit (Magic site)
+274,commander
+275,commander
+276,unit
+277,unit
+278,unit
+279,unit
+280,commander
+281,cmdr (cap only)
+282,unit
+283,commander
+284,unit (Summon)
+285,undefined
+286,undefined
+287,undefined
+288,undefined
+289,undefined
+290,undefined
+291,undefined
+292,undefined
+293,undefined
+294,Pretender
+295,undefined
+296,cmdr (cap only)
+297,cmdr (Summon)
+298,unit (Summon)
+299,Commander
+300,unit
+301,cmdr (cap only)
+302,Commander
+303,unit (Summon)
+304,unit (Summon)
+305,cmdr (Summon)
+306,cmdr (Summon)
+307,undefined
+308,undefined
+309,cmdr (Magic site)
+310,cmdr (Magic site)
+311,commander
+312,cmdr (Magic site)
+313,unit (Summon)
+314,unit (Summon)
+315,undefined
+316,undefined
+317,undefined
+318,undefined
+319,undefined
+320,Pretender
+321,commander
+322,commander
+323,cmdr (cap only)
+324,cmdr (cap only)
+325,commander
+326,undefined
+327,commander
+328,commander
+329,cmdr (Summon)
+330,unit (Summon)
+331,unit
+332,cmdr (cap only)
+333,commander
+334,Commander
+335,unit
+336,unit
+337,unit
+338,cmdr (Magic site)
+339,cmdr (Magic site)
+340,cmdr (Magic site)
+341,cmdr (Magic site)
+342,cmdr (Magic site)
+343,cmdr (Magic site)
+344,cmdr (Magic site)
+345,cmdr (Summon)
+346,Commander
+347,Commander
+348,undefined
+349,Commander
+350,Commander
+351,undefined
+352,Commander
+353,Commander
+354,undefined
+355,Commander
+356,Commander
+357,undefined
+358,unit (cap only)
+359,cmdr (Summon)
+360,unit (Summon)
+361,unit (Summon)
+362,unit (Summon)
+363,cmdr (Magic site)
+364,cmdr (Magic site)
+365,Unit (Magic site)
+366,Commander
+367,undefined
+368,undefined
+369,undefined
+370,undefined
+371,hero (unique)
+372,unit
+373,hero (unique)
+374,commander
+375,undefined
+376,hero (unique)
+377,hero (unique)
+378,hero (unique)
+379,hero (unique)
+380,hero (unique)
+381,hero (unique)
+382,commander
+383,Pretender
+384,Pretender
+385,Pretender
+386,Pretender
+387,Pretender
+388,Pretender
+389,cmdr (Magic site)
+390,Unit (Magic site)
+391,cmdr (Magic site)
+392,undefined
+393,undefined
+394,unit (Summon)
+395,Pretender
+396,cmdr (Summon)
+397,unit (Summon)
+398,cmdr (Summon)
+399,unit
+400,unit
+401,Pretender
+402,Pretender
+403,unit (Summon)
+404,cmdr (Summon)
+405,unit (Summon)
+406,cmdr (Magic site)
+407,unit
+408,undefined
+409,undefined
+410,undefined
+411,cmdr (Magic site)
+414,unit (cap only)
+415,commander
+416,commander
+417,unit
+418,commander
+419,unit
+420,unit
+421,unit
+422,commander
+423,undefined
+424,unit
+425,unit
+426,commander
+427,undefined
+428,commander
+429,commander
+430,commander
+431,commander
+432,commander
+433,unit (Summon)
+434,cmdr (Summon)
+435,unit (Summon)
+436,commander
+437,commander
+438,unit (Summon)
+439,cmdr (Summon)
+440,commander
+441,commander
+442,unit (Summon)
+443,commander
+444,commander
+445,commander
+446,cmdr (Summon)
+447,unit
+448,unit (Summon)
+449,unit (Summon)
+450,Unit (Magic site)
+451,cmdr (Magic site)
+452,unit (Summon)
+453,undefined
+454,undefined
+455,undefined
+456,undefined
+457,undefined
+458,undefined
+459,undefined
+460,undefined
+461,undefined
+463,unit (cap only)
+464,cmdr (Summon)
+465,Commander
+466,undefined
+467,undefined
+468,undefined
+469,cmdr (Summon)
+470,cmdr (Summon)
+471,cmdr (Summon)
+472,Pretender
+473,cmdr (Summon)
+474,unit (Summon)
+475,unit (Summon)
+476,unit (Summon)
+477,cmdr (Magic site)
+478,cmdr (Magic site)
+479,cmdr (Magic site)
+480,cmdr (Magic site)
+481,cmdr (Magic site)
+482,unit
+483,Unit (Magic site)
+484,commander
+485,Pretender
+486,Pretender
+487,undefined
+488,undefined
+489,unit (Summon)
+490,cmdr (Summon)
+491,cmdr (Summon)
+492,cmdr (Summon)
+499,Pretender
+500,Pretender
+501,Pretender
+502,cmdr (cap only)
+503,unit (cap only)
+504,unit
+505,hero (unique)
+506,hero (unique)
+507,hero (unique)
+508,hero (unique)
+509,Pretender
+510,commander
+511,unit (Summon)
+512,unit (Summon)
+513,unit (Summon)
+514,unit (Summon)
+515,unit (Summon)
+516,cmdr (cap only)
+517,unit (Summon)
+518,unit (Summon)
+519,cmdr (Summon)
+520,unit (Summon)
+521,unit (Summon)
+522,unit (Summon)
+523,unit (Summon)
+524,unit (Summon)
+525,cmdr (Summon)
+526,unit (Summon)
+527,cmdr (Summon)
+528,cmdr (Summon)
+529,cmdr (Magic site)
+530,undefined
+531,unit (Summon)
+532,unit (Summon)
+533,unit (Summon)
+534,unit (Summon)
+535,unit (Summon)
+536,undefined
+537,hero (unique)
+538,unit
+539,hero (unique)
+540,hero (multi)
+541,unit
+542,undefined
+543,undefined
+544,hero (unique)
+545,Unit (Magic site)
+546,Pretender
+547,undefined
+548,undefined
+549,undefined
+550,Pretender
+551,cmdr (Magic site)
+552,cmdr (Magic site)
+553,commander
+554,Commander
+555,hero (unique)
+556,hero (unique)
+557,hero (unique)
+558,hero (unique)
+559,cmdr (Summon)
+560,hero (unique)
+561,unit (Summon)
+562,unit (Summon)
+563,cmdr (Summon)
+564,unit (Summon)
+565,unit (Summon)
+566,unit (Summon)
+573,Unit (Magic site)
+574,undefined
+575,cmdr (Magic site)
+576,cmdr (Magic site)
+577,Unit (Magic site)
+578,unit (Summon)
+579,unit (Summon)
+580,cmdr (Summon)
+581,hero (unique)
+582,hero (unique)
+583,hero (unique)
+584,hero (unique)
+585,hero (unique)
+586,hero (unique)
+587,hero (unique)
+588,hero (unique)
+589,hero (unique)
+590,hero (unique)
+591,undefined
+592,unit (Summon)
+593,unit (Summon)
+600,Pretender
+601,Commander
+602,Pretender
+603,Pretender
+604,Pretender
+605,Pretender
+606,Pretender
+607,Pretender
+608,Pretender
+609,cmdr (Summon)
+610,cmdr (Summon)
+611,hero (unique)
+612,undefined
+613,undefined
+614,hero (unique)
+615,undefined
+616,undefined
+617,undefined
+618,undefined
+619,undefined
+620,cmdr (Summon)
+621,cmdr (Summon)
+622,hero (unique)
+623,undefined
+624,undefined
+625,cmdr (Summon)
+626,cmdr (Summon)
+627,cmdr (Summon)
+628,unit (Summon)
+629,cmdr (Magic site)
+630,cmdr (Magic site)
+631,cmdr (Summon)
+632,unit (Summon)
+633,undefined
+634,undefined
+635,hero (unique)
+636,undefined
+637,undefined
+638,unit (Summon)
+639,undefined
+640,unit (Summon)
+641,Commander
+642,undefined
+643,Pretender
+644,Pretender
+645,Pretender
+646,undefined
+647,undefined
+648,undefined
+649,Commander
+650,Commander
+651,undefined
+652,Pretender
+653,Pretender
+654,Pretender
+655,Pretender
+656,Pretender
+657,Pretender
+658,commander
+659,undefined
+660,hero (unique)
+661,Pretender
+662,unit
+663,unit
+664,unit
+665,unit
+666,unit
+667,unit
+668,unit
+669,commander
+670,cmdr (cap only)
+671,commander
+672,undefined
+673,undefined
+674,unit (Summon)
+675,undefined
+676,unit (Summon)
+677,undefined
+678,cmdr (Summon)
+679,cmdr (Summon)
+680,cmdr (Summon)
+681,cmdr (Summon)
+682,undefined
+683,commander
+684,unit
+685,unit
+686,unit
+687,unit
+688,unit
+689,unit
+690,cmdr (Summon)
+691,cmdr (Summon)
+692,cmdr (Summon)
+693,undefined
+694,unit (Summon)
+695,undefined
+696,undefined
+697,unit
+698,unit
+699,commander
+700,unit
+701,commander
+702,unit
+703,commander
+704,unit (cap only)
+705,commander
+706,commander
+707,unit
+708,unit
+709,commander
+710,cmdr (Summon)
+711,cmdr (Summon)
+712,undefined
+713,undefined
+714,cmdr (Summon)
+715,undefined
+716,undefined
+717,undefined
+718,undefined
+719,undefined
+720,undefined
+721,unit
+722,unit
+723,unit
+724,unit
+725,unit (cap only)
+726,unit (cap only)
+727,unit
+728,unit
+729,commander
+730,commander
+731,commander
+732,cmdr (cap only)
+733,cmdr (cap only)
+734,cmdr (cap only)
+735,cmdr (cap only)
+736,unit (Summon)
+737,cmdr (Summon)
+738,unit (cap only)
+739,commander
+740,commander
+741,undefined
+742,undefined
+743,undefined
+744,commander
+745,cmdr (cap only)
+746,commander
+747,unit (cap only)
+748,cmdr (cap only)
+749,unit
+750,undefined
+751,undefined
+752,undefined
+753,undefined
+754,undefined
+755,undefined
+756,undefined
+757,undefined
+758,undefined
+759,undefined
+760,unit (Summon)
+761,cmdr (cap only)
+762,Commander
+763,unit (cap only)
+764,undefined
+765,cmdr (cap only)
+766,undefined
+767,undefined
+768,unit (Summon)
+769,unit (cap only)
+770,hero (unique)
+771,cmdr (Summon)
+772,cmdr (Summon)
+773,cmdr (Summon)
+774,cmdr (Summon)
+775,cmdr (Summon)
+776,cmdr (Summon)
+777,cmdr (Summon)
+778,undefined
+779,Pretender
+780,Commander
+781,unit (Summon)
+782,undefined
+783,unit (cap only)
+784,unit (cap only)
+785,commander
+786,commander
+787,unit (cap only)
+788,unit
+789,unit
+790,unit
+791,unit (cap only)
+792,commander
+793,cmdr (cap only)
+794,unit
+795,unit
+796,unit
+797,unit
+798,unit
+799,undefined
+800,unit
+801,unit
+802,unit
+803,cmdr (cap only)
+804,commander
+805,commander
+806,commander
+807,commander
+808,commander
+809,unit (cap only)
+810,cmdr (Summon)
+811,cmdr (Summon)
+812,Pretender
+813,commander
+814,unit (Summon)
+815,cmdr (Summon)
+816,undefined
+817,unit (Summon)
+818,cmdr (Summon)
+819,cmdr (Summon)
+820,cmdr (Summon)
+821,cmdr (Summon)
+822,cmdr (Summon)
+823,cmdr (Summon)
+824,cmdr (Summon)
+825,cmdr (Summon)
+826,cmdr (Summon)
+827,cmdr (Summon)
+828,cmdr (Summon)
+829,cmdr (Summon)
+830,commander
+837,unit
+838,unit
+839,commander
+840,unit
+841,unit
+842,unit
+843,undefined
+844,cmdr (Summon)
+845,unit
+846,commander
+847,cmdr (cap only)
+848,commander
+849,unit (cap only)
+850,commander
+851,undefined
+852,unit
+853,unit
+854,commander
+855,unit (cap only)
+856,cmdr (cap only)
+857,Pretender
+858,Pretender
+859,unit (Summon)
+860,unit
+861,hero (unique)
+862,Pretender
+863,hero (unique)
+864,hero (unique)
+865,hero (unique)
+866,hero (unique)
+867,hero (unique)
+868,hero (unique)
+869,cmdr (Magic site)
+870,undefined
+871,undefined
+872,Pretender
+873,Pretender
+874,Pretender
+875,cmdr (Magic site)
+876,unit (cap only)
+877,cmdr (cap only)
+878,unit
+879,unit
+880,unit
+881,commander
+882,unit
+883,commander
+884,unit (Summon)
+885,unit
+886,unit
+887,commander
+888,unit (Summon)
+889,unit (cap only)
+890,cmdr (cap only)
+891,cmdr (cap only)
+892,commander
+893,commander
+894,cmdr (cap only)
+895,commander
+896,commander
+897,commander
+898,cmdr (cap only)
+899,cmdr (cap only)
+900,cmdr (Summon)
+901,commander
+902,unit (Summon)
+903,unit (Summon)
+904,unit (Summon)
+905,Pretender
+906,cmdr (Summon)
+907,cmdr (Summon)
+908,cmdr (Summon)
+909,cmdr (Summon)
+910,cmdr (Summon)
+911,cmdr (Summon)
+912,cmdr (Summon)
+913,commander
+914,undefined
+915,undefined
+916,undefined
+917,undefined
+918,undefined
+919,undefined
+920,undefined
+921,undefined
+922,undefined
+923,cmdr (cap only)
+924,unit (Summon)
+925,undefined
+926,unit (Summon)
+927,unit
+928,unit
+929,unit
+930,commander
+931,cmdr (Summon)
+932,unit (Summon)
+933,hero (unique)
+934,hero (unique)
+935,hero (unique)
+936,hero (unique)
+937,commander
+938,unit
+939,unit
+940,cmdr (cap only)
+941,cmdr (cap only)
+942,hero (unique)
+943,hero (unique)
+944,hero (unique)
+945,hero (unique)
+946,hero (unique)
+947,hero (unique)
+948,cmdr (cap only)
+949,unit
+950,commander
+951,commander
+952,hero (unique)
+953,hero (unique)
+954,hero (unique)
+955,Commander
+956,Commander
+957,Pretender
+958,Pretender
+959,unit (Summon)
+960,cmdr (Summon)
+961,Pretender
+962,undefined
+963,Commander
+964,Commander
+965,undefined
+966,undefined
+967,undefined
+968,undefined
+969,undefined
+970,unit (coast)
+971,unit (coast)
+972,unit (coast)
+973,Pretender
+974,Unit (Magic site)
+975,undefined
+976,undefined
+977,hero (unique)
+978,Pretender
+979,Pretender
+980,cmdr (Summon)
+981,cmdr (Summon)
+982,unit (Summon)
+983,unit
+984,unit
+985,unit
+986,unit
+987,unit
+988,unit
+989,unit
+990,unit (cap only)
+991,commander
+992,commander
+993,undefined
+994,cmdr (Summon)
+995,undefined
+996,undefined
+997,undefined
+998,cmdr (Summon)
+999,cmdr (Magic site)
+1000,unit (Summon)
+1001,undefined
+1002,Commander
+1003,cmdr (cap only)
+1004,cmdr (cap only)
+1005,undefined
+1006,undefined
+1007,undefined
+1008,undefined
+1009,Commander
+1010,cmdr (cap only)
+1011,cmdr (cap only)
+1012,commander
+1013,unit
+1014,unit
+1015,unit
+1016,commander
+1017,unit
+1018,commander
+1019,cmdr (Summon)
+1020,unit (cap only)
+1021,hero (unique)
+1022,unit (Summon)
+1023,commander
+1024,hero (unique)
+1025,Pretender
+1026,Pretender
+1027,Pretender
+1028,cmdr (cap only)
+1029,commander
+1030,cmdr (cap only)
+1031,commander
+1032,cmdr (coast)
+1033,commander
+1034,unit
+1035,cmdr (Summon)
+1036,commander
+1037,unit (Summon)
+1038,commander
+1039,cmdr (coast)
+1040,cmdr (Summon)
+1041,unit
+1042,unit
+1043,unit
+1044,unit
+1045,unit
+1046,unit
+1047,unit
+1048,unit
+1049,unit
+1050,commander
+1051,commander
+1052,commander
+1053,commander
+1054,commander
+1055,cmdr (coast)
+1056,unit
+1057,unit
+1058,unit (Summon)
+1059,unit (cap only)
+1060,Unit (Magic site)
+1061,cmdr (cap only)
+1062,undefined
+1063,unit (Summon)
+1064,unit (Summon)
+1065,Unit (Magic site)
+1066,Unit (Magic site)
+1067,cmdr (Magic site)
+1068,cmdr (Magic site)
+1069,commander
+1070,cmdr (cap only)
+1071,commander
+1072,commander
+1073,hero (unique)
+1074,unit (cap only)
+1075,cmdr (cap only)
+1076,commander
+1077,unit
+1078,unit
+1079,unit
+1080,undefined
+1081,commander
+1082,unit
+1083,commander
+1084,undefined
+1085,unit
+1086,unit (Summon)
+1087,undefined
+1088,cmdr (cap only)
+1089,hero (unique)
+1090,unit
+1091,commander
+1092,commander
+1093,undefined
+1094,unit (waste)
+1095,cmdr (cap only)
+1096,Pretender
+1097,Pretender
+1098,Pretender
+1099,cmdr (Summon)
+1100,unit
+1101,unit
+1102,unit
+1103,unit
+1104,unit
+1105,unit
+1106,unit
+1107,unit
+1108,unit (cap only)
+1109,cmdr (foreign)
+1110,cmdr (foreign)
+1111,cmdr (cap only)
+1112,commander
+1113,commander
+1114,commander
+1115,commander
+1116,Unit (Magic site)
+1117,undefined
+1118,unit
+1119,commander
+1120,unit
+1121,unit
+1122,unit
+1123,unit
+1124,unit
+1125,unit
+1126,unit
+1127,commander
+1128,commander
+1129,undefined
+1130,unit
+1131,unit
+1132,unit
+1133,unit (Summon)
+1134,unit
+1135,commander
+1136,commander
+1139,unit (Summon)
+1140,unit (Summon)
+1141,unit (cap only)
+1142,unit
+1143,commander
+1144,cmdr (cap only)
+1145,commander
+1146,commander
+1147,unit
+1148,undefined
+1149,undefined
+1150,undefined
+1151,Commander
+1152,unit
+1153,unit
+1154,unit
+1155,unit
+1156,unit
+1157,unit (cap only)
+1158,commander
+1159,commander
+1160,commander
+1161,cmdr (cap only)
+1162,unit
+1163,unit
+1164,unit
+1165,unit
+1166,unit (cap only)
+1167,unit
+1168,unit
+1169,commander
+1170,unit
+1171,unit
+1172,unit
+1173,commander
+1174,commander
+1175,commander
+1176,unit (cap only)
+1177,cmdr (cap only)
+1178,cmdr (cap only)
+1179,undefined
+1180,commander
+1181,commander
+1182,cmdr (Magic site)
+1183,unit (cap only)
+1184,unit
+1185,unit (cap only)
+1186,commander
+1187,undefined
+1188,commander
+1189,commander
+1190,cmdr (cap only)
+1191,cmdr (cap only)
+1192,cmdr (cap only)
+1193,cmdr (cap only)
+1194,cmdr (cap only)
+1195,Commander
+1196,undefined
+1197,undefined
+1198,cmdr (Magic site)
+1199,undefined
+1200,cmdr (Summon)
+1201,cmdr (Summon)
+1202,cmdr (Summon)
+1203,cmdr (Summon)
+1204,cmdr (cap only)
+1205,commander
+1206,commander
+1207,commander
+1208,unit
+1209,commander
+1210,unit
+1211,unit
+1212,unit
+1213,unit
+1214,unit
+1215,commander
+1216,unit
+1217,unit
+1218,commander
+1219,unit
+1220,unit
+1221,commander
+1222,unit (cap only)
+1223,cmdr (cap only)
+1224,unit (Summon)
+1225,commander
+1226,cmdr (Summon)
+1227,unit (Summon)
+1228,hero (unique)
+1229,Pretender
+1230,Pretender
+1231,Pretender
+1232,Pretender
+1233,Pretender
+1234,unit (Summon)
+1235,unit (Summon)
+1236,unit (Summon)
+1237,cmdr (cap only)
+1238,unit
+1239,unit
+1240,unit
+1241,unit
+1242,undefined
+1243,unit
+1244,unit
+1245,unit
+1246,unit
+1247,unit (cap only)
+1248,unit (cap only)
+1249,commander
+1250,commander
+1251,commander
+1252,undefined
+1253,commander
+1254,commander
+1255,commander
+1256,cmdr (Summon)
+1257,commander
+1258,commander
+1259,commander
+1260,unit (Summon)
+1261,unit (Summon)
+1262,undefined
+1263,undefined
+1264,unit (Summon)
+1265,unit (Summon)
+1266,unit (Summon)
+1267,unit (Summon)
+1268,undefined
+1269,undefined
+1270,undefined
+1271,undefined
+1272,unit (Summon)
+1273,unit (Summon)
+1274,unit (Summon)
+1275,unit (Summon)
+1276,cmdr (Summon)
+1277,cmdr (Summon)
+1278,unit
+1279,unit
+1280,unit (cap only)
+1281,commander
+1282,commander
+1283,commander
+1284,commander
+1285,unit
+1286,cmdr (cap only)
+1287,unit
+1288,commander
+1289,unit (cap only)
+1290,unit (Summon)
+1291,unit
+1292,unit (coast)
+1293,commander
+1294,cmdr (coast)
+1295,unit
+1296,undefined
+1297,undefined
+1298,undefined
+1299,commander
+1300,commander
+1301,commander
+1302,unit
+1303,unit
+1304,unit
+1305,unit
+1306,unit
+1307,unit
+1308,unit
+1309,unit (Summon)
+1310,unit (cap only)
+1311,unit
+1312,unit
+1313,commander
+1314,commander
+1315,commander
+1316,cmdr (Summon)
+1317,cmdr (Summon)
+1318,unit (cave)
+1319,unit (Summon)
+1320,cmdr (Summon)
+1321,cmdr (Summon)
+1322,cmdr (Summon)
+1323,cmdr (Summon)
+1324,cmdr (Summon)
+1325,cmdr (Summon)
+1326,unit
+1327,unit (cap only)
+1328,unit (cap only)
+1329,cmdr (Summon)
+1330,cmdr (Summon)
+1331,cmdr (Summon)
+1332,unit (Summon)
+1333,unit
+1334,commander
+1335,unit (Summon)
+1336,cmdr (Summon)
+1337,cmdr (Summon)
+1338,unit (Summon)
+1339,Pretender
+1340,Pretender
+1341,Pretender
+1342,Pretender
+1343,Pretender
+1344,Pretender
+1345,Pretender
+1346,Pretender
+1347,undefined
+1348,Pretender
+1349,Pretender
+1350,unit
+1351,unit
+1352,unit
+1353,Unit (Magic site)
+1354,unit
+1355,unit
+1356,unit (Summon)
+1357,unit (Summon)
+1358,unit (Summon)
+1359,unit (Summon)
+1360,cmdr (Summon)
+1361,commander
+1362,commander
+1363,unit (Summon)
+1364,undefined
+1365,unit
+1366,cmdr (cap only)
+1367,unit (Summon)
+1368,cmdr (Summon)
+1369,cmdr (Summon)
+1370,Pretender
+1371,Pretender
+1372,Pretender
+1373,Pretender
+1374,Pretender
+1375,cmdr (Summon)
+1376,cmdr (Summon)
+1377,cmdr (Summon)
+1378,Pretender
+1379,Pretender
+1380,undefined
+1381,unit (Summon)
+1382,hero (unique)
+1383,hero (unique)
+1384,Pretender
+1385,commander
+1386,commander
+1387,commander
+1388,unit (Summon)
+1389,cmdr (Magic site)
+1390,unit
+1391,unit
+1392,unit
+1393,unit
+1394,unit
+1395,unit
+1396,unit
+1397,unit
+1398,commander
+1399,unit
+1400,unit
+1401,cmdr (foreign)
+1402,Pretender
+1403,unit
+1404,unit (Summon)
+1405,cmdr (Summon)
+1406,Commander
+1407,undefined
+1408,unit
+1409,unit
+1410,unit
+1411,unit
+1412,unit (Summon)
+1413,undefined
+1414,undefined
+1415,commander
+1416,commander
+1417,commander
+1418,commander
+1419,unit
+1420,cmdr (cap only)
+1421,cmdr (cap only)
+1422,cmdr (Summon)
+1423,unit (cap only)
+1424,cmdr (cap only)
+1425,unit (Summon)
+1426,hero (unique)
+1427,commander
+1428,Pretender
+1429,commander
+1430,commander
+1431,cmdr (Summon)
+1432,Commander
+1433,cmdr (Summon)
+1434,cmdr (Summon)
+1435,cmdr (Summon)
+1436,commander
+1437,unit
+1438,cmdr (cap only)
+1439,unit (Summon)
+1440,cmdr (Summon)
+1441,unit (Summon)
+1442,commander
+1443,commander
+1444,commander
+1445,commander
+1446,commander
+1447,unit
+1448,commander
+1449,unit
+1450,unit
+1451,commander
+1452,unit
+1453,unit
+1454,undefined
+1455,undefined
+1456,unit (cap only)
+1457,cmdr (cap only)
+1458,hero (unique)
+1459,cmdr (cap only)
+1460,commander
+1461,commander
+1462,unit
+1463,commander
+1464,unit
+1465,unit
+1466,commander
+1467,cmdr (cap only)
+1468,cmdr (cap only)
+1469,unit
+1470,commander
+1471,commander
+1472,unit
+1473,commander
+1474,commander
+1475,commander
+1476,cmdr (Summon)
+1477,cmdr (Summon)
+1478,unit (Summon)
+1479,unit (Summon)
+1480,cmdr (Summon)
+1481,unit (Summon)
+1482,unit (Summon)
+1483,unit (Summon)
+1484,cmdr (Summon)
+1485,cmdr (Summon)
+1486,cmdr (Summon)
+1487,cmdr (Summon)
+1488,unit
+1489,unit
+1490,unit (Summon)
+1491,unit (u-water)
+1492,cmdr (Summon)
+1493,cmdr (Summon)
+1494,cmdr (Summon)
+1495,unit
+1496,unit (Summon)
+1497,unit (Summon)
+1498,unit (Summon)
+1499,cmdr (Summon)
+1500,unit (Summon)
+1501,unit (Summon)
+1502,commander
+1503,unit (cap only)
+1504,unit
+1505,commander
+1506,commander
+1507,cmdr (cap only)
+1508,unit
+1509,unit
+1510,unit
+1511,hero (unique)
+1512,commander
+1513,unit (cap only)
+1514,Commander
+1515,unit
+1516,unit
+1517,unit
+1518,commander
+1519,commander
+1520,commander
+1521,cmdr (cap only)
+1522,unit (cap only)
+1523,commander
+1524,unit
+1525,unit
+1526,unit
+1527,commander
+1528,commander
+1529,unit (Summon)
+1530,Commander
+1531,commander
+1532,unit
+1533,unit
+1534,commander
+1535,commander
+1536,cmdr (cap only)
+1537,cmdr (cap only)
+1538,cmdr (cap only)
+1539,Commander
+1540,Commander
+1541,undefined
+1542,cmdr (cap only)
+1543,unit (cap only)
+1544,unit (cap only)
+1545,unit
+1546,unit
+1547,unit
+1548,unit
+1549,commander
+1550,unit
+1551,unit
+1552,commander
+1553,unit
+1554,commander
+1555,unit
+1556,unit (cap only)
+1557,cmdr (cap only)
+1558,cmdr (Summon)
+1559,cmdr (Summon)
+1560,undefined
+1561,Pretender
+1562,cmdr (Summon)
+1563,cmdr (land)
+1564,Commander
+1565,undefined
+1566,undefined
+1567,undefined
+1568,undefined
+1569,undefined
+1570,undefined
+1571,undefined
+1572,undefined
+1573,undefined
+1574,undefined
+1575,Commander
+1576,undefined
+1577,unit (cap only)
+1578,unit
+1579,hero (unique)
+1580,hero (unique)
+1581,Pretender
+1582,hero (unique)
+1583,hero (unique)
+1584,hero (unique)
+1585,hero (unique)
+1586,hero (unique)
+1587,hero (unique)
+1588,hero (unique)
+1589,hero (unique)
+1590,Pretender
+1591,commander
+1592,undefined
+1593,undefined
+1594,undefined
+1595,undefined
+1596,Commander
+1597,Commander
+1598,Commander
+1599,unit
+1600,undefined
+1601,undefined
+1602,Commander
+1603,undefined
+1604,undefined
+1605,undefined
+1606,cmdr (cap only)
+1607,unit (Summon)
+1608,commander
+1609,commander
+1610,undefined
+1611,undefined
+1612,Commander
+1613,Unit (Magic site)
+1614,cmdr (Magic site)
+1615,Unit (Magic site)
+1616,undefined
+1617,unit
+1618,cmdr (cap only)
+1619,unit
+1620,unit
+1621,unit
+1622,unit
+1623,commander
+1624,cmdr (Summon)
+1625,unit
+1626,unit
+1627,unit
+1628,unit
+1629,unit
+1630,unit (cap only)
+1631,commander
+1632,commander
+1633,commander
+1634,hero (unique)
+1635,unit (u-water)
+1636,unit (u-water)
+1637,cmdr (u-water)
+1638,cmdr (u-water)
+1639,Commander
+1640,Commander
+1641,unit
+1642,unit
+1643,commander
+1644,commander
+1645,commander
+1646,commander
+1647,commander
+1648,unit (cap only)
+1649,unit (Summon)
+1650,cmdr (cap only)
+1651,unit (cap only)
+1652,commander
+1653,commander
+1654,unit (cap only)
+1655,cmdr (cap only)
+1656,unit (Summon)
+1657,undefined
+1658,undefined
+1659,undefined
+1660,hero (unique)
+1661,unit (cap only)
+1662,cmdr (Summon)
+1663,commander
+1664,unit (Summon)
+1665,commander
+1666,cmdr (cap only)
+1667,hero (unique)
+1668,hero (unique)
+1669,unit
+1670,hero (unique)
+1671,hero (unique)
+1672,hero (unique)
+1673,hero (unique)
+1674,hero (unique)
+1675,unit
+1676,unit
+1677,unit
+1678,hero (unique)
+1679,unit
+1680,commander
+1681,unit
+1682,unit
+1683,unit
+1684,unit
+1685,unit
+1686,unit
+1687,unit
+1688,unit
+1689,unit
+1690,unit (cap only)
+1691,hero (unique)
+1692,commander
+1693,commander
+1694,commander
+1695,cmdr (cap only)
+1696,commander
+1697,cmdr (coast)
+1698,commander
+1699,commander
+1700,commander
+1701,commander
+1702,cmdr (cap only)
+1703,unit
+1704,unit
+1705,unit (Summon)
+1706,hero (unique)
+1707,unit
+1708,hero (unique)
+1709,commander
+1710,commander
+1711,commander
+1712,cmdr (cap only)
+1713,cmdr (Summon)
+1714,cmdr (Summon)
+1715,undefined
+1716,undefined
+1717,undefined
+1718,undefined
+1719,undefined
+1720,undefined
+1721,undefined
+1722,undefined
+1723,undefined
+1724,undefined
+1725,undefined
+1726,undefined
+1727,undefined
+1728,undefined
+1729,undefined
+1730,undefined
+1731,undefined
+1732,undefined
+1733,commander
+1734,commander
+1735,commander
+1736,unit (Summon)
+1737,unit (Summon)
+1738,cmdr (cap only)
+1739,cmdr (cap only)
+1740,cmdr (cap only)
+1741,unit (Summon)
+1742,unit (Summon)
+1743,unit (Summon)
+1744,cmdr (Summon)
+1745,unit (cap only)
+1746,unit (cap only)
+1747,unit (cap only)
+1748,cmdr (Summon)
+1749,unit
+1750,commander
+1751,unit
+1752,commander
+1753,unit (cap only)
+1754,cmdr (cap only)
+1755,commander
+1756,unit
+1757,unit
+1758,unit
+1759,commander
+1760,commander
+1761,commander
+1762,unit
+1763,unit
+1764,unit (Summon)
+1765,unit (Summon)
+1766,unit (Summon)
+1767,unit (Summon)
+1768,unit (Summon)
+1769,unit (Summon)
+1770,unit (Summon)
+1771,commander
+1772,hero (multi)
+1773,cmdr (cap only)
+1774,commander
+1775,commander
+1776,cmdr (Summon)
+1777,hero (unique)
+1778,hero (unique)
+1779,unit
+1780,unit
+1781,unit
+1782,unit
+1783,commander
+1784,commander
+1785,unit (cap only)
+1786,unit (cap only)
+1787,unit (cap only)
+1788,cmdr (cap only)
+1789,commander
+1790,unit (cap only)
+1791,cmdr (cap only)
+1792,cmdr (cap only)
+1793,hero (unique)
+1794,hero (unique)
+1795,hero (unique)
+1796,unit
+1797,unit
+1798,unit
+1799,unit
+1800,commander
+1801,unit (cap only)
+1802,cmdr (cap only)
+1803,hero (unique)
+1804,hero (unique)
+1805,hero (unique)
+1806,hero (multi)
+1807,unit (Summon)
+1808,undefined
+1809,cmdr (Summon)
+1810,unit (Summon)
+1811,commander
+1812,unit
+1813,unit
+1814,unit
+1815,commander
+1816,commander
+1817,unit (cap only)
+1818,commander
+1819,commander
+1820,unit
+1821,unit (Summon)
+1822,cmdr (Summon)
+1823,undefined
+1824,undefined
+1825,undefined
+1826,undefined
+1827,undefined
+1828,undefined
+1829,undefined
+1830,undefined
+1831,unit (cap only)
+1832,undefined
+1833,undefined
+1834,undefined
+1835,undefined
+1836,undefined
+1837,undefined
+1840,unit (cap only)
+1841,undefined
+1842,undefined
+1843,hero (unique)
+1844,hero (unique)
+1845,undefined
+1846,hero (unique)
+1847,hero (unique)
+1848,hero (unique)
+1849,hero (unique)
+1850,unit (cap only)
+1851,undefined
+1852,undefined
+1853,undefined
+1854,undefined
+1859,unit (cap only)
+1860,undefined
+1861,undefined
+1862,unit
+1863,unit
+1864,unit
+1865,unit (foreign)
+1866,unit (foreign)
+1867,unit
+1868,unit
+1869,commander
+1870,commander
+1871,commander
+1872,cmdr (foreign)
+1873,cmdr (foreign)
+1874,cmdr (cap only)
+1875,cmdr (foreign)
+1876,cmdr (foreign)
+1877,commander
+1878,commander
+1879,commander
+1880,cmdr (foreign)
+1881,cmdr (Summon)
+1882,unit
+1883,unit
+1884,hero (unique)
+1885,hero (unique)
+1886,hero (unique)
+1887,hero (unique)
+1888,commander
+1889,unit (Summon)
+1890,commander
+1891,commander
+1892,cmdr (cap only)
+1893,commander
+1894,commander
+1895,commander
+1896,Pretender
+1897,Pretender
+1898,Pretender
+1899,Pretender
+1900,unit
+1901,unit
+1902,unit
+1903,unit
+1904,unit
+1905,Pretender
+1906,cmdr (Summon)
+1907,cmdr (cap only)
+1908,cmdr (Summon)
+1909,cmdr (Summon)
+1910,Commander
+1911,undefined
+1912,undefined
+1913,Commander
+1914,hero (unique)
+1915,hero (unique)
+1916,commander
+1917,commander
+1918,commander
+1919,commander
+1920,commander
+1921,unit (Summon)
+1922,unit
+1923,unit
+1924,unit (foreign)
+1925,unit (foreign)
+1926,unit
+1927,unit
+1928,unit
+1929,unit
+1930,unit
+1931,unit
+1932,commander
+1933,commander
+1934,commander
+1935,commander
+1936,commander
+1937,cmdr (cap only)
+1938,cmdr (forest)
+1939,cmdr (forest)
+1940,unit (Summon)
+1941,cmdr (Summon)
+1942,cmdr (Summon)
+1943,cmdr (Summon)
+1944,cmdr (Summon)
+1945,cmdr (Summon)
+1946,unit (Summon)
+1947,unit (Summon)
+1948,cmdr (Summon)
+1949,cmdr (Summon)
+1950,cmdr (Summon)
+1951,cmdr (Summon)
+1952,cmdr (Summon)
+1953,cmdr (Summon)
+1954,cmdr (Summon)
+1955,cmdr (Summon)
+1956,cmdr (Summon)
+1957,hero (multi)
+1958,hero (unique)
+1959,hero (unique)
+1960,commander
+1961,cmdr (cap only)
+1962,hero (unique)
+1963,commander
+1964,commander
+1965,commander
+1966,cmdr (cap only)
+1967,cmdr (cap only)
+1968,hero (unique)
+1969,commander
+1970,cmdr (cap only)
+1971,unit (Summon)
+1972,unit
+1973,cmdr (cap only)
+1974,commander
+1975,cmdr (Summon)
+1976,undefined
+1977,unit (Summon)
+1978,cmdr (Summon)
+1979,cmdr (Summon)
+1980,cmdr (Summon)
+1981,cmdr (Summon)
+1982,cmdr (cap only)
+1983,unit (Summon)
+1984,commander
+1985,hero (multi)
+1986,commander
+1987,cmdr (cap only)
+1988,commander
+1989,unit
+1990,unit
+1991,unit
+1992,unit
+1993,unit
+1994,unit
+1995,commander
+1996,unit
+1997,commander
+1998,unit (Summon)
+1999,unit
+2000,unit (cap only)
+2001,cmdr (cap only)
+2002,commander
+2003,unit
+2004,unit
+2005,unit
+2006,unit
+2007,unit
+2008,unit
+2009,commander
+2010,commander
+2011,cmdr (cap only)
+2012,commander
+2013,commander
+2014,commander
+2015,unit
+2016,commander
+2017,commander
+2018,unit
+2019,unit
+2020,commander
+2021,unit
+2022,unit
+2023,commander
+2024,commander
+2025,unit (cap only)
+2026,unit (cap only)
+2027,cmdr (cap only)
+2028,cmdr (cap only)
+2029,commander
+2030,unit (cap only)
+2031,cmdr (cap only)
+2032,cmdr (cap only)
+2033,commander
+2034,unit
+2035,unit
+2036,unit
+2037,unit
+2038,commander
+2039,cmdr (Summon)
+2040,undefined
+2041,undefined
+2042,undefined
+2043,undefined
+2044,undefined
+2045,cmdr (Summon)
+2046,Commander
+2047,hero (unique)
+2048,hero (unique)
+2049,hero (unique)
+2050,unit
+2051,cmdr (Summon)
+2052,cmdr (Summon)
+2053,cmdr (Summon)
+2054,cmdr (Summon)
+2055,cmdr (Summon)
+2056,cmdr (Summon)
+2057,cmdr (Summon)
+2058,cmdr (Summon)
+2059,unit
+2060,commander
+2061,unit
+2062,cmdr (Summon)
+2063,cmdr (Summon)
+2064,cmdr (Summon)
+2065,cmdr (Summon)
+2066,cmdr (Summon)
+2067,cmdr (Summon)
+2068,hero (unique)
+2069,commander
+2070,hero (unique)
+2071,cmdr (Summon)
+2072,unit (Summon)
+2073,unit (Summon)
+2074,unit (Summon)
+2075,Commander
+2076,hero (unique)
+2077,hero (unique)
+2078,hero (unique)
+2079,hero (unique)
+2080,hero (unique)
+2081,hero (unique)
+2082,Pretender
+2083,cmdr (u-water)
+2084,cmdr (u-water)
+2085,hero (unique)
+2086,undefined
+2087,unit (u-water)
+2088,cmdr (u-water)
+2089,cmdr (Summon)
+2090,unit (Summon)
+2091,unit (Summon)
+2092,undefined
+2093,cmdr (Summon)
+2094,cmdr (Summon)
+2095,cmdr (Summon)
+2096,cmdr (Summon)
+2097,cmdr (Summon)
+2098,commander
+2099,cmdr (Summon)
+2100,unit (Summon)
+2101,unit (u-water)
+2102,cmdr (u-water)
+2103,unit (u-water)
+2104,cmdr (u-water)
+2105,cmdr (u-water)
+2106,cmdr (Summon)
+2107,commander
+2108,unit
+2109,unit
+2110,unit
+2111,unit
+2112,unit
+2113,unit
+2114,unit (cap only)
+2115,unit
+2116,commander
+2117,undefined
+2118,commander
+2119,undefined
+2120,undefined
+2121,undefined
+2122,undefined
+2123,undefined
+2124,undefined
+2125,undefined
+2126,unit
+2127,unit
+2128,cmdr (cap only)
+2129,unit
+2130,unit (Summon)
+2131,unit (Summon)
+2132,unit (Summon)
+2133,undefined
+2134,unit (Summon)
+2135,unit (Summon)
+2136,unit (Summon)
+2137,Pretender
+2138,Pretender
+2139,commander
+2140,commander
+2141,Commander
+2142,Commander
+2143,Commander
+2144,undefined
+2145,undefined
+2146,undefined
+2147,undefined
+2148,unit
+2149,commander
+2150,commander
+2151,commander
+2152,unit
+2153,unit
+2154,commander
+2155,unit
+2156,unit
+2157,unit
+2158,commander
+2159,unit (Summon)
+2160,undefined
+2161,commander
+2162,unit (foreign)
+2163,unit (foreign)
+2164,unit (foreign)
+2165,unit (foreign)
+2166,cmdr (foreign)
+2167,cmdr (foreign)
+2168,unit (swamp)
+2169,cmdr (swamp)
+2170,cmdr (swamp)
+2171,cmdr (swamp)
+2172,unit
+2173,unit
+2174,unit
+2175,unit
+2176,unit (cap only)
+2177,commander
+2178,commander
+2179,commander
+2180,commander
+2181,cmdr (cap only)
+2182,commander
+2183,unit (swamp)
+2184,unit
+2185,unit (Summon)
+2186,unit (Summon)
+2187,commander
+2188,unit (cap only)
+2189,unit (cap only)
+2190,unit (Summon)
+2191,undefined
+2192,undefined
+2193,undefined
+2194,undefined
+2195,undefined
+2196,unit (Summon)
+2197,commander
+2198,commander
+2199,cmdr (cap only)
+2200,commander
+2201,Commander
+2202,Pretender
+2203,Pretender
+2204,Pretender
+2205,Pretender
+2206,Pretender
+2207,Pretender
+2208,Pretender
+2209,undefined
+2210,undefined
+2211,Commander
+2212,undefined
+2213,undefined
+2214,undefined
+2215,undefined
+2216,undefined
+2217,cmdr (Summon)
+2218,undefined
+2219,unit (Summon)
+2220,cmdr (Summon)
+2221,Commander
+2222,undefined
+2223,undefined
+2224,undefined
+2225,unit (Summon)
+2226,unit (Summon)
+2227,undefined
+2228,undefined
+2229,unit (Summon)
+2230,unit (Summon)
+2231,unit (Summon)
+2232,undefined
+2233,undefined
+2234,Pretender
+2235,hero (unique)
+2236,unit (cap only)
+2237,unit (cap only)
+2238,cmdr (cap only)
+2239,Pretender
+2240,undefined
+2241,undefined
+2242,undefined
+2243,undefined
+2244,commander
+2245,cmdr (Magic site)
+2246,hero (unique)
+2247,hero (unique)
+2248,cmdr (Magic site)
+2249,cmdr (Magic site)
+2250,cmdr (Magic site)
+2251,unit (Summon)
+2252,commander
+2253,commander
+2254,unit
+2255,unit
+2256,unit
+2257,unit
+2258,unit
+2259,unit
+2260,unit
+2261,unit
+2262,unit (cap only)
+2263,cmdr (coast)
+2264,cmdr (coast)
+2265,commander
+2266,cmdr (cap only)
+2267,cmdr (Summon)
+2268,commander
+2269,cmdr (cap only)
+2270,hero (unique)
+2271,unit (Summon)
+2272,hero (unique)
+2273,undefined
+2274,undefined
+2275,Commander
+2276,Commander
+2277,cmdr (Summon)
+2278,cmdr (Summon)
+2279,commander
+2286,unit (Summon)
+2287,cmdr (Summon)
+2288,commander
+2289,commander
+2290,commander
+2291,commander
+2292,commander
+2293,commander
+2294,commander
+2295,cmdr (cap only)
+2296,cmdr (cap only)
+2297,cmdr (cap only)
+2298,unit
+2299,unit
+2300,unit
+2301,unit (cap only)
+2302,unit (cap only)
+2303,unit
+2304,unit
+2305,unit
+2306,unit
+2307,unit
+2308,unit (cap only)
+2309,unit (cap only)
+2310,commander
+2311,commander
+2312,commander
+2313,commander
+2314,commander
+2315,Pretender
+2316,Pretender
+2317,Pretender
+2318,Pretender
+2319,Pretender
+2320,undefined
+2321,unit (Summon)
+2322,undefined
+2323,undefined
+2324,undefined
+2325,undefined
+2326,undefined
+2327,Commander
+2328,Commander
+2329,Commander
+2330,Commander
+2331,Commander
+2332,undefined
+2333,cmdr (Summon)
+2334,cmdr (Summon)
+2335,cmdr (Summon)
+2336,undefined
+2337,undefined
+2338,undefined
+2339,undefined
+2340,undefined
+2341,commander
+2342,cmdr (cap only)
+2343,unit
+2344,unit
+2345,unit
+2346,unit
+2347,unit
+2348,unit
+2349,unit (cap only)
+2350,unit
+2351,unit (cap only)
+2352,unit (cap only)
+2353,commander
+2354,commander
+2355,commander
+2356,commander
+2357,commander
+2358,cmdr (Magic site)
+2359,undefined
+2360,undefined
+2361,cmdr (Magic site)
+2362,cmdr (Magic site)
+2363,unit (Summon)
+2364,undefined
+2365,undefined
+2366,undefined
+2367,undefined
+2368,unit (Summon)
+2369,undefined
+2370,commander
+2371,commander
+2372,commander
+2373,cmdr (coast)
+2374,commander
+2375,commander
+2376,unit
+2377,unit (coast)
+2378,unit
+2379,unit (coast)
+2380,unit
+2381,unit
+2382,unit
+2383,unit
+2384,unit
+2385,unit
+2386,unit
+2387,unit (cap only)
+2388,unit
+2389,unit
+2390,commander
+2391,unit
+2392,commander
+2393,commander
+2394,hero (unique)
+2395,commander
+2396,commander
+2397,cmdr (cap only)
+2398,unit (Summon)
+2399,cmdr (cap only)
+2400,cmdr (cap only)
+2401,unit (cap only)
+2402,unit (cap only)
+2403,commander
+2404,unit
+2405,unit
+2406,unit
+2407,unit (coast)
+2408,unit
+2409,unit (coast)
+2410,commander
+2411,commander
+2412,unit
+2413,unit
+2414,unit
+2415,unit
+2416,unit
+2417,cmdr (coast)
+2418,commander
+2419,commander
+2420,commander
+2421,commander
+2422,commander
+2423,commander
+2424,commander
+2425,commander
+2426,Pretender
+2427,Pretender
+2428,commander
+2429,hero (unique)
+2430,hero (unique)
+2431,Pretender
+2432,hero (unique)
+2433,hero (unique)
+2434,Pretender
+2435,Pretender
+2436,Pretender
+2437,Pretender
+2438,Pretender
+2439,cmdr (foreign)
+2440,Pretender
+2441,Pretender
+2442,Pretender
+2443,Pretender
+2444,Pretender
+2445,Pretender
+2446,Pretender
+2447,Pretender
+2448,Pretender
+2449,Pretender
+2450,Pretender
+2451,undefined
+2452,unit
+2453,unit
+2454,unit
+2455,unit
+2456,commander
+2457,Pretender
+2458,Commander
+2459,Commander
+2460,Pretender
+2461,Pretender
+2462,Pretender
+2463,Pretender
+2464,Pretender
+2465,Pretender
+2466,Pretender
+2467,commander
+2468,commander
+2469,commander
+2470,cmdr (coast)
+2471,undefined
+2472,undefined
+2473,hero (unique)
+2474,undefined
+2475,unit
+2476,cmdr (cave)
+2477,cmdr (cap only)
+2478,unit
+2479,commander
+2480,commander
+2481,hero (unique)
+2482,unit
+2483,commander
+2484,undefined
+2485,commander
+2486,commander
+2487,commander
+2488,undefined
+2489,unit (u-water)
+2490,unit (u-water)
+2491,commander
+2492,unit (cap only)
+2493,cmdr (cap only)
+2494,hero (unique)
+2495,hero (unique)
+2496,hero (unique)
+2497,unit (Summon)
+2498,Commander
+2499,Commander
+2500,Commander
+2501,Commander
+2502,Pretender
+2503,Pretender
+2504,undefined
+2505,Commander
+2506,cmdr (cap only)
+2507,unit
+2508,unit (cap only)
+2509,unit (Summon)
+2510,undefined
+2511,undefined
+2512,unit (Summon)
+2513,undefined
+2514,unit (Summon)
+2520,unit (Summon)
+2521,commander
+2522,cmdr (Summon)
+2523,cmdr (Summon)
+2524,cmdr (Summon)
+2525,cmdr (Summon)
+2526,unit (Summon)
+2527,cmdr (Summon)
+2528,unit (Summon)
+2529,undefined
+2530,hero (unique)
+2531,undefined
+2532,undefined
+2533,undefined
+2534,Commander
+2535,Commander
+2536,undefined
+2537,Commander
+2538,undefined
+2539,undefined
+2540,Commander
+2541,Commander
+2542,commander
+2543,cmdr (Magic site)
+2544,cmdr (Magic site)
+2545,cmdr (Magic site)
+2546,cmdr (Magic site)
+2547,unit (cap only)
+2548,unit (cap only)
+2549,Pretender
+2550,Pretender
+2551,Pretender
+2552,Pretender
+2553,Pretender
+2554,Pretender
+2555,Pretender
+2556,Pretender
+2557,commander
+2558,unit (cap only)
+2559,unit (cap only)
+2560,cmdr (cap only)
+2561,undefined
+2562,Commander
+2563,cmdr (Summon)
+2564,unit
+2565,unit
+2566,unit
+2567,undefined
+2568,undefined
+2569,undefined
+2570,commander
+2571,unit
+2572,unit
+2573,unit
+2574,unit
+2575,commander
+2576,unit (cap only)
+2577,hero (unique)
+2578,Pretender
+2579,unit
+2580,unit
+2581,unit
+2582,unit
+2583,unit
+2584,unit
+2585,unit
+2586,unit
+2587,unit (cap only)
+2588,commander
+2589,unit
+2590,unit
+2591,unit
+2592,unit (cap only)
+2593,unit
+2594,unit
+2595,commander
+2596,commander
+2597,commander
+2598,undefined
+2599,commander
+2600,commander
+2601,commander
+2602,commander
+2603,commander
+2604,commander
+2605,commander
+2606,commander
+2607,undefined
+2608,Pretender
+2609,Pretender
+2610,Pretender
+2611,Pretender
+2612,cmdr (Summon)
+2613,cmdr (Summon)
+2614,cmdr (Summon)
+2615,cmdr (Summon)
+2616,cmdr (Summon)
+2617,cmdr (Summon)
+2618,Commander
+2619,Commander
+2620,cmdr (Summon)
+2621,cmdr (Summon)
+2622,cmdr (Summon)
+2623,cmdr (Summon)
+2624,cmdr (Summon)
+2625,cmdr (Summon)
+2626,cmdr (Summon)
+2627,Pretender
+2628,undefined
+2629,cmdr (cap only)
+2630,unit (Summon)
+2631,cmdr (Summon)
+2632,cmdr (Summon)
+2633,cmdr (Summon)
+2634,cmdr (Summon)
+2635,Commander
+2636,cmdr (Summon)
+2637,cmdr (Summon)
+2638,undefined
+2639,hero (unique)
+2640,Commander
+2641,Commander
+2642,Commander
+2643,unit
+2644,unit
+2645,unit
+2646,unit
+2647,commander
+2648,unit
+2649,unit
+2650,unit
+2651,unit
+2652,unit
+2653,unit (cap only)
+2654,commander
+2655,commander
+2656,commander
+2657,commander
+2658,cmdr (cap only)
+2659,cmdr (cap only)
+2660,commander
+2661,commander
+2662,commander
+2663,cmdr (cap only)
+2664,cmdr (mountain)
+2665,cmdr (mountain)
+2666,commander
+2667,unit (cap only)
+2668,unit
+2669,unit
+2670,unit
+2671,unit
+2672,unit (cap only)
+2673,undefined
+2674,commander
+2675,commander
+2676,commander
+2677,commander
+2678,commander
+2679,commander
+2680,commander
+2681,commander
+2682,cmdr (forest)
+2683,cmdr (forest)
+2684,cmdr (cap only)
+2685,Pretender
+2686,Pretender
+2687,unit
+2688,unit
+2689,unit
+2690,unit (Summon)
+2691,commander
+2692,hero (unique)
+2693,Pretender
+2694,unit (Summon)
+2695,Pretender
+2696,Pretender
+2697,unit (Summon)
+2698,Pretender
+2699,Pretender
+2700,unit (Summon)
+2701,undefined
+2702,undefined
+2703,undefined
+2704,undefined
+2705,undefined
+2706,undefined
+2707,undefined
+2708,undefined
+2709,undefined
+2710,undefined
+2711,undefined
+2712,hero (unique)
+2713,hero (unique)
+2714,cmdr (cap only)
+2715,commander
+2716,commander
+2717,commander
+2718,commander
+2719,cmdr (cave)
+2720,cmdr (forest)
+2721,unit
+2722,unit
+2723,unit
+2724,unit
+2725,unit
+2726,unit
+2727,unit (forest)
+2728,cmdr (forest)
+2729,unit (cap only)
+2730,unit (cap only)
+2731,unit (cap only)
+2732,cmdr (cap only)
+2733,cmdr (forest)
+2734,unit (forest)
+2735,unit (forest)
+2736,cmdr (cap only)
+2737,Pretender
+2738,unit
+2739,unit
+2740,unit
+2741,unit
+2742,unit
+2743,unit (cap only)
+2744,unit
+2745,unit
+2746,unit
+2747,unit (cap only)
+2748,commander
+2749,cmdr (cap only)
+2750,commander
+2751,commander
+2752,commander
+2753,commander
+2754,cmdr (cap only)
+2755,Pretender
+2756,Pretender
+2757,hero (unique)
+2758,hero (unique)
+2759,hero (unique)
+2760,hero (unique)
+2761,hero (unique)
+2762,hero (multi)
+2763,hero (unique)
+2764,Pretender
+2765,cmdr (Summon)
+2766,cmdr (Summon)
+2767,cmdr (Summon)
+2768,cmdr (Summon)
+2769,cmdr (Summon)
+2770,cmdr (Summon)
+2771,cmdr (Summon)
+2772,cmdr (Summon)
+2773,cmdr (Summon)
+2774,cmdr (Summon)
+2775,cmdr (Summon)
+2776,cmdr (Summon)
+2777,Pretender
+2778,cmdr (Summon)
+2779,cmdr (Summon)
+2780,cmdr (Summon)
+2781,cmdr (Summon)
+2782,commander
+2783,Pretender
+2784,Pretender
+2785,Pretender
+2786,Pretender
+2787,Pretender
+2788,Pretender
+2789,Pretender
+2790,Pretender
+2791,Pretender
+2792,Pretender
+2793,Pretender
+2794,unit (Summon)
+2795,Pretender
+2796,Pretender
+2797,Pretender
+2798,Pretender
+2799,Pretender
+2800,Pretender
+2801,Pretender
+2802,Pretender
+2803,Pretender
+2804,Commander
+2805,cmdr (cap only)
+2806,hero (unique)
+2807,unit (coast)
+2808,unit (coast)
+2809,unit (coast)
+2810,unit (coast)
+2811,cmdr (coast)
+2812,cmdr (coast)
+2813,cmdr (coast)
+2814,cmdr (coast)
+2815,cmdr (Magic site)
+2816,cmdr (Magic site)
+2817,undefined
+2818,undefined
+2819,undefined
+2820,Commander
+2821,unit (coast)
+2822,unit (coast)
+2823,commander
+2824,commander
+2825,cmdr (coast)
+2826,cmdr (coast)
+2827,unit (coast)
+2828,unit (coast)
+2829,unit (coast)
+2830,cmdr (coast)
+2831,cmdr (coast)
+2832,cmdr (Magic site)
+2833,commander
+2834,cmdr (Summon)
+2835,cmdr (coast)
+2836,cmdr (Summon)
+2837,unit (coast)
+2838,Unit (Magic site)
+2839,unit (cap only)
+2840,undefined
+2841,undefined
+2842,undefined
+2843,undefined
+2844,undefined
+2845,cmdr (Summon)
+2846,cmdr (Summon)
+2847,Pretender
+2848,Pretender
+2849,Pretender
+2850,Pretender
+2851,Pretender
+2852,Pretender
+2853,Pretender
+2854,unit (Summon)
+2855,Pretender
+2856,Pretender
+2857,undefined
+2858,undefined
+2859,cmdr (coast)
+2860,unit (coast)
+2861,commander
+2862,unit
+2863,unit (cap only)
+2864,unit (cap only)
+2865,cmdr (cap only)
+2866,cmdr (cap only)
+2867,cmdr (coast)
+2868,cmdr (coast)
+2869,unit (coast)
+2870,unit (coast)
+2871,hero (unique)
+2872,hero (unique)
+2873,cmdr (Summon)
+2874,cmdr (Summon)
+2875,hero (unique)
+2876,hero (unique)
+2877,hero (unique)
+2878,hero (unique)
+2879,hero (unique)
+2880,hero (unique)
+2881,Pretender
+2882,Pretender
+2883,cmdr (cap only)
+2884,unit (coast)
+2885,cmdr (coast)
+2886,commander
+2887,unit (u-water)
+2888,unit (u-water)
+2889,unit (u-water)
+2890,unit (u-water)
+2891,cmdr (u-water)
+2892,cmdr (u-water)
+2893,unit (u-water)
+2894,cmdr (u-water)
+2895,cmdr (u-water)
+2896,unit (u-water)
+2897,unit (coast)
+2898,unit (coast)
+2899,unit (coast)
+2900,cmdr (coast)
+2901,cmdr (coast)
+2902,undefined
+2903,undefined
+2904,undefined
+2905,undefined
+2906,Commander
+2907,unit
+2908,unit
+2909,unit
+2910,unit
+2911,unit
+2912,commander
+2913,commander
+2914,commander
+2915,unit (cap only)
+2916,unit (cap only)
+2917,cmdr (cap only)
+2918,cmdr (cap only)
+2919,cmdr (cap only)
+2920,cmdr (cap only)
+2921,cmdr (cap only)
+2922,Pretender
+2923,unit
+2924,hero (unique)
+2925,hero (unique)
+2926,hero (unique)
+2927,hero (unique)
+2928,cmdr (coast)
+2929,unit (Summon)
+2930,Pretender
+2931,commander
+2932,commander
+2933,undefined
+2934,commander
+2935,unit
+2936,unit
+2937,unit (foreign)
+2938,unit
+2939,unit
+2940,unit
+2941,unit
+2942,commander
+2943,commander
+2944,commander
+2945,commander
+2946,commander
+2947,commander
+2948,cmdr (cap only)
+2949,commander
+2950,commander
+2951,commander
+2952,cmdr (cap only)
+2953,unit (cap only)
+2954,cmdr (foreign)
+2955,Pretender
+2956,unit
+2957,unit
+2958,Pretender
+2959,Pretender
+2960,Pretender
+2961,Pretender
+2962,unit (cap only)
+2963,unit (cap only)
+2964,unit (cap only)
+2965,hero (unique)
+2966,cmdr (Summon)
+2967,undefined
+2968,undefined
+2969,undefined
+2970,undefined
+2971,undefined
+2972,undefined
+2973,undefined
+2974,undefined
+2975,cmdr (Summon)
+2976,unit (Summon)
+2977,Pretender
+2978,Pretender
+2979,Pretender
+2980,Pretender
+2981,undefined
+2982,undefined
+2983,undefined
+2984,commander
+2985,commander
+2986,commander
+2987,commander
+2988,cmdr (forest)
+2989,unit
+2990,unit
+2991,unit
+2992,unit (forest)
+2993,unit
+2994,unit
+2995,unit (forest)
+2996,unit (cap only)
+2997,unit (cap only)
+2998,cmdr (cap only)
+2999,cmdr (cap only)
+3000,cmdr (cap only)
+3001,cmdr (cap only)
+3002,cmdr (forest)
+3003,unit (Summon)
+3004,undefined
+3005,undefined
+3006,undefined
+3007,undefined
+3008,commander
+3009,unit (Summon)
+3010,cmdr (cap only)
+3011,cmdr (cap only)
+3012,undefined
+3013,unit (u-water)
+3014,unit (u-water)
+3015,unit (u-water)
+3016,unit (u-water)
+3017,cmdr (u-water)
+3018,unit (u-water)
+3019,unit (coast)
+3020,unit (coast)
+3021,unit (coast)
+3022,unit (u-water)
+3023,unit (coast)
+3024,unit
+3025,commander
+3026,cmdr (u-water)
+3027,cmdr (coast)
+3028,cmdr (u-water)
+3029,commander
+3030,unit (coast)
+3031,unit (coast)
+3032,cmdr (u-water)
+3033,cmdr (coast)
+3034,cmdr (u-water)
+3035,cmdr (coast)
+3036,Commander
+3037,Commander
+3038,cmdr (u-water)
+3039,commander
+3040,commander
+3041,commander
+3042,cmdr (cap only)
+3043,cmdr (cap only)
+3044,cmdr (cap only)
+3045,cmdr (cap only)
+3046,undefined
+3047,undefined
+3048,undefined
+3049,undefined
+3050,cmdr (u-water)
+3051,unit (cap only)
+3052,unit (cap only)
+3053,Pretender
+3054,Pretender
+3055,Pretender
+3056,Pretender
+3057,Pretender
+3058,Pretender
+3059,Pretender
+3060,Pretender
+3061,undefined
+3062,undefined
+3063,undefined
+3064,unit (Summon)
+3065,undefined
+3066,cmdr (Summon)
+3067,undefined
+3068,unit (Summon)
+3069,commander
+3070,Commander
+3071,unit
+3072,Pretender
+3073,Pretender
+3074,Pretender
+3075,undefined
+3076,Pretender
+3077,Pretender
+3078,Pretender
+3079,Pretender
+3080,Pretender
+3081,Pretender
+3082,Pretender
+3083,undefined
+3084,undefined
+3085,undefined
+3086,Pretender
+3087,cmdr (Summon)
+3088,Pretender
+3089,unit (u-water)
+3090,unit (u-water)
+3091,cmdr (u-water)
+3092,cmdr (u-water)
+3093,cmdr (u-water)
+3094,cmdr (u-water)
+3095,cmdr (Summon)
+3096,commander
+3097,unit (forest)
+3098,Pretender
+3099,commander
+3100,unit
+3101,unit
+3102,undefined
+3103,unit
+3104,undefined
+3105,unit
+3106,undefined
+3107,commander
+3108,commander
+3109,unit
+3110,unit
+3111,commander
+3112,cmdr (cap only)
+3113,undefined
+3114,commander
+3115,commander
+3116,commander
+3117,cmdr (cap only)
+3118,cmdr (cap only)
+3119,unit (Summon)
+3120,unit
+3121,Pretender
+3122,hero (unique)
+3123,hero (unique)
+3124,Pretender
+3125,hero (unique)
+3126,hero (unique)
+3127,unit (Summon)
+3128,commander
+3129,commander
+3130,commander
+3131,commander
+3132,unit
+3133,unit
+3134,unit
+3135,commander
+3136,unit
+3137,unit
+3138,cmdr (cap only)
+3139,cmdr (cap only)
+3140,unit
+3141,commander
+3142,unit (Summon)
+3143,unit
+3144,unit
+3145,unit
+3146,unit
+3147,unit
+3148,unit
+3149,undefined
+3150,undefined
+3151,commander
+3152,cmdr (coast)
+3153,commander
+3154,commander
+3155,commander
+3156,commander
+3157,cmdr (cap only)
+3158,cmdr (cap only)
+3159,unit (cap only)
+3160,cmdr (Summon)
+3161,commander
+3162,commander
+3163,hero (unique)
+3164,unit (Summon)
+3165,unit
+3166,commander
+3167,cmdr (Summon)
+3168,unit (Summon)
+3169,unit (Summon)
+3170,unit (Summon)
+3171,unit (Summon)
+3172,cmdr (cap only)
+3173,hero (unique)
+3174,hero (unique)
+3175,hero (unique)
+3176,hero (unique)
+3177,unit (Summon)
+3178,Commander
+3179,Commander
+3180,Commander
+3181,Commander
+3182,undefined
+3183,undefined
+3184,undefined
+3185,undefined
+3186,undefined
+3187,undefined
+3188,undefined
+3189,Commander
+3190,Pretender
+3191,Pretender
+3192,Pretender
+3193,unit (Summon)
+3194,undefined
+3195,Commander
+3196,Commander
+3197,commander
+3198,commander
+3199,commander
+3200,commander
+3201,Commander
+3202,Commander
+3203,Pretender
+3204,Pretender
+3205,Pretender
+3206,Pretender
+3207,Pretender
+3208,Pretender
+3209,Pretender
+3210,unit (Summon)
+3211,unit
+3212,unit
+3213,unit
+3214,undefined
+3215,unit
+3216,unit (cap only)
+3217,commander
+3218,commander
+3219,commander
+3220,commander
+3221,commander
+3222,commander
+3223,commander
+3224,unit
+3225,cmdr (cap only)
+3226,Commander
+3227,Commander
+3228,cmdr (cap only)
+3229,Commander
+3230,Commander
+3231,hero (unique)
+3232,undefined
+3233,cmdr (Summon)
+3234,hero (unique)
+3235,hero (unique)
+3236,hero (unique)
+3237,hero (unique)
+3238,hero (unique)
+3239,hero (unique)
+3240,hero (unique)
+3241,hero (unique)
+3242,hero (unique)
+3243,Commander
+3244,cmdr (Summon)
+3245,cmdr (Summon)
+3246,hero (unique)
+3247,hero (unique)
+3248,hero (unique)
+3249,hero (unique)
+3250,hero (unique)
+3251,cmdr (Summon)
+3252,cmdr (Summon)
+3253,cmdr (Summon)
+3254,hero (unique)
+3255,cmdr (Summon)
+3256,hero (unique)
+3257,hero (unique)
+3258,undefined
+3259,hero (unique)
+3260,hero (unique)
+3261,hero (unique)
+3262,cmdr (Summon)
+3263,cmdr (Summon)
+3264,unit (Summon)
+3265,cmdr (Summon)
+3266,cmdr (Summon)
+3267,cmdr (Summon)
+3268,cmdr (Summon)
+3269,unit (Summon)
+3270,unit (Summon)
+3271,undefined
+3272,cmdr (Summon)
+3273,cmdr (Summon)
+3274,Commander
+3275,unit
+3276,undefined
+3277,undefined
+3278,undefined
+3279,Commander
+3280,unit (cap only)
+3281,unit (cap only)
+3282,unit (cap only)
+3283,unit (cap only)
+3284,commander
+3285,cmdr (cap only)
+3286,cmdr (cap only)
+3287,cmdr (cap only)
+3288,cmdr (cap only)
+3289,cmdr (cap only)
+3290,cmdr (foreign)
+3291,cmdr (foreign)
+3292,undefined
+3293,undefined
+3294,undefined
+3295,undefined
+3296,undefined
+3297,cmdr (foreign)
+3298,unit (mountain)
+3299,unit (mountain)
+3300,cmdr (mountain)
+3301,cmdr (mountain)
+3302,unit (plains)
+3303,unit (plains)
+3304,unit (plains)
+3305,unit (plains)
+3306,cmdr (plains)
+3307,unit (forest)
+3308,unit (forest)
+3309,undefined
+3310,unit (plains)
+3311,unit (plains)
+3312,cmdr (plains)
+3313,cmdr (foreign)
+3314,cmdr (plains)
+3315,unit (mountain)
+3316,unit (mountain)
+3317,cmdr (mountain)
+3318,cmdr (mountain)
+3319,unit (forest)
+3320,unit (waste)
+3321,cmdr (waste)
+3322,cmdr (plains)
+3323,unit (forest)
+3324,unit (forest)
+3325,unit (forest)
+3326,cmdr (forest)
+3327,undefined
+3328,Pretender
+3329,Pretender
+3330,Pretender
+3331,Pretender
+3332,unit
+3333,unit
+3334,commander
+3335,unit
+3336,unit
+3337,commander
+3338,unit
+3339,cmdr (foreign)
+3340,commander
+3341,cmdr (cap only)
+3342,unit (cap only)
+3343,commander
+3344,Pretender
+3345,Pretender
+3346,Pretender
+3347,commander
+3348,cmdr (Summon)
+3349,cmdr (Summon)
+3350,cmdr (Summon)
+3351,cmdr (Summon)
+3352,cmdr (Summon)
+3353,cmdr (Summon)
+3354,unit (Summon)
+3355,unit
+3356,unit
+3357,commander
+3358,commander
+3359,unit (plains)
+3360,undefined
+3361,undefined
+3362,undefined
+3363,undefined
+3364,undefined
+3365,undefined
+3366,undefined
+3367,unit (Summon)
+3368,Pretender
+3369,Pretender
+3370,Pretender
+3371,undefined
+3372,cmdr (Summon)
+3373,cmdr (Summon)
+3374,cmdr (Summon)
+3375,cmdr (Summon)
+3376,cmdr (Summon)
+3377,cmdr (cap only)
+3378,hero (unique)
+3379,cmdr (forest)
+3380,hero (unique)
+3381,unit (Summon)
+3382,cmdr (Summon)
+3383,undefined
+3384,Pretender
+3385,hero (unique)
+3386,Pretender
+3387,Pretender
+3388,Pretender
+3389,cmdr (Summon)
+3390,undefined
+3391,undefined
+3392,undefined
+3393,undefined
+3394,Pretender
+3395,Pretender
+3396,Pretender
+3397,commander
+3398,cmdr (cap only)
+3399,cmdr (cap only)
+3400,unit (cap only)
+3401,unit
+3402,unit
+3403,unit
+3404,unit
+3405,unit
+3406,unit (cap only)
+3407,cmdr (forest)
+3408,commander
+3409,cmdr (cap only)
+3410,commander
+3411,commander
+3412,unit
+3413,unit
+3414,cmdr (cap only)
+3415,unit
+3416,Pretender
+3417,unit
+3418,unit
+3419,commander
+3420,unit (Summon)
+3421,unit (cap only)
+3422,unit (cap only)
+3423,unit
+3424,hero (unique)
+3425,Commander
+3426,Commander
+3427,Commander
+3428,Commander
+3429,commander
+3430,commander
+3431,commander
+3432,commander
+3433,commander
+3434,commander
+3435,commander
+3436,unit
+3437,unit
+3438,unit
+3439,hero (unique)
+3440,hero (unique)
+3441,hero (unique)
+3442,undefined
+3443,undefined
+3444,undefined
+3445,undefined
+3446,undefined
+3447,undefined
+3448,undefined
+3449,undefined
+3450,undefined
+3451,undefined
+3452,undefined
+3453,unit
+3454,unit
+3455,unit
+3456,unit
+3457,commander
+3458,commander
+3459,commander
+3460,commander
+3461,commander
+3462,commander
+3463,unit (cap only)
+3464,unit (future cap only)
+3465,cmdr (future cap only)
+3466,cmdr (future cap only)
+3467,unit (future cap only)
+3468,cmdr (cap only)
+3469,cmdr (cap only)
+3470,unit
+3471,cmdr (Summon)
+3472,cmdr (future cap only)
+3473,Pretender
+3474,hero (multi)
+3475,hero (unique)
+3476,unit (Summon)
+3477,unit (waste)
+3478,unit (waste)
+3479,unit (Summon)
+3480,unit (Summon)
+3481,cmdr (Summon)
+3482,cmdr (Summon)
+3483,cmdr (Summon)
+3484,hero (unique)
+3485,hero (unique)
+3486,cmdr (Magic site)
+3487,cmdr (Magic site)
+3488,cmdr (Magic site)
+3489,cmdr (Magic site)
+3490,cmdr (Magic site)
+3491,cmdr (Magic site)
+3492,cmdr (Magic site)
+3493,cmdr (Magic site)
+3494,cmdr (Magic site)
+3495,cmdr (Magic site)
+3496,cmdr (Magic site)
+3497,cmdr (Magic site)
+3498,cmdr (Magic site)
+3499,cmdr (Magic site)
+3500,undefined
+3501,undefined
+3502,cmdr (Magic site)
+3503,cmdr (Magic site)
+3504,cmdr (Magic site)
+3505,cmdr (Magic site)
+3506,cmdr (Magic site)
+3507,cmdr (Magic site)
+3508,cmdr (Magic site)
+3509,cmdr (Magic site)
+3510,undefined
+3511,undefined
+3512,undefined
+3513,undefined
+3514,undefined
+3515,undefined
+3516,undefined
+3517,undefined
+3518,undefined
+3519,undefined
+3520,undefined
+3521,undefined
+3522,undefined
+3523,undefined
+3524,undefined
+3525,undefined
+3526,undefined
+3527,undefined
+3528,undefined
+3529,undefined
+3530,undefined
+3531,undefined
+3532,undefined
+3533,undefined
+3534,undefined
+3535,undefined
+3536,undefined
+3537,undefined
+3538,undefined
+3539,undefined
+3540,undefined
+3541,undefined
+3542,undefined
+3543,undefined
+3544,undefined
+3545,undefined
+3546,undefined
+3547,undefined
+3548,undefined
+3549,undefined
+3550,undefined
+3551,undefined
+3552,undefined
+3553,undefined
+3554,undefined
+3555,undefined
+3556,undefined
+3557,undefined
+3558,undefined
+3559,undefined
+3560,undefined
+3561,undefined
+3562,undefined
+3563,undefined
+3564,undefined
+3565,undefined
+3566,undefined
+3567,undefined
+3568,undefined
+3569,undefined
+3570,undefined
+3571,undefined
+3572,undefined
+3573,undefined
+3574,undefined
+3575,undefined
+3576,undefined
+3577,undefined
+3578,undefined
+3579,undefined
+3580,undefined
+3581,undefined
+3582,undefined
+3583,undefined
+3584,undefined
+3585,undefined
+3586,undefined
+3587,unit
+3588,unit
+3589,commander
+3590,commander
+3591,unit
+3592,unit
+3593,unit (cap only)
+3594,commander
+3595,cmdr (cap only)
+3596,commander
+3597,unit (cap only)
+3598,unit (cap only)
+3599,cmdr (cap only)
+3600,cmdr (forest)
+3601,cmdr (forest)
+3602,cmdr (cap only)
+3603,cmdr (cap only)
+3604,cmdr (cap only)
+3605,cmdr (mountain)
+3606,cmdr (cave)
+3607,unit
+3608,unit
+3609,unit
+3610,unit
+3611,unit
+3612,unit
+3613,unit (cap only)
+3614,commander
+3615,commander
+3616,cmdr (cap only)
+3617,cmdr (foreign)
+3618,commander
+3619,commander
+3620,commander
+3621,commander
+3622,cmdr (forest)
+3623,undefined
+3624,unit (Summon)
+3625,unit (Summon)
+3626,unit (Summon)
+3627,unit (Summon)
+3628,undefined
+3629,cmdr (Summon)
+3630,unit (cap only)
+3631,unit
+3632,Pretender
+3633,unit
+3634,unit (cap only)
+3635,cmdr (Summon)
+3636,cmdr (Summon)
+3637,undefined
+3638,commander
+3639,Pretender
+3640,Pretender
+3641,Pretender
+3642,Pretender
+3643,undefined
+3644,undefined
+3645,undefined
+3646,undefined
+3647,undefined
+3648,undefined
+3649,undefined
+3650,Pretender
+3651,Pretender
+3652,cmdr (cap only)
+3653,cmdr (cap only)
+3654,Pretender
+3655,Pretender
+3656,undefined
+3657,unit (Summon)
+3658,unit (Summon)
+3659,undefined
+3660,cmdr (cap only)
+3661,Pretender
+3662,Pretender
+3663,unit (Summon)
+3664,unit (Summon)
+3665,unit (Summon)
+3666,unit (Summon)
+3667,unit (Summon)
+3668,cmdr (Summon)
+3669,undefined
+3670,commander
+3671,commander
+3672,commander
+3673,unit
+3674,unit
+3675,unit
+3676,unit
+3677,unit (cap only)
+3678,unit
+3679,commander
+3680,commander
+3681,cmdr (cap only)
+3682,commander
+3683,cmdr (Magic site)
+3684,unit (Summon)
+3685,cmdr (cap only)
+3686,commander
+3687,commander
+3688,cmdr (cap only)
+3689,unit
+3690,undefined
+3691,cmdr (cap only)
+3692,Pretender
+3693,Pretender
+3694,cmdr (Magic site)
+3695,undefined
+3696,undefined
+3697,undefined
+3698,undefined
+3699,undefined
+3700,undefined
+3701,undefined
+3702,undefined
+3703,undefined
+3704,undefined
+3705,undefined
+3706,undefined
+3707,undefined
+3708,undefined
+3709,undefined
+3710,Pretender
+3711,Pretender
+3712,unit (Summon)
+3713,unit
+3714,undefined
+3715,undefined
+3716,unit (Summon)
+3717,unit (Summon)
+3718,undefined
+3719,unit (Summon)
+3720,undefined
+3721,undefined
+3722,undefined
+3723,undefined
+3724,unit (Summon)
+3725,unit (Summon)
+3726,undefined
+3727,unit (Summon)
+3728,undefined
+3729,undefined
+3730,undefined
+3731,undefined
+3732,unit (Summon)
+3733,unit (Summon)
+3734,unit (Summon)
+3735,unit (Summon)
+3736,undefined
+3737,undefined
+3738,undefined
+3739,undefined
+3740,unit (Summon)
+3741,unit (Summon)
+3742,undefined
+3743,unit (Summon)
+3744,undefined
+3745,undefined
+3746,undefined
+3747,undefined
+3748,undefined
+3749,undefined
+3750,undefined
+3751,undefined
+3752,undefined
+3753,undefined
+3754,undefined
+3755,undefined
+3756,unit (Summon)
+3757,unit (Summon)
+3758,undefined
+3759,undefined
+3760,undefined
+3761,undefined
+3762,unit (Summon)
+3763,undefined
+3764,undefined
+3765,undefined
+3766,undefined
+3767,undefined
+3768,undefined
+3769,undefined
+3770,undefined
+3771,undefined
+3772,undefined
+3773,undefined
+3774,undefined
+3775,undefined
+3776,undefined
+3777,undefined
+3778,undefined
+3779,undefined
+3780,undefined
+3781,undefined
+3782,undefined
+3783,unit
+3784,unit
+3785,unit
+3786,unit
+3787,unit
+3788,unit
+3789,unit (cap only)
+3790,unit (cap only)
+3791,unit (cap only)
+3792,unit
+3793,undefined
+3794,commander
+3795,cmdr (cap only)
+3796,commander
+3797,commander
+3798,commander
+3799,commander
+3800,commander
+3801,cmdr (cap only)
+3802,commander
+3803,unit
+3804,unit
+3805,unit
+3806,unit
+3807,unit
+3808,unit
+3809,unit
+3810,commander
+3811,commander
+3812,commander
+3813,commander
+3814,commander
+3815,commander
+3816,cmdr (cap only)
+3817,commander
+3818,commander
+3819,unit (cap only)
+3820,cmdr (cap only)
+3821,undefined
+3822,undefined
+3823,undefined
+3824,undefined
+3825,undefined
+3826,undefined
+3827,undefined
+3828,undefined
+3829,undefined
+3830,commander
+3831,unit (Summon)
+3832,undefined
+3833,Commander
+3834,Commander
+3835,Commander
+3836,undefined
+3837,undefined
+3838,undefined
+3839,undefined
+3840,unit
+3841,unit
+3842,unit
+3843,unit
+3844,unit
+3845,unit
+3846,unit
+3847,unit
+3848,commander
+3849,commander
+3850,unit (cap only)
+3851,undefined
+3852,undefined
+3853,undefined
+3854,unit
+3855,unit
+3856,unit
+3857,cmdr (cap only)
+3858,commander
+3859,commander
+3860,cmdr (cap only)
+3861,cmdr (cap only)
+3862,commander
+3863,undefined
+3864,unit (Summon)
+3865,unit (Summon)
+3866,unit (Summon)
+3867,unit (Summon)
+3868,unit (cap only)
+3869,unit (Summon)
+3870,unit (Summon)
+3871,undefined
+3872,undefined
+3873,undefined
+3874,Pretender
+3875,Pretender
+3876,Pretender
+3877,hero (unique)
+3878,unit (Summon)
+3879,cmdr (Summon)
+3880,unit (mountain)
+3881,hero (unique)
+3882,hero (unique)
+3883,hero (unique)
+3884,hero (unique)
+3885,hero (unique)
+3886,hero (unique)
+3887,commander
+3888,Pretender
+3889,Pretender
+3890,unit (Summon)
+3891,cmdr (Summon)
+3892,cmdr (Summon)
+3893,cmdr (Magic site)
+3894,Pretender
+3895,Pretender
+3896,undefined
+3897,undefined
+3898,undefined
+3899,unit (Summon)
+3900,undefined
+3901,unit (Summon)
+3902,undefined
+3903,unit (Summon)
+3904,cmdr (Summon)
+3905,undefined
+3906,unit (Summon)
+3907,cmdr (Summon)
+3908,undefined
+3909,cmdr (Summon)
+3910,undefined
+3911,cmdr (Summon)
+3912,undefined
+3913,undefined
+3914,undefined
+3915,undefined
+3916,undefined
+3917,undefined
+3918,unit
+3919,commander
+3920,commander
+3921,commander
+3922,commander
+3923,cmdr (cap only)
+3924,cmdr (cap only)
+3925,cmdr (cap only)
+3926,Pretender
+3927,Commander
+3928,Pretender
+3929,Pretender
+3930,Pretender
+3931,Pretender
+3932,Pretender
+3933,undefined
+3934,Commander
+3935,cmdr (foreign)
+3936,commander
+3937,cmdr (foreign)
+3938,undefined
+3939,undefined
+3940,undefined
+3941,Commander
+3942,Commander
+3943,Commander
+3944,Commander
+3945,Commander
+3946,Commander
+3947,Commander
+3948,Commander
+3949,Commander
+3950,Commander
+3951,Commander
+3952,Commander
+3953,commander
+3954,commander
+3955,commander
+3956,commander
+3957,commander
+3958,cmdr (cap only)
+3959,cmdr (cap only)
+3960,cmdr (cap only)
+3961,cmdr (cap only)
+3962,unit
+3963,unit
+3964,unit
+3965,unit
+3966,unit
+3967,unit
+3968,unit
+3969,unit (cap only)
+3970,unit (cap only)
+3971,unit (cap only)
+3972,commander
+3973,commander
+3974,unit (cap only)
+3975,cmdr (cap only)
+3976,cmdr (mountain)
+3977,undefined
+3978,undefined
+3979,commander
+3980,unit (Summon)
+3981,unit (Summon)
+3982,undefined
+3983,unit (Summon)
+3984,cmdr (Summon)
+3985,cmdr (Summon)
+3986,undefined
+3987,undefined
+3988,undefined
+3989,undefined
+3990,undefined
+3991,unit (Summon)
+3992,undefined
+3993,undefined
+3994,undefined
+3995,undefined
+3996,undefined
+3997,cmdr (Summon)
+3998,unit (Summon)
+3999,cmdr (Magic site)
+4000,undefined
+4001,Pretender
+4002,Pretender
+4003,Pretender
+4004,undefined
+4005,undefined
+4006,undefined
+4007,undefined
+4008,undefined
+4009,undefined
+4010,hero (unique)
+4011,hero (unique)
+4012,undefined
+4013,undefined
+4014,undefined
+4015,undefined
+4016,undefined
+4017,undefined
+4018,undefined
+4019,undefined
+4020,undefined
+4021,undefined
+4022,commander
+4023,cmdr (forest)
+4024,Pretender
+4025,Pretender
+4026,unit (cap only)
+4027,undefined
+4028,undefined
+4029,undefined
+4030,undefined
+4031,undefined
+4032,Pretender
+4033,Pretender
+4034,unit
+4035,unit
+4036,unit
+4037,unit
+4038,unit
+4039,unit
+4040,commander
+4041,commander
+4042,commander
+4043,cmdr (foreign)
+4044,commander
+4045,commander
+4046,cmdr (foreign)
+4047,cmdr (foreign)
+4048,cmdr (cap only)
+4049,commander
+4050,unit (cap only)
+4051,cmdr (cap only)
+4052,commander
+4053,cmdr (Summon)
+4054,Commander
+4055,Commander
+4056,undefined
+4057,hero (unique)
+4058,undefined
+4059,hero (unique)
+4060,hero (unique)
+4061,undefined
+4062,undefined
+4063,undefined
