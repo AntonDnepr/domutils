@@ -16,9 +16,9 @@ from apps.mapgenerator.mapgen import (
     process_data,
     substitute,
 )
-from sanic import Sanic, text
+from sanic import Sanic, json, text
 from sanic.request import Request
-from sanic.response.types import JSONResponse
+from sanic.response.types import HTTPResponse
 from sanic_ext import render
 from sentry_sdk.integrations.asyncio import AsyncioIntegration
 from sentry_sdk.integrations.sanic import (
@@ -81,7 +81,7 @@ async def dom5_arena_nations_select(request: Request):
 
 
 @app.get("/dom5/autocomplete/units/")
-async def autocomplete_units(request: Request) -> JSONResponse:
+async def autocomplete_units(request: Request) -> HTTPResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     search_term = clean_search_string(search_term)
@@ -105,7 +105,7 @@ async def autocomplete_units(request: Request) -> JSONResponse:
 
 
 @app.get("/dom5/autocomplete/nations/")
-async def autocomplete_nations(request: Request) -> JSONResponse:
+async def autocomplete_nations(request: Request) -> HTTPResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     search_term = clean_search_string(search_term)
@@ -176,7 +176,7 @@ async def dom6_arena_nations_select(request: Request):
 
 
 @app.get("/dom6/autocomplete/units/")
-async def dom6_autocomplete_units(request: Request) -> JSONResponse:
+async def dom6_autocomplete_units(request: Request) -> HTTPResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     search_term = clean_search_string(search_term)
@@ -205,7 +205,7 @@ async def dom6_autocomplete_units(request: Request) -> JSONResponse:
 
 
 @app.get("/dom6/autocomplete/nations/")
-async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
+async def dom6_autocomplete_nations(request: Request) -> HTTPResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     search_term = clean_search_string(search_term)
@@ -240,7 +240,7 @@ async def dom6_autocomplete_nations(request: Request) -> JSONResponse:
 
 
 @app.get("/dom6/autocomplete/items/")
-async def dom6_autocomplete_items(request: Request) -> JSONResponse:
+async def dom6_autocomplete_items(request: Request) -> HTTPResponse:
     mods = request.args.getlist("mods", [])
     search_term = request.args.get("search_term", "")
     search_term = clean_search_string(search_term)
@@ -314,3 +314,32 @@ async def credits(request: Request):
 @app.get("/history/")
 async def history(request: Request):
     return await render("releases_history.html", status=200)
+
+
+@app.get("/dom6/api/units/<name:str>/")
+async def dom6_api_unit_data(request: Request, name: str):
+    mods = request.args.getlist("mods", [])
+    if not name:
+        return json([])
+    search_term = unquote_plus(name)
+    search_term = clean_search_string(search_term)
+    mods_query = Dom6Unit.mod == VANILLA
+    for selected_mod in mods:
+        mods_query |= Dom6Unit.mod == selected_mod
+    units = Dom6Unit.find(Dom6Unit.name % f"{search_term}" & mods_query).all()
+    while search_term and not units:
+        units = Dom6Unit.find((Dom6Unit.name % f"{search_term}*") & mods_query).all()
+        search_term = search_term[:-1]
+        search_term = clean_search_string(search_term)
+    if not units:
+        return json([])
+    final_data = []
+    for unit in units:
+        model_dump = unit.model_dump(mode="json")
+        nation_dumps = []
+        for nation_pk in model_dump["nations_ids"]:
+            nation = Dom6Nation.get(pk=nation_pk)
+            nation_dumps.append(nation.model_dump(mode="json"))
+        model_dump["nations"] = nation_dumps
+        final_data.append(model_dump)
+    return json(final_data)

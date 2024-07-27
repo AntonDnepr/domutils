@@ -1,3 +1,6 @@
+import json
+from urllib.parse import quote_plus
+
 import pytest
 from apps.core.consts import TEST
 from apps.core.redis import get_redis_client
@@ -6,19 +9,24 @@ from apps.dom6data.parser import parse_dom6_dm_files, parse_dom6_units
 from apps.mapgenerator.app import app
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture()
 def generated_data():
     client = get_redis_client()
     pipeline = client.pipeline()
     unit1 = Dom6Unit(
         dominions_id=999999,
-        name="TestMonster",
+        name="Test Monster",
         mod=TEST,
         is_commander=False,
+        slow_to_recruit=False,
     )
     unit1.save(pipeline=pipeline)
     unit2 = Dom6Unit(
-        dominions_id=999998, name="AlohaMonster2", mod=TEST, is_commander=True
+        dominions_id=999998,
+        name="AlohaMonster2",
+        mod=TEST,
+        is_commander=True,
+        slow_to_recruit=False,
     )
     unit2.save(pipeline=pipeline)
     nation1 = Dom6Nation(
@@ -28,6 +36,8 @@ def generated_data():
         mod=TEST,
     )
     nation1.save(pipeline=pipeline)
+    unit1.nations_ids.append(nation1.pk)
+    unit1.save(pipeline=pipeline)
     nation2 = Dom6Nation(
         dominions_id="111111",
         name="MonsterNation",
@@ -40,20 +50,9 @@ def generated_data():
     item2 = Dom6Item(name="Garlic for vampires", mod=TEST)
     item2.save(pipeline=pipeline)
     pipeline.execute()
-    yield
-    units = Dom6Unit.find(Dom6Unit.mod == TEST).all()
-    for unit in units:
-        unit.delete(pk=unit.pk, pipeline=pipeline)
-    nations = Dom6Nation.find(Dom6Nation.mod == TEST).all()
-    for nation in nations:
-        nation.delete(pk=nation.pk, pipeline=pipeline)
-    items = Dom6Item.find(Dom6Item.mod == TEST).all()
-    for nation in items:
-        nation.delete(pk=nation.pk, pipeline=pipeline)
-    pipeline.execute()
 
 
-def test_dom6_autocomplete_units_query():
+def test_dom6_autocomplete_units_query(generated_data):
     request, response = app.test_client.get(
         "/dom6/autocomplete/units/?search_term=Aloha&mods=test"
     )
@@ -64,7 +63,7 @@ def test_dom6_autocomplete_units_query():
     assert "AlohaMonster2" in data
 
 
-def test_dom6_autocomplete_units_by_id():
+def test_dom6_autocomplete_units_by_id(generated_data):
     request, response = app.test_client.get(
         "/dom6/autocomplete/units/?search_term=999998&mods=test"
     )
@@ -74,7 +73,7 @@ def test_dom6_autocomplete_units_by_id():
     assert "AlohaMonster2" in data
 
 
-def test_dom6_autocomplete_units_empty_query():
+def test_dom6_autocomplete_units_empty_query(generated_data):
     request, response = app.test_client.get("/dom6/autocomplete/units/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
@@ -82,7 +81,7 @@ def test_dom6_autocomplete_units_empty_query():
     assert "table-responsive" not in data
 
 
-def test_dom6_autocomplete_nations_query():
+def test_dom6_autocomplete_nations_query(generated_data):
     request, response = app.test_client.get(
         "/dom6/autocomplete/nations/?search_term=Aloha&mods=test"
     )
@@ -92,7 +91,7 @@ def test_dom6_autocomplete_nations_query():
     assert "AlohaNation" in data
 
 
-def test_dom6_autocomplete_nations_empty_query():
+def test_dom6_autocomplete_nations_empty_query(generated_data):
     request, response = app.test_client.get("/dom6/autocomplete/nations/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
@@ -129,7 +128,7 @@ def test_dom6_map_generation_view_only_map(initial_dom6_data_for_mapgen):
     )
 
 
-def test_dom6_autocomplete_items_query():
+def test_dom6_autocomplete_items_query(generated_data):
     request, response = app.test_client.get(
         "/dom6/autocomplete/items/?search_term=garlic&mods=test"
     )
@@ -140,9 +139,21 @@ def test_dom6_autocomplete_items_query():
     assert "Garlic for vampires" in data
 
 
-def test_dom6_autocomplete_items_empty_query():
+def test_dom6_autocomplete_items_empty_query(generated_data):
     request, response = app.test_client.get("/dom6/autocomplete/items/?mods=test")
     assert request.method.lower() == "get"
     assert response.status == 200
     data = response.body.decode("utf-8")
     assert "table-responsive" not in data
+
+
+def test_dom6_api_endpoint(generated_data):
+    name = quote_plus("Test Monsters 22")
+    request, response = app.test_client.get(f"/dom6/api/units/{name}?mods=test")
+    assert request.method.lower() == "get"
+    assert response.status == 200
+    data = json.loads(response.body.decode("utf-8"))
+    names = [x["name"] for x in data]
+    assert "Test Monster" in names
+    index = names.index("Test Monster")
+    assert "AlohaNation" in [x["name"] for x in data[index]["nations"]]

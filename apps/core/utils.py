@@ -8,7 +8,7 @@ def clean_search_string(search_string: str) -> str:
     Returns:
         str: The cleaned search string.
     """
-    if search_string.endswith(("-", "'", '"', ",", ";")):
+    if search_string.endswith(("-", "'", '"', ",", ";", " ")):
         search_string = search_string[:-1]
     return (
         search_string.strip()
