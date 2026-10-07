@@ -10,15 +10,15 @@
 {% endblock extra_css %}
 
 {% block main_content %}
-<div class="mt-5">
-  <div class="text-center">
-    <h2 class="display-4 mb-4">Select units for nation {{name}}</h2>
+<div>
+  <div>
+    <h1 class="display-6 page-title">Select units for nation {{name}}</h1>
   </div>
   <div class="row">
     <div class="mb-4">
         <p class="lead">Select units to be used for the specified nation.</p>
         <p>For this step, you should select commanders and units. You can skip this step if you do not want to add anything to nation's starting troops;</p>
-        <p class="fw-bold">For the map to generate correctly, you should have at least 1 commander to add additional units to;</p>
+        <p class="fw-bold" style="color:var(--danger)">For the map to generate correctly, you should have at least 1 commander to add additional units to;</p>
         <p>Some of the commanders and troops have the same name, so you should use unit_id to distinguish them (use <a href="https://larzm42.github.io/dom6inspector/" target="_blank" rel="noopener noreferrer">Dom6 inspector</a> to find out unit_id);</p>
     </div>
   </div>
@@ -43,7 +43,7 @@
           Show/hide search fields
         </button>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-lg-6">
         <form>
             <div class="mb-3 parent-js">
               <label for="commanders" class="form-label">Commanders search</label>
@@ -62,7 +62,7 @@
 
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-lg-6">
         <form>
           <div class="mb-3 parent-js">
             <label for="units" class="form-label">Units search</label>

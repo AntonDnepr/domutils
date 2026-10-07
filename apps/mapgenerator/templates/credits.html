@@ -1,19 +1,11 @@
 {% extends "base.html" %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-{% endblock extra_css %}
-
 {% block main_content %}
 {% include "release_notes.html" %}
-<h2 class="display-6 mt-5">Acknowledgements</h2>
-<p class="mt-4">
-    Huge thanks to:
-</p>
-<p class="mt-5">
-    <a href="https://github.com/klokkenman1" blank="_true">klokkenman1</a> for the huge contribution to the previous version;
-</p>
-<p class="mt-5">
-    Catowl (who is amazing and all that) for manually testing things with this project and pointing out bugs;
-</p>
+<h1 class="display-6 page-title">Acknowledgements</h1>
+<p class="lead">Huge thanks to:</p>
+<ul class="credits">
+    <li><a href="https://github.com/klokkenman1" target="_blank" rel="noopener noreferrer">klokkenman1</a> for the huge contribution to the previous version;</li>
+    <li>Catowl (who is amazing and all that) for manually testing things with this project and pointing out bugs;</li>
+</ul>
 {% endblock main_content %}

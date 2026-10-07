@@ -4,16 +4,10 @@
 <meta name="google-adsense-account" content="ca-pub-3702046998697431">
 {% endblock adsense %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-{% endblock extra_css %}
-
 {% block main_content %}
 {% include "release_notes.html" %}
-<div class="mt-5">
-    <div class="text-center">
-        <h2 class="display-4 mb-4">Welcome to the Arena Map Tool</h2>
-    </div>
+<div>
+    <h1 class="display-6 page-title">Welcome to the Arena Map Tool</h1>
     <div class="mb-4">
         <p class="lead">
             This tool makes extensive use of Arena Map by Dastactic. Please support the <a href="https://www.youtube.com/dastactic" rel="noopener noreferrer"
@@ -21,25 +15,24 @@
         </p>
         <p class="lead"> You can contribute to the development of this tool or report a bug <a href="https://github.com/AntonDnepr/domutils" rel="noopener noreferrer" target="_blank">here</a>. </p>
         <p class="lead"> You can check tutorial <a href="https://buymeacoffee.com/domutils/tutorial-2661664" target="_blank" rel="noopener noreferrer">here</a> or read short description below.</p>
-        <h3>Tool Steps:</h3>
-        <ol class="list-group list-group-numbered list-group-flush">
-            <li class="list-group-item">
-                <span class="lead mb-1">Select the nations to be used in map generation.</span> <br/>
-                <p class="mt-1 mb-0 alert alert-info">There is no validation that nations are selected from the same Age. You should select at least 2 nations from the same Age for the game to not declare you the winner immediately.<br/>
+        <hr class="rule">
+        <h2 class="step-title">Tool steps</h2>
+        <ol class="tool-steps">
+            <li>
+                <span class="step-text">Select the nations to be used in map generation.</span>
+                <p class="alert alert-info">There is no validation that nations are selected from the same Age. You should select at least 2 nations from the same Age for the game to not declare you the winner immediately.<br/>
                 There is no validation for land / water nation, so please be careful when selecting them.</p>
             </li>
-            <li class="list-group-item">
-                <span class="lead">One by one, you will be asked to create commanders and units for the selected nations.</span><br/>
-                <p class="mt-1 mb-0 alert alert-info">You can skip nations if you do not want them to have anything other than an initial expansion party.</p>
+            <li>
+                <span class="step-text">One by one, you will be asked to create commanders and units for the selected nations.</span>
+                <p class="alert alert-info">You can skip nations if you do not want them to have anything other than an initial expansion party.</p>
             </li>
-            <li class="list-group-item">
-                <span class="lead">At the end you will get a zip archive with the map. You should unzip it into the map folder of the game.</span><br/>
-                <p class="mt-1 mb-0 alert alert-info">Map folder is available by clicking "Tools & Manuals" -> "Open User Data directory"</p>
+            <li>
+                <span class="step-text">At the end you will get a zip archive with the map. You should unzip it into the map folder of the game.</span>
+                <p class="alert alert-info">Map folder is available by clicking "Tools & Manuals" -> "Open User Data directory"</p>
             </li>
         </ol>
-        <h4>
-            Advanced settings
-        </h4>
+        <h2 class="step-title" style="margin-top:36px">Advanced settings</h2>
         <div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="onlyMap" name="onlyMap" id="onlyMap">
@@ -49,7 +42,7 @@
             </div>
         </div>
     </div>
-    <p class="text-center">
+    <p class="actions">
         <a href="/dom6/arena-mapgen/select-nations/" class="btn btn-primary btn-lg">Start</a>
     </p>
 </div>

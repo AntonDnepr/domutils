@@ -1,25 +1,24 @@
 {% extends "base.html" %}
-{% block extra_css %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-{% endblock extra_css %}
 
 {% block main_content %}
 {% include "release_notes.html" %}
-<h2 class="display-6 mt-5">Welcome to Dominions Utils</h2>
+<h1 class="display-6 page-title">Welcome to Dominions Utils</h1>
 <p class="lead">Select a tool:</p>
-<ul>
-    <li class="nav-item">
-        <a class="nav-link {% if dom5_arena_active %} active {% endif %}" aria-current="page"
-          href="/dom5/arena-mapgen/">
-          <span data-feather="home"></span>
-          Dominions 5 Arena map generator
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/dom6/arena-mapgen/">
-          <span data-feather="file-text"></span>
-          Dominions 6 Arena map generator
-        </a>
-      </li>
-</ul>
+<div class="tool-cards">
+  <a class="tool-card" href="/dom5/arena-mapgen/">
+    <span class="tool-card-eyebrow">Dominions 5</span>
+    <span class="tool-card-title">Arena map generator</span>
+    <span class="tool-card-text">Build a custom arena map with starting commanders and troops.</span>
+  </a>
+  <a class="tool-card" href="/dom6/arena-mapgen/">
+    <span class="tool-card-eyebrow">Dominions 6</span>
+    <span class="tool-card-title">Arena map generator</span>
+    <span class="tool-card-text">Build a custom arena map with starting commanders, troops and items.</span>
+  </a>
+  <a class="tool-card" href="/history/">
+    <span class="tool-card-eyebrow">Dominions 6</span>
+    <span class="tool-card-title">Release history</span>
+    <span class="tool-card-text">What changed and when.</span>
+  </a>
+</div>
 {% endblock main_content %}
