@@ -1,0 +1,54 @@
+{
+  "Arcoscephale": {
+    "Archousa": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Astrologers": {
+      "quantity": 4,
+      "killed": null,
+      "dead": null
+    },
+    "Mystics": {
+      "quantity": 2,
+      "killed": null,
+      "dead": null
+    },
+    "Dark Knights": {
+      "quantity": 0,
+      "killed": null,
+      "dead": -1
+    },
+    "Hoplites": {
+      "quantity": 43,
+      "killed": null,
+      "dead": null
+    },
+    "Hounds of Twilight": {
+      "quantity": 2,
+      "killed": null,
+      "dead": null
+    },
+    "Troll Archers": {
+      "quantity": 0,
+      "killed": null,
+      "dead": -1
+    },
+    "Troll Mages": {
+      "quantity": 0,
+      "killed": null,
+      "dead": -1
+    },
+    "Troll Raiders": {
+      "quantity": 0,
+      "killed": null,
+      "dead": -1
+    },
+    "Warrior Mages": {
+      "quantity": 0,
+      "killed": null,
+      "dead": -1
+    }
+  }
+}

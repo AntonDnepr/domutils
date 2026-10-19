@@ -1,0 +1,89 @@
+{
+  "Sauromatia": {
+    "Adventurers": {
+      "quantity": 2,
+      "killed": null,
+      "dead": 2
+    },
+    "Chieftains": {
+      "quantity": 2,
+      "killed": 3,
+      "dead": 2
+    },
+    "Enaries": {
+      "quantity": 43,
+      "killed": null,
+      "dead": 43
+    },
+    "Hydromancers": {
+      "quantity": 4,
+      "killed": 1,
+      "dead": 4
+    },
+    "Mound Fiends": {
+      "quantity": 2,
+      "killed": 10,
+      "dead": 1
+    },
+    "Sauromatian Manflayer": {
+      "quantity": 1,
+      "killed": 1,
+      "dead": 1
+    },
+    "Warrior Priestess": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Warrior Sorceresses": {
+      "quantity": 15,
+      "killed": null,
+      "dead": 15
+    },
+    "Witch Kings": {
+      "quantity": 3,
+      "killed": 17,
+      "dead": 3
+    },
+    "Androphags": {
+      "quantity": 26,
+      "killed": 11,
+      "dead": 26
+    },
+    "Black Hawks": {
+      "quantity": 4,
+      "killed": null,
+      "dead": 4
+    },
+    "Ice Drakes": {
+      "quantity": 20,
+      "killed": 425,
+      "dead": 19
+    },
+    "Raiders": {
+      "quantity": 22,
+      "killed": 2,
+      "dead": 18
+    },
+    "Sauromatian Cataphract": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Sauromatian Lancers": {
+      "quantity": 159,
+      "killed": 10,
+      "dead": 147
+    },
+    "Sauromatian Raiders": {
+      "quantity": 9,
+      "killed": 1,
+      "dead": 9
+    },
+    "Spectral Peltast": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    }
+  }
+}

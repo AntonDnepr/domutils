@@ -4,7 +4,9 @@ from os import getenv
 from urllib.parse import unquote_plus
 
 import sentry_sdk
+from apps.battleparser import worker as battle_jobs
 from apps.core.consts import ERAS, VANILLA
+from apps.core.redis import get_redis_client
 from apps.core.utils import check_if_int, clean_search_string
 from apps.dom6data.models import Dom6Item, Dom6Nation, Dom6Unit
 from apps.domdata.models import Nation, Unit
@@ -343,3 +345,30 @@ async def dom6_api_unit_data(request: Request, name: str):
         model_dump["nations"] = nation_dumps
         final_data.append(model_dump)
     return json(final_data)
+
+
+@app.post("/dom6/battle-report/parse/")
+async def dom6_battle_report_parse(request: Request):
+    """Queue a battle report screenshot for parsing.
+
+    Send the image as multipart field ``image`` or as the raw request body.
+    """
+    upload = request.files.get("image") if request.files else None
+    image = upload.body if upload else request.body
+    if not image:
+        return json({"error": "No image provided"}, status=400)
+    if len(image) > battle_jobs.MAX_IMAGE_BYTES:
+        return json({"error": "Image is larger than 5MB"}, status=413)
+    job_id = battle_jobs.enqueue(get_redis_client(), image)
+    return json(
+        {"job_id": job_id, "status": battle_jobs.QUEUED},
+        status=202,
+    )
+
+
+@app.get("/dom6/battle-report/parse/<job_id:str>/")
+async def dom6_battle_report_result(request: Request, job_id: str):
+    job = battle_jobs.get_job(get_redis_client(), job_id)
+    if job is None:
+        return json({"error": "Unknown or expired job"}, status=404)
+    return json(job)

@@ -1,0 +1,79 @@
+{
+  "Tir na n'Og": {
+    "Bane Lord": {
+      "quantity": 1,
+      "killed": 12,
+      "dead": null
+    },
+    "Baobhan Sidhes": {
+      "quantity": 5,
+      "killed": null,
+      "dead": 1
+    },
+    "Crystal Mages": {
+      "quantity": 3,
+      "killed": 11,
+      "dead": 1
+    },
+    "Fir Bolg Druids": {
+      "quantity": 6,
+      "killed": null,
+      "dead": 3
+    },
+    "Great Hawk": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Great Sorceress": {
+      "quantity": 1,
+      "killed": 76,
+      "dead": null
+    },
+    "Sidhe Champions": {
+      "quantity": 4,
+      "killed": 1,
+      "dead": null
+    },
+    "Sidhe Lords": {
+      "quantity": 7,
+      "killed": 60,
+      "dead": 2
+    },
+    "Tuatha Sorceresses": {
+      "quantity": 7,
+      "killed": 37,
+      "dead": 1
+    },
+    "Black Hawks": {
+      "quantity": 43,
+      "killed": 2,
+      "dead": 43
+    },
+    "Cave Cows": {
+      "quantity": 0,
+      "killed": 21,
+      "dead": -3
+    },
+    "Forest Trolls": {
+      "quantity": 11,
+      "killed": 35,
+      "dead": 7
+    },
+    "Leogryphs": {
+      "quantity": 42,
+      "killed": 14,
+      "dead": 41
+    },
+    "Sidhe Warriors": {
+      "quantity": 39,
+      "killed": 36,
+      "dead": 19
+    },
+    "Tuatha Warriors": {
+      "quantity": 73,
+      "killed": 129,
+      "dead": 14
+    }
+  }
+}

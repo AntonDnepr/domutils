@@ -1,0 +1,34 @@
+{
+  "Tir na n'Og": {
+    "Baobhan Sidhes": {
+      "quantity": 6,
+      "killed": null,
+      "dead": 6
+    },
+    "Fir Bolg Champion": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Sidhe Lords": {
+      "quantity": 7,
+      "killed": 220,
+      "dead": 7
+    },
+    "Tuatha Sorceress": {
+      "quantity": 1,
+      "killed": 408,
+      "dead": 1
+    },
+    "Cu Sidhes": {
+      "quantity": 31,
+      "killed": 3,
+      "dead": 31
+    },
+    "Sidhe Warriors": {
+      "quantity": 75,
+      "killed": 28,
+      "dead": 75
+    }
+  }
+}

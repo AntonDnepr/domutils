@@ -1,0 +1,94 @@
+{
+  "Pyrène": {
+    "Basajauns": {
+      "quantity": 5,
+      "killed": 3,
+      "dead": 3
+    },
+    "Basanderes": {
+      "quantity": 2,
+      "killed": null,
+      "dead": 1
+    },
+    "Bekryde Champion": {
+      "quantity": 1,
+      "killed": 1,
+      "dead": null
+    },
+    "Bekryde Shepherds": {
+      "quantity": 25,
+      "killed": 1,
+      "dead": 22
+    },
+    "Drakon": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Jentils": {
+      "quantity": 3,
+      "killed": 7,
+      "dead": 1
+    },
+    "Priest": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Sorginas": {
+      "quantity": 6,
+      "killed": 115,
+      "dead": 1
+    },
+    "Bebryx Guards": {
+      "quantity": 2,
+      "killed": null,
+      "dead": 2
+    },
+    "Bekrydes": {
+      "quantity": 39,
+      "killed": 33,
+      "dead": 35
+    },
+    "Bekryde Heavy Infantries": {
+      "quantity": 6,
+      "killed": null,
+      "dead": 6
+    },
+    "Bekryde Hunters": {
+      "quantity": 6,
+      "killed": null,
+      "dead": 6
+    },
+    "Cave Cows": {
+      "quantity": 530,
+      "killed": 132,
+      "dead": 517
+    },
+    "Claymen": {
+      "quantity": 60,
+      "killed": 34,
+      "dead": 60
+    },
+    "Clockwork Horrors": {
+      "quantity": 151,
+      "killed": 96,
+      "dead": 151
+    },
+    "Clockwork Soldiers": {
+      "quantity": 170,
+      "killed": 31,
+      "dead": 170
+    },
+    "Gelatinous Cubes": {
+      "quantity": 12,
+      "killed": 13,
+      "dead": 12
+    },
+    "Mairu Warriors": {
+      "quantity": 4,
+      "killed": 1,
+      "dead": 4
+    }
+  }
+}

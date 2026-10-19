@@ -33,6 +33,8 @@ RUN apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     zlib1g-dev \
+    tesseract-ocr \
+    tesseract-ocr-eng \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --upgrade \
