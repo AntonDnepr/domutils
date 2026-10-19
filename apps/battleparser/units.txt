@@ -1,0 +1,3074 @@
+'Adite Archer
+'Adite Elite Soldier
+'Adite General
+'Adite Light Infantry
+* Behemoth
+Aatxe
+Abba
+Abbess
+Abbot Magus
+Abbot Magus Supreme
+Abbot Sage
+Abductor
+Abodai
+Aboleth
+Abomination
+Abomination of Desolation
+Abysian Axe Thrower
+Abysian Commander
+Abysian Heavy Infantry
+Abysian Infantry
+Abysian Light Infantry
+Accensus
+Acha
+Aclla
+Acolyte
+Acolyte of Eldregate
+Adept of Pyriphlegeton
+Adept of the Golden Order
+Adept of the Hidden Order
+Adept of the Iron Order
+Adept of the Silver Order
+Admiral
+Adon
+Adventurer
+Aegaeide
+Agarthan Crossbowman
+Agarthan Heavy Crossbowman
+Agarthan Heavy Infantry
+Agarthan Infantry
+Agarthan Light Crossbowman
+Agarthan Light Infantry
+Agarthan Sapper
+Agarthan Scout
+Ageless Olm
+Agema Commander
+Agema Companion
+Agrimandri Shaman Chief
+Agrimandri Warrior
+Ah Ha'
+Ah Itz
+Ah K'in
+Ah K'in Kan Ek'
+Ah Nakom
+Ahiman Anakite
+Ahu
+Ahu of the Kavi
+Ahura of Wisdom
+Ahura of the Oath
+Ahura of the Waters
+Ahurani
+Air Elemental
+Airya Archer
+Airya Infantry
+Airya Light Infantry
+Airya Noble
+Airya Scout
+Airya Seraph
+Airya Seraphine
+Airya Shah
+Airya Spahbed
+Airya Temple Guard
+Ajaw
+Ajaw Kan Ek'
+Aka-Oni
+Aka-Oni Samurai
+Akerbeltz
+Alae Legionnaire
+Alchemical Amalgam of Air
+Alchemical Amalgam of Earth
+Alchemical Amalgam of Fire
+Alchemical Amalgam of Water
+Alchemist
+Alchemist of the Five Elements
+Algae Man
+Alkonost
+Allfather
+Amanojaku
+Amazon
+Amber Clan Guard
+Amber Clan Mage
+Amber Clan Noble
+Amber Clan Priest
+Amber Clan Triton
+Ambibate Bare Chested Warrior
+Ambibate Chieftain
+Ambibate Noble Warrior
+Ammi
+Amorite
+Amphiptere
+Anansi
+Anathemant
+Anathemant Dragon
+Anathemant Salamander
+Anathemant Warlock
+Ancestor Guide
+Ancestor Smith
+Ancestor Vessel
+Ancestral Fravashi
+Ancestral Spirit
+Ancient Kraken
+Ancient Lord
+Ancient Mandragora
+Ancient Olm
+Ancient One
+Ancient Presence
+Ancient Shaman
+Ancient Stone Hurler
+Ancient Wet One
+Androdai
+Androleth
+Androphag
+Androphag Archer
+Angakok
+Angel XXX
+Angel of Fury
+Angel of the Heavenly Choir
+Angel of the Host
+Angiri
+Angra Mainyu
+Animated Bush
+Animated Shrub
+Animated Tree
+Animist
+Annunaki of Growth and Rebirth
+Annunaki of Love and War
+Annunaki of Sweet Waters
+Annunaki of the Moon
+Annunaki of the Morning Star
+Annunaki of the Sky
+Annunaki of the Underworld
+Anointed of Rhuax
+Antlered Hochmeister
+Antlered One
+Antlered Shaman
+Antlered Vedun
+Anusara
+Anzu
+Ao-Oni
+Ape Oracle
+Aphroi
+Aphroi Hierophant
+Aphroi Lord
+Aphroi Sage
+Apkallu
+Apostate Raja
+Apostate Seraph
+Apostate of the Closed Realm
+Apostatic Warrior
+Apothecary
+Apparition
+Apprentice Magus
+Apsara
+Apu
+Apu Illapa
+Apu Inti
+Apusqispay
+Araburu-kami
+Arch Angel
+Arch Bishop of Eldregate
+Arch Bishop of the Sacred Shroud
+Arch Censor
+Arch Devil
+Arch Druid
+Arch Emperor
+Arch Mage
+Arch Pope
+Arch Seraph
+Arch Theurg
+Arch Wizard of Black Arcana
+Arch Wizard of Unseen Colors
+Arch Wizard of Waters Underneath
+Arch Wizard of the Deeper Earth
+Arch Wizard of the Hidden Flame
+Arch Wizard of the Sky
+Arch Wizard of the Spheres
+Archbishop Marshal
+Archer
+Archer Illusion
+Archer Priest
+Architect
+Archon
+Archousa
+Arel
+Armored Black Unicorn
+Armored Hippocampus
+Armored Jade Lizard
+Armored Kelpie
+Armored Moose
+Armored Morvarc'h
+Armored Pegasus
+Armored Sacred Hippocampus
+Armored Sacred Tiger
+Armored Serpent
+Armored Steppe Horse
+Armored Tiger
+Armored Unicorn
+Arssartut
+Asara
+Ashen Angel
+Asherite Soldier
+Ashigaru
+Ashipu
+Asmeg
+Asmeg Jarl
+Asp
+Asp Turtle
+Asrapa
+Assassin
+Astrapelagist
+Astrologer
+Asura
+Asynja
+Atavi Archer
+Atavi Chieftain
+Atavi Infantry
+Athravan
+Atlantian Infantry
+Atlantian Light Infantry
+Atlantian Militia
+Atlantian Shield Bearer
+Atlantian Spearman
+Attendant of the Dead
+Attendant of the Oracles
+Attentive Statue
+Aucac Runa Archer
+Aucac Runa Axeman
+Aucac Runa Maceman
+Aucac Runa Spearman
+Augur
+Augur Elder
+Avvite Charioteer
+Avvite Commander
+Avvite Heavy Archer
+Avvite Horn Blower
+Avvite Light Infantry
+Avvite Scout
+Avvite Spearman
+Avvite Swordsman
+Axe Warrior
+Axeman
+Ayar
+Azenach Archer
+Azenach Shaman Chief
+Azi
+Azure Dragon of the East
+Azure Initiate
+Azure Mage
+Ba'al
+Bacab
+Baculite
+Bakemono Archer
+Bakemono Chief
+Bakemono General
+Bakemono Kunshu
+Bakemono Scout
+Bakemono Shaman
+Bakemono Sorcerer
+Bakemono Warrior
+Bakemono-Sho
+Bakeneko
+Balam of the East
+Balam of the North
+Balam of the South
+Balam of the West
+Bandar
+Bandar Archer
+Bandar Commander
+Bandar Noble
+Bandar Swordsman
+Bandar Warrior
+Bandaraja
+Bandit
+Bandit Leader
+Bane
+Bane Lord
+Bane Spider
+Banu Si'lat
+Baobhan Sidhe
+Baphomet
+Barbarian
+Barbarian Chief
+Barbarian Heavy Horseman
+Barbarian Horseman
+Barbarian Lord
+Bard
+Barghest
+Barrel
+Basajaun
+Basalt King
+Basalt Queen
+Basandere
+Bashanite
+Basileus
+Basilisk
+Batab
+Battle Deacon
+Battle Vestal
+Bean Sidhe
+Bear Clan Cub-Mother
+Bear Clan Seithberender
+Bear Clan Warrior
+Bear Tribe Shaman
+Bear Tribe Warrior
+Bear Warrior
+Bearer
+Beast Bat
+Beast Illusion
+Beast Trainer
+Bebryx
+Bebryx Guard
+Behemoth
+Bekryde
+Bekryde Champion
+Bekryde Commander
+Bekryde Heavy Infantry
+Bekryde Hunter
+Bekryde Infantry
+Bekryde Scout
+Bekryde Shaman
+Bekryde Shepherd
+Bekryde Warrior
+Belly Maw Horror
+Benjaminite Commander
+Benjaminite Slinger
+Beregina
+Berytian Archer
+Berytian Captain
+Berytian Elite Soldier
+Berytian Heavy Spearman
+Berytian Lancer
+Berytian Militia
+Berytian Priest
+Berytian Sage
+Berytian Scout
+Berytian Soldier
+Berytian Spearman
+Betyl of Writing
+Betyl of the Stars
+Betyl of the Sun
+Binn
+Bird Clan Archer
+Bird Knight
+Bird Knight Commander
+Bishop
+Bishop Fish
+Bishop General
+Bishop Vicomte
+Bishop of Eldregate
+Bishop of the Sacred Shroud
+Bitch Queen
+Black Acolyte
+Black Bull
+Black Cat
+Black Centaur
+Black Destrier
+Black Dog
+Black Dryad
+Black Goat
+Black Harpy
+Black Hawk
+Black Hood
+Black Hunter
+Black King
+Black Knight
+Black Lord
+Black Minotaur
+Black Plate Infantry
+Black Plate Pikeneer
+Black Priest
+Black Serpent
+Black Sorcerer
+Black Sorceress
+Black Templar
+Black Tortoise of the North
+Black Unicorn
+Black Witch
+Blackrose Sorceress
+Blessed Couple
+Blind One
+Blinded
+Blindfighter
+Blindlord
+Blizzard Warrior
+Blood Bishop
+Blood Countess
+Blood Graf
+Blood Guard
+Blood Lord
+Blood Mage
+Blood Marshal
+Blood Slave
+Bloodhenge Druid
+Blue Flame
+Bluecap
+Boar
+Boar Lord
+Boar Warrior
+Bodhisattva of Mercy
+Bog Beast
+Bog Mummy
+Bogarusian Scout
+Bogatyr
+Bolon-ti-ku
+Bone Fiend
+Bone Mother
+Bone Reader
+Bone Tribe Beast Hunter
+Bone Tribe Head Hunter
+Bone Tribe Hunter
+Bookshelf
+Bouda
+Bouda Father
+Brahmin
+Brass Claw Horror
+Brazen Guard
+Bride of the Gods
+Bride-in-Waiting
+Brigand Leader
+Bronze Colossus
+Buffalo
+Bug Soul Vessel
+Bukavac
+Buraq
+Burgmeister
+Burgmeister Guard
+Burning One
+Bush
+C'tissian Heavy Infantry
+C'tissian Light Infantry
+C'tissian Medium Infantry
+Cactus
+Caelian Longdead
+Caelian Scout
+Caelian Seraph
+Calydonian Boar
+Calystri City Guard
+Calystri Commander
+Calystri Crossbowman
+Calystri Footman
+Calystri General
+Calystri Magistrate
+Calystri Magus
+Calystri Man at Arms
+Calystri Militia
+Calystri Pikeneer
+Calystri Presbyter
+Calystri Scout
+Calystri Senator
+Calystri Senatorial Guard
+Calystri Soldier
+Camazotz
+Cambion
+Cambion Count
+Cambion Countess
+Cambion King
+Cambion Knight
+Cambion Progeny
+Cambion Queen
+Camel
+Cannibal Shaman Chief
+Cannibal Warlord
+Cannibal Warrior
+Capricorn
+Captain
+Captain Illusion
+Cardaces
+Cardinal
+Caretaker
+Carnute Bare Chested Warrior
+Carnute Chieftain
+Carnute Noble Warrior
+Carrion Bear
+Carrion Beast
+Carrion Behemoth
+Carrion Boar
+Carrion Centaur
+Carrion Commander
+Carrion Dragon
+Carrion Enkidu
+Carrion Fury
+Carrion Giant
+Carrion Horse
+Carrion Lady
+Carrion Lord
+Carrion Ogre
+Carrion Titan
+Carrion Wolf
+Castellan
+Cataphract
+Cataphract Commander
+Cataphracted Chariot
+Cataphracted Mouflon
+Cataphracted Steppe Horse
+Cataphracted War Horse
+Catoblepas
+Cave Captain
+Cave Cow
+Cave Crab
+Cave Drake
+Cave Grub
+Cave Knight
+Cave Kobold
+Cave Spider
+Caveman
+Caveman Champion
+Cavern Guard
+Cavern Wight
+Celestial Bureaucrat
+Celestial Carp
+Celestial Dragon
+Celestial General
+Celestial Gryphon
+Celestial Hound
+Celestial Lion
+Celestial Master
+Celestial Servant
+Celestial Soldier
+Censor
+Centaur
+Centaur Cataphract
+Centaur Chariot
+Centaur Charioteer
+Centaur Commander
+Centaur Great Sage
+Centaur Hierophant
+Centaur Manikin
+Centaur Sage
+Centaur Slave
+Centaur Warrior
+Centauride
+Centauride Cataphract
+Centauride Crossbow
+Centauride Enchantress
+Centauride Hierophantide
+Centauride Warrior
+Centurion
+Ceremonial Master
+Cerulean Commander
+Cerulean Warrior
+Chaac of the East
+Chaac of the North
+Chaac of the South
+Chaac of the West
+Chak Muuch Assassin
+Chak Muuch Dart Thrower
+Chak Muuch Obsidian Warrior
+Champion of the Closed Realm
+Chariot
+Chariot Archer
+Charioteer
+Charioteer Commander
+Chartmaker
+Chayot
+Chief
+Chieftain
+Chieftain Illusion
+Chilan
+Chimera
+Chiranjivi
+Chud Berserker
+Chud Chieftain
+Chud Hirdman
+Chud Hunter
+Chud Jarl
+Chud Seniunas
+Chud Skinshifter
+Chud Vedun
+Chud Warrior
+Chunari
+Circle Master
+City Guard
+Civateteo
+Clayman
+Clockwork Horror
+Clockwork Soldier
+Cloistered Lady
+Cloud Mage
+Cloud Vila
+Cockatrice
+Colossal Fetish
+Colossal Head
+Colossi Heavy Infantry
+Colossi Light Infantry
+Colossi Queen
+Colossi Storm Captain
+Colossi Warrior
+Colossi Weaver
+Comitatense
+Commander
+Commander of C'tis
+Commander of Ulm
+Commoner
+Condor
+Condor Warrior
+Conjurer
+Conqueror of the Closed Realm
+Consort
+Consort of the Dead
+Coral Clan Hoplite
+Coral Clan Soldier
+Coral Commander
+Coral Guard
+Coral Priest
+Coral Prince
+Coral Queen
+Corpse Candle
+Corpse Construct
+Corruptor
+Couatl
+Counter
+Coya
+Crab General
+Crab Hybrid
+Crate
+Crimson King
+Criosphinx
+Crocodile
+Crone
+Crone of Avalon
+Crossbowman
+Crosswielder
+Crow
+Crow Clan Archer
+Crow Clan Scout
+Crow Clan Seithberender
+Crowned Ape
+Crusher
+Crystal
+Crystal Mage
+Crystal Priestess
+Crystal Sorceress
+Crystal Soul
+Cu Sidhe
+Cub-Warrior
+Cultist
+Cyclope Commander
+Cyclope Smith
+Cyclope Soldier
+Cyclops
+Cyclops Chieftain
+Cyclops Hurler
+Cyclops Shepherd Shaman
+Cyclops Warrior
+Cynocephalian Chieftain
+Cynocephalian Flesh-Eater
+Cynocephalian Hunter
+Cynocephalian Shaman
+Cynocephalian Warrior
+Daduchos
+Daeva
+Daeva of Aging
+Daeva of Destruction
+Daeva of Discontent
+Daeva of Evil Intentions
+Daeva of Frost and Snow
+Daeva of Frozen Minds
+Daeva of Oppression
+Daeva of Shooting Stars
+Daeva of Wrath
+Dagon
+Dai Bakemono
+Dai Oni
+Dai Tengu
+Daimyo
+Daitya
+Dakini
+Daktyl
+Damned Admiral
+Damned Boatswain
+Damned Buccaneer
+Damned Captain
+Danava
+Daoine Sidhe
+Dark Crystal
+Dark Flower
+Dark Knight
+Dark Vines
+Dastur
+Daughter of Avalon
+Daughter of Typhon
+Daughter of the Oak
+Daughter of the Sun
+Daughter of the Thunder
+Dawn Guard
+Dead One
+Deathless
+Debug Kohai
+Debug Senpai
+Decrepit
+Deep One
+Deep One Dreamer
+Deep One Spearman
+Deep Seer
+Deer
+Deer Carcass
+Deer Tribe Archer
+Deer Tribe Shaman
+Deer Tribe Warrior
+Defender
+Defender of the Halls
+Defiler of Dreams
+Deives of the Sun
+Deliverer of Justice
+Demilich
+Demiurge
+Demon General
+Demon Jester
+Demon Knight
+Demon Macaw
+Demon Priest
+Demon Steed
+Demon of Heavenly Fires
+Demon of Heavenly Rivers
+Demon of Pus
+Demon of the Bone Staff
+Demon of the Skull Staff
+Demonbred
+Demonic Locust
+Desert Flower
+Desert Ranger
+Destrier
+Destroyer of Worlds
+Devala
+Devata
+Devi of Darkness
+Devi of Fortunes
+Devi of Good Fortunes
+Devi of Strength
+Devil
+Devourer of Demons
+Devourer of Souls
+Dharmapala of the Underworld
+Diabolist
+Dimvaetti
+Dire Wolf
+Dis
+Disahestur
+Disciple of Myrddin
+Discobolus
+Disease Demon
+Dispossessed Spirit
+Ditanu
+Divine Consul
+Divine Daughter
+Divine Emperor
+Divine Glyph
+Divine Hero
+Divine Mummy
+Divine Sibyl
+Divine Son
+Divine Stallion
+Dog
+Dog of the Underworld
+Draco Lion
+Dracolich
+Draconian
+Draconian Chief
+Dragon
+Dragon Girl
+Dragon King
+Dragon of the Cave
+Dragonfly
+Drakaina
+Drake Lord
+Drakon
+Drakon Hesperios
+Draug
+Draugadrott
+Draugherse
+Dreamwood Enchanter
+Druid
+Dryad
+Dryad Hag
+Dryad Hoplite
+Dryad Mother
+Duiu of Farming
+Duiu of Thunder
+Duiu of War
+Dusk Elder
+Dust King
+Dust Priest
+Dust Walker
+Dust Warrior
+Dwarf Elder
+Dwarf of the East
+Dwarf of the North
+Dwarf of the South
+Dwarf of the West
+Dwarven Smith
+Dweller-In-The-Deep
+Dying Treelord
+Eagle King
+Eagle Priest
+Eagle Warrior
+Ear of the Lord
+Earth Elemental
+Earth Gnome
+Earth Reader
+Earth Serpent
+Earth made Flesh
+Earth-Blooded
+Earthbound
+Eater of Dreams
+Eater of Gods
+Eater of the Dead
+Edomite
+Edomite Scout
+Einhere
+Ekdromos
+Elder Cyclops
+Elder Druid
+Elder Thing
+Eldest Cyclops
+Eldest Dwarf
+Elephant
+Elephant Archer
+Elephant Idol
+Elephant Rider
+Elephant Spearman
+Elite Warrior
+Elludian Moon Mage
+Emerald Count
+Emerald Guard
+Emerald Knight
+Emerald Lord
+Emite
+Empoisoner
+Enarie
+Engineer
+Engraver
+Enki's Chosen
+Enkidu
+Enkidu Archer
+Enkidu Bone Reader
+Enkidu Chief
+Enkidu Commander
+Enkidu Elder
+Enkidu Great Sage
+Enkidu Head Hunter
+Enkidu Heavy Archer
+Enkidu Horn Blower
+Enkidu Hunter
+Enkidu Hunter Chief
+Enkidu Iron Warrior
+Enkidu Reaver
+Enkidu Royal Guard
+Enkidu Scout
+Enkidu Shaman
+Enkidu Slave
+Enkidu Soldier
+Enkidu Spear Guard
+Enkidu Spearman
+Enkidu Warrior
+Ensi
+Entrance Guard
+Entu
+Entu of the Moon
+Eparch
+Ephor
+Eponi Chieftain
+Eponi Knight
+Epoptes
+Equite
+Equite of the Sacred Shroud
+Ereshdingir
+Ergi
+Erinya
+Ermorian Cultist
+Erytheian Commander
+Erytheian Crossbowman
+Erytheian Hoplite
+Erytheian Phalangite
+Erytheian Priest
+Erytheian Scout
+Eternal Knight
+Ether Lord
+Ether Warrior
+Ettin
+Ettin King
+Ettin Mandragora
+Eunuch
+Exarch
+Eye of the Lord
+Faery Queen
+Falchioneer
+Falcon
+Falconeer
+Fall Bear
+Fallen
+Fallen Angel
+False Horror
+False Prophet
+Fanatic Deep One
+Father Illearth
+Father of Monsters
+Father of Winters
+Father of the Sea
+Fatherslayer
+Favored of Enki
+Fay
+Fay Archer
+Fay Boar
+Fay Cat
+Fay Folk
+Fay Folk Cat Knight
+Fay Folk Donkey-In-Waiting
+Fay Folk Emperor
+Fay Folk Musician
+Fay Folk Sheep Knight
+Fay Folk Snail Knight
+Fay Folk Stablehand
+Fay Folk Swan Knight
+Fay Footman
+Fay Horse
+Fay Horse Chariot
+Fay Knight
+Fay Moose
+Fay Prince
+Fay Steed
+Fay Swan
+Faydream Enchantress
+Feathered Serpent
+Feathered Warrior
+Fellow
+Feminie Abbess
+Feminie Archer
+Feminie City Guard
+Feminie Commander
+Feminie Militia
+Feminie Queen
+Feminie Savant
+Feminie Scout
+Feminie Soldier
+Feminie Sorceress
+Feminie Swordswoman
+Ferryman
+Fianna
+Fiend of Darkness
+Fiery Imp
+Fir Bolg Cattle Raider
+Fir Bolg Champion
+Fir Bolg Charioteer
+Fir Bolg Clan Warrior
+Fir Bolg Druid
+Fir Bolg Hero
+Fir Bolg Militia
+Fir Bolg Scout
+Fir Bolg Slinger
+Fir Bolg Warrior
+Fire Ant
+Fire Drake
+Fire Elemental
+Fire Lord
+Fire Snake
+Firebird
+First Couple
+First King
+First Queen
+First Son of Anak
+First Spawn
+First of the Gigantes
+Firstborn of the Lost
+Firstborn of the Smokeless Flame
+Firstborn of the Star
+Fish
+Fivefold Angel
+Flagellant
+Flame Barrel Nightmare
+Flame Corpse
+Flame Jelly
+Flame Spirit
+Flamen
+Flayed Bull
+Flayed Horse
+Float Cat Horror
+Floating Mind
+Fommepori Shaman Chief
+Fommepori Warrior
+Fomorian Champion
+Fomorian Druid
+Fomorian Giant
+Fomorian God King
+Fomorian Javelinist
+Fomorian King
+Fomorian Militia
+Fomorian Scout
+Fomorian Sorcerer
+Fomorian Spearman
+Fomorian Warrior
+Footman
+Forest Giant
+Forest Troll
+Forest Warrior
+Forester
+Forgiving Father
+Forgotten King
+Formless Spawn
+Fortune Teller
+Fossil Warrior
+Fossilized Giant
+Foul Beast
+Foul Spawn
+Fountain of Blood
+Fravashi
+Freak
+Freak Lord
+Friar
+Frog
+Frost Father
+Frost Fiend
+Gadite Swordsman
+Gala
+Galderman
+Galdramathr
+Gamayun
+Gana
+Gandharva
+Gannag Menog
+Gargoyle
+Garmhirding
+Garnet Priestess
+Garnet Sorceress
+Garuda
+Gate Lord
+Gelatinous Cube
+General
+Geronte
+Ghost
+Ghost Cat
+Ghost Champion
+Ghost General
+Ghost King
+Ghost Mage
+Ghost Moose
+Ghoul
+Ghoul Baron
+Ghoul Commander
+Ghoul Guardian
+Ghul
+Ghulah
+Giant Fungus
+Giant Lobster
+Giant Mummy
+Giant Puff Shroom
+Giant Rat
+Giant Scorpion
+Giant Shaman
+Giant Sorcerer
+Giant Spider
+Giant of the Lost Tribe
+Gibbor
+Gibodai
+Giboleth
+Gigante
+Gigante Ekdromos
+Gigante Hoplite
+Gigante Warrior
+Gileadite
+Gileadite Archer
+Gittite Commander
+Gittite Soldier
+Gladiator
+Gladiatrix
+Gloso
+Gnome
+Gnu
+Gnu Clan Cavalry
+Gnu Clan Commander
+Go-Hatamoto
+Goat
+Goat Sun
+God Block
+God Lich
+God Spider
+God Vessel
+God-King of the Deep
+Gode
+Godihuskarl
+Goetic Adept
+Goetic Captain
+Goetic Master
+Gog Dog-Father
+Gog Reaver
+Gokenin
+Golden Idol
+Golden Lion
+Golden Naga
+Golden Pillar
+Golem
+Golem Crafter
+Gore Tide Horror
+Gorgon
+Grand Hierophant
+Grand Hydromancer
+Grand Lemur
+Grand Master
+Grand Saurolich
+Grand Thaumaturg
+Grandfather Earth
+Grandmother
+Grandmother Earth
+Granite Guardian
+Grave Consort
+Gray Enchantress
+Great Ape
+Great Archon
+Great Bear
+Great Black Bull
+Great Boar
+Great Boar of Carnutes
+Great Camazotz
+Great Eagle
+Great Enchantress
+Great Forest Bear
+Great Hag
+Great Hawk
+Great Huntress
+Great Lion
+Great Moose
+Great Mother
+Great Mouflon
+Great Olm
+Great Sage
+Great Sauromancer
+Great Seer of the Deeps
+Great Siddha
+Great Sorcerer
+Great Sorceress
+Great Spider
+Great Stag
+Great Warlock
+Great White Bull
+Great White Stag
+Greater Otherness
+Green Knight
+Green Lion
+Grey Knight
+Grey Lord
+Grey One
+Grid Druzhina
+Grieving Dryad
+Grigori
+Grotesque
+Grove Guard
+Gryphon
+Gryphon - XXX
+Gryphon Rider
+Guardian
+Guardian of the Forbidden Chambers
+Guardian of the Pyre
+Guardian of the Tree
+Gudu
+Guhyaka
+Guhyaka General
+Guild Master
+Guru
+Gutuater
+Gygja
+Hag
+Halach Uinic
+Halberdier
+Haliade
+Hamadryad
+Hand of Justice
+Handmaiden of Death
+Hangadrott
+Hangadrottning
+Hannya
+Harab Elder
+Harab Seraph
+Harab Seraphine
+Harbinger
+Harbinger of the Choir
+Harpy
+Harpy Manikin
+Harpy Queen
+Harvester of Sorrows
+Hashmal
+Hastatus
+Hatamoto
+Hatun Runa
+Headless Hoburg Hero
+Heart Companion
+Heart Hider
+Heavenly Condor
+Heavy Axeman
+Heavy Cavalry
+Heavy Crossbowman
+Heavy Footman
+Heavy Horseman
+Heavy Infantry
+Hedge Wizard
+Hekateride
+Helhestur
+Helhirding
+Heliodromus
+Heliophagus
+Helkarl
+Hell Spawn
+Hellbred Giant
+Hellbred Horite
+Helote Archer
+Helote Crossbowman
+Helote Ekdromos
+Helote Hoplite
+Helote Peltast
+Helote Soldier
+Helote Warrior
+Herdsman
+Heretic
+Hermit Sahir
+Hero
+Heroine
+Herse
+Hesperide
+Hieracosphinx
+Hiereia
+Hierodule
+Hierophant
+High Inquisitor
+High King
+High Magus
+High Priest
+High Priest of C'tis
+High Priest of the Sky
+High Priest of the Sun
+High Seraph
+Hill Giant
+Hinn
+Hippocampus
+Hirdman
+Hirdvaetti
+Hoburg Champion
+Hoburg Crossbow
+Hoburg Defender
+Hoburg Hero
+Hoburg Militia
+Hoburg Pikeman
+Hoburg Priest
+Hoburg Slinger
+Hoburg Spearman
+Hochmeister
+Hog Knight
+Holy Deep One
+Holy Knight
+Homunculus
+Hooded Spirit
+Hoplite
+Hoplite Commander
+Horite
+Horite Champion
+Horite Hunter
+Horite Shaman
+Horned One
+Horned Serpent
+Horror
+Horror Mantis
+Horse
+Horse Brother
+Horse Tribe Cavalry
+Horse Tribe Chief
+Horse Vale Stallion
+Horse-face
+Horseman
+Horticulturist
+Hound
+Hound of Hades
+Hound of Twilight
+Houri
+Howler
+Howler Champion
+Huaca
+Huli Jing
+Human Dreamer
+Human Godihuskarl
+Human Hirdman
+Human Huskarl
+Human Sahir
+Human Slave
+Human Slinger
+Human Warrior
+Humanbred
+Hun Balam
+Hun Came
+Hunter Spider
+Hunter of Heroes
+Hurin Priest
+Huskarl
+Hybrid
+Hybrid Commander
+Hybrid Cultist
+Hybrid Soldier
+Hybrid Trooper
+Hydra
+Hydra Hatchling
+Hydra Tamer
+Hydromancer
+Hydrophoros of the East
+Hydrophoros of the West
+Hyena Clan Warrior
+Hyena Clan Witch Doctor
+Hypaspist
+Hypaspist Commander
+Iassacharite Sage
+Iassacharite Scout
+Iassacharite Sibyl
+Icarid
+Icarid Champion
+Ice Captain
+Ice Crafter
+Ice Devil
+Ice Drake
+Ice Druid
+Ice Elemental
+Ice Guard
+Ice Warrior
+Iceclad
+Iceclad Zhayedan
+Ichtycentaur
+Ichtycentaur Cataphract
+Ichtycentaur Commander
+Ichtyid
+Ichtyid Lord
+Ichtyid Pearl Mage
+Ichtyid Shaman
+Ichtyid Warrior
+Ichtysatyr
+Ichtysatyr Commander
+Ichtysatyr Scout
+Ichtysatyr Soldier
+Ichtysatyr Warrior
+Ichtytaur
+Ichtytaur Warrior
+Idol of Beasts
+Idol of Men
+Idol of Sorcery
+Ifrit
+Ifrit Sultan
+Ifrit Warrior
+Ilah of the Moon
+Ilah of the Sacred Mountain
+Ilah of the Sky
+Ilahat of Fate
+Ilahat of Might
+Illearth
+Illithid
+Illithid Lord
+Illithid Soldier
+Illuminated One
+Illusionist
+Immortal
+Immortal Coya
+Immortal Gorgon
+Imp
+Imp Pet
+Imp Trainer
+Imperial Alchemist
+Imperial Archer
+Imperial City Guard
+Imperial Commander
+Imperial Consort
+Imperial Crossbowman
+Imperial Footman
+Imperial Geomancer
+Imperial Guard
+Imperial Horseman
+Inca
+Incubus
+Infantry of Ulm
+Initiate
+Initiate of the Deep
+Initiate of the Hidden Order
+Inquisitor
+Irminsul
+Iron Ancestor
+Iron Angel
+Iron Boar
+Iron Bound
+Iron Corpse
+Iron Crafter
+Iron Crow
+Iron Dragon
+Iron Fly
+Iron Gryphon
+Iron Guard
+Iron Hail Archer
+Iron Pig
+Iron Warrior
+Ishib
+Ivy King
+Jade Emperor
+Jade Lizard
+Jade Maiden
+Jade Priestess
+Jade Serpent
+Jade Sorceress
+Jaguar
+Jaguar Toad
+Jaguar Tribe Priest
+Jaguar Tribe Slinger
+Jaguar Tribe Warrior
+Jaguar Warrior
+Jahi
+Jann Emir
+Jann Guard
+Jarl
+Jarnvidja
+Jaundice Demon
+Jentil
+Jigami
+Jinn
+Jinn Block
+Jinn Emir
+Jinn Sahir
+Jinn Warrior
+Jorogumo
+Jotun Axeman
+Jotun Bondi
+Jotun Draug
+Jotun Gode
+Jotun Gygja
+Jotun Herse
+Jotun Hirdman
+Jotun Hurler
+Jotun Huskarl
+Jotun Jarl
+Jotun Javelinist
+Jotun Scout
+Jotun Skinshifter
+Jotun Skratti
+Jotun Spearman
+Jotun Warrior
+Jotun Werewolf
+Jotun Wolf
+Judge
+Juggernaut
+Kabeiride
+Kabeiros
+Kahin
+Kaijin
+Kala-Mukha
+Kala-Mukha Warrior
+Kalendologist
+Kamadhenu
+Kami of Storms
+Kami of the Moon
+Kami of the Sun
+Kannushi
+Kappa
+Kappa Chief
+Kappa Mage
+Karapan
+Karasu Tengu
+Karib
+Kavi Archer
+Keeper of Traditions
+Keeper of the Bridge
+Keeper of the Tombs
+Keledone
+Kelpie
+Kenzoku
+Ker
+Kernou Cavalry
+Kernou Chieftain
+Kernou Druid
+Kernou Noble Warrior
+Kernou Warrior
+Khalkotauros
+Khan
+Khlyst
+Killer Mantis
+Kimpurusha
+King Triumphant
+King in Yellow
+King of Banefires
+King of Both Worlds
+King of Deeper Earth
+King of Flames
+King of Frozen Bones
+King of Legends
+King of Magma
+King of Mountains
+King of Pallene
+King of Rain
+King of the City
+King of the Deep
+King of the Gigantes
+King of the Lost Tribe
+King of the World
+Kinnara
+Kithaironic Lion
+Kitsune
+Kivigtok
+Knight
+Knight Commander
+Knight Commander of Avalon
+Knight Commander of Ys
+Knight Illusion
+Knight of Avalon
+Knight of Man
+Knight of Ys
+Knight of the Chalice
+Knight of the Deeps
+Knight of the Stone
+Knight of the Unholy Sepulchre
+Knyaz
+Ko-Oni
+Kohen
+Kohen Gadol
+Kokythiad
+Konoha Tengu
+Korybant
+Kourete
+Kraken
+Kraken King
+Kryptes
+Ktonian Alchemist
+Ktonian Necromancer
+Ktonian Reanimator
+Kuliltu Queen
+Kulullu
+Kulullu Commander
+Kulullu King
+Kulullu Sage
+Kulullu Soldier
+Kuon Argyreos
+Kuon Khryseos
+Kuraka
+Kuro-Oni
+Kusarikku
+Kydnid
+Lady Archer
+Lady Commander
+Lady Knight
+Lady Midday
+Lady Warrior
+Lady at Arms
+Lady of Spiders
+Laestrygonian
+Laestrygonian Tyrant
+Lakam Ha' Batab
+Lakam Ha' Warrior
+Lamia
+Lamia Queen
+Lammashta
+Lampad
+Lancer
+Landless Knight
+Lar
+Large Ant
+Large Beetle
+Large Boulder
+Large Fish
+Large Lobster
+Large Scorpion
+Large Shrimp
+Large Spider
+Large Stone
+Last Partholonian
+Last Perkunu
+Lauma
+Lava Warrior
+Lava-born
+Lava-born Commander
+Lawgiver
+Leader of the Closed Council
+Legatus Legionis
+Legion of Gods
+Lemur Acolyte
+Lemur Centurion
+Lemur Consul
+Lemur Senator
+Lemur Thaumaturg
+Leo
+Leocampus
+Leogryph
+Leshiy
+Lesser Horror
+Lesser Otherness
+Leve
+Leviathan
+Levite Priest
+Levite Zealot
+Lich
+Lich Hag
+Lich Oracle
+Lich Queen
+Lictor
+Lieutenant
+Light Archer
+Light Bandar Archer
+Light Bandar Warrior
+Light Cavalry
+Light Infantry
+Light Vaetti Infantry
+Likho
+Lilot
+Limitane
+Limitane Primani
+Limitane Solaris
+Limitane Standard
+Linnormr
+Lion Clan Commander
+Lion Clan Warrior
+Lion King
+Lion Queen
+Lion Tribe Archer
+Lion Tribe Warrior
+Lion Tribe Witch Doctor
+Lion Warrior
+Lion of Strange Color
+Lioness
+Little Soulless
+Living Mercury
+Living Pillar
+Living Statue
+Lizard Auxiliare
+Lizard Chariot
+Lizard Charioteer
+Lizard Heir
+Lizard Hero
+Lizard King
+Lizard Lord
+Lizard Shaman
+Lizard Warrior
+Lobo Guard
+Lobster Rider
+Lochos
+Logrian Cavalry
+Logrian Slinger
+Logrian Warrior
+Logrian Wise Man
+Long Handed
+Longbowman
+Longdead
+Longdead Admiral
+Longdead Archer
+Longdead Bandar
+Longdead Bandar Warrior
+Longdead Boatswain
+Longdead Buccaneer
+Longdead Captain
+Longdead Giant
+Longdead Hoplite
+Longdead Horseman
+Longdead Legionnaire
+Longdead Markata
+Longdead Partholonian
+Longdead Principe
+Longdead Raja
+Longdead Rephaite
+Longdead Triarius
+Longdead Vanara
+Longdead Vanara Commander
+Longdead Vanara Warrior
+Longdead Velite
+Longdead Warrior
+Longdead Zotz
+Longdead of C'tis
+Longspear
+Lord Guardian
+Lord Warden
+Lord of Corruption
+Lord of Fertility
+Lord of Hell
+Lord of The Desert Sun
+Lord of The Summer Plague
+Lord of the Deep
+Lord of the Forest
+Lord of the Hunt
+Lord of the Plague Wind
+Lord of the Waves
+Lord of the Wild
+Lore Master
+Loremistress
+Lost Knight
+Lumber Construct
+Maceman
+Machaka Archer
+Machaka Chief
+Machaka Commander
+Machaka Hoplite
+Machaka Militia
+Machaka Scout
+Machaka War Elephant
+Machaka Warrior
+Machimos
+Machimos Commander
+Mad Cultist
+Mad Deep One
+Mad Hybrid
+Mad Merman
+Mad One
+Mad Priest
+Mad Triton
+Madman
+Maenad
+Mage Engineer
+Mage Pilot
+Mage of Autumn
+Mage of Spring
+Mage of Summer
+Mage of Winter
+Mage of the Deep
+Magister
+Magister Arcane
+Magister Militum
+Magister Supreme
+Magister of Theology
+Magistrate Magus
+Magma Child
+Magog Bitch-Mother
+Magog Flesh-Hunter
+Magus
+Maharishi
+Maiden of the Moon
+Mairu Champion
+Mairu Hurler
+Mairu Warrior
+Mairya Ahu
+Mairya Warrior
+Maker of Heroes
+Maker of Ruins
+Maker of the Maze
+Malaia Druzhina
+Malakh
+Malik
+Malikah
+Mallqui
+Mallqui Priest
+Mallqui Priestess
+Mammoth
+Mammoth Archer
+Mammoth Rider
+Man Eater
+Man at Arms
+Man-Eater
+Mandeha
+Mandragora
+Manflayer
+Manikin
+Manticore
+Manushya Raksharani
+Manushya Rakshasi
+Marble Lion
+Marble Oracle
+Marid
+Markata
+Markata Archer
+Markata Mystic
+Markata Scout
+Marshmaster
+Marut
+Marverni Bare Chested Warrior
+Marverni Chieftain
+Marverni Horn Blower
+Marverni Javelineer
+Marverni Noble Warrior
+Marverni Scout
+Marverni Slinger
+Mashmashu
+Mason of the Underworld
+Master
+Master Alchemist
+Master Enchanter
+Master Lich
+Master Mason
+Master Shugenja
+Master Smith
+Master Sorcerer
+Master With The Iron Crutch
+Master of Alchemical Secrets
+Master of Mirrors
+Master of Names
+Master of the Dead
+Master of the Five Elements
+Master of the Games
+Master of the Hidden Order
+Master of the Shadow Blossom
+Master of the Sword
+Master of the Way
+Matrona of the Healing Spring
+Mazzik
+Mechanical Man
+Medium Footman
+Melia
+Melissa
+Melqart
+Member of the Closed Council
+Member of the Second Tier
+Member of the Third Tier
+Merciful Mother
+Mermage
+Merman
+Merman Captain
+Merman Commander
+Merman Dreamer
+Merman Hoplite
+Merman Net Thrower
+Merman Priest
+Merman Scout
+Mermidon
+Merrow
+Merrow Chieftain
+Merrow Druid
+Merrow Militia
+Meteorite Guard
+Mictlan Priest
+Milesian Champion
+Milesian Longspear
+Milesian Mage
+Milesian Man at Arms
+Milesian Monk
+Milesian Scout
+Milesian Slinger
+Milesian Spearman
+Milesian Swordsman
+Milite
+Militia
+Mind Lord
+Mind Slime Horror
+Minister of Magic
+Minister of Rituals
+Ministry Footman
+Ministry Guardsman
+Minotaur
+Minotaur Commander
+Minotaur Lord
+Minotaur Manikin
+Minotaur Soldier
+Minotaur Warrior
+Mirror Guard
+Mirror Mage
+Misbred
+Missionary
+Moloch
+Monk
+Monk of the Fivefold Path
+Monolith
+Monster Boar
+Monster Fish
+Monster Toad
+Monster in the Maze
+Monster of Fraud
+Monument
+Moon Mage
+Moon Priest
+Moon Warrior
+Moonvine Enchanter
+Moose
+Moose Rider
+Moose Vedun
+Morgen Champion
+Morgen High Queen
+Morgen Princess
+Morgen Queen
+Morgen Sorceress
+Mori-no-kami
+Morrigan
+Morrigna
+Morvarc'h
+Morvarc'h Knight
+Mother Ghul
+Mother Guard
+Mother Mandragora
+Mother of All Waters
+Mother of Avalon
+Mother of Monsters
+Mother of Storms
+Mother of Tuathas
+Mother of the Deep
+Mouflon Cataphract
+Mound Fiend
+Mound King
+Mountain King
+Mountain Vila
+Mountain Warrior
+Mounted Commander
+Mounted Gokenin
+Mounted Hirdman
+Mounted Scout
+Mournful
+Mujina
+Mukarrib
+Mummy
+Mushussu
+Mushussu - replaced
+Mushussu Charioteer
+Muspel Giant
+Muspel Gode
+Muspel Herse
+Muspel Hirdman
+Muspel Huskarl
+Muspel Jarl
+Muspeldottir
+Muspelgygja
+Muuch Ajaw
+Muuch Batab
+Muuch Dart Thrower
+Muuch Jungle Warrior
+Muuch K'uhul
+Muuch Militia
+Muuch Scout
+Muuch Warrior
+Myrmecoleon
+Myrmidon
+Myrmidon Champion
+Mystes
+Mystic
+Nabaean Camel Rider
+Nabaean Desert Warrior
+Nabaean Light Infantry
+Nabaean Scout
+Nabaean Soldier
+Nabi
+Naditu
+Naga
+Naga Chief
+Naga Warrior
+Nagaraja
+Nagarishi
+Nagasiddha
+Nagini
+Nahualli
+Naiad
+Namanari
+Naphtali Spearman
+Nataraja
+Navigator
+Nazcan Longdead
+Necrodai
+Necromancer
+Nemedian Champion
+Nemedian Queen
+Nemedian Sorceress
+Nemedian Warrior
+Neodamode Commander
+Neodamode Ekdromos
+Neodamode Hoplite
+Neodamode Peltast
+Neokoros
+Nephil
+Nerid
+Neter of Chaos
+Neter of Crafts
+Neter of Kings
+Neter of the Moon
+Neter of the Sun
+Neter of the Underworld
+Neteret of Joy
+Neteret of Many Names
+Newt
+Nidadrott
+Nidajarl
+Nidbathed
+Nidhere
+Nidherse
+Nidylva
+Niefel Giant
+Niefel Jarl
+Niefel Shaman
+Nightmare
+Nightmare Rider
+Nin
+Ninja
+Nisean War Horse
+Nithing
+Noble
+Noble Commander
+Nomarch
+Noppera-bo
+Norna
+Norna of the Future
+Norna of the Past
+Norna of the Present
+Nun
+Nushi
+Nyorai
+O-bakemono
+O-ban
+Oath-Bound
+Obsidian Warrior
+Occultist
+Ogre
+Oiorpata
+Okami
+Old King
+Old Man of the Sea
+Olm Sage
+Olm Spawn
+Omukade
+Onaqui
+Once and Future Queen
+Oni
+Oni Kunshu
+Oni Shugo
+Oni Spirit
+Oni spirit
+Onmyo Hakase
+Onmyo-ji
+Onyx Oracle
+Onyx Priestess
+Onyx Sorceress
+Ophan
+Oppressor Archon
+Oppressor General
+Oracle
+Oracle of Subterranean Fires
+Oracle of Subterranean Waters
+Oracle of the Ancients
+Oracle of the Dead
+Orchard of Souls
+Oreiad
+Orichalcum Guard
+Orionde Crossbowman
+Orionde King
+Orionde Knight
+Orionde Warrior
+Ormr
+Orphic Mystic
+Otherness
+Ox-head
+Ozelotl
+Paighan
+Paighan-Salar
+Pairika
+Palace Guard
+Paladin
+Palankasha
+Palatine
+Pale One
+Pale One Captain
+Pale One Commander
+Pale One Militia
+Pale One Scout
+Pale One Soldier
+Pale One Warrior
+Pan
+Panageis
+Pandemoniac
+Panic Apostate
+Paqo of the Earth Mother
+Paqo of the Mountain Spirits
+Partholonian Sorceress
+Patriarch
+Pearl Clan Priest
+Pearl Guard
+Pearl King
+Pearl Mage
+Peasant
+Pegasus
+Pegasus Rider
+Pelagian Captain
+Pelagian Explorer
+Pelagian Mermage
+Pelagian Militia
+Pelagian Mystic
+Pelagian Shore Commander
+Pelagian Shore Fighter
+Pelagian Soldier
+Peltast
+Penumbral
+Perioeci Peltast
+Perioeci Scout
+Perkunu
+Peshtsi Axeman
+Peshtsi City Guard
+Peshtsi Spearman
+Phaeacian Archer
+Phaeacian Captain
+Phaeacian Heavy Infantry
+Phaeacian Infantry
+Phaeacian Light Infantry
+Phaeacian Militia
+Phaeacian Priest
+Phaeacian Princess
+Phaeacian Scout
+Phalangite
+Phalangite Commander
+Phantasmal Beast
+Phantasmal Hippocampus
+Phantasmal Knight
+Phantasmal Sea Dog
+Phantasmal Steed
+Phantasmal Triton
+Phantasmal Warrior
+Phantasmal Wolf
+Pharmakeia
+Philosopher
+Phlegran Cataphract Commander
+Phlegran Commander
+Phlegran Oppressor
+Phlegran Priest
+Phlegran Tyrant
+Phoenix
+Piconye Arch Bishop
+Piconye Bishop
+Piconye Bishop General
+Piconye Castellan
+Piconye Crossbowman
+Piconye Defender
+Piconye King
+Piconye Militia
+Piconye Peasant
+Piconye Pope
+Piconye Sage
+Piconye Sage-Priest
+Piconye Scholar
+Piconye Scout
+Piconye Slinger
+Piconye Soldier
+Piconye Spearman
+Pikeneer
+Pilgrim
+Pirate
+Pisacha
+Plague Cult Leader
+Plague Doctor
+Pocket Knight
+Pocket Lich
+Poison Golem
+Poison Slinger
+Polemarch
+Polypal Mother
+Polypal Queen
+Polypal Spawn
+Pontifex
+Pontifex Maximus
+Pontifex Serpentus
+Possessed Corpse
+Praefectus Equitum
+Praetorian Guard
+Praetorian Spectre
+Praghasa
+Presbyter Magistrate
+Prester King
+Priest
+Priest King
+Priest Smith
+Priest of All Waters
+Primani Solaris
+Primate
+Primate King
+Prince Consort
+Prince General
+Prince of Death
+Prince of Lust
+Prince of the Setting Sun
+Princess of the Setting Sun
+Principe
+Projection
+Protogenos of the Sea
+Protopope
+Pygmy
+Pyromancer
+Pyrènian Bishop
+Pyrènian Castellan
+Pyrènian Crossbowman
+Pyrènian Footman
+Pyrènian Knight
+Pyrènian Man at Arms
+Pyrènian Marquess
+Pyrènian Monk
+Pyrènian Priest
+Pyrènian Scout
+Pyrènian Spearman
+Pyrènian Swordsman
+Qarin
+Qedesim
+Qedesot
+Queen Mother
+Queen of Clouds
+Queen of Land and Water
+Queen of Na'Ba
+Queen of Storms
+Queen of Thunder
+Queen of Winter
+Queen of the City
+Queen of the Deeps
+Queen of the Lake
+Queen of the North
+Queen of the Sea
+Rage Lord
+Raider
+Rain Priest
+Rain Warrior
+Raksharaja
+Raksharani
+Rakshasa
+Rakshasa Warrior
+Rakshasi
+Raktapata
+Ram
+Rams-Headed Serpent
+Ranger Captain
+Ranger of Ulm
+Raptor
+Raptorian Militia
+Raptorian Warrior
+Raven
+Raven Guard
+Raven Lord
+Raven of the Underworld
+Reassembled Prince
+Reborn
+Red Ant
+Red Cattle
+Red Devil
+Red Face
+Red Guard
+Red Mistress
+Red Tengu
+Reef Dweller
+Reef Warrior
+Released King
+Released One
+Released Sage
+Released Warrior
+Renata
+Renatus
+Renegade Harab Seraph
+Rephaite Commander
+Rephaite Sage
+Rephaite Scholar
+Rephaite Warrior
+Retiarius
+Returned
+Reubenite Archer
+Reveler
+Revenant
+Rhino Clan Commander
+Rhino Clan Warrior
+Ri
+Riding Horse
+Rimvaetti
+Risen Oracle
+Rishi
+Ronin
+Rorarus
+Royal Alchemist
+Royal Chariot
+Royal Fay Steed
+Royal Forester
+Royal Guard
+Royal Mallqui
+Royal Navigator
+Royal Swordsman
+Royal Tomb Chariot
+Royal Unseelie Steed
+Rudra
+Runancha
+Runner
+Rusalka
+Rusian Chieftain
+Rusian Hunter
+Rusian Priest
+Rusian Warrior
+Rusian Wizard
+Ryujin
+Sacred Crocodile
+Sacred Geyser
+Sacred Gryphon
+Sacred Hippocampus
+Sacred Moose
+Sacred Mouflon
+Sacred One
+Sacred Scorpion
+Sacred Serpent
+Sacred Skeletal Horse
+Sacred Stag
+Sacred Tiger
+Sage
+Sage-Queen
+Sagittarian Carcass
+Sahir
+Sahira
+Sak Muuch Dart Thrower
+Sak Muuch Warrior
+Sal-Me
+Salamander
+Salamander Asp
+Samanishada
+Samurai
+Samurai Archer
+Samurai Cavalry
+Sandhyabala
+Sanguine Acolyte
+Sanguine Anathemant
+Saos
+Sapa Inca
+Sapper
+Sastar
+Satyr
+Satyr Commander
+Satyr Hoplite
+Satyr Manikin
+Satyr Slave
+Satyr Sneak
+Satyr Sniper
+Satyr Warrior
+Saurolich
+Sauromancer
+Sauromatian Amazon
+Sauromatian Archer
+Sauromatian Cataphract
+Sauromatian Lancer
+Sauromatian Manflayer
+Sauromatian Raider
+Savaran Cataphract
+Savaran Guard
+Scelerian Cultist
+Sceptic
+Scorpion Beast
+Scorpion King
+Scorpion Man
+Scout
+Scythe Wielder
+Se'ir
+Sea Dog
+Sea Dragon
+Sea Father
+Sea King
+Sea Serpent
+Sea Stag
+Sea Troll
+Seal Guard
+Seal Hunter
+Seaweed
+Second Son of Anak
+Seeker of Truths
+Seer King
+Seithberender
+Seithberender Apprentice
+Seithkona
+Seithmathr
+Seithmathr Bear
+Seithmathr Crow
+Seithmathr Wolf
+Self Proclaimed Prince
+Seniunas
+Sentinel
+Sepulchral
+Sequani Stargazer
+Seraph
+Seraphine
+Seren
+Serene Master
+Serene One
+Serf Defender
+Serf Warrior
+Serpent
+Serpent Acolyte
+Serpent Assassin
+Serpent Carcass
+Serpent Cataphract
+Serpent Dancer
+Serpent Fiend
+Serpent King
+Serpent Lord
+Serpent Priest
+Serpent Queen
+Serpent XXX
+Serpent of Chaos
+Serpent of Heavenly Fires
+Serpent of the Underworld
+Servant of the Oracles
+Shackled Mage
+Shade
+Shade Beast
+Shade King
+Shade Lord
+Shadow
+Shadow Imp
+Shadow Seer
+Shadow Servant
+Shadow Soldier
+Shadow Steed
+Shadow Tribune
+Shadow Triton
+Shadow Vestal
+Shah of Horses
+Shaman
+Shambler
+Shambler Chief
+Shambler Guard
+Shambler Thrall
+Shambler of the Deep
+Shard Guard
+Shard Wight
+Shark
+Shark Knight
+Shark Tribe Brigand
+Shark Tribe Triton
+Shark Warrior
+Shaytan
+Shed
+Shedu
+Sheikh
+Sheshai Anakite
+Shield Maiden
+Shikigami
+Shikome
+Shrimp Soldier
+Shrimp Soul Vessel
+Shrub
+Shugenja
+Shura
+Shuten-doji
+Si'lat
+Sibyl
+Sibyl of Hermon
+Siddha
+Sideraspist
+Sidhe Champion
+Sidhe Lord
+Sidhe Warrior
+Siege Golem
+Simargl
+Sinister Hawk
+Sinister Wolf
+Siren
+Sirin
+Sirrush
+Sister
+Skeletal Beast
+Skeletal Horse
+Skeletal War Horse
+Skeletal Wolf
+Skinshifter
+Skopets
+Skratti
+Sky Metal Adept
+Sky Priest
+Slave
+Slave Guardian
+Slave Mage
+Slave Priest
+Slave Prince
+Slave Troll
+Slave Trooper
+Slave Warrior
+Slave of Belphegor
+Slave to Unreason
+Slayer
+Slayer Anathemant
+Slayer Dragon
+Slayer Newt
+Slayer Sanguine
+Slayer Worm
+Sleeper
+Sleeping Pillar
+Slinger
+Small Animated Shrub
+Small Boulder
+Small Shark
+Small Shrub
+Smoking Mirror
+Smoulderghost
+Snail
+Snow Captain
+Snow Warrior
+Sobek General
+Sobek High Priest
+Sobek Sacred Guard
+Sobek Sauromancer
+Sobek Warrior
+Sohei
+Solar Disc
+Solar Eagle
+Solar Serpent
+Soldier Priest
+Soldier of the Deep
+Soldier of the Faith
+Soldier of the Setting Sun
+Son of Arakiel
+Son of Azazel
+Son of Ezekiel
+Son of Fenrer
+Son of Heaven
+Son of Kokabel
+Son of Niefel
+Son of Semyaza
+Son of Shamshiel
+Son of Steel
+Son of Titans
+Son of the Bear
+Son of the Dragon King
+Son of the Fallen
+Son of the Sea
+Soothsayer
+Sorcerer
+Sorcerer of the Sands
+Sorceress
+Sorgina
+Soulless
+Soulless Bandar
+Soulless Bandar Warrior
+Soulless Deep One
+Soulless Enkidu
+Soulless Giant
+Soulless Markata
+Soulless Nazcan
+Soulless Nazcan Warrior
+Soulless Shambler
+Soulless Vanara
+Soulless Vanara Warrior
+Soulless War Shambler
+Soulless Warrior
+Soulless Zotz
+Soulless of C'tis
+Soultorn
+Spartae
+Spearman
+Spectator
+Spectral Archer
+Spectral Commander
+Spectral Hastatus
+Spectral Hoplite
+Spectral Kourete
+Spectral Lictor
+Spectral Mage
+Spectral Peltast
+Spectral Philosopher
+Spectral Principe
+Spectral Standard
+Spectral Triarius
+Spectral Velite
+Spenta Mainyu
+Spenta of Animals
+Spenta of Fire
+Spenta of Plants
+Spenta of Sky and Metals
+Spenta of Waters
+Spenta of the Earth
+Sphinx
+Spider Archer
+Spider Clan Archer
+Spider Clan Sorcerer
+Spider Clan Warrior
+Spider Clan Witch Doctor
+Spider Knight
+Spider Lord
+Spider Rider
+Spider Sorceress
+Spider Warrior
+Spine Devil
+Spine Frog
+Spine Membrane Horror
+Spire Horn Archer
+Spire Horn Militia
+Spire Horn Seraph
+Spire Horn Warrior
+Spirit Guide
+Spirit Horse
+Spirit Master
+Spring Hawk
+Sprite
+Spy
+Stabbing Demon
+Stalagmite
+Stalker
+Standard
+Star Child
+Starets
+Stargazer
+Starspawn
+Statue of Beginnings
+Statue of Fertility
+Statue of Order
+Statue of War
+Statue of the Bloody Mother
+Statue of the Underworld
+Steel Maiden
+Steel Warrior
+Steppe Horse
+Stone Huaca
+Stone Monstra
+Storm Caller
+Storm Demon
+Storm Drake
+Storm Father
+Storm General
+Storm Guard
+Strange Bird
+Strategis
+Strategos
+Student of the Five Elements
+Student of the Sword
+Student of the Way
+Styag
+Stymphalian Bird
+Succubus
+Summer Lion
+Sun Guard
+Sun Guide
+Sun Priest
+Sun Warrior
+Supaya
+Svartalf
+Svartalf Mastersmith
+Swamp Drake
+Swamp Flower
+Swamp Guard
+Swamp Serpent
+Swan
+Swanherd
+Sweeping Demon
+Swordsman
+Sylph
+Sylvan Knight
+Table
+Tainted Soul
+Talmai Elder
+Tanuki
+Tarrasque
+Tartalo
+Tartarian Cyclops
+Tartarian Monstra
+Tartarian Monstrum
+Tartarian Spirit
+Tartarian Titan
+Taskmaster
+Tathagata
+Tatsu
+Telestic Animate
+Telkhine
+Telkhine God-King
+Tempest Warrior
+Temple Guard
+Tenebrous Enchantress
+Tengu King
+Tengu Warrior
+Tent Owner
+Teotl of Rain
+Teotl of War
+Teotl of the Night
+Teotl of the Sky
+Teotl of the Underworld
+Terracotta Soldier
+Test Gygja
+Test Soldier
+Teteo Inan
+Thaumaturg
+Therodian Archer
+Therodian Commander
+Therodian Hoplite
+Therodian Peltast
+Therodian Scout
+Theurg
+Theurg Acolyte
+Theurg Communicant
+Theurg Tyrant
+Thing From Beyond
+Thing From The Void
+Thing Of Many Eyes
+Thing That Should Not Be
+Third Son of Anak
+Thrall
+Thrice Horned Boar
+Thrymsgode
+Thrymshirding
+Thunder Priest
+Thyreophorite
+Tiger
+Tiger Rider
+Titan Mandragora
+Titan of Crossroads
+Titan of Death and Rebirth
+Titan of Forethought
+Titan of Growth
+Titan of Heaven
+Titan of Love
+Titan of Rivers
+Titan of Serpents and Medicine
+Titan of War and Wisdom
+Titan of Winds and Waves
+Titan of the Forge
+Titan of the Hunt
+Titan of the Sea
+Titan of the Spring
+Titan of the Underworld
+Tiwaz of War
+Tlahuelpuchi
+Tlaloque of the East
+Tlaloque of the North
+Tlaloque of the South
+Tlaloque of the West
+Toad Tribe Shaman
+Toad Tribe Warrior
+Tomb Chariot
+Tomb Charioteer
+Tomb Flame Wielder
+Tomb Guard
+Tomb King
+Tomb Oracle
+Tomb Priest
+Tomb Wyrm
+Tower Guard
+Tower Knight
+Trainer of Heroes
+Traitor King
+Traitor Prince
+Tree
+Tree of Tainted Fruits
+Treelord
+Triarius
+Tribal King
+Tribuni
+Trident Lord
+Triple-Headed
+Triton
+Triton Commander
+Triton Dreamer
+Triton Guard
+Triton Hoplite
+Triton King
+Triton Knight
+Triton Militia
+Triton Noble
+Triton Priest
+Triton Prince
+Triton Rider
+Triton Soldier
+Triton Trooper
+Troglodyte
+Troglodyte Lord
+Troglodyte Slave
+Troglodyte Trainer
+Troll
+Troll Archer
+Troll Guard
+Troll King
+Troll Mage
+Troll Moose Knight
+Troll Raider
+Troll Seithberender
+Troll Shaman
+Trophimos Commander
+Trophimos Oppressor
+Trophimos Priest
+Trophimos Sage
+Troubadour
+Tuatha
+Tuatha Sorceress
+Tuatha Warrior
+Tubba
+Tungalik
+Tupilak
+Tupilak Mount
+Turan Athravan
+Turan Cavalry
+Turan Elephant Rider
+Turan Gryphon
+Turan Heavy Infantry
+Turan Horse Archer
+Turan Infantry
+Turan Shah
+Turan Sorcerer
+Turan Spahbed
+Turan Usij
+Turkey
+Turtle Chief
+Turtle Tribe Triton
+Turtle Warrior
+Tzitzimitl
+Uba
+Ubaran Archer
+Ubaran Camel Rider
+Ubaran Commander
+Ubaran Desert Warrior
+Ubaran Scout
+Ubaran Sheikh
+Ubaran Soldier
+Ugallu
+Ujigami
+Ulfhedin
+Umbral
+Umu-apkallu
+Uncursed
+Undine
+Undying
+Unfettered
+Unfrozen
+Unfrozen Lord
+Unfrozen Mage
+Unfrozen Warrior
+Unicorn
+Unmarked
+Unmarked Champion
+Unseelie Archer
+Unseelie Cat
+Unseelie Cat Knight
+Unseelie Folk
+Unseelie Knight
+Unseelie Musician
+Unseelie Prince
+Unseelie Raven
+Unseelie Raven Knight
+Unseelie Soldier
+Unseelie Sprite
+Unseelie Stablehand
+Unseelie Steed
+Unseen One
+Unsleeping
+Unsleeping Consort
+Unused Ancient One
+Unwinged
+Ur-Guard
+Urmahlullu
+Uttervast
+Vaetti
+Vaetti Archer
+Vaetti Berserker
+Vaetti Crossbowman
+Vaetti Gode
+Vaetti Gygja
+Vaetti Hag
+Vaetti Herse
+Vaetti Jarl
+Vaetti Spearman
+Vahana
+Valkyrie
+Vampire
+Vampire Count
+Vampire Countess
+Vampire Lord
+Vampire Queen
+Van
+Van Scout
+Vanabog
+Vanadis
+Vanadrott
+Vanara
+Vanara Archer
+Vanara Captain
+Vanara Chakram Thrower
+Vanara Infantry
+Vanara Swordsman
+Vanarusian Archer
+Vanarusian Berserker
+Vanarusian Gode
+Vanarusian Herse
+Vanarusian Hirdman
+Vanarusian Huskarl
+Vanarusian Jarl
+Vanarusian Sage
+Vanhere
+Vanherse
+Vanjarl
+Varyag
+Vastness
+Vedun
+Vedun Mage Smith
+Veiled Enchantress
+Veiled One
+Veliki Knyaz
+Velite
+Vergobret
+Vermilion Bird of the South
+Vetala
+Viceroy Primate
+Vidyadhara
+Vile Thing
+Villain
+Vine Man
+Vine Ogre
+Vintefolei Horseman
+Vintefolei Shaman Chief
+Viracocha
+Virtue
+Visitor
+Vivisectionist
+Vodyanoy
+Voi Archer
+Voi Axeman
+Voi Spearman
+Voice of Lion
+Voice of Spider
+Voice of the Hunters
+Voice of the Lord
+Void Cultist
+Void Dreamer
+Void Flame
+Void Herald
+Void Lord
+Void Lurker
+Void Spectre
+Voivode
+Volla of the Bountiful Forest
+Vyedma
+Vyedun
+Völva
+Wadjet
+Wailing Lady
+Wanderer
+War Bird
+War Cart
+War Dog
+War Elephant
+War Hog
+War Horse
+War Lion
+War Master
+War Minotaur
+War Shambler
+War Troll
+Warbred
+Warden
+Warden of Avalon
+Warlock
+Warlock Apprentice
+Warlord
+Warrior
+Warrior Chief
+Warrior Illusion
+Warrior Mage
+Warrior Maiden
+Warrior Priestess
+Warrior Queen
+Warrior Scout
+Warrior Smith
+Warrior Sorceress
+Warrior of the Deep
+Warrior of the Five Elements
+Watcher
+Water Elemental
+Water Kobold
+Wave Lord
+Wave Warrior
+Way
+Weaver of Nightmares
+Weaver of Tales
+Were Jaguar
+Werebear
+Werehyena
+Werewolf
+Wet One
+Wet One Captain
+Whisperwood Enchantress
+White Centaur
+White Minotaur
+White One
+White Satyr
+White Tiger of the West
+White Wolf
+Wight
+Wight Hag
+Wight Mage
+Wight Murmurer
+Wight Oracle
+Wight Shaman
+Wight Spider
+Will o' the Wisp
+Wind Caller
+Wind Lord
+Wind Master
+Wind Rider
+Winged Monkey
+Wingless
+Winter Wolf
+Witch
+Witch Doctor
+Witch Hunter
+Witch Hunter General
+Witch King
+Witness of the Deep
+Wizard of Dark Arts
+Wizard of Fire and Flame
+Wizard of High Magics
+Wizard of Ice and Water
+Wizard of Many Colors
+Wizard of Storms and Thunder
+Wizard of the Crescent Moon
+Wizard of the Earth
+Wizard of the Stars
+Wizard's Apprentice
+Wo' Muuch
+Wolf
+Wolf Brother
+Wolf Clan Reaver
+Wolf Clan Seithberender
+Wolf Illusion
+Wolf Lord
+Wolf Rider
+Wolf Tribe Archer
+Wolf Tribe Shaman
+Wolf Tribe Warrior
+Wolfherd
+Wondrous
+Wooden Colossus
+Woodhenge Druid
+Woodland Spirit
+Woodsman
+Woodsman Blowpipe
+Worm Mage
+Worm Soul
+Wormwood Witch
+Wraith King
+Wraith Lord
+Wyrm
+Wyvern
+XXX
+XXX - Archerless Chariot
+XXX - Shark
+XXX - Turan Gryphon
+Xibalban Dart Thrower
+Xibalban Guard
+Xibalban Scorpion
+Xibalban Scorpion Trainer
+Xibalban Scout
+Xibalban Warrior
+Yaksha
+Yakshini
+Yama-no-kami
+Yamabushi
+Yata
+Yavana
+Yavana Archer
+Yazad
+Yazad King
+Yazad of Fire
+Yazad of Justice
+Yazad of Water
+Yazad of the Earth
+Yazad of the Sky
+Yazad of the Stars
+Yeddeoni
+Yeti
+Yeti Shaman
+Yllerion
+Yogi
+Yogini
+Ysian Commander
+Ysian Druid
+Ysian Infantry
+Ysian Man at Arms
+Ysian Militia
+Ysian Scout
+Ysian Spearman
+Zamzummite
+Zaotar
+Zebulunite Horn Blower
+Zebulunite Soldier
+Zemaite Archer
+Zemaite Castle Guard
+Zemaite Chieftain
+Zemaite Chud Skinshifter
+Zemaite Chud Warrior
+Zemaite Crossbowman
+Zemaite Heavy Infantry
+Zemaite Infantry
+Zemaite Pikeneer
+Zemaite Skinshifter
+Zemaite Warrior
+Zhayedan
+Zhayedan Spahbed
+Ziz
+Zmey
+Zotz
+Zotz Batab
+Zotz Dart Thrower
+Zotz Guard
+Zotz Warrior
+Zweihander

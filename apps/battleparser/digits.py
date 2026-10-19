@@ -18,8 +18,9 @@ GLYPH_DIR = os.path.join(
 GLYPH_HEIGHT = 36
 GLYPH_WIDTH = 36
 GLYPH_NAMES = {"plus": "+", "minus": "-"}
-# A glyph whose best match is worse than this is reported as unreadable.
-MAX_DISTANCE = 0.35
+# A glyph whose best match is worse than this is reported as unreadable. Large
+# text matches within ~0.12; tiny (~11px) text within ~0.37; junk blobs >= 0.45.
+MAX_DISTANCE = 0.42
 
 
 def components(binary: np.ndarray) -> List[Tuple[int, int, int, int]]:

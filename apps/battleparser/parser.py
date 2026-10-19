@@ -17,13 +17,22 @@ from apps.battleparser import ocr
 FORCES_PREFIX = "forces of "
 PROVINCE_DEFENCE_PREFIX = "province defence"
 NAME_MATCH_CUTOFF = 0.85
-NATIONS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "nations.txt")
+DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def _read_names(filename: str) -> List[str]:
+    with open(os.path.join(DATA_DIR, filename), encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]
 
 
 def bundled_nation_names() -> List[str]:
     """Dominions 6 nation names (from dom6inspector's nations.csv)."""
-    with open(NATIONS_FILE, encoding="utf-8") as f:
-        return [line.strip() for line in f if line.strip()]
+    return _read_names("nations.txt")
+
+
+def bundled_unit_names() -> List[str]:
+    """Dominions 6 unit names (from dom6inspector's BaseU.csv)."""
+    return _read_names("units.txt")
 
 
 def _fold(text: str) -> str:
@@ -39,12 +48,14 @@ class ParseResult:
 
 
 def _plural_variants(name: str) -> List[str]:
-    variants = [name, name + "s", name + "es"]
-    if name.endswith("y"):
-        variants.append(name[:-1] + "ies")
-    if name.endswith("man"):
-        variants.append(name[:-3] + "men")
-    return variants
+    """The game pluralises by appending "s" to the noun before any "of ..."."""
+    head, sep, tail = name.partition(" of ")
+    heads = [head, head + "s", head + "es"]
+    if head.endswith("y"):
+        heads.append(head[:-1] + "ies")
+    if head.endswith("man"):
+        heads.append(head[:-3] + "men")
+    return [h + sep + tail for h in heads]
 
 
 class NameMatcher:
@@ -108,6 +119,8 @@ def row_cells(image, row: lay.Row, text_left: int):
     height = row.y1 - row.y0
     binary = _row_binary(image, row, text_left)
     segments = lay.split_segments(binary, min_gap=max(8, int(height * 0.55)))
+    # Drop slivers (frame edges, stray pixels); even a "1" is wider than this.
+    segments = [s for s in segments if s.x1 - s.x0 >= height * 0.08]
     if not segments:
         return None
     first = segments[0]
@@ -169,6 +182,8 @@ def parse_image(
     unit_names: Optional[Iterable[str]] = None,
     nation_names: Optional[Iterable[str]] = None,
 ) -> ParseResult:
+    if unit_names is None:
+        unit_names = bundled_unit_names()
     match_unit = NameMatcher(unit_names, plurals=True)
     if nation_names is None:
         nation_names = bundled_nation_names()
@@ -218,7 +233,8 @@ def parse_image(
             nation, skipping = None, True
             continue
         if skipping:
-            if not seen_header:
+            # Prose above the table (e.g. the battle summary text) has no numbers.
+            if not seen_header and quantity is not None:
                 orphan_rows += 1
             continue
         if quantity is None:

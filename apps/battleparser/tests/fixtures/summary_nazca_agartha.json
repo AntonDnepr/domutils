@@ -1,0 +1,86 @@
+{
+  "Nazca": {
+    "Aclla": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Commander": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Hurin Priest": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Incas": {
+      "quantity": 4,
+      "killed": null,
+      "dead": null
+    },
+    "Archers": {
+      "quantity": 23,
+      "killed": 4,
+      "dead": 5
+    },
+    "Aucac Runa Spearmen": {
+      "quantity": 94,
+      "killed": 6,
+      "dead": 50
+    },
+    "Condors": {
+      "quantity": 74,
+      "killed": 51,
+      "dead": 72
+    },
+    "Condor Warriors": {
+      "quantity": 35,
+      "killed": 3,
+      "dead": 30
+    },
+    "Supayas": {
+      "quantity": 14,
+      "killed": 28,
+      "dead": 8
+    }
+  },
+  "Agartha": {
+    "Frost Father": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Oracles of the Ancients": {
+      "quantity": 2,
+      "killed": 133,
+      "dead": 1
+    },
+    "Pale One Captain": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Agarthan Heavy Infantries": {
+      "quantity": 18,
+      "killed": 1,
+      "dead": 18
+    },
+    "Defenders of the Halls": {
+      "quantity": 23,
+      "killed": 1,
+      "dead": 23
+    },
+    "Pale One Soldiers": {
+      "quantity": 6,
+      "killed": null,
+      "dead": 6
+    },
+    "Shard Guards": {
+      "quantity": 5,
+      "killed": 3,
+      "dead": 5
+    }
+  }
+}

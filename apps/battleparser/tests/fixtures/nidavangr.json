@@ -1,0 +1,59 @@
+{
+  "Nidavangr": {
+    "Bear Clan Cub-Mother": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Falconeers": {
+      "quantity": 2,
+      "killed": null,
+      "dead": 2
+    },
+    "Illusionist": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Mound King": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Nidherse": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Wolf Clan Seithberenders": {
+      "quantity": 6,
+      "killed": 12,
+      "dead": 1
+    },
+    "Bear Clan Warriors": {
+      "quantity": 110,
+      "killed": 13,
+      "dead": 10
+    },
+    "Longdeads": {
+      "quantity": 19,
+      "killed": null,
+      "dead": 18
+    },
+    "Longdead Horsemen": {
+      "quantity": 6,
+      "killed": null,
+      "dead": 6
+    },
+    "Nidbathed": {
+      "quantity": 40,
+      "killed": 34,
+      "dead": null
+    },
+    "Wolf Clan Reavers": {
+      "quantity": 27,
+      "killed": 5,
+      "dead": 27
+    }
+  }
+}

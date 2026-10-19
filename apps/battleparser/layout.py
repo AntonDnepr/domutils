@@ -76,8 +76,29 @@ def header_mask(image: np.ndarray) -> np.ndarray:
 def find_header_bands(image: np.ndarray) -> List[Tuple[int, int]]:
     width = image.shape[1]
     fraction = header_mask(image).sum(axis=1) / width
-    bands = _runs(fraction > 0.5)
-    return [(y0, y1) for y0, y1 in bands if y1 - y0 >= 15]
+    # A long title covers part of the band, so accept rows with a lower
+    # fraction as long as the band as a whole is wide.
+    bands = _runs(fraction > 0.3)
+    return [
+        (y0, y1) for y0, y1 in bands if y1 - y0 >= 8 and fraction[y0:y1].max() > 0.5
+    ]
+
+
+def remove_vertical_lines(image: np.ndarray, top: int = 0) -> np.ndarray:
+    """Blank bright vertical lines (window frames, scrollbars) below ``top``.
+
+    Text columns are bright in at most about a third of the rows; a frame is
+    bright almost everywhere."""
+    region = text_mask(image[top:])
+    if region.shape[0] == 0:
+        return image
+    lines = region.mean(axis=0) > 0.7
+    if not lines.any():
+        return image
+    lines = cv2.dilate(lines.astype(np.uint8)[None, :], np.ones((1, 5), np.uint8))
+    cleaned = image.copy()
+    cleaned[:, lines[0].astype(bool)] = (25, 25, 25)
+    return cleaned
 
 
 def find_text_left(image: np.ndarray, headers: List[Tuple[int, int]]) -> int:
@@ -198,6 +219,7 @@ def remove_cursor(image: np.ndarray) -> np.ndarray:
 def analyse(image: np.ndarray) -> Layout:
     image = remove_cursor(image)
     headers = find_header_bands(image)
+    image = remove_vertical_lines(image, headers[0][0] if headers else 0)
     text_left = find_text_left(image, headers)
     text_rows = find_text_rows(image, text_left, headers)
 

@@ -19,8 +19,11 @@ Turns a screenshot of the battle report table into JSON:
 `killed`/`dead` are `null` when the cell is empty, `0+3` is summed to `3`, and
 "Province Defence of ..." blocks are skipped. No AI/LLM is involved: the table
 layout is found with OpenCV, numbers are read by matching against glyph templates
-of the game font, and unit/nation names are read with Tesseract OCR. Parsing an
-image takes a few seconds and stays under ~300MB of RAM.
+of the game font, and unit/nation names are read with Tesseract OCR and snapped
+to the bundled Dominions 6 unit/nation lists (`units.txt`, `nations.txt`, from
+dom6inspector) to fix small OCR slips. Works on full-size reports and on the
+small in-game "Battle Summary" window. Parsing an image takes a few seconds and
+stays under ~300MB of RAM.
 
 Requires the `tesseract-ocr` system package (installed in the Docker image).
 

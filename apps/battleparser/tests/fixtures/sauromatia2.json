@@ -1,0 +1,59 @@
+{
+  "Sauromatia": {
+    "Bane": {
+      "quantity": 1,
+      "killed": 5,
+      "dead": null
+    },
+    "Chieftain": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Enaries": {
+      "quantity": 2,
+      "killed": null,
+      "dead": 1
+    },
+    "Warrior Priestess": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Witch Kings": {
+      "quantity": 2,
+      "killed": null,
+      "dead": 2
+    },
+    "Androphag": {
+      "quantity": 1,
+      "killed": 4,
+      "dead": 1
+    },
+    "Oiorpatas": {
+      "quantity": 58,
+      "killed": 71,
+      "dead": 50
+    },
+    "Raiders": {
+      "quantity": 36,
+      "killed": 35,
+      "dead": 26
+    },
+    "Sauromatian Cataphracts": {
+      "quantity": 39,
+      "killed": 36,
+      "dead": 33
+    },
+    "Sauromatian Lancers": {
+      "quantity": 65,
+      "killed": 58,
+      "dead": 48
+    },
+    "Wights": {
+      "quantity": 15,
+      "killed": 101,
+      "dead": 1
+    }
+  }
+}

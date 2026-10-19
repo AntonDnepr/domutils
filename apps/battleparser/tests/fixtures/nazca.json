@@ -1,0 +1,29 @@
+{
+  "Nazca": {
+    "Hurin Priest": {
+      "quantity": 1,
+      "killed": null,
+      "dead": 1
+    },
+    "Incas": {
+      "quantity": 2,
+      "killed": null,
+      "dead": null
+    },
+    "Aucac Runa Spearmen": {
+      "quantity": 60,
+      "killed": 12,
+      "dead": 36
+    },
+    "Condors": {
+      "quantity": 12,
+      "killed": 15,
+      "dead": 12
+    },
+    "Condor Warriors": {
+      "quantity": 22,
+      "killed": 22,
+      "dead": 22
+    }
+  }
+}

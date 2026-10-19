@@ -1,0 +1,91 @@
+{
+  "Tir na n'Og": {
+    "Sidhe Champion": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Sidhe Lords": {
+      "quantity": 10,
+      "killed": 64,
+      "dead": null
+    },
+    "Tuatha Sorceresses": {
+      "quantity": 3,
+      "killed": 41,
+      "dead": null
+    },
+    "Cu Sidhes": {
+      "quantity": 10,
+      "killed": null,
+      "dead": null
+    },
+    "Sidhe Warriors": {
+      "quantity": 41,
+      "killed": 25,
+      "dead": 28
+    },
+    "Tuatha Warriors": {
+      "quantity": 32,
+      "killed": 68,
+      "dead": 8
+    }
+  },
+  "Ermor": {
+    "Acolyte": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Flamen": {
+      "quantity": 1,
+      "killed": 9,
+      "dead": null
+    },
+    "Legatus Legionis": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Praefectus Equitums": {
+      "quantity": 2,
+      "killed": null,
+      "dead": 2
+    },
+    "Archers": {
+      "quantity": 32,
+      "killed": 9,
+      "dead": 15
+    },
+    "Equite": {
+      "quantity": 1,
+      "killed": null,
+      "dead": null
+    },
+    "Equites of the Sacred Shroud": {
+      "quantity": 14,
+      "killed": 6,
+      "dead": 14
+    },
+    "Hastatus": {
+      "quantity": 116,
+      "killed": 14,
+      "dead": 85
+    },
+    "Lizard Auxiliares": {
+      "quantity": 35,
+      "killed": 2,
+      "dead": 31
+    },
+    "Principes": {
+      "quantity": 56,
+      "killed": 4,
+      "dead": 55
+    },
+    "Standards": {
+      "quantity": 7,
+      "killed": null,
+      "dead": 6
+    }
+  }
+}

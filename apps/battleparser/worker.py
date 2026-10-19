@@ -73,14 +73,18 @@ def process_job(redis, job_id: str, unit_names: Optional[List[str]] = None) -> N
 
 
 def load_unit_names() -> Optional[List[str]]:
-    """Dom6 unit names from Redis, used to correct small OCR mistakes."""
+    """Bundled Dom6 unit names plus any (e.g. modded) units stored in Redis,
+    used to correct small OCR mistakes."""
+    from apps.battleparser.parser import bundled_unit_names
+
+    names = set(bundled_unit_names())
     try:
         from apps.dom6data.models import Dom6Unit
 
-        return sorted({unit.name for unit in Dom6Unit.find().all()})
+        names.update(unit.name for unit in Dom6Unit.find().all())
     except Exception:
-        logger.warning("Unit names unavailable; using raw OCR names", exc_info=True)
-        return None
+        logger.warning("Units from Redis unavailable", exc_info=True)
+    return sorted(names)
 
 
 def run_forever() -> None:

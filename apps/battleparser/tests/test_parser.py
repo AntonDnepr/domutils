@@ -7,17 +7,16 @@ from apps.battleparser.digits import parse_number
 from apps.battleparser.parser import NameMatcher, parse_battle_image
 
 FIXTURES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fixtures")
-CASES = sorted(
-    os.path.splitext(os.path.basename(p))[0]
-    for p in glob.glob(os.path.join(FIXTURES, "*.webp"))
+IMAGES = sorted(
+    p for p in glob.glob(os.path.join(FIXTURES, "*")) if p.endswith((".webp", ".png"))
 )
 
 
-@pytest.mark.parametrize("case", CASES)
-def test_parse_fixture(case):
-    with open(os.path.join(FIXTURES, case + ".webp"), "rb") as f:
+@pytest.mark.parametrize("path", IMAGES, ids=os.path.basename)
+def test_parse_fixture(path):
+    with open(path, "rb") as f:
         result = parse_battle_image(f.read())
-    with open(os.path.join(FIXTURES, case + ".json"), encoding="utf-8") as f:
+    with open(os.path.splitext(path)[0] + ".json", encoding="utf-8") as f:
         expected = json.load(f)
     assert result.nations == expected
     assert result.warnings == []
@@ -36,6 +35,11 @@ def test_name_matcher_snaps_plurals_and_typos():
     assert match("Sidhe Lords") == "Sidhe Lords"
     assert match("Clockwork Horrars") == "Clockwork Horrors"
     assert match("Something Else") == "Something Else"
+
+
+def test_name_matcher_pluralises_before_of():
+    match = NameMatcher(["Equite of the Sacred Shroud"], plurals=True)
+    assert match("Equites of the Sacred Shroud") == "Equites of the Sacred Shroud"
 
 
 def test_name_matcher_without_names_is_identity():
