@@ -63,3 +63,11 @@ def test_parse_endpoint_without_image():
 def test_unknown_job():
     _, response = app.test_client.get("/dom6/battle-report/parse/nope/")
     assert response.status == 404
+
+
+def test_upload_page():
+    _, response = app.test_client.get("/dom6/battle-report/")
+    assert response.status == 200
+    assert 'id="fileInput"' in response.text
+    assert 'id="cropModal"' in response.text
+    assert "/static/vendor/cropperjs-1.6.2/cropper.min.js" in response.text

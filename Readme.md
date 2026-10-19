@@ -27,7 +27,11 @@ stays under ~300MB of RAM.
 
 Requires the `tesseract-ocr` system package (installed in the Docker image).
 
-- Web: `POST /dom6/battle-report/parse/` with the image as multipart field `image`
+- Web page: `/dom6/battle-report/` has instructions for good screenshots, lets you
+  add screenshots (file picker, drag & drop or Ctrl+V), crop them to the table
+  (Cropper.js, vendored in `templates/assets/vendor/`), parse them and copy or
+  download the merged JSON.
+- API: `POST /dom6/battle-report/parse/` with the image as multipart field `image`
   (or as the raw body) returns `{"job_id": ...}`. Poll
   `GET /dom6/battle-report/parse/<job_id>/` until `status` is `done` (or `error`);
   the response has `result` and `warnings` (e.g. when unit counts don't add up to

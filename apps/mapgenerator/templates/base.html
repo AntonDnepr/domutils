@@ -81,6 +81,14 @@
               </a>
             </li>
             <li class="nav-item">
+              <!-- Full page load: this page needs its own CSS/JS in <head>. -->
+              <a class="nav-link {% if dom6_battle_report_active %} active {% endif %}"
+              href="/dom6/battle-report/" hx-boost="false">
+                <span data-feather="Battle"></span>
+                Battle report parser
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/history/">
                 <span data-feather="History"></span>
                 History of the releases

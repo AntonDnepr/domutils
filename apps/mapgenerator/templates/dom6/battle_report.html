@@ -1,0 +1,582 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="/static/vendor/cropperjs-1.6.2/cropper.min.css">
+<style>
+  #dropZone {
+    border: 2px dashed #adb5bd;
+    border-radius: .5rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .15s, border-color .15s;
+  }
+  #dropZone.dragover { background-color: #e7f1ff; border-color: #0d6efd; }
+  .shot-thumb {
+    max-height: 160px;
+    max-width: 100%;
+    object-fit: contain;
+    background: #212529;
+    border-radius: .25rem;
+  }
+  #cropImageWrap { max-height: 70vh; }
+  #cropImage { display: block; max-width: 100%; }
+  .example-img { max-width: 100%; border-radius: .25rem; border: 1px solid #dee2e6; }
+  .result-table td.num, .result-table th.num { text-align: right; width: 7rem; }
+  .result-table td.empty { color: #adb5bd; }
+</style>
+{% endblock extra_css %}
+
+{% block main_content %}
+<div class="mt-4 mb-5">
+  <h2 class="display-6 mb-3">Battle report parser</h2>
+  <p class="lead">
+    Turn screenshots of a Dominions 6 battle report into a table of units, kills and losses
+    per nation, ready to copy as JSON.
+  </p>
+
+  <!-- 1. Instructions -->
+  <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span class="fw-semibold"><i class="bi bi-lightbulb"></i> How to get the best results</span>
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse"
+        data-bs-target="#instructions" aria-expanded="true" aria-controls="instructions">
+        Show / hide
+      </button>
+    </div>
+    <div class="collapse show" id="instructions">
+      <div class="card-body">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <ol class="mb-0">
+              <li class="mb-2">
+                <strong>Use the full-size battle report</strong>, not the small "Battle Summary" window.
+                Bigger text is read more reliably.
+              </li>
+              <li class="mb-2">
+                <strong>Take a normal screenshot</strong> (e.g. <kbd>PrtSc</kbd> / <kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>
+                / <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>4</kbd>). PNG is best. Don't photograph the screen
+                with a phone and avoid heavily compressed JPEGs.
+              </li>
+              <li class="mb-2">
+                <strong>Move the mouse pointer away</strong> from the table before taking the screenshot.
+              </li>
+              <li class="mb-2">
+                <strong>Include the "Forces of …" header bar</strong> of every block. Rows above the first
+                header in a screenshot are skipped, because the nation they belong to is unknown.
+              </li>
+              <li class="mb-2">
+                <strong>Include the grey "Total" row.</strong> It is used to check that every unit was read.
+              </li>
+              <li class="mb-2">
+                <strong>Long report?</strong> Take several screenshots, each starting at a "Forces of …"
+                header, and add them all here. The results are merged.
+              </li>
+              <li class="mb-2">
+                <strong>Crop</strong> each screenshot to the table: from just left of the unit names to just
+                right of the dead column, from the header bar down to the Total row. Portraits and
+                banners on the left may stay; cut away surrounding text and window frames.
+              </li>
+            </ol>
+            <p class="text-muted small mt-3 mb-0">
+              "Province Defence" blocks are ignored. Dead counts like <code>17+9</code> are added up
+              (26). Empty cells become <code>null</code>.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <p class="small fw-semibold mb-1"><i class="bi bi-check-circle text-success"></i> A good screenshot looks like this:</p>
+            <img class="example-img" src="/static/battle_report/example_good.webp"
+              alt="Example: a cropped battle report table with the 'Forces of Nazca' header, unit rows and the Total row">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Add screenshots -->
+  <h4>1. Add screenshots</h4>
+  <div id="dropZone" class="mb-3" tabindex="0" role="button"
+    aria-label="Add screenshots: click to choose files, drop files here or paste with Ctrl+V">
+    <i class="bi bi-images fs-1 text-secondary"></i>
+    <p class="mb-1 mt-2"><strong>Drop screenshots here</strong>, click to choose files, or paste with
+      <kbd>Ctrl</kbd>+<kbd>V</kbd></p>
+    <p class="text-muted small mb-0">PNG, WebP or JPEG, up to 5MB each</p>
+    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+  </div>
+  <div id="addError" class="alert alert-danger d-none" role="alert"></div>
+
+  <!-- 3. Crop & review -->
+  <div id="shotsSection" class="d-none">
+    <h4 class="mt-4">2. Crop and check</h4>
+    <p class="text-muted">Click <strong>Crop</strong> to trim each screenshot to the table.</p>
+    <div id="shotList" class="row g-3"></div>
+
+    <div class="mt-4 d-flex gap-2 align-items-center">
+      <button id="parseBtn" class="btn btn-primary btn-lg">
+        <i class="bi bi-play-fill"></i> Parse screenshots
+      </button>
+      <button id="clearBtn" class="btn btn-outline-secondary">Clear all</button>
+      <span id="parseStatus" class="text-muted ms-2"></span>
+    </div>
+  </div>
+
+  <!-- 4. Results -->
+  <div id="resultsSection" class="d-none mt-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+      <h4 class="mb-0">3. Results</h4>
+      <div class="d-flex gap-2">
+        <button id="copyJsonBtn" class="btn btn-outline-primary"><i class="bi bi-clipboard"></i> Copy JSON</button>
+        <button id="downloadJsonBtn" class="btn btn-outline-primary"><i class="bi bi-download"></i> Download JSON</button>
+      </div>
+    </div>
+    <div id="warnings"></div>
+    <div id="results"></div>
+    <details class="mt-3">
+      <summary>Raw JSON</summary>
+      <pre id="jsonOutput" class="bg-light p-3 border rounded small mt-2"></pre>
+    </details>
+  </div>
+</div>
+
+<!-- Crop modal -->
+<div class="modal fade" id="cropModal" tabindex="-1" aria-labelledby="cropModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cropModalLabel">Crop to the table</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="small text-muted mb-2">
+          Drag the box from the <strong>"Forces of …" header</strong> down to the <strong>Total</strong> row,
+          and from just left of the unit names to past the dead column. Scroll to zoom.
+        </p>
+        <div id="cropImageWrap"><img id="cropImage" alt="Screenshot being cropped"></div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <div>
+          <button type="button" class="btn btn-outline-secondary" id="cropResetBtn">Reset</button>
+          <span id="cropSize" class="text-muted small ms-2"></span>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="cropApplyBtn">Apply crop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main_content %}
+
+{% block extra_js %}
+<script src="/static/vendor/cropperjs-1.6.2/cropper.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  const MAX_BYTES = 5 * 1024 * 1024;
+  const MIN_GOOD_WIDTH = 600;
+  const POLL_MS = 1500;
+  const STUCK_MS = 60000;
+  const PARSE_URL = "/dom6/battle-report/parse/";
+
+  const shots = [];
+  let nextId = 1;
+  let merged = null;
+
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, attrs, children) => {
+    const node = document.createElement(tag);
+    for (const [key, value] of Object.entries(attrs || {})) {
+      if (key === "class") node.className = value;
+      else if (key === "text") node.textContent = value;
+      else node.setAttribute(key, value);
+    }
+    for (const child of [].concat(children || [])) {
+      if (child) node.append(child);
+    }
+    return node;
+  };
+
+  function showAddError(message) {
+    const box = $("addError");
+    box.textContent = message;
+    box.classList.toggle("d-none", !message);
+  }
+
+  function loadDimensions(blob) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = () => resolve({ url, width: img.naturalWidth, height: img.naturalHeight });
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("not an image")); };
+      img.src = url;
+    });
+  }
+
+  async function addFiles(files) {
+    const problems = [];
+    for (const file of files) {
+      if (!file.type.startsWith("image/")) {
+        problems.push(`${file.name || "Pasted item"} is not an image.`);
+        continue;
+      }
+      if (file.size > MAX_BYTES) {
+        problems.push(`${file.name} is larger than 5MB. Crop it or save it as PNG/WebP.`);
+        continue;
+      }
+      try {
+        const dims = await loadDimensions(file);
+        shots.push({
+          id: nextId++,
+          name: file.name || `pasted-${nextId}.png`,
+          type: file.type,
+          original: { blob: file, ...dims },
+          current: { blob: file, ...dims },
+          cropped: false,
+          status: "new",
+        });
+      } catch (e) {
+        problems.push(`${file.name} could not be opened as an image.`);
+      }
+    }
+    showAddError(problems.join(" "));
+    render();
+  }
+
+  function hintsFor(shot) {
+    const hints = [];
+    if (shot.current.width < MIN_GOOD_WIDTH) {
+      hints.push("Small image: text may be too small to read. Use the full-size report if you can.");
+    }
+    if (shot.type === "image/jpeg" && !shot.cropped) {
+      hints.push("JPEG compression can blur digits; PNG is better.");
+    }
+    if (!shot.cropped) {
+      hints.push("Not cropped yet.");
+    }
+    return hints;
+  }
+
+  const STATUS_BADGES = {
+    new: ["secondary", "Ready"],
+    uploading: ["info", "Uploading…"],
+    queued: ["info", "Waiting in queue…"],
+    running: ["primary", "Reading…"],
+    done: ["success", "Done"],
+    error: ["danger", "Failed"],
+  };
+
+  function shotCard(shot) {
+    const [color, label] = STATUS_BADGES[shot.status] || STATUS_BADGES.new;
+    const busy = ["uploading", "queued", "running"].includes(shot.status);
+    const hints = hintsFor(shot);
+
+    const cropBtn = el("button", { class: "btn btn-sm btn-outline-primary", text: "Crop" });
+    cropBtn.disabled = busy;
+    cropBtn.addEventListener("click", () => openCrop(shot));
+
+    const undoBtn = el("button", { class: "btn btn-sm btn-outline-secondary", text: "Undo crop" });
+    undoBtn.disabled = busy || !shot.cropped;
+    undoBtn.addEventListener("click", () => {
+      shot.current = shot.original;
+      shot.cropped = false;
+      resetShot(shot);
+      render();
+    });
+
+    const removeBtn = el("button", { class: "btn btn-sm btn-outline-danger", text: "Remove" });
+    removeBtn.disabled = busy;
+    removeBtn.addEventListener("click", () => {
+      shots.splice(shots.indexOf(shot), 1);
+      render();
+      renderResults();
+    });
+
+    const body = el("div", { class: "card-body" }, [
+      el("div", { class: "d-flex justify-content-between align-items-start mb-2 gap-2" }, [
+        el("div", { class: "small text-truncate", title: shot.name, text: shot.name }),
+        el("span", { class: `badge bg-${color}`, text: label }),
+      ]),
+      el("div", { class: "text-center mb-2" },
+        el("img", { class: "shot-thumb", src: shot.current.url, alt: `Screenshot ${shot.name}` })),
+      el("div", {
+        class: "small text-muted mb-2",
+        text: `${shot.current.width}×${shot.current.height}px` + (shot.cropped ? " · cropped" : ""),
+      }),
+      hints.length
+        ? el("ul", { class: "small text-warning-emphasis ps-3 mb-2" }, hints.map((h) => el("li", { text: h })))
+        : null,
+      shot.error ? el("div", { class: "alert alert-danger small py-1 px-2 mb-2", text: shot.error }) : null,
+      el("div", { class: "d-flex gap-2" }, [cropBtn, undoBtn, removeBtn]),
+    ]);
+    return el("div", { class: "col-md-6 col-xl-4" }, el("div", { class: "card h-100" }, body));
+  }
+
+  function render() {
+    $("shotsSection").classList.toggle("d-none", shots.length === 0);
+    $("shotList").replaceChildren(...shots.map(shotCard));
+    const busy = shots.some((s) => ["uploading", "queued", "running"].includes(s.status));
+    $("parseBtn").disabled = busy || shots.length === 0;
+    $("clearBtn").disabled = busy;
+  }
+
+  function resetShot(shot) {
+    shot.status = "new";
+    shot.jobId = null;
+    shot.result = null;
+    shot.warnings = [];
+    shot.error = null;
+  }
+
+  // ---- Adding files: click, drag & drop, paste ----
+  const dropZone = $("dropZone");
+  dropZone.addEventListener("click", () => $("fileInput").click());
+  dropZone.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("fileInput").click(); }
+  });
+  $("fileInput").addEventListener("change", (e) => {
+    addFiles([...e.target.files]);
+    e.target.value = "";
+  });
+  ["dragenter", "dragover"].forEach((type) => dropZone.addEventListener(type, (e) => {
+    e.preventDefault();
+    dropZone.classList.add("dragover");
+  }));
+  ["dragleave", "drop"].forEach((type) => dropZone.addEventListener(type, (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("dragover");
+  }));
+  dropZone.addEventListener("drop", (e) => addFiles([...e.dataTransfer.files]));
+  document.addEventListener("paste", (e) => {
+    if (!document.body.contains(dropZone)) return; // navigated away (htmx)
+    const files = [...(e.clipboardData ? e.clipboardData.items : [])]
+      .filter((item) => item.kind === "file" && item.type.startsWith("image/"))
+      .map((item) => item.getAsFile());
+    if (files.length) {
+      e.preventDefault();
+      addFiles(files);
+    }
+  });
+
+  // ---- Crop tool ----
+  const cropModal = new bootstrap.Modal($("cropModal"));
+  let cropper = null;
+  let cropping = null;
+
+  function openCrop(shot) {
+    cropping = shot;
+    // Always crop from the original so "Crop" twice doesn't lose detail.
+    $("cropImage").src = shot.original.url;
+    cropModal.show();
+  }
+
+  function updateCropSize() {
+    if (!cropper) return;
+    const d = cropper.getData(true);
+    $("cropSize").textContent = `${d.width}×${d.height}px`;
+  }
+
+  $("cropModal").addEventListener("shown.bs.modal", () => {
+    cropper = new Cropper($("cropImage"), {
+      viewMode: 1,
+      autoCropArea: 1,
+      zoomOnWheel: true,
+      background: true,
+      movable: true,
+      rotatable: false,
+      scalable: false,
+      crop: updateCropSize,
+    });
+  });
+  $("cropModal").addEventListener("hidden.bs.modal", () => {
+    if (cropper) { cropper.destroy(); cropper = null; }
+    cropping = null;
+  });
+  $("cropResetBtn").addEventListener("click", () => cropper && cropper.reset());
+  $("cropApplyBtn").addEventListener("click", () => {
+    if (!cropper || !cropping) return;
+    const shot = cropping;
+    // Full original resolution, no smoothing: crisp pixels read best.
+    const canvas = cropper.getCroppedCanvas({ imageSmoothingEnabled: false });
+    canvas.toBlob(async (blob) => {
+      if (!blob) return;
+      if (blob.size > MAX_BYTES) {
+        showAddError(`The cropped ${shot.name} is larger than 5MB; crop it tighter.`);
+        return;
+      }
+      const dims = await loadDimensions(blob);
+      shot.current = { blob, ...dims };
+      shot.type = "image/png";
+      shot.cropped = true;
+      resetShot(shot);
+      cropModal.hide();
+      render();
+    }, "image/png");
+  });
+
+  // ---- Upload & polling ----
+  async function startJob(shot) {
+    shot.status = "uploading";
+    shot.error = null;
+    render();
+    const form = new FormData();
+    const ext = (shot.current.blob.type.split("/")[1] || "png").replace("jpeg", "jpg");
+    form.append("image", shot.current.blob, `screenshot-${shot.id}.${ext}`);
+    try {
+      const response = await fetch(PARSE_URL, { method: "POST", body: form });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || `Upload failed (${response.status})`);
+      shot.jobId = data.job_id;
+      shot.status = "queued";
+      shot.queuedAt = Date.now();
+      render();
+      pollJob(shot);
+    } catch (e) {
+      shot.status = "error";
+      shot.error = e.message;
+      render();
+      updateParseStatus();
+    }
+  }
+
+  async function pollJob(shot) {
+    const jobId = shot.jobId;
+    try {
+      const response = await fetch(`${PARSE_URL}${encodeURIComponent(jobId)}/`);
+      const data = await response.json().catch(() => ({}));
+      if (shot.jobId !== jobId) return; // the shot was reset or removed meanwhile
+      if (!response.ok) throw new Error(data.error || `Status check failed (${response.status})`);
+      shot.status = data.status;
+      if (data.status === "done") {
+        shot.result = data.result || {};
+        shot.warnings = data.warnings || [];
+      } else if (data.status === "error") {
+        shot.error = data.error || "The screenshot could not be read.";
+      } else {
+        if (data.status === "queued" && Date.now() - shot.queuedAt > STUCK_MS) {
+          shot.error = "Still waiting: the parser worker seems busy or offline. Keep this page open.";
+        }
+        setTimeout(() => pollJob(shot), POLL_MS);
+      }
+    } catch (e) {
+      shot.status = "error";
+      shot.error = e.message;
+    }
+    render();
+    updateParseStatus();
+    renderResults();
+  }
+
+  function updateParseStatus() {
+    const pending = shots.filter((s) => ["uploading", "queued", "running"].includes(s.status)).length;
+    const failed = shots.filter((s) => s.status === "error").length;
+    let text = pending ? `Reading ${pending} screenshot(s)… this takes a few seconds each.` : "";
+    if (!pending && failed) text = `${failed} screenshot(s) failed.`;
+    $("parseStatus").textContent = text;
+  }
+
+  $("parseBtn").addEventListener("click", () => {
+    const uncropped = shots.filter((s) => !s.cropped).length;
+    if (uncropped && !window.confirm(
+      `${uncropped} screenshot(s) are not cropped. Cropping to the table gives the best results. Parse anyway?`
+    )) return;
+    for (const shot of shots) {
+      if (shot.status !== "done") {
+        resetShot(shot);
+        startJob(shot);
+      }
+    }
+    updateParseStatus();
+  });
+
+  $("clearBtn").addEventListener("click", () => {
+    shots.splice(0, shots.length);
+    showAddError("");
+    render();
+    renderResults();
+  });
+
+  // ---- Results ----
+  function mergeResults() {
+    const nations = {};
+    const warnings = [];
+    for (const shot of shots) {
+      if (shot.status !== "done") continue;
+      for (const [nation, units] of Object.entries(shot.result)) {
+        nations[nation] = Object.assign(nations[nation] || {}, units);
+      }
+      for (const warning of shot.warnings) warnings.push(`${shot.name}: ${warning}`);
+    }
+    return { nations, warnings };
+  }
+
+  const cell = (value) => el("td", {
+    class: "num" + (value === null || value === undefined ? " empty" : ""),
+    text: value === null || value === undefined ? "–" : String(value),
+  });
+
+  function nationTable(nation, units) {
+    const rows = Object.entries(units).map(([unit, v]) =>
+      el("tr", {}, [el("td", { text: unit }), cell(v.quantity), cell(v.killed), cell(v.dead)]));
+    const total = Object.values(units).reduce((sum, v) => sum + (v.quantity || 0), 0);
+    return el("div", { class: "card mb-3" }, [
+      el("div", { class: "card-header fw-semibold", text: nation }),
+      el("div", { class: "table-responsive" }, el("table", { class: "table table-sm table-striped mb-0 result-table" }, [
+        el("thead", {}, el("tr", {}, [
+          el("th", { text: "Unit" }),
+          el("th", { class: "num", text: "Quantity" }),
+          el("th", { class: "num", text: "Killed" }),
+          el("th", { class: "num", text: "Dead" }),
+        ])),
+        el("tbody", {}, rows),
+        el("tfoot", {}, el("tr", {}, [
+          el("th", { text: "Total" }), el("th", { class: "num", text: String(total) }), el("th"), el("th"),
+        ])),
+      ])),
+    ]);
+  }
+
+  function renderResults() {
+    merged = mergeResults();
+    const hasAny = shots.some((s) => s.status === "done");
+    $("resultsSection").classList.toggle("d-none", !hasAny);
+    $("warnings").replaceChildren(...merged.warnings.map((w) =>
+      el("div", { class: "alert alert-warning py-2", role: "alert" }, [
+        el("i", { class: "bi bi-exclamation-triangle me-1" }), document.createTextNode(w),
+      ])));
+    const nations = Object.entries(merged.nations);
+    $("results").replaceChildren(...(nations.length
+      ? nations.map(([nation, units]) => nationTable(nation, units))
+      : [el("div", {
+          class: "alert alert-info",
+          text: "No \"Forces of …\" blocks were found. Check that the screenshot includes the header bar.",
+        })]));
+    $("jsonOutput").textContent = JSON.stringify(merged.nations, null, 2);
+  }
+
+  $("copyJsonBtn").addEventListener("click", async () => {
+    const button = $("copyJsonBtn");
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(merged.nations, null, 2));
+      button.innerHTML = '<i class="bi bi-check2"></i> Copied';
+    } catch (e) {
+      button.textContent = "Copy failed – use Raw JSON below";
+    }
+    setTimeout(() => { button.innerHTML = '<i class="bi bi-clipboard"></i> Copy JSON'; }, 2000);
+  });
+
+  $("downloadJsonBtn").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(merged.nations, null, 2)], { type: "application/json" });
+    const link = el("a", { href: URL.createObjectURL(blob), download: "battle_report.json" });
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  });
+
+  render();
+})();
+</script>
+{% endblock extra_js %}

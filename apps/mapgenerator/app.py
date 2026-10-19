@@ -347,6 +347,15 @@ async def dom6_api_unit_data(request: Request, name: str):
     return json(final_data)
 
 
+@app.get("/dom6/battle-report/")
+async def dom6_battle_report(request: Request):
+    return await render(
+        "dom6/battle_report.html",
+        status=200,
+        context={"dom6_battle_report_active": True},
+    )
+
+
 @app.post("/dom6/battle-report/parse/")
 async def dom6_battle_report_parse(request: Request):
     """Queue a battle report screenshot for parsing.
