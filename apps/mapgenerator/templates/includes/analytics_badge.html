@@ -1,0 +1,27 @@
+{# Simple Analytics free plan requires a visible badge linking back to them.
+   The badge is served by Simple Analytics for the current hostname; the
+   hostname is filled in by the script below so no per-environment config is needed. #}
+<div id="sa-badge" class="text-center text-muted small">
+  <a id="sa-badge-link" class="text-muted" href="https://www.simpleanalytics.com/?utm_content=badge" target="_blank"
+    rel="noopener" referrerpolicy="origin">
+    Privacy-friendly analytics by Simple Analytics
+  </a>
+  <a id="sa-badge-image-link" class="d-block mt-1" href="https://www.simpleanalytics.com/?utm_content=badge" target="_blank"
+    rel="noopener" referrerpolicy="origin" hidden>
+    <img id="sa-badge-image" alt="Simple Analytics badge" loading="lazy" referrerpolicy="origin">
+  </a>
+</div>
+<script>
+  (function () {
+    var host = window.location.hostname;
+    if (!host || host === "localhost" || /^[\d.]+$/.test(host)) {
+      return;
+    }
+    var query = "utm_source=" + encodeURIComponent(host) + "&utm_content=badge";
+    document.getElementById("sa-badge-link").href = "https://www.simpleanalytics.com/?" + query;
+    var imageLink = document.getElementById("sa-badge-image-link");
+    imageLink.href = "https://simpleanalytics.com/" + encodeURIComponent(host) + "?" + query;
+    document.getElementById("sa-badge-image").src = "https://simpleanalyticsbadges.com/" + encodeURIComponent(host);
+    imageLink.hidden = false;
+  })();
+</script>
